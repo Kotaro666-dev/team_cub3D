@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/08 20:12:36 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/08 20:50:22 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include "includes/utilities.h"
 #include "includes/constants.h"
 
+
+/*
+** ここの箇所は読み込んだマップを描写するテストコード
+** のちほど削除しても問題なし
+*/
 void	image_init(t_game *game)
 {
 	game->image.img = mlx_new_image(game->mlx, game->cub_data.rez.width, game->cub_data.rez.height);
@@ -69,6 +74,10 @@ int		main_loop(t_game *game)
 	return (0);
 }
 
+/*
+** ここまで
+*/
+
 int main(int argc, char **argv)
 {
 	t_game			game;
@@ -81,7 +90,6 @@ int main(int argc, char **argv)
 	{
 		return (1);
 	}
-
 	game.win = mlx_new_window(game.mlx, game.cub_data.rez.width, game.cub_data.rez.height, "cub3D");
 	image_init(&game);
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game.mlx);
