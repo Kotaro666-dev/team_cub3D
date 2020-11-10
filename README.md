@@ -16,8 +16,9 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 
 - 主たるブランチはmain
 - 開発はmainからfeatureブランチを切って開発
-- featureブランチ名は作業内容を分かりやすくしよう。（例：feature/func_to_read_texture, func_to_set_texture etc）
+- featureブランチ名は作業内容を分かりやすくしよう。（例：kkamashi/func_to_read_texture, rnakai/func_to_set_texture etc）
 - こまめにcommit、タスクが終わったらpush
+- 少なくとも１日１プッシュ
 - 新しいタスクに取り組む時には、必ず一度mainに戻ってからブランチを切り直そう（git checkout main）
 - 始める前にgit pull origin mainでアップデート。
 
