@@ -7,6 +7,9 @@ rnakai kkamashi
 # 目標
 BHの2020年12月21日（土）16:42までにこのプロジェクトを絶対にクリアさせて、次のレベルに進むこと
 
+# 第一回提出日（目標）
+12月9日（土）：BH期限より12日前（余裕を持って3回はリトライできる）
+
 # チーム開発方法
 開発の流れは、以下のサイトを参考。<br>
 https://qiita.com/siida36/items/880d92559af9bd245c34
@@ -39,6 +42,6 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 5. normチェック
 6. 最終的なエラーチェック
 
-# rnakaiのパート
+## rnakaiのパート
 
-# kkamashiのパート
+## kkamashiのパート
