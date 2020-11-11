@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:01:04 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:15:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int		read_cub_map(char **line, t_game *game)
 	int			index;
 	int			is_map_data_valid;
 
-	index = game->cub_data.map_data.arr_len;
+	index = game->cub_data.map_data.max_y;
 	is_map_data_valid = TRUE;
 	if (is_size_of_line_too_big(line))
 	{
@@ -67,7 +67,6 @@ static int		read_cub_map(char **line, t_game *game)
 		ft_strlcpy(game->cub_data.map_data.map[index], *line, ARR_SIZE);
 		game->cub_data.map_data.has_started_reading_map = TRUE;
 		game->cub_data.map_data.max_y++;
-		game->cub_data.map_data.arr_len++;
 	}
 	else
 	{
@@ -122,7 +121,7 @@ int				read_cub_file(char *map_path, t_game *game)
 		{
 			if (did_collect_all_must_data(&game->cub_data))
 			{
-				index = game->cub_data.map_data.arr_len;
+				index = game->cub_data.map_data.max_y;
 				game->cub_data.map_data.map[index][0] = '\0';
 				break ;
 			}
@@ -134,7 +133,7 @@ int				read_cub_file(char *map_path, t_game *game)
 	}
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
-	show_cub_data_for_debug(&game->cub_data);
+	// show_cub_data_for_debug(&game->cub_data);
 	if (is_map_data_valid != TRUE)
 	{
 		return (print_error_msg(&game->err_msg));

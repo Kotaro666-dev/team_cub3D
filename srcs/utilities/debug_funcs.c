@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:00:54 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:16:01 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	show_cub_data_for_debug(t_cub_data *cub_data)
 	printf("B: %d\n", cub_data->clr_ceiling.blue);
 	printf("--------------map-------------------\n");
 	int i = 0;
-	int upto = cub_data->map_data.arr_len;
+	int upto = cub_data->map_data.max_y;
 	while (i < upto)
 	{
 		printf("%s\n", cub_data->map_data.map[i]);
