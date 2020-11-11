@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 11:50:54 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/11 15:19:34 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@
 
 # define FOV_ANGLE (60 * (PI / 180))
 # define NUM_RAYS WIDTH
+
+# define SPACE 0
+# define WALL 1
+# define SPRITE 2
+
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define RED 0xff0000
+# define BLUE 0x0000ff 
+# define GREEN 0x00ff00
+# define YELLOW 0xffff00
 
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;

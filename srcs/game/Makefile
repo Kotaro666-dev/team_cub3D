@@ -4,7 +4,7 @@ SRCS += ${shell find ./render/ -type f -name "*.c"}
 SRCS += ${shell find ./hook/ -type f -name "*.c"}
 SRCS += testmain.c
 
-
+INCLUDE = definition.h
 OBJS = ${SRCS:%.c=%.o}
 LIBMLX = ./libmlx.a
 CC = gcc
@@ -14,7 +14,7 @@ NAME = cub3D
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBMLX)
-	${CC} -o ${NAME} ${OBJS} ${LIBMLX} ${CFLAGS}
+	${CC} -o ${NAME} -I ${INCLUDE} ${OBJS} ${LIBMLX} ${CFLAGS}
 
 run:
 	./${NAME}
