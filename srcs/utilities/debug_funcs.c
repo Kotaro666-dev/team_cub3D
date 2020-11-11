@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:30:50 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:00:54 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	show_cub_data_for_debug(t_cub_data *cub_data)
 	printf("player_orient: %c\n", cub_data->map_data.player_orient);
 	printf("poz_x: %d\n", cub_data->map_data.player_pos_x);
 	printf("poz_y: %d\n", cub_data->map_data.player_pos_y);
-
+	printf("---------------------------------------\n");
+	printf("--------------map_size------------------\n");
+	printf("max_x: %d\n", cub_data->map_data.max_x);
+	printf("max_y: %d\n", cub_data->map_data.max_y);
 	printf("---------------------------------------\n");
 }
 

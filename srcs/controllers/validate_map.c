@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/29 20:15:53 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:00:03 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ static void	store_player_data(t_cub_data *cub_data, int pos_x, char orient)
 	cub_data->map_data.player_pos_x = pos_x;
 	cub_data->map_data.player_pos_y = cub_data->map_data.p_pos_y_tracker;
 	cub_data->map_data.player_orient = orient;
+}
+
+static void	update_max_x_on_map(t_cub_data *cub_data, int x)
+{
+	if (x > cub_data->map_data.max_x)
+	{
+		cub_data->map_data.max_x = x;
+	}
 }
 
 int			check_contents_in_line(char *line, t_cub_data *cub_data)
@@ -49,6 +57,7 @@ int			check_contents_in_line(char *line, t_cub_data *cub_data)
 			return (FALSE);
 		x++;
 	}
+	update_max_x_on_map(cub_data, x);
 	cub_data->map_data.p_pos_y_tracker++;
 	return (TRUE);
 }
@@ -72,6 +81,6 @@ int			is_player_surrounded_by_walls(t_cub_data *cub_data)
 	create_box_for_flood_map(cub_data);
 	// debug_flood_fill_before(cub_data);
 	flood_fill(cub_data, pos_y, pos_x, &is_safe);
-	debug_flood_fill_after(cub_data);
+	// debug_flood_fill_after(cub_data);
 	return (is_safe);
 }
