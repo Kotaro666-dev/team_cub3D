@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/10 23:03:26 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 11:17:06 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "includes/structs/struct_game.h"
 #include "includes/utilities.h"
 #include "includes/constants.h"
+
 
 int main(int argc, char **argv)
 {
@@ -29,6 +30,10 @@ int main(int argc, char **argv)
 	{
 		return (1);
 	}
+	// TRANSFORM MAP INTO RECTANGLE
+	create_rectanglar_map(&game);
+	debug_rectanglar_map(&game);
+	// AND THEN GAME START
 	game.win = mlx_new_window(game.mlx, game.cub_data.rez.width, game.cub_data.rez.height, "cub3D");
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game.mlx);
 	mlx_hook(game.win, 17, 1L<<17, close_window, &game);

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/29 20:14:49 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:09:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	copy_map_to_flood_map(t_cub_data *cub_data)
 
 	map_y = 0;
 	fill_y = DIFF_Y;
-	while (map_y < cub_data->map_data.arr_len)
+	while (map_y < cub_data->map_data.max_y)
 	{
 		map_x = 0;
 		fill_x = DIFF_X;
