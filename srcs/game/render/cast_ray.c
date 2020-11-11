@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 16:30:18 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/11 18:21:34 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
+#include <float.h>
 
 float	normalize_angle(float ray_angle)
 {
@@ -29,19 +30,15 @@ float	distance_between_points(float x1, float y1, float x2, float y2)
 
 void	cast_ray(t_game *game, float ray_angle, int strip_id)
 {
-	t_cast_ray_var	hrz;
-	t_cast_ray_var	vrt;
+	t_cast_ray_var			hrz;
+	t_cast_ray_var			vrt;
+	t_cast_ray_var_common	cmn;
 
 	ray_angle = normalize_angle(ray_angle);
-	hrz.is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
-	hrz.is_ray_facing_up = !hrz.is_ray_facing_down;
-	hrz.is_ray_facing_right = ray_angle < 0.5 * PI && ray_angle > 1.5 * PI;
-	hrz.is_ray_facing_left = !hrz.is_ray_facing_right;
-
-	vrt.is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
-	vrt.is_ray_facing_up = !vrt.is_ray_facing_down;
-	vrt.is_ray_facing_right = ray_angle < 0.5 * PI && ray_angle > 1.5 * PI;
-	vrt.is_ray_facing_left = !vrt.is_ray_facing_right;
+	cmn.is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
+	cmn.is_ray_facing_up = !cmn.is_ray_facing_down;
+	cmn.is_ray_facing_right = ray_angle < 0.5 * PI && ray_angle > 1.5 * PI;
+	cmn.is_ray_facing_left = !cmn.is_ray_facing_right;
 
 	///////////////////////////////////////////
 	// HORIZONTAL RAY-GRID INTERSECTION CODE
@@ -50,7 +47,7 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 
 	// Find the y-coordinate of the closest horizontal grid intersection
 	hrz.yintercept = floor(g_player.y / TILE_SIZE) * TILE_SIZE;
-	hrz.yintercept += hrz.is_ray_facing_down ? TILE_SIZE : 0;
+	hrz.yintercept += cmn.is_ray_facing_down ? TILE_SIZE : 0;
 
 	// Find the x-coordinate of the closest horizontal grid intersection
 	hrz.xintercept =
@@ -58,11 +55,11 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 
 	// Calculate the increment xstep and ystep
 	hrz.ystep = TILE_SIZE;
-	hrz.ystep *= hrz.is_ray_facing_up ? -1 : 1;
+	hrz.ystep *= cmn.is_ray_facing_up ? -1 : 1;
 
 	hrz.xstep = TILE_SIZE / tan(ray_angle);
-	hrz.xstep *= (hrz.is_ray_facing_left && hrz.xstep > 0) ? -1 : 1;
-	hrz.xstep *= (hrz.is_ray_facing_right && hrz.xstep < 0) ? -1 : 1;
+	hrz.xstep *= (cmn.is_ray_facing_left && hrz.xstep > 0) ? -1 : 1;
+	hrz.xstep *= (cmn.is_ray_facing_right && hrz.xstep < 0) ? -1 : 1;
 
 	hrz.next_touch_x = hrz.xintercept;
 	hrz.next_touch_y = hrz.yintercept;
@@ -72,7 +69,7 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 		&& hrz.next_touch_y >= 0 && hrz.next_touch_y <= HEIGHT)
 	{
 		hrz.x_to_check = hrz.next_touch_x;
-		hrz.y_to_check = hrz.next_touch_y + (hrz.is_ray_facing_up ? -1 : 0);
+		hrz.y_to_check = hrz.next_touch_y + (cmn.is_ray_facing_up ? -1 : 0);
 
 		if (has_wall_at(hrz.x_to_check, hrz.y_to_check))
 		{
@@ -99,7 +96,7 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 
 	// Find the y-coordinate of the closest horizontal grid intersection
 	vrt.xintercept = floor(g_player.x / TILE_SIZE) * TILE_SIZE;
-	vrt.xintercept += vrt.is_ray_facing_right ? TILE_SIZE : 0;
+	vrt.xintercept += cmn.is_ray_facing_right ? TILE_SIZE : 0;
 
 	// Find the x-coordinate of the closest horizontal grid intersection
 	vrt.yintercept =
@@ -107,11 +104,11 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 
 	// Calculate the increment xstep and ystep
 	vrt.xstep = TILE_SIZE;
-	vrt.xstep *= vrt.is_ray_facing_left ? -1 : 1;
+	vrt.xstep *= cmn.is_ray_facing_left ? -1 : 1;
 
 	vrt.ystep = TILE_SIZE * tan(ray_angle);
-	vrt.ystep *= (vrt.is_ray_facing_up && vrt.ystep > 0) ? -1 : 1;
-	vrt.ystep *= (vrt.is_ray_facing_down && vrt.ystep < 0) ? -1 : 1;
+	vrt.ystep *= (cmn.is_ray_facing_up && vrt.ystep > 0) ? -1 : 1;
+	vrt.ystep *= (cmn.is_ray_facing_down && vrt.ystep < 0) ? -1 : 1;
 
 	vrt.next_touch_x = vrt.xintercept;
 	vrt.next_touch_y = vrt.yintercept;
@@ -120,7 +117,7 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 	while (vrt.next_touch_x >= 0 && vrt.next_touch_x <= WIDTH
 		&& vrt.next_touch_y >= 0 && vrt.next_touch_y <= HEIGHT)
 	{
-		vrt.x_to_check = vrt.next_touch_x + (vrt.is_ray_facing_left ? -1 : 0);
+		vrt.x_to_check = vrt.next_touch_x + (cmn.is_ray_facing_left ? -1 : 0);
 		vrt.y_to_check = vrt.next_touch_y;
 
 		if (has_wall_at(vrt.x_to_check, vrt.y_to_check))
@@ -140,4 +137,31 @@ void	cast_ray(t_game *game, float ray_angle, int strip_id)
 			vrt.next_touch_y += vrt.ystep;
 		}
 	}
+
+	hrz.hit_distance = (hrz.found_wall_hit)
+		? distance_between_points(
+			g_player.x, g_player.y, hrz.wall_hit_x, hrz.wall_hit_y)
+		: FLT_MAX;
+	vrt.hit_distance = (vrt.found_wall_hit)
+		? distance_between_points(
+			g_player.x, g_player.y, vrt.wall_hit_x, vrt.wall_hit_y)
+		: FLT_MAX;
+	if (vrt.hit_distance < hrz.hit_distance) {
+		g_rays[strip_id].distance = vrt.hit_distance;
+		g_rays[strip_id].wall_hit_x = vrt.wall_hit_x;
+		g_rays[strip_id].wall_hit_y = vrt.wall_hit_y;
+		g_rays[strip_id].wall_hit_content = vrt.wall_content;
+		g_rays[strip_id].was_hit_vertical = TRUE;
+	} else {
+		g_rays[strip_id].distance = hrz.hit_distance;
+		g_rays[strip_id].wall_hit_x = hrz.wall_hit_x;
+		g_rays[strip_id].wall_hit_y = hrz.wall_hit_y;
+		g_rays[strip_id].wall_hit_content = hrz.wall_content;
+		g_rays[strip_id].was_hit_vertical = FALSE;
+	}
+	g_rays[strip_id].ray_angle = ray_angle;
+	g_rays[strip_id].is_ray_facing_down = cmn.is_ray_facing_down;
+	g_rays[strip_id].is_ray_facing_up = cmn.is_ray_facing_up;
+	g_rays[strip_id].is_ray_facing_left = cmn.is_ray_facing_left;
+	g_rays[strip_id].is_ray_facing_right = cmn.is_ray_facing_right;
 }
