@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:16:01 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 11:36:24 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,48 @@ void			debug_flood_fill_after(t_cub_data *cub_data)
 		}
 		printf("\n");
 		fill_y++;
+	}
+	printf("-----------------------------------------\n");
+}
+
+void		debug_rectanglar_map(t_game *game)
+{
+	printf("\n------------ RECTANGLAR MAP -------------\n");
+	int x;
+	int y;
+	int p_pox_x;
+	int p_pox_y;
+	int upto_y;
+
+	y = 0;
+	p_pox_x = game->cub_data.map_data.player_pos_x;
+	p_pox_y = game->cub_data.map_data.player_pos_y;
+	upto_y = game->cub_data.map_data.max_y;
+	while (y < upto_y)
+	{
+		x = 0;
+		while (game->rect_map.map[y][x])
+		{
+			if (x == p_pox_x && y == p_pox_y)
+			{
+				printf("\033[1;34m");
+				printf("P");
+				printf("\033[0m");
+			}
+			else if (game->rect_map.map[y][x] == ' ')
+			{
+				printf("\033[1;31m");
+				printf("S");
+				printf("\033[0m");
+			}
+			else
+			{
+				printf("%c", game->rect_map.map[y][x]);
+			}
+			x++;
+		}
+		printf("\n");
+		y++;
 	}
 	printf("-----------------------------------------\n");
 }

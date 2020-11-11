@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/10/29 19:49:33 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/11 10:46:45 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = main.c \
 	$(UTILITIES_DIR)/debug_funcs.c \
 	$(UTILITIES_DIR)/validate_map_utils.c \
 	$(UTILITIES_DIR)/useful_render_funcs.c \
+	$(UTILITIES_DIR)/create_rectanglar_map.c \
 	$(PARSING_DIR)/parse_cub_elems.c \
 	$(PARSING_DIR)/parse_color_data.c \
 	$(PARSING_DIR)/parse_resolution_data.c \

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/29 20:13:31 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:48:43 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,19 @@
 # include "./structs/struct_error_msg.h"
 
 /*
+** CREATE_RECTANGLAR_MAP.C
+*/
+
+void	create_rectanglar_map(t_game *game);
+
+/*
 ** DEBUG_FUNCS.C
 */
 
 void	show_cub_data_for_debug(t_cub_data *cub_data);
 void	debug_flood_fill_before(t_cub_data *cub_data);
 void	debug_flood_fill_after(t_cub_data *cub_data);
+void	debug_rectanglar_map(t_game *game);
 
 /*
 ** INIT_STRUCTS.C
