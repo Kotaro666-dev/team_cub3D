@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/11 16:05:05 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/11 16:55:10 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ LLDB = -g
 
 # MINILIBX-LINUX
 MLX = minilibx-linux
-LIBMLX = libmlx_Linux.a
+LIBMLX = libmlx.a
+LIBMLX_PATH = $(MLX)/$(LIBMLX)
 OPTIONS = -lXext -lX11
 
 # DYNAMIC MINILIBX
@@ -73,7 +74,7 @@ OPTIONS = -lXext -lX11
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
-	cp ./$(MLX)/$(LIBMLX) ./
+	cp $(LIBMLX_PATH) ./
 	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)
