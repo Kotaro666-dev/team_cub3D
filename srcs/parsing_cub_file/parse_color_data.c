@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:28:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 15:37:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		is_clr_int_valid(char **color_data)
 	}
 }
 
-static int		is_color_in_range(unsigned int color)
+static int		is_color_in_range(int color)
 {
 	if (0 <= color && color <= 255)
 	{
