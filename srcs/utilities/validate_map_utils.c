@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:09:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 17:08:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void			flood_fill(t_cub_data *cub_data, int y, int x, int *is_safe)
 {
 	char player;
 
+	// debug_flood_fill_after(cub_data);
 	player = cub_data->map_data.player_orient;
 	if (!is_this_coord_safe(cub_data, y, x, is_safe))
 	{
@@ -43,11 +44,11 @@ void			flood_fill(t_cub_data *cub_data, int y, int x, int *is_safe)
 	}
 	if (ft_strchr(TARGET, cub_data->map_data.fill[y - 1][x]) != NULL)
 		flood_fill(cub_data, y - 1, x, is_safe);
-	else if (ft_strchr(TARGET, cub_data->map_data.fill[y][x + 1]) != NULL)
+	if (ft_strchr(TARGET, cub_data->map_data.fill[y][x + 1]) != NULL)
 		flood_fill(cub_data, y, x + 1, is_safe);
-	else if (ft_strchr(TARGET, cub_data->map_data.fill[y + 1][x]) != NULL)
+	if (ft_strchr(TARGET, cub_data->map_data.fill[y + 1][x]) != NULL)
 		flood_fill(cub_data, y + 1, x, is_safe);
-	else if (ft_strchr(TARGET, cub_data->map_data.fill[y][x - 1]) != NULL)
+	if (ft_strchr(TARGET, cub_data->map_data.fill[y][x - 1]) != NULL)
 		flood_fill(cub_data, y, x - 1, is_safe);
 	return ;
 }
