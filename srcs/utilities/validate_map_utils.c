@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 17:08:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 17:48:21 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 
 static int	is_this_coord_safe(t_cub_data *cub_data, int y, int x, int *is_safe)
 {
-	if (cub_data->map_data.fill[y][x] == OUTER_WALL)
+	if (cub_data->map_data.fill[y - 1][x] == OUTER_WALL ||
+		cub_data->map_data.fill[y + 1][x] == OUTER_WALL ||
+		cub_data->map_data.fill[y][x - 1] == OUTER_WALL ||
+		cub_data->map_data.fill[y][x + 1] == OUTER_WALL)
 	{
 		*is_safe = FALSE;
 		return (FALSE);
@@ -32,15 +35,14 @@ void			flood_fill(t_cub_data *cub_data, int y, int x, int *is_safe)
 {
 	char player;
 
-	// debug_flood_fill_after(cub_data);
 	player = cub_data->map_data.player_orient;
-	if (!is_this_coord_safe(cub_data, y, x, is_safe))
-	{
-		return ;
-	}
 	if (cub_data->map_data.fill[y][x] != player)
 	{
 		cub_data->map_data.fill[y][x] = PAINT;
+	}
+	if (!is_this_coord_safe(cub_data, y, x, is_safe))
+	{
+		return ;
 	}
 	if (ft_strchr(TARGET, cub_data->map_data.fill[y - 1][x]) != NULL)
 		flood_fill(cub_data, y - 1, x, is_safe);

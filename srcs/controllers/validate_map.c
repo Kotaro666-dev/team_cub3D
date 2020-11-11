@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:00:03 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 17:26:35 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int			is_player_surrounded_by_walls(t_cub_data *cub_data)
 	create_box_for_flood_map(cub_data);
 	// debug_flood_fill_before(cub_data);
 	flood_fill(cub_data, pos_y, pos_x, &is_safe);
-	// debug_flood_fill_after(cub_data);
+	debug_flood_fill_after(cub_data);
 	return (is_safe);
 }
