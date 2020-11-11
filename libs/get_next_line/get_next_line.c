@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:56 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 13:04:42 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 14:50:07 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	return_value(ssize_t bytes, char **memory, int fd, char **line)
 	if (bytes == -1)
 	{
 		i = 0;
-		while (i < OPEN_MAX)
+		while (i < 2560)
 		{
 			if (memory[i] != NULL)
 			{
@@ -89,12 +89,12 @@ static int	return_value(ssize_t bytes, char **memory, int fd, char **line)
 
 int			get_next_line(int fd, char **line)
 {
-	static char		*memory[OPEN_MAX];
+	static char		*memory[2560];
 	char			*buffer;
 	char			*temp;
 	ssize_t			bytes;
 
-	if (fd < 0 || OPEN_MAX <= fd || BUFFER_SIZE <= 0 || line == NULL)
+	if (fd < 0 || 2560 <= fd || BUFFER_SIZE <= 0 || line == NULL)
 		return (GNL_ERROR);
 	if ((buffer = get_ready_for_buffer()) == NULL)
 		return (free_memory_and_output_error(memory, fd));

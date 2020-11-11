@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/11 10:46:45 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/11 16:55:10 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,19 +50,32 @@ SRCS = main.c \
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libs/libft/libft.a
-MLX = dynamic_mlx
-DYLIB = libmlx.dylib
 SANITIZE = -fsanitize=address -g
 LLDB = -g
-# MLX = mlx
 
+# DYNAMIC MINILIBX
+# MLX = dynamic_mlx
+# LIBMLX = libmlx.dylib
+
+# MINILIBX-LINUX
+MLX = minilibx-linux
+LIBMLX = libmlx.a
+LIBMLX_PATH = $(MLX)/$(LIBMLX)
+OPTIONS = -lXext -lX11
+
+# DYNAMIC MINILIBX
+# $(NAME): $(OBJS)
+# 	$(MAKE) bonus -C ./libs/libft
+# 	$(MAKE) -C ./$(MLX)
+# 	cp ./$(MLX)/$(LIBMLX) ./
+# 	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
+
+# MINILIBX-LINUX
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
-	cp ./$(MLX)/$(DYLIB) ./
-	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(DYLIB) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
-	# using mlx
-	# $(CC) $(CFLAGS) $(DEBUG) -o $(NAME) -L$(MLX) -lmlx -framework OpenGL -framework AppKit $(LIBFT) $(SRCS)
+	cp $(LIBMLX_PATH) ./
+	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)
 
@@ -74,7 +87,7 @@ clean:
 fclean: clean
 	$(MAKE) fclean -C ./libs/libft
 	$(MAKE) clean -C ./$(MLX)
-	$(RM) $(NAME) $(DYLIB)
+	$(RM) $(NAME) $(LIBMLX)
 
 re: fclean all
 
