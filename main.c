@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 11:17:06 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/11 16:15:14 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,14 @@ int main(int argc, char **argv)
 	create_rectanglar_map(&game);
 	debug_rectanglar_map(&game);
 	// AND THEN GAME START
-	game.win = mlx_new_window(game.mlx, game.cub_data.rez.width, game.cub_data.rez.height, "cub3D");
-	mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game.mlx);
-	mlx_hook(game.win, 17, 1L<<17, close_window, &game);
-	mlx_loop(game.mlx);
+
+
+	/*
+	** 以下は、Minilibx-linuxを使用する際に、引数やイベントキーが異なるかもしれないので、こちらはコメントアウトしています。
+	*/
+	// game.win = mlx_new_window(game.mlx, game.cub_data.rez.width, game.cub_data.rez.height, "cub3D");
+	// mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game.mlx);
+	// mlx_hook(game.win, 17, 1L<<17, close_window, &game);
+	// mlx_loop(game.mlx);
 	return (0);
 }
