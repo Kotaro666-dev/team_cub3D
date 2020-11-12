@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 17:48:21 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/12 14:01:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../../includes/utilities.h"
 #include "../../includes/constants.h"
 
-static int	is_this_coord_safe(t_cub_data *cub_data, int y, int x, int *is_safe)
+static void	is_this_coord_safe(t_cub_data *cub_data, int y, int x, int *is_safe)
 {
 	if (cub_data->map_data.fill[y - 1][x] == OUTER_WALL ||
 		cub_data->map_data.fill[y + 1][x] == OUTER_WALL ||
@@ -23,11 +23,6 @@ static int	is_this_coord_safe(t_cub_data *cub_data, int y, int x, int *is_safe)
 		cub_data->map_data.fill[y][x + 1] == OUTER_WALL)
 	{
 		*is_safe = FALSE;
-		return (FALSE);
-	}
-	else
-	{
-		return (TRUE);
 	}
 }
 
@@ -40,10 +35,11 @@ void			flood_fill(t_cub_data *cub_data, int y, int x, int *is_safe)
 	{
 		cub_data->map_data.fill[y][x] = PAINT;
 	}
-	if (!is_this_coord_safe(cub_data, y, x, is_safe))
-	{
-		return ;
-	}
+  is_this_coord_safe(cub_data, y, x, is_safe);
+  if (*is_safe == FALSE)
+  {
+    return ;
+  }
 	if (ft_strchr(TARGET, cub_data->map_data.fill[y - 1][x]) != NULL)
 		flood_fill(cub_data, y - 1, x, is_safe);
 	if (ft_strchr(TARGET, cub_data->map_data.fill[y][x + 1]) != NULL)
