@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 22:26:59 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 22:39:02 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ void		cast_ray(float ray_angle, int strip_id)
 void		set_where_ray_is_facing(t_cast_ray_var_common *cmn)
 {
 	cmn->is_ray_facing_down =
-	(cmn->ray_angle > 0 && cmn->ray_angle < PI);
+		(cmn->ray_angle > 0 && cmn->ray_angle < PI);
 	cmn->is_ray_facing_up = (!cmn->is_ray_facing_down);
 	cmn->is_ray_facing_right =
-	(cmn->ray_angle < 0.5 * PI || cmn->ray_angle > 1.5 * PI);
+		(cmn->ray_angle < 0.5 * PI || cmn->ray_angle > 1.5 * PI);
 	cmn->is_ray_facing_left = (!cmn->is_ray_facing_right);
 }
 
-void		set_ray_distances
-			(t_cast_ray_var *hrz, t_cast_ray_var *vrt)
+void		set_ray_distances(t_cast_ray_var *hrz,
+				t_cast_ray_var *vrt)
 {
 	hrz->hit_distance = (hrz->found_wall_hit)
 		? distance_between_points(
@@ -73,12 +73,15 @@ void		set_ray_distances
 		: FLT_MAX;
 }
 
-void		hrz_set_first_intercept
-			(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn)
+/*
+** ///////////////////////////////////////////
+** // HORIZONTAL RAY-GRID INTERSECTION CODE
+** ///////////////////////////////////////////
+*/
+
+void		hrz_set_first_intercept(t_cast_ray_var *hrz,
+				t_cast_ray_var_common *cmn)
 {
-	///////////////////////////////////////////
-	// HORIZONTAL RAY-GRID INTERSECTION CODE
-	///////////////////////////////////////////
 	hrz->found_wall_hit = FALSE;
 	//
 	// Find the y-coordinate of the closest horizontal grid intersection
@@ -102,10 +105,13 @@ void		hrz_set_first_intercept
 	//
 }
 
-void		hrz_cast_ray_until_wall
-			(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn)
+/*
+** 	// Increment xstep and ystep until we find a wall
+*/
+
+void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
+				t_cast_ray_var_common *cmn)
 {
-	// Increment xstep and ystep until we find a wall
 	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= WIDTH
 		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= HEIGHT)
 	{
@@ -130,12 +136,15 @@ void		hrz_cast_ray_until_wall
 	}
 }
 
-void		vrt_set_first_intercept
-			(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn)
+/*
+** ///////////////////////////////////////////
+** // VERTICAL RAY_GRID INTERSECTION CODE
+** ///////////////////////////////////////////
+*/
+
+void		vrt_set_first_intercept(t_cast_ray_var *vrt,
+				t_cast_ray_var_common *cmn)
 {
-	///////////////////////////////////////////
-	// VERTICAL RAY_GRID INTERSECTION CODE
-	///////////////////////////////////////////
 	vrt->found_wall_hit = FALSE;
 	//
 	// Find the y-coordinate of the closest horizontal grid intersection
@@ -158,10 +167,13 @@ void		vrt_set_first_intercept
 	vrt->next_touch_y = vrt->yintercept;
 }
 
-void		vrt_cast_ray_until_wall
-			(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn)
+/*
+** // Increment xstep and ystep until we find a wall
+*/
+
+void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
+				t_cast_ray_var_common *cmn)
 {
-	// Increment xstep and ystep until we find a wall
 	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= WIDTH
 		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= HEIGHT)
 	{
@@ -188,7 +200,7 @@ void		vrt_cast_ray_until_wall
 }
 
 void		set_g_rays_each_element(t_cast_ray_var *hrz,
-			t_cast_ray_var *vrt, t_cast_ray_var_common *cmn)
+				t_cast_ray_var *vrt, t_cast_ray_var_common *cmn)
 {
 	if (vrt->hit_distance < hrz->hit_distance)
 	{
