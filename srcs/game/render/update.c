@@ -6,13 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:45:33 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:46:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
 
-void	update()
+void	update(void)
 {
 	move_player();
 	cast_rays();
