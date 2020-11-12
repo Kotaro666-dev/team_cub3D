@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 11:53:11 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/11 15:16:25 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,14 @@ void	draw_rectangles(t_game *game)
 		j = 0;
 		while (j < COLS)
 		{
-			if (g_map[i][j] == 1)
-				draw_rectangle(game, j, i, 0xffffff);
+			if (g_map[i][j] == WALL)
+				draw_rectangle(game, j, i, WHITE);
+			else if (g_map[i][j] == SPACE)
+				draw_rectangle(game, j, i, BLACK);
+			else if (g_map[i][j] == SPRITE)
+				draw_rectangle(game, j, i, BLUE);
 			else
-				draw_rectangle(game, j, i, 0x000000);
+				draw_rectangle(game, j, i, RED);
 			j++;
 		}
 		i++;
