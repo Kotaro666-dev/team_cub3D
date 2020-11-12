@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:33 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 15:13:55 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 13:00:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,23 +54,6 @@ void	setup(void)
 	g_player.turn_speed = 10 * (PI / 180);
 	// g_map = ...
 	// g_key_flag = FALSE
-}
-
-void	update(void)
-{
-	float		move_step;
-	float		new_player_x;
-	float		new_player_y;
-
-	g_player.rotation_angle += g_player.turn_direction * g_player.turn_speed;
-	move_step = g_player.walk_direction * g_player.walk_speed;
-	new_player_x = g_player.x + move_step * cos(g_player.rotation_angle + g_player.side_angle);
-	new_player_y = g_player.y + move_step * sin(g_player.rotation_angle + g_player.side_angle);
-	if (!has_wall_at(new_player_x, new_player_y))
-	{
-		g_player.x = new_player_x;
-		g_player.y = new_player_y;
-	}
 }
 
 int		main_loop(t_game *game)
