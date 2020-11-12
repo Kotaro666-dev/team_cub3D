@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 15:25:58 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 12:53:03 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,21 @@ void	render_map(t_game *game)
 
 void	render_rays(t_game *game)
 {
-	int		strip_id;
-	float	ray_angle;
-
-	strip_id = 0;
-	ray_angle = g_player.rotation_angle - (FOV_ANGLE / 2);
-	while (strip_id < NUM_RAYS)
+	int	i;
+	i = 0;
+	while (i < 1)
 	{
-		cast_ray(game, ray_angle, strip_id);
-		ray_angle += FOV_ANGLE / NUM_RAYS;
-		strip_id++;
+		draw_line(
+			game,
+			init_line_info(
+				g_player.x,
+				g_player.y,
+				g_rays[i].wall_hit_x,
+				g_rays[i].wall_hit_y
+				),
+			YELLOW
+			);
+		i++;
 	}
 }
 
