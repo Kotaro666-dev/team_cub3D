@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:29:21 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:46:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,10 +178,10 @@ int				close(t_game *game);
 int				has_wall_at(float x, float y);
 int				main_loop(t_game *game);
 
-void			cast_ray(float ray_angle, int strip_id, t_game *game);
+void			cast_ray(float ray_angle, int strip_id);
 
-void			update(t_game *game);
-void			cast_rays(t_game *game);
+void			update(void);
+void			cast_rays(void);
 void			move_player(void);
 
 #endif

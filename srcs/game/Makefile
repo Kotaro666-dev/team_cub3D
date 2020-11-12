@@ -9,7 +9,7 @@ OBJS = ${SRCS:%.c=%.o}
 LIBMLX = ./../../libmlx.a
 CC = gcc
 CFLAGS = -lm -lXext -lX11
-# CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror
 SANITIZE = -g -fsanitize=address,undefined
 NAME = cub3D
 

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:37:41 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:44:54 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ float	distance_between_points(float x1, float y1, float x2, float y2)
 	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
-void	cast_ray(float ray_angle, int strip_id, t_game *game)
+void	cast_ray(float ray_angle, int strip_id)
 {
 	t_cast_ray_var			hrz;
 	t_cast_ray_var			vrt;
