@@ -8,7 +8,8 @@ INCLUDE = definition.h
 OBJS = ${SRCS:%.c=%.o}
 LIBMLX = ./../../libmlx.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -lm -lXext -lX11
+CFLAGS = -lm -lXext -lX11
+# CFLAGS += -Wall -Wextra -Werror
 SANITIZE = -g -fsanitize=address,undefined
 NAME = cub3D
 
