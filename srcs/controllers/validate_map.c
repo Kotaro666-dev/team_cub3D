@@ -71,12 +71,10 @@ int			is_player_surrounded_by_walls(t_cub_data *cub_data)
 {
 	int		pos_x;
 	int		pos_y;
-	char	player;
 	int		is_safe;
 
 	pos_x = cub_data->map_data.player_pos_x + DIFF_X;
 	pos_y = cub_data->map_data.player_pos_y + DIFF_Y;
-	player = cub_data->map_data.player_orient;
 	is_safe = TRUE;
 	create_box_for_flood_map(cub_data);
 	// debug_flood_fill_before(cub_data);

@@ -4,20 +4,18 @@ SRCS += ${shell find ./render/ -type f -name "*.c"}
 SRCS += ${shell find ./hook/ -type f -name "*.c"}
 SRCS += testmain.c
 
-
+INCLUDE = definition.h
 OBJS = ${SRCS:%.c=%.o}
-LIBMLX = ./libmlx.a
+LIBMLX = ./../../libmlx.a
 CC = gcc
-CFLAGS = -g -fsanitize=address,undefined -lm -lXext -lX11
+CFLAGS = -lm -lXext -lX11
+SANITIZE = -g -fsanitize=address,undefined
 NAME = cub3D
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBMLX)
-	${CC} -o ${NAME} ${OBJS} ${LIBMLX} ${CFLAGS}
-
-run:
-	./${NAME}
+	${CC} -o ${NAME} -I ${INCLUDE} ${OBJS} ${LIBMLX} ${CFLAGS} ${SANITIZE}
 
 clean:
 	rm -f ${OBJS}
@@ -25,5 +23,7 @@ clean:
 fclean: clean
 	rm -f ./cub3D
 
+run:
+	./${NAME}
 
-.PHONY: all clean run
+.PHONY: all clean fclean run

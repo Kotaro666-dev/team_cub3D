@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 11:50:54 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/11 18:22:50 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,17 @@
 # define FOV_ANGLE (60 * (PI / 180))
 # define NUM_RAYS WIDTH
 
+# define SPACE 0
+# define WALL 1
+# define SPRITE 2
+
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define RED 0xff0000
+# define BLUE 0x0000ff 
+# define GREEN 0x00ff00
+# define YELLOW 0xffff00
+
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
 extern int		g_key_flag;
@@ -85,10 +96,6 @@ struct			s_ray
 
 typedef struct	s_cast_ray_var
 {
-	int		is_ray_facing_down;
-	int		is_ray_facing_up;
-	int		is_ray_facing_right;
-	int		is_ray_facing_left;
 	float	xintercept;
 	float	yintercept;
 	float	xstep;
@@ -101,7 +108,16 @@ typedef struct	s_cast_ray_var
 	float	next_touch_y;
 	float	x_to_check;
 	float	y_to_check;
+	float	hit_distance;
 }				t_cast_ray_var;
+
+typedef struct
+{
+	int		is_ray_facing_down;
+	int		is_ray_facing_up;
+	int		is_ray_facing_right;
+	int		is_ray_facing_left;
+}				t_cast_ray_var_common;
 
 typedef struct	s_img
 {
@@ -159,5 +175,6 @@ int				close(t_game *game);
 
 int				has_wall_at(float x, float y);
 int				main_loop(t_game *game);
+void			cast_ray(t_game *game, float ray_angle, int strip_id);
 
 #endif
