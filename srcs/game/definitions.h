@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 13:00:40 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:29:21 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@
 # define BLUE 0x0000ff 
 # define GREEN 0x00ff00
 # define YELLOW 0xffff00
+# define ORANGE 0xe18a00
+# define PURPLE 0xff00ff
 
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
@@ -155,7 +157,7 @@ typedef struct
 void			my_mlx_pixel_put(t_game *game, int x, int y, int color);
 void			draw_line
 				(t_game *game, t_line_info line, int color);
-void			draw_player_rect(t_game *game, t_rect_info *rect, int color);
+void			draw_player_rect(t_game *game, t_rect_info rect, int color);
 
 void			draw_lines(t_game *game);
 void			draw_rectangle(t_game *game, int x, int y, int color);
@@ -176,10 +178,10 @@ int				close(t_game *game);
 int				has_wall_at(float x, float y);
 int				main_loop(t_game *game);
 
-void			cast_ray(float ray_angle, int strip_id);
+void			cast_ray(float ray_angle, int strip_id, t_game *game);
 
-void			update(void);
-void			cast_rays(void);
+void			update(t_game *game);
+void			cast_rays(t_game *game);
 void			move_player(void);
 
 #endif

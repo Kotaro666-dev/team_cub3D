@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 12:58:16 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:37:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ float	distance_between_points(float x1, float y1, float x2, float y2)
 	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
-void	cast_ray(float ray_angle, int strip_id)
+void	cast_ray(float ray_angle, int strip_id, t_game *game)
 {
 	t_cast_ray_var			hrz;
 	t_cast_ray_var			vrt;
 	t_cast_ray_var_common	cmn;
 
 	ray_angle = normalize_angle(ray_angle);
-	cmn.is_ray_facing_down = ray_angle > 0 && ray_angle < PI;
-	cmn.is_ray_facing_up = !cmn.is_ray_facing_down;
-	cmn.is_ray_facing_right = ray_angle < 0.5 * PI && ray_angle > 1.5 * PI;
-	cmn.is_ray_facing_left = !cmn.is_ray_facing_right;
+	cmn.is_ray_facing_down = (ray_angle > 0 && ray_angle < PI);
+	cmn.is_ray_facing_up = (!cmn.is_ray_facing_down);
+	cmn.is_ray_facing_right = (ray_angle < 0.5 * PI || ray_angle > 1.5 * PI);
+	cmn.is_ray_facing_left = (!cmn.is_ray_facing_right);
 	//
 	///////////////////////////////////////////
 	// HORIZONTAL RAY-GRID INTERSECTION CODE
@@ -70,6 +70,9 @@ void	cast_ray(float ray_angle, int strip_id)
 	{
 		hrz.x_to_check = hrz.next_touch_x;
 		hrz.y_to_check = hrz.next_touch_y + (cmn.is_ray_facing_up ? -1 : 0);
+		// draw_player_rect(game, 
+		// 	init_rect_info(hrz.x_to_check, hrz.y_to_check, 4, 4),
+		// 	ORANGE);
 		if (has_wall_at(hrz.x_to_check, hrz.y_to_check))
 		{
 		// found a wall hit
@@ -99,7 +102,7 @@ void	cast_ray(float ray_angle, int strip_id)
 	//
 	// Find the x-coordinate of the closest horizontal grid intersection
 	vrt.yintercept =
-		g_player.x + (vrt.xintercept - g_player.x) * tan(ray_angle);
+		g_player.y + (vrt.xintercept - g_player.x) * tan(ray_angle);
 	//
 	// Calculate the increment xstep and ystep
 	vrt.xstep = TILE_SIZE;
@@ -118,6 +121,9 @@ void	cast_ray(float ray_angle, int strip_id)
 	{
 		vrt.x_to_check = vrt.next_touch_x + (cmn.is_ray_facing_left ? -1 : 0);
 		vrt.y_to_check = vrt.next_touch_y;
+		// draw_player_rect(game, 
+		// 	init_rect_info(vrt.x_to_check, vrt.y_to_check, 4, 4),
+		// 	PURPLE);
 		//
 		if (has_wall_at(vrt.x_to_check, vrt.y_to_check))
 		{

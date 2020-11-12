@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 12:53:03 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:37:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	render_rays(t_game *game)
 {
 	int	i;
 	i = 0;
-	while (i < 1)
+	while (i < NUM_RAYS)
 	{
 		draw_line(
 			game,
@@ -51,5 +51,5 @@ void	render_player(t_game *game)
 	t_rect_info	rect;
 	
 	rect = init_rect_info(g_player.x, g_player.y, 10, 10);
-	draw_player_rect(game, &rect, 0x00ff00);
+	draw_player_rect(game, rect, 0x00ff00);
 }

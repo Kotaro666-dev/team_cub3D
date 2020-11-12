@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:33 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 13:00:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 16:14:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		main_loop(t_game *game)
 	if (g_key_flag == TRUE)
 	{
 		//	描画する
-		update();
+		update(game);
 		render(game);
 	}
 	g_key_flag = FALSE;

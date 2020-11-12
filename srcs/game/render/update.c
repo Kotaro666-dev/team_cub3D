@@ -6,19 +6,19 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 13:00:23 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 17:37:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
 
-void	update()
+void	update(t_game *game)
 {
 	move_player();
-	cast_rays();
+	cast_rays(game);
 }
 
-void	cast_rays(void)
+void	cast_rays(t_game *game)
 {
 	int		strip_id;
 	float	ray_angle;
@@ -27,7 +27,7 @@ void	cast_rays(void)
 	ray_angle = g_player.rotation_angle - (FOV_ANGLE / 2);
 	while (strip_id < NUM_RAYS)
 	{
-		cast_ray(ray_angle, strip_id);
+		cast_ray(ray_angle, strip_id, game);
 		ray_angle += FOV_ANGLE / NUM_RAYS;
 		strip_id++;
 	}
