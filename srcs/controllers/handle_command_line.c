@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:23:13 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:50:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@
 
 static int	verify_cub_file(char *cub_file, t_game *game)
 {
-	int is_map_data_valid;
-
-	is_map_data_valid = TRUE;
 	if (!is_cub_file_ext_valid(cub_file))
 	{
 		game->err_msg.which_msg = CUB_FILE_EXT_INVALID;
 		return (ERROR);
 	}
-	if ((is_map_data_valid = read_cub_file(cub_file, game)) != TRUE)
+	if (read_cub_file(cub_file, game) == ERROR)
 	{
 		return (ERROR);
 	}
@@ -36,7 +33,7 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 		game->err_msg.which_msg = MAP_NOT_CLOSED;
 		return (ERROR);
 	}
-	return (is_map_data_valid);
+	return (TRUE);
 }
 
 // TODO: REFACTORING
