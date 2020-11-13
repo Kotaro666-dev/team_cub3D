@@ -6,7 +6,6 @@ SRCS += ${shell find ./cast_ray/ -type f -name "*.c"}
 SRCS += start_game.c
 SRCS += testmain.c
 
-INCLUDE = definition.h
 OBJS = ${SRCS:%.c=%.o}
 LIBMLX = ./../../libmlx.a
 CC = gcc
