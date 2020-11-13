@@ -6,19 +6,22 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:41:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:21:55 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../definitions.h"
 #include "../../../includes/colors.h"
+#include "../../../includes/structs/struct_game.h"
+#include "../../../includes/structs/struct_rect_line.h"
+#include "../../../includes/game.h"
+#include "../../../minilibx-linux/mlx.h"
 
 void	render(t_game *game)
 {
 	render_map(game);
 	render_rays(game);
 	render_player(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }
 
 void	render_map(t_game *game)

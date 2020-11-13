@@ -6,12 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:54:52 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:43:19 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:14:59 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../definitions.h"
 #include "../../../includes/cast_ray.h"
+#include "../../../includes/constants.h"
+#include "../../../includes/game.h"
 
 void		set_g_rays_each_element(t_cast_ray_var *hrz,
 				t_cast_ray_var *vrt, t_cast_ray_var_common *cmn)

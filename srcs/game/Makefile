@@ -3,6 +3,7 @@ SRCS = ${shell find ./draw_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./render/ -type f -name "*.c"}
 SRCS += ${shell find ./hook/ -type f -name "*.c"}
 SRCS += ${shell find ./cast_ray/ -type f -name "*.c"}
+SRCS += start_game.c
 SRCS += testmain.c
 
 INCLUDE = definition.h

@@ -1,85 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   definitions.h                                      :+:      :+:    :+:   */
+/*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 18:17:52 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/13 22:25:59 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINITIONS_H
-# define DEFINITIONS_H
+#ifndef GAME_H
+# define GAME_H
 
-# include <math.h>
-# include "../../minilibx-linux/mlx.h"
-# include "../../includes/structs/struct_player.h"
-# include "../../includes/structs/struct_ray.h"
-# include "../../includes/structs/struct_rect_line.h"
-#include "../../includes/structs/struct_game.h"
-
-# define TRUE 1
-# define FALSE 0
-
-# define X_EVENT_KEY_PRESS		2
-# define X_EVENT_KEY_RELEASE	3
-# define X_EVENT_KEY_EXIT		17 //Exit program key code
-
-# define KEY_PRESS_MASK			1<<0
-# define KEY_RELEASE_MASK		1<<1
-# define STRUCTURE_NOTIFY_MASK	1<<17
-
-# define KEY_ESC				65307
-# define KEY_W					119
-# define KEY_A					97
-# define KEY_S					115
-# define KEY_D					100
-# define KEY_LEFT_ARROW			65361
-# define KEY_RIGHT_ARROW		65363
-
-# define TILE_SIZE 32
-# define ROWS 13
-# define COLS 20
-# define WIDTH (COLS * TILE_SIZE)
-# define HEIGHT (ROWS * TILE_SIZE)
-# define MINIMAP_SCALE_FACTOR 1
-
-# define PI 3.14159265
-# define TWO_PI 6.28318530
-
-# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
-
-# define FOV_ANGLE (60 * (PI / 180))
-# define NUM_RAYS WIDTH
-
-# define SPACE 0
-# define WALL 1
-# define SPRITE 2
+# include "./structs/struct_rect_line.h"
+# include "./structs/struct_game.h"
 
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
 extern int		g_key_flag;
 extern t_player	g_player;
 extern t_ray	g_rays[NUM_RAYS];
-
-// typedef struct	s_img
-// {
-// 	void	*img;
-// 	int		*data; //imgの本体
-
-// 	int		size_l;
-// 	int		bpp;
-// 	int		endian;
-// }				t_img;
-
-// typedef struct	s_game
-// {
-// 	void	*mlx;
-// 	void	*win;
-// 	t_img	img;
-// }				t_game;
 
 /*
 ** my drawing functions
@@ -139,6 +80,7 @@ int				has_wall_at(float x, float y);
 ** game start functions
 */
 
+void			start_game(t_game *game);
 void			initialize_window(t_game *game);
 void			setup(void);
 int				main_loop(t_game *game);

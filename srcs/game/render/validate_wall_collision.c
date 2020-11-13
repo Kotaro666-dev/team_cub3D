@@ -6,11 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 10:53:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:21:22 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../definitions.h"
+#include "../../../includes/constants.h"
+#include "../../../includes/game.h"
+#include <math.h>
 
 int		has_wall_at(float x, float y)
 {

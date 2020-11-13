@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 18:18:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:20:52 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 ** ピクセルと直線とプレイヤーの正方形を描画するユーティリティー
 */
 
-#include "../definitions.h"
+#include "../../../includes/game.h"
+#include "../../../includes/constants.h"
+#include <math.h>
 
 void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
 {
