@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:31:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:09:21 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char		*which_error_msg(t_err_msg *err_msg)
 	return (msg);
 }
 
-int				print_error_msg(t_err_msg *err_msg)
+void				print_error_msg(t_err_msg *err_msg)
 {
 	char *msg;
 
@@ -74,5 +74,4 @@ int				print_error_msg(t_err_msg *err_msg)
 	ft_putendl_fd(ERROR_MSG, 1);
 	ft_putendl_fd(msg, 1);
 	ft_putstr_fd("\x1b[0m", 1);
-	return (ERROR);
 }

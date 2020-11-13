@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 18:03:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:31:19 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 	game.should_game_start = handle_command_line(argc, argv, &game);
 	if (game.should_game_start == ERROR)
 	{
+		print_error_msg(&game.err_msg);
 		return (ERROR);
 	}
 	// TRANSFORM MAP INTO RECTANGLE

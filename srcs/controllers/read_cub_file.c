@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 18:03:24 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:40:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,12 @@ static int		is_size_of_line_too_big(char **line)
 static int		read_cub_map(char **line, t_game *game)
 {
 	int			index;
-	int			is_map_data_valid;
 
 	index = game->cub_data.map_data.max_y;
-	is_map_data_valid = TRUE;
 	if (is_size_of_line_too_big(line))
 	{
-		return (MAP_ERROR);
+		game->err_msg.which_msg = MAP_ERROR;
+		return (ERROR);
 	}
 	if (should_ignore_empty_line(line))
 	{
@@ -62,7 +61,8 @@ static int		read_cub_map(char **line, t_game *game)
 	{
 		if (!check_contents_in_line(*line, &game->cub_data))
 		{
-			return (MAP_ERROR);
+			game->err_msg.which_msg = MAP_ERROR;
+			return (ERROR);
 		}
 		ft_strlcpy(game->cub_data.map_data.map[index], *line, ARR_SIZE);
 		game->cub_data.map_data.has_started_reading_map = TRUE;
@@ -70,20 +70,20 @@ static int		read_cub_map(char **line, t_game *game)
 	}
 	else
 	{
-		is_map_data_valid = MAP_ERROR;
+		game->err_msg.which_msg = MAP_ERROR;
+		return (ERROR);
 	}
-	return (is_map_data_valid);
+	return (TRUE);
 }
 
-static int		err_action_with_free(t_game *game, t_msg msg)
+static int		err_action_with_free(t_game *game)
 {
-	game->err_msg.which_msg = msg;
 	if (*game->gnl.line)
 	{
 		free(game->gnl.line);
 		game->gnl.line = NULL;
 	}
-	return (print_error_msg(&game->err_msg));
+	return (ERROR);
 }
 
 int				read_cub_file(char *map_path, t_game *game)
@@ -98,14 +98,15 @@ int				read_cub_file(char *map_path, t_game *game)
 		game->gnl.rv = get_next_line(game->gnl.fd, &game->gnl.line);
 		if (game->gnl.rv == ERROR)
 		{
-			return (err_action_with_free(game, GET_NEXT_LINE_ERROR));
+			game->err_msg.which_msg = GET_NEXT_LINE_ERROR;
+			return (err_action_with_free(game));
 		}
 		if (can_start_reading_map(&game->cub_data))
 		{
 			is_map_data_valid = read_cub_map(&game->gnl.line, game);
 			if (is_map_data_valid != TRUE)
 			{
-				return (err_action_with_free(game, is_map_data_valid));
+				return (err_action_with_free(game));
 			}
 		}
 		else
@@ -113,7 +114,7 @@ int				read_cub_file(char *map_path, t_game *game)
 			is_map_data_valid = read_cub_elems(&game->gnl.line, game);
 			if (is_map_data_valid != TRUE)
 			{
-				return (err_action_with_free(game, is_map_data_valid));
+				return (err_action_with_free(game));
 			}
 		}
 		free(game->gnl.line);
@@ -127,16 +128,13 @@ int				read_cub_file(char *map_path, t_game *game)
 			}
 			else
 			{
-				return (err_action_with_free(game, INSUFFICIENT_DATA));
+				game->err_msg.which_msg = INSUFFICIENT_DATA;
+				return (err_action_with_free(game));
 			}
 		}
 	}
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
 	show_cub_data_for_debug(&game->cub_data);
-	if (is_map_data_valid != TRUE)
-	{
-		return (print_error_msg(&game->err_msg));
-	}
-	return (is_map_data_valid);
+	return (TRUE);
 }

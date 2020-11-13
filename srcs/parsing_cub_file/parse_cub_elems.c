@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:30:36 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:36:56 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ int				parse_cub_elems(char **data, t_game *game)
 	}
 	else
 	{
-		return (ELEMS_ERROR);
+		game->err_msg.which_msg = ELEMS_ERROR;
+		return (ERROR);
 	}
 	return (is_data_valid);
 }

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 19:58:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:23:13 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 	if (!is_cub_file_ext_valid(cub_file))
 	{
 		game->err_msg.which_msg = CUB_FILE_EXT_INVALID;
-		return (print_error_msg(&game->err_msg));
+		return (ERROR);
 	}
 	if ((is_map_data_valid = read_cub_file(cub_file, game)) != TRUE)
 	{
-		return (is_map_data_valid);
+		return (ERROR);
 	}
 	if (!is_player_surrounded_by_walls(&game->cub_data))
 	{
 		game->err_msg.which_msg = MAP_NOT_CLOSED;
-		return (print_error_msg(&game->err_msg));
+		return (ERROR);
 	}
 	return (is_map_data_valid);
 }
@@ -48,7 +48,7 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 	if (!is_argc_valid(argc))
 	{
 		game->err_msg.which_msg = NUM_COMMAND_LINE_INVALID;
-		return (print_error_msg(&game->err_msg));
+		return (ERROR);
 	}
 	if (argc == 2)
 	{
@@ -63,7 +63,7 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 		if (!should_write_bmp_image(argv))
 		{
 			game->err_msg.which_msg = SAVE_COMMAND_INVALID;
-			return (print_error_msg(&game->err_msg));
+			return (ERROR);
 		}
 		if ((is_map_data_valid = read_cub_file(argv[1], game)) != TRUE)
 		{

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:30:41 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:31:49 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,14 @@ int				parse_resolution_data(char **data, t_game *game)
 		}
 		else
 		{
-			return (RESOLUTION_ERROR);
+			game->err_msg.which_msg = RESOLUTION_ERROR;
+			return (ERROR);
 		}
 	}
 	else
 	{
-		return (RESOLUTION_ERROR);
+		game->err_msg.which_msg = RESOLUTION_ERROR;
+		return (ERROR);
 	}
 	return (TRUE);
 }

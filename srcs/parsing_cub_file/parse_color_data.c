@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 15:37:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:36:16 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,18 +93,17 @@ int				parse_color_data(char **data, t_game *game)
 	splitted_color_data = ft_split(data[1], ',');
 	is_safe_to_store_color = is_len_of_data_valid(splitted_color_data, 3) &&
 							is_clr_int_valid(splitted_color_data);
-	if (is_safe_to_store_color)
+	if (!is_safe_to_store_color)
 	{
-		store_color_data(id, splitted_color_data, &game->cub_data);
-		is_data_valid = is_color_value_valid(id, &game->cub_data);
-		if (!is_data_valid)
-		{
-			return (COLOR_ERROR);
-		}
+		game->err_msg.which_msg = COLOR_ERROR;
+		return (ERROR);
 	}
-	else
+	store_color_data(id, splitted_color_data, &game->cub_data);
+	is_data_valid = is_color_value_valid(id, &game->cub_data);
+	if (!is_data_valid)
 	{
-		return (COLOR_ERROR);
+		game->err_msg.which_msg = COLOR_ERROR;
+		return (ERROR);
 	}
 	free_memory_of_2d_array(splitted_color_data);
 	return (TRUE);
