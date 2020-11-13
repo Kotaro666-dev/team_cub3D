@@ -1,4 +1,15 @@
-#include "../../includes/structs/struct_map_data.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_rectanglar_map.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/11 16:31:13 by kkamashi          #+#    #+#             */
+/*   Updated: 2020/11/11 16:45:35 by kkamashi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/structs/struct_rect_map.h"
 #include "../../includes/utilities.h"
 
