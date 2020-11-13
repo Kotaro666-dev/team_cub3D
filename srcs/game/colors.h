@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_player.h                                    :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 20:37:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 11:09:07 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/13 11:05:02 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/13 11:05:33 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_PLAYER_H
-# define STRUCT_PLAYER_H
+#ifndef COLORS_H
+# define COLORS_H
 
-typedef struct s_player
-{
-	float	x;
-	float	y;
-	float	width;
-	float	height;
-	int		turn_direction; // -1 for left, +1 for right
-	int		walk_direction; // -1 for back, + 1 for forward
-	float	side_angle; //-1 for left, +1 for right
-	float	rotation_angle;
-	float	walk_speed;
-	float	turn_speed;
-}				t_player;
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define RED 0xff0000
+# define BLUE 0x0000ff
+# define GREEN 0x00ff00
+# define YELLOW 0xffff00
+# define ORANGE 0xe18a00
+# define PURPLE 0xff00ff
 
 #endif

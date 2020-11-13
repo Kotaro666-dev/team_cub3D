@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:46:44 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:15:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
+#include "../cast_ray.h"
 
 void	update(void)
 {

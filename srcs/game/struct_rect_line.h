@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_player.h                                    :+:      :+:    :+:   */
+/*   struct_rect_line.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 20:37:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 11:09:07 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/13 11:11:20 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/13 11:12:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_PLAYER_H
-# define STRUCT_PLAYER_H
+#ifndef STRUCT_RECT_LINE_H
+# define STRUCT_RECT_LINE_H
 
-typedef struct s_player
+typedef struct
 {
-	float	x;
-	float	y;
-	float	width;
-	float	height;
-	int		turn_direction; // -1 for left, +1 for right
-	int		walk_direction; // -1 for back, + 1 for forward
-	float	side_angle; //-1 for left, +1 for right
-	float	rotation_angle;
-	float	walk_speed;
-	float	turn_speed;
-}				t_player;
+	int			x;
+	int			y;
+	int			width;
+	int			height;
+}				t_rect_info;
+
+typedef struct
+{
+	double		x1;
+	double		y1;
+	double		x2;
+	double		y2;
+}				t_line_info;
 
 #endif

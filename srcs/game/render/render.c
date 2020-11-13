@@ -6,11 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:37:45 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:13:54 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
+#include "../colors.h"
+#include "../struct_rect_line.h"
 
 void	render(t_game *game)
 {

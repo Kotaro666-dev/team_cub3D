@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 20:41:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:14:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include "../../minilibx-linux/mlx.h"
+# include "struct_rect_line.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -55,15 +56,6 @@
 # define WALL 1
 # define SPRITE 2
 
-# define WHITE 0xffffff
-# define BLACK 0x000000
-# define RED 0xff0000
-# define BLUE 0x0000ff
-# define GREEN 0x00ff00
-# define YELLOW 0xffff00
-# define ORANGE 0xe18a00
-# define PURPLE 0xff00ff
-
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
 extern int		g_key_flag;
@@ -96,32 +88,6 @@ struct			s_ray
 	int		wall_hit_content;
 }			g_rays[NUM_RAYS];
 
-typedef struct	s_cast_ray_var
-{
-	float	xintercept;
-	float	yintercept;
-	float	xstep;
-	float	ystep;
-	int		found_wall_hit;
-	float	wall_hit_x;
-	float	wall_hit_y;
-	int		wall_content;
-	float	next_touch_x;
-	float	next_touch_y;
-	float	x_to_check;
-	float	y_to_check;
-	float	hit_distance;
-}				t_cast_ray_var;
-
-typedef struct	s_cast_ray_var_common
-{
-	int		is_ray_facing_down;
-	int		is_ray_facing_up;
-	int		is_ray_facing_right;
-	int		is_ray_facing_left;
-	float	ray_angle;
-	int		strip_id;
-}				t_cast_ray_var_common;
 
 typedef struct	s_img
 {
@@ -140,21 +106,6 @@ typedef struct	s_game
 	t_img	img;
 }				t_game;
 
-typedef struct
-{
-	int			x;
-	int			y;
-	int			width;
-	int			height;
-}				t_rect_info;
-
-typedef struct
-{
-	double		x1;
-	double		y1;
-	double		x2;
-	double		y2;
-}				t_line_info;
 
 void			my_mlx_pixel_put(t_game *game, int x, int y, int color);
 void			draw_line
@@ -180,27 +131,8 @@ int				close(t_game *game);
 int				has_wall_at(float x, float y);
 int				main_loop(t_game *game);
 
-void			cast_ray(float ray_angle, int strip_id);
-
 void			update(void);
 void			cast_rays(void);
 void			move_player(void);
-
-void			hrz_set_first_intercept
-				(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn);
-void			hrz_cast_ray_until_wall
-				(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn);
-void			vrt_set_first_intercept
-				(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
-void			vrt_cast_ray_until_wall
-				(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
-void			set_g_rays_each_element(t_cast_ray_var *hrz,
-				t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
-void			set_where_ray_is_facing(t_cast_ray_var_common *cmn);
-void			set_ray_distances
-				(t_cast_ray_var *hrz, t_cast_ray_var *vrt);
-float			distance_between_points
-				(float x1, float y1, float x2, float y2);
-float			normalize_angle(float ray_angle);
 
 #endif
