@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 16:15:14 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:03:02 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "includes/structs/struct_game.h"
 #include "includes/utilities.h"
 #include "includes/constants.h"
-
 
 int main(int argc, char **argv)
 {
@@ -28,11 +27,11 @@ int main(int argc, char **argv)
 	game.should_game_start = handle_command_line(argc, argv, &game);
 	if (game.should_game_start == ERROR)
 	{
-		return (1);
+		return (ERROR);
 	}
 	// TRANSFORM MAP INTO RECTANGLE
 	create_rectanglar_map(&game);
-	debug_rectanglar_map(&game);
+	// debug_rectanglar_map(&game);
 	// AND THEN GAME START
 
 
