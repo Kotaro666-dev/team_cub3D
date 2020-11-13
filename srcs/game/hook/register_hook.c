@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 10:25:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 10:44:58 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 18:17:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
+#include "../../includes/structs/struct_game.h"
 
 void		register_hook(t_game *game)
 {
