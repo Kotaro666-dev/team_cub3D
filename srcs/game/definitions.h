@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:14:28 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:49:05 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define DEFINITIONS_H
 
 # include <math.h>
-# include <stdlib.h>
 # include "../../minilibx-linux/mlx.h"
-# include "struct_rect_line.h"
+# include "../../includes/structs/struct_player.h"
+# include "../../includes/structs/struct_ray.h"
+# include "../../includes/structs/struct_rect_line.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -59,35 +60,8 @@
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
 extern int		g_key_flag;
-
-struct			s_player
-{
-	float	x;
-	float	y;
-	float	width;
-	float	height;
-	int		turn_direction; //-1 for left, +1 for right
-	int		walk_direction; //-1 for back, +1 for front
-	float	side_angle; //-1 for left, +1 for right
-	float	rotation_angle;
-	float	walk_speed;
-	float	turn_speed;
-}			g_player;
-
-struct			s_ray
-{
-	float	ray_angle;
-	float	wall_hit_x;
-	float	wall_hit_y;
-	float	distance;
-	int		was_hit_vertical;
-	int		is_ray_facing_up;
-	int		is_ray_facing_down;
-	int		is_ray_facing_left;
-	int		is_ray_facing_right;
-	int		wall_hit_content;
-}			g_rays[NUM_RAYS];
-
+extern t_player	g_player;
+extern t_ray	g_rays[NUM_RAYS];
 
 typedef struct	s_img
 {

@@ -6,13 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:16:22 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:42:20 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
-#include "../struct_cast_ray.h"
-#include "../cast_ray.h"
+#include "../../../includes/structs/struct_ray.h"
+#include "../../../includes/cast_ray.h"
 
 float		normalize_angle(float ray_angle)
 {

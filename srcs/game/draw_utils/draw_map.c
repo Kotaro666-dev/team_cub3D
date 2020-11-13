@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:15:11 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:40:15 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 */
 
 #include "../definitions.h"
-#include "../colors.h"
+#include "../../../includes/colors.h"
 
 void	draw_lines(t_game *game)
 {

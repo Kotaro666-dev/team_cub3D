@@ -6,12 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:57:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:17:01 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:43:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
-#include "../cast_ray.h"
+#include "../../../includes/cast_ray.h"
 #include <float.h>
 
 float		distance_between_points(float x1, float y1, float x2, float y2)
