@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 13:02:13 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:49:18 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../definitions.h"
+#include <stdlib.h>
 
 int		key_pressed(int key_code, t_game *game)
 {

@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:33 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/12 17:45:06 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 11:46:53 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./definitions.h"
+#include "../../includes/structs/struct_player.h"
 
 int		g_map[ROWS][COLS] = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1},
@@ -27,8 +28,10 @@ int		g_map[ROWS][COLS] = {
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
-int		g_key_flag = TRUE;
-int		g_is_game_running = FALSE;
+int			g_key_flag = TRUE;
+int			g_is_game_running = FALSE;
+t_player	g_player;
+t_ray		g_rays[NUM_RAYS];
 
 //全てを初期化
 int		initialize_window(t_game *game)
