@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:40:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 08:50:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,11 @@ int				read_cub_file(char *map_path, t_game *game)
 	int		is_map_data_valid;
 	int		index;
 
-	game->gnl.fd = open(map_path, O_RDONLY);
+	if ((game->gnl.fd = open(map_path, O_RDONLY)) == -1)
+	{
+		game->err_msg.which_msg = CUB_FILE_DOESNT_EXSIT;
+		return (ERROR);
+	}
 	while (TRUE)
 	{
 		game->gnl.line = NULL;
