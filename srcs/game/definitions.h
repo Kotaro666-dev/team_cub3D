@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:37 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/11 18:22:50 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/12 20:41:56 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@
 # define WHITE 0xffffff
 # define BLACK 0x000000
 # define RED 0xff0000
-# define BLUE 0x0000ff 
+# define BLUE 0x0000ff
 # define GREEN 0x00ff00
 # define YELLOW 0xffff00
+# define ORANGE 0xe18a00
+# define PURPLE 0xff00ff
 
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;
@@ -111,12 +113,14 @@ typedef struct	s_cast_ray_var
 	float	hit_distance;
 }				t_cast_ray_var;
 
-typedef struct
+typedef struct	s_cast_ray_var_common
 {
 	int		is_ray_facing_down;
 	int		is_ray_facing_up;
 	int		is_ray_facing_right;
 	int		is_ray_facing_left;
+	float	ray_angle;
+	int		strip_id;
 }				t_cast_ray_var_common;
 
 typedef struct	s_img
@@ -155,7 +159,7 @@ typedef struct
 void			my_mlx_pixel_put(t_game *game, int x, int y, int color);
 void			draw_line
 				(t_game *game, t_line_info line, int color);
-void			draw_player_rect(t_game *game, t_rect_info *rect, int color);
+void			draw_player_rect(t_game *game, t_rect_info rect, int color);
 
 void			draw_lines(t_game *game);
 void			draw_rectangle(t_game *game, int x, int y, int color);
@@ -175,6 +179,28 @@ int				close(t_game *game);
 
 int				has_wall_at(float x, float y);
 int				main_loop(t_game *game);
-void			cast_ray(t_game *game, float ray_angle, int strip_id);
+
+void			cast_ray(float ray_angle, int strip_id);
+
+void			update(void);
+void			cast_rays(void);
+void			move_player(void);
+
+void			hrz_set_first_intercept
+				(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn);
+void			hrz_cast_ray_until_wall
+				(t_cast_ray_var *hrz, t_cast_ray_var_common *cmn);
+void			vrt_set_first_intercept
+				(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
+void			vrt_cast_ray_until_wall
+				(t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
+void			set_g_rays_each_element(t_cast_ray_var *hrz,
+				t_cast_ray_var *vrt, t_cast_ray_var_common *cmn);
+void			set_where_ray_is_facing(t_cast_ray_var_common *cmn);
+void			set_ray_distances
+				(t_cast_ray_var *hrz, t_cast_ray_var *vrt);
+float			distance_between_points
+				(float x1, float y1, float x2, float y2);
+float			normalize_angle(float ray_angle);
 
 #endif
