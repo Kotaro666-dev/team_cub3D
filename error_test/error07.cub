@@ -1,4 +1,4 @@
-R -999999999999999 9999999999999999
+R 999999999999999 9999999999999999
 NO ./map_data/path_to_the_north_texture.xpm
 SO ./map_data/path_to_the_south_texture.xpm
 WE ./map_data/path_to_the_west_texture.xpm
