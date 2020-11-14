@@ -4,7 +4,7 @@ SO ./map_data/path_to_the_south_texture.xpm
 WE ./map_data/path_to_the_west_texture.xpm
 EA ./map_data/path_to_the_east_texture.xpm
 S ./map_data/path_to_the_sprite_texture.xpm
-5. F 100,-10,100
+F 100,999999999999999999,100
 C 225,30,0
 
 11111111111111111111111111111111111111111111111111
