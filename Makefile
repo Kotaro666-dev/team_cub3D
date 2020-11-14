@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/14 07:58:37 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/14 21:32:20 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,28 +53,28 @@ SANITIZE = -fsanitize=address -g
 LLDB = -g
 
 # DYNAMIC MINILIBX
-# MLX = dynamic_mlx
-# LIBMLX = libmlx.dylib
+MLX = dynamic_mlx
+LIBMLX = libmlx.dylib
 
 # MINILIBX-LINUX
-MLX = minilibx-linux
-LIBMLX = libmlx.a
-LIBMLX_PATH = $(MLX)/$(LIBMLX)
-OPTIONS = -lXext -lX11
+# MLX = minilibx-linux
+# LIBMLX = libmlx.a
+# LIBMLX_PATH = $(MLX)/$(LIBMLX)
+# OPTIONS = -lXext -lX11
 
 # DYNAMIC MINILIBX
-# $(NAME): $(OBJS)
-# 	$(MAKE) bonus -C ./libs/libft
-# 	$(MAKE) -C ./$(MLX)
-# 	cp ./$(MLX)/$(LIBMLX) ./
-# 	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
-
-# MINILIBX-LINUX
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
-	cp $(LIBMLX_PATH) ./
-	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+	cp ./$(MLX)/$(LIBMLX) ./
+	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
+
+# MINILIBX-LINUX
+# $(NAME): $(OBJS)
+# 	$(MAKE) bonus -C ./libs/libft
+# 	$(MAKE) -C ./$(MLX)
+# 	cp $(LIBMLX_PATH) ./
+# 	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
 
 all: $(NAME)
 
@@ -89,5 +89,11 @@ fclean: clean
 	$(RM) $(NAME) $(LIBMLX)
 
 re: fclean all
+
+error:
+	sh error_test.sh
+
+ok:
+	sh ok_test.sh
 
 .PHONY: all clean fclean re
