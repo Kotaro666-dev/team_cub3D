@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 09:18:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 20:23:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			check_contents_in_line(char *line, t_cub_data *cub_data)
 ** BECAUSE OF I CREATED + 2 DIFF FOR FLOOD FILL MAP
 */
 
-int			is_player_surrounded_by_walls(t_cub_data *cub_data)
+static int		is_player_surrounded_by_walls(t_cub_data *cub_data)
 {
 	int		pos_x;
 	int		pos_y;
@@ -81,4 +81,19 @@ int			is_player_surrounded_by_walls(t_cub_data *cub_data)
 	flood_fill(cub_data, pos_y, pos_x, &is_safe);
 	// debug_flood_fill_after(cub_data);
 	return (is_safe);
+}
+
+int				validate_map(t_game *game)
+{
+	if (!game->cub_data.map_data.have_found_player)
+	{
+		game->err_msg.which_msg = NOT_FOUND_PLAYER;
+		return (ERROR);
+	}
+	if (!is_player_surrounded_by_walls(&game->cub_data))
+	{
+		game->err_msg.which_msg = MAP_NOT_CLOSED;
+		return (ERROR);
+	}
+	return (TRUE);
 }

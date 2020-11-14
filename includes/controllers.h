@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:56 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:32:09 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 20:24:12 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int		handle_command_line(int argc, char **argv, t_game *game);
 int		read_cub_file(char *map_path, t_game *game);
 int		parse_cub_elems(char **data, t_game *game);
 int		check_contents_in_line(char *line, t_cub_data *cub_data);
-int		is_player_surrounded_by_walls(t_cub_data *cub_data);
+int		validate_map(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 12:02:32 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 21:48:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,7 @@ static int		err_action_with_free(t_game *game)
 
 int				read_cub_file(char *map_path, t_game *game)
 {
-	int		is_map_data_valid;
-	int		index;
-
-	if ((game->gnl.fd = open(map_path, O_RDONLY)) == -1)
+	if ((game->gnl.fd = open(map_path, O_RDONLY)) == ERROR)
 	{
 		game->err_msg.which_msg = CUB_FILE_DOESNT_EXSIT;
 		return (ERROR);
@@ -107,16 +104,14 @@ int				read_cub_file(char *map_path, t_game *game)
 		}
 		if (can_start_reading_map(&game->cub_data))
 		{
-			is_map_data_valid = read_cub_map(&game->gnl.line, game);
-			if (is_map_data_valid != TRUE)
+			if (read_cub_map(&game->gnl.line, game) == ERROR)
 			{
 				return (err_action_with_free(game));
 			}
 		}
 		else
 		{
-			is_map_data_valid = read_cub_elems(&game->gnl.line, game);
-			if (is_map_data_valid != TRUE)
+			if (read_cub_elems(&game->gnl.line, game) == ERROR)
 			{
 				return (err_action_with_free(game));
 			}
@@ -124,17 +119,13 @@ int				read_cub_file(char *map_path, t_game *game)
 		free(game->gnl.line);
 		if (game->gnl.rv == 0)
 		{
-			if (did_collect_all_must_data(&game->cub_data))
-			{
-				index = game->cub_data.map_data.max_y;
-				game->cub_data.map_data.map[index][0] = '\0';
-				break ;
-			}
-			else
+			if (!did_collect_all_must_data(&game->cub_data))
 			{
 				game->err_msg.which_msg = INSUFFICIENT_DATA;
 				return (err_action_with_free(game));
 			}
+			game->cub_data.map_data.map[game->cub_data.map_data.max_y][0] = '\0';
+			break ;
 		}
 	}
 	game->gnl.line = NULL;
