@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 18:03:43 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 08:58:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int			check_contents_in_line(char *line, t_cub_data *cub_data)
 		else
 			return (FALSE);
 		x++;
+	}
+	if (!cub_data->map_data.have_found_player)
+	{
+		return (FALSE);
 	}
 	update_max_x_on_map(cub_data, x);
 	cub_data->map_data.p_pos_y_tracker++;
