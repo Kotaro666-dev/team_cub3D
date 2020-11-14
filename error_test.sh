@@ -23,3 +23,6 @@ do
 echo " error_pattern/error2$i.cub"
 ./cub3D error_pattern/error2$i.cub
 done
+
+echo " error_pattern/errorformat.cubwrong"
+./cub3D error_pattern/errorformat.cubwrong
