@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:40:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:12:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 ** githubから拝借した関数達。マップ描画に使われる
 */
 
-#include "../definitions.h"
+#include "../../../includes/game.h"
+#include "../../../includes/constants.h"
 #include "../../../includes/colors.h"
 
 void	draw_lines(t_game *game)
@@ -55,7 +56,7 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 		j = 0;
 		while (j < TILE_SIZE)
 		{
-			game->img.data[(y + i) * WIDTH + x + j] = color;
+			game->image.buffer[(y + i) * WIDTH + x + j] = color;
 			j++;
 		}
 		i++;

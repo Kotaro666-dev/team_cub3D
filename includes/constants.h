@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
 /*   Updated: 2020/11/14 10:30:05 by kkamashi         ###   ########.fr       */
@@ -57,33 +57,39 @@
 ** READ_CUB_FILE_UTILS
 */
 
-#define ONCE 1
+# define ONCE 1
 
 /*
 ** VALIDATE_MAP_UTILS.C
 */
 
-#define TARGET "0-"
+# define TARGET "0-"
 
 /*
 ** FOR RENDERING
 */
 
-#define PI 3.14159265
-#define TWO_PI 6.28318530
+# define SPACE 0
+# define WALL 1
+# define SPRITE 2
 
-#define TILE_SIZE 64
-#define MAP_NUM_ROWS 13
-#define MAP_NUM_COLS 20
+# define PI 3.14159265
+# define TWO_PI 6.28318530
 
-#define MINIMAP_SCALE_FACTOR 0.2
+# define TILE_SIZE 32
+# define ROWS 13
+# define COLS 20
 
-#define WINDOW_WIDTH (MAP_NUM_COLS * TILE_SIZE)
-#define WINDOW_HEIGHT (MAP_NUM_ROWS * TILE_SIZE)
 
-#define FOV_ANGLE (60 * (PI / 180))
+# define WIDTH (COLS * TILE_SIZE)
+# define HEIGHT (ROWS * TILE_SIZE)
+# define MINIMAP_SCALE_FACTOR 1
 
-#define NUM_RAYS WINDOW_WIDTH
+# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
+
+# define FOV_ANGLE (60 * (PI / 180))
+
+# define NUM_RAYS WIDTH
 
 #define FPS 30
 #define FRAME_TIME_LENGTH (1000 / FPS)

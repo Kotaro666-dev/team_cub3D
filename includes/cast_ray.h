@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:36:55 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:26:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CAST_RAY_H
 
 # include "structs/struct_cast_ray.h"
+# include <math.h>
 
 void			cast_ray(float ray_angle, int strip_id);
 
