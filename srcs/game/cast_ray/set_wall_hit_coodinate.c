@@ -6,12 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:43:12 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:14:14 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../definitions.h"
 #include "../../../includes/cast_ray.h"
+#include "../../../includes/constants.h"
+#include "../../../includes/game.h"
+
 
 /*
 ** ///////////////////////////////////////////

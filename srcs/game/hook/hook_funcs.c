@@ -6,11 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:49:18 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:36:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../definitions.h"
+#include "../../../includes/structs/struct_game.h"
+#include "../../../includes/key_xevent_code.h"
+#include "../../../includes/game.h"
 #include <stdlib.h>
 
 int		key_pressed(int key_code, t_game *game)
