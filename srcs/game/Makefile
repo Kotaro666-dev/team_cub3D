@@ -17,7 +17,7 @@ NAME = cub3D
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBMLX)
-	${CC} -o ${NAME} -I ${INCLUDE} ${OBJS} ${LIBMLX} ${CFLAGS} ${SANITIZE}
+	${CC} -o ${NAME} ${OBJS} ${LIBMLX} ${CFLAGS} ${SANITIZE}
 
 clean:
 	rm -f ${OBJS}
