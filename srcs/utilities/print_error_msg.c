@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 08:49:03 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 09:21:57 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 		msg = "MAP DATA IS INVALID!";
 	else if (err_msg->which_msg == MAP_NOT_CLOSED)
 		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS";
+	else if (err_msg->which_msg == NOT_FOUND_PLAYER)
+		msg = "NOT FOUND ANY PLAYER ON MAP";
 	return (msg);
 }
 

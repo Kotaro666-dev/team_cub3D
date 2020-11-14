@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 08:47:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 09:21:07 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef enum	e_msg
 	TEXTURE_EXT_ERROR,
 	TEXTURE_PATH_ERROR,
 	MAP_ERROR,
-	MAP_NOT_CLOSED
+	MAP_NOT_CLOSED,
+	NOT_FOUND_PLAYER
 }				t_msg;
 
 #endif

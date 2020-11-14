@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:50:05 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 09:22:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 	{
 		return (ERROR);
 	}
-	if (!is_player_surrounded_by_walls(&game->cub_data))
+	if (!game->cub_data.map_data.have_found_player)
 	{
-		game->err_msg.which_msg = MAP_NOT_CLOSED;
+		game->err_msg.which_msg = NOT_FOUND_PLAYER;
 		return (ERROR);
 	}
 	return (TRUE);
