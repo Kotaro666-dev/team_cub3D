@@ -1,10 +1,10 @@
-R 1920 1080
+R 0 -10
 NO ./map_data/path_to_the_north_texture.xpm
 SO ./map_data/path_to_the_south_texture.xpm
 WE ./map_data/path_to_the_west_texture.xpm
 EA ./map_data/path_to_the_east_texture.xpm
 S ./map_data/path_to_the_sprite_texture.xpm
-F 255,255,255
+F 220,100,0
 C 225,30,0
 
 11111111111111111111111111111111111111111111111111
