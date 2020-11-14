@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:31:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 09:21:57 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 		msg = "MAP DATA IS INVALID!";
 	else if (err_msg->which_msg == MAP_NOT_CLOSED)
 		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS";
+	else if (err_msg->which_msg == NOT_FOUND_PLAYER)
+		msg = "NOT FOUND ANY PLAYER ON MAP";
 	return (msg);
 }
 
@@ -44,6 +46,8 @@ static char		*which_error_msg(t_err_msg *err_msg)
 	msg = NULL;
 	if (err_msg->which_msg == CUB_FILE_EXT_INVALID)
 		msg = "CUB FILE EXTENTION IS INVALID!";
+	else if (err_msg->which_msg == CUB_FILE_DOESNT_EXSIT)
+		msg = "CUB FILE DOESN'T EXIST!";
 	else if (err_msg->which_msg == SAVE_COMMAND_INVALID)
 		msg = "SAVE COMMAND IS INVALID!";
 	else if (err_msg->which_msg == NUM_COMMAND_LINE_INVALID)
@@ -65,7 +69,7 @@ static char		*which_error_msg(t_err_msg *err_msg)
 	return (msg);
 }
 
-int				print_error_msg(t_err_msg *err_msg)
+void				print_error_msg(t_err_msg *err_msg)
 {
 	char *msg;
 
@@ -74,5 +78,4 @@ int				print_error_msg(t_err_msg *err_msg)
 	ft_putendl_fd(ERROR_MSG, 1);
 	ft_putendl_fd(msg, 1);
 	ft_putstr_fd("\x1b[0m", 1);
-	return (ERROR);
 }

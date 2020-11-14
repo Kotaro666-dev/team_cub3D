@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_error_msg.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 14:20:53 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 09:21:07 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct	s_err_msg
 typedef enum	e_msg
 {
 	CUB_FILE_EXT_INVALID = 4,
+	CUB_FILE_DOESNT_EXSIT,
 	SAVE_COMMAND_INVALID,
 	NUM_COMMAND_LINE_INVALID,
 	INSUFFICIENT_DATA,
@@ -34,7 +35,8 @@ typedef enum	e_msg
 	TEXTURE_EXT_ERROR,
 	TEXTURE_PATH_ERROR,
 	MAP_ERROR,
-	MAP_NOT_CLOSED
+	MAP_NOT_CLOSED,
+	NOT_FOUND_PLAYER
 }				t_msg;
 
 #endif

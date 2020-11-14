@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/11 16:55:10 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/14 07:58:37 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = main.c \
 	$(UTILITIES_DIR)/validate_map_utils.c \
 	$(UTILITIES_DIR)/useful_render_funcs.c \
 	$(UTILITIES_DIR)/create_rectanglar_map.c \
+	$(UTILITIES_DIR)/handle_command_line_utils.c \
 	$(PARSING_DIR)/parse_cub_elems.c \
 	$(PARSING_DIR)/parse_color_data.c \
 	$(PARSING_DIR)/parse_resolution_data.c \
@@ -44,8 +45,6 @@ SRCS = main.c \
 	$(CONTROLLERS_DIR)/handle_command_line.c \
 	$(CONTROLLERS_DIR)/read_cub_file.c \
 	$(CONTROLLERS_DIR)/validate_map.c \
-	# $(RAYCASTING)/casting_rays.c \
-	$(BMP)/bmp.c
 
 
 OBJS = $(SRCS:.c=.o)

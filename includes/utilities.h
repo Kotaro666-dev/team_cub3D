@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:48:43 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 19:54:01 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ void	show_cub_data_for_debug(t_cub_data *cub_data);
 void	debug_flood_fill_before(t_cub_data *cub_data);
 void	debug_flood_fill_after(t_cub_data *cub_data);
 void	debug_rectanglar_map(t_game *game);
+
+/*
+** HANDLE_COMMAND_LINE.C
+*/
+
+int		is_cub_file_ext_valid(char *format);
+int		should_write_bmp_image(char **argv);
+int		is_argc_valid(int argc);
+
 
 /*
 ** INIT_STRUCTS.C

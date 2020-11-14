@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:30:44 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/13 20:14:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int			parse_texture_data(char **data, t_game *game)
 	is_data_valid = is_tex_ext_valid(id, &game->cub_data);
 	if (!is_data_valid)
 	{
-		return (TEXTURE_EXT_ERROR);
+		game->err_msg.which_msg = TEXTURE_EXT_ERROR;
+		return (ERROR);
 	}
 	is_data_valid = can_open_the_file(id, &game->cub_data);
 	if (!is_data_valid)
 	{
-		return (TEXTURE_PATH_ERROR);
+		game->err_msg.which_msg = TEXTURE_EXT_ERROR;
+		return (ERROR);
 	}
 	return (is_data_valid);
 }

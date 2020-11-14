@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:28:51 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 12:00:53 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,74 +17,63 @@
 #include "../../includes/structs/struct_error_msg.h"
 #include "../../includes/constants.h"
 
-static int	is_cub_file_ext_valid(char *format)
+static int	verify_cub_file(char *cub_file, t_game *game)
 {
-	char	*last_dot_address;
-
-	last_dot_address = ft_strrchr(format, '.');
-	if (ft_strcmp(last_dot_address, ".cub"))
+	if (!is_cub_file_ext_valid(cub_file))
 	{
-		return (TRUE);
+		game->err_msg.which_msg = CUB_FILE_EXT_INVALID;
+		return (ERROR);
 	}
-	else
+	if (read_cub_file(cub_file, game) == ERROR)
 	{
-		return (CUB_FILE_EXT_INVALID);
+		return (ERROR);
 	}
+	if (!game->cub_data.map_data.have_found_player)
+	{
+		game->err_msg.which_msg = NOT_FOUND_PLAYER;
+		return (ERROR);
+	}
+	if (!is_player_surrounded_by_walls(&game->cub_data))
+	{
+		game->err_msg.which_msg = MAP_NOT_CLOSED;
+		return (ERROR);
+	}
+	return (TRUE);
 }
 
-/*
-** TODO: MUST REFACTOR BETTER!!!!!!
-*/
-
+// TODO: REFACTORING
 int			handle_command_line(int argc, char **argv, t_game *game)
 {
 	int is_map_data_valid;
 
 	is_map_data_valid = 0;
+	if (!is_argc_valid(argc))
+	{
+		game->err_msg.which_msg = NUM_COMMAND_LINE_INVALID;
+		return (ERROR);
+	}
 	if (argc == 2)
 	{
-		if (is_cub_file_ext_valid(argv[1]) == TRUE)
+		is_map_data_valid = verify_cub_file(argv[1], game);
+		if (is_map_data_valid != TRUE)
 		{
-			ft_putendl_fd("MAP FORMAT IS VALID", 1);
-			is_map_data_valid = read_cub_file(argv[1], game);
-			if (is_map_data_valid != TRUE)
-			{
-				return (ERROR);
-			}
-			if (!is_player_surrounded_by_walls(&game->cub_data))
-			{
-				game->err_msg.which_msg = MAP_NOT_CLOSED;
-				return (print_error_msg(&game->err_msg));
-			}
-		}
-		else
-		{
-			game->err_msg.which_msg = CUB_FILE_EXT_INVALID;
-			return (print_error_msg(&game->err_msg));
+			return (ERROR);
 		}
 	}
 	else if (argc == 3)
 	{
-		// WHEN ARGV[1] is MAP AND WHEN ARGV[2] is "––save"
-		if (is_cub_file_ext_valid(argv[1]) == TRUE &&
-			ft_strcmp(argv[2], "--save") == TRUE)
-		{
-			ft_putendl_fd("MAP FORMAT IS VALID", 1);
-			is_map_data_valid = read_cub_file(argv[1], game);
-			// TODO: READ MAP DATA
-			ft_putendl_fd("FOUND --SAVE", 1);
-			// TODO: save the first rendered image in bmp format
-		}
-		else
+		if (!should_write_bmp_image(argv))
 		{
 			game->err_msg.which_msg = SAVE_COMMAND_INVALID;
-			return (print_error_msg(&game->err_msg));
+			return (ERROR);
 		}
+		if ((is_map_data_valid = read_cub_file(argv[1], game)) != TRUE)
+		{
+			return (is_map_data_valid);
+		}
+		// TODO: READ MAP DATA
+		ft_putendl_fd("FOUND --SAVE", 1);
+		// TODO: save the first rendered image in bmp format
 	}
-	else
-	{
-		game->err_msg.which_msg = NUM_COMMAND_LINE_INVALID;
-		return (print_error_msg(&game->err_msg));
-	}
-	return (is_map_data_valid);
+	return (TRUE);
 }
