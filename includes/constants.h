@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 17:49:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/14 10:30:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 ** IT WILL CAUSE SEGMENTAION FAULT WITH MORE THAN 400 ARRAY SIZE
 */
 
-# define ROW 50
-# define COL 50
+# define ROW 100
+# define COL 100
 # define ARR_SIZE 1000
 
 /*
