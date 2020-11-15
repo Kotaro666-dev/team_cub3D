@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/15 12:23:28 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/15 19:43:14 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,9 @@ SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ./srcs/game/start_game.c
 
+INCLUDE = ./includes \
+		$(LIBS_DIR)/get_next_line \
+		$(LIBS_DIR)/libft \
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libs/libft/libft.a
@@ -66,7 +69,7 @@ $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp ./$(MLX)/$(LIBMLX) ./
-	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
+	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) -I${INCLUDE} ${OBJS} $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT)
 
 else
 					#### MINILIBX-LINUX

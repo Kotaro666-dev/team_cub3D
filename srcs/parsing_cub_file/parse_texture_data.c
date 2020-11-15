@@ -6,15 +6,15 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:14:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:16:11 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/utilities.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "structs/struct_map_data.h"
+#include "structs/struct_game.h"
+#include "utilities.h"
+#include "constants.h"
 
 void		store_tex_data(char *id, char *data, t_cub_data *cub_data)
 {

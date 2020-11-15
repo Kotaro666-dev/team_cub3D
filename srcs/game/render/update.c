@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:21:10 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:14:52 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cast_ray.h"
-#include "../../../includes/constants.h"
-#include "../../../includes/game.h"
+#include "cast_ray.h"
+#include "constants.h"
+#include "game.h"
 #include <math.h>
 
 void	update(void)

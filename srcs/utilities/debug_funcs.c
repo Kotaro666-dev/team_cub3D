@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 11:36:24 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:19:12 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/utilities.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/constants.h"
+#include "utilities.h"
+#include "libft.h"
+#include "struct_map_data.h"
+#include "constants.h"
 
 void	show_cub_data_for_debug(t_cub_data *cub_data)
 {

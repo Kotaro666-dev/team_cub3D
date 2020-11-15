@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 12:04:01 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:21:08 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "./structs/struct_rect_line.h"
-# include "./structs/struct_game.h"
+# include "struct_rect_line.h"
+# include "struct_game.h"
 
 extern int		g_map[ROWS][COLS];
 extern int		g_is_game_running;

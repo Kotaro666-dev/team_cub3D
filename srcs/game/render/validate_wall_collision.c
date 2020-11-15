@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   validate_wall_collision.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:21:22 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:14:45 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/constants.h"
-#include "../../../includes/game.h"
+#include "constants.h"
+#include "game.h"
 #include <math.h>
 
 int		has_wall_at(float x, float y)

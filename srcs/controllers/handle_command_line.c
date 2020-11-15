@@ -6,16 +6,16 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 22:38:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:12:00 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/controllers.h"
-#include "../../includes/cub3d.h"
-#include "../../includes/utilities.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
+#include "controllers.h"
+#include "cub3d.h"
+#include "utilities.h"
+#include "structs/struct_game.h"
+#include "structs/struct_error_msg.h"
+#include "constants.h"
 
 static int		can_open_cub_file(char *cub_file, t_game *game)
 {

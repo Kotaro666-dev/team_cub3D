@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   hook_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 12:03:41 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:14:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/structs/struct_game.h"
-#include "../../../includes/key_xevent_code.h"
-#include "../../../includes/game.h"
+#include "struct_game.h"
+#include "key_xevent_code.h"
+#include "game.h"
 #include <stdlib.h>
 
 int		key_pressed(int key_code, t_game *game)

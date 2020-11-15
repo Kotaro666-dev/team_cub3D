@@ -6,12 +6,12 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 16:31:13 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 16:45:35 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:19:32 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_rect_map.h"
-#include "../../includes/utilities.h"
+#include "struct_rect_map.h"
+#include "utilities.h"
 
 static void	replace_player_with_zero(t_game *game)
 {

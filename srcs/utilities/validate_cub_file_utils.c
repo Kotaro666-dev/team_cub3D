@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 20:29:07 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:17:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/utilities.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/constants.h"
+#include "utilities.h"
+#include "libft.h"
+#include "struct_map_data.h"
+#include "constants.h"
 
 int		is_len_of_data_valid(char **color_data, int valid_len)
 {

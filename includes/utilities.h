@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 11:57:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:20:09 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "./structs/struct_game.h"
-# include "./structs/struct_map_data.h"
-# include "./structs/struct_error_msg.h"
+# include "struct_game.h"
+# include "struct_map_data.h"
+# include "struct_error_msg.h"
 
 /*
 ** CREATE_RECTANGLAR_MAP.C

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:22:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:13:28 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/structs/struct_ray.h"
-#include "../../../includes/cast_ray.h"
-#include "../../../includes/constants.h"
+#include "struct_ray.h"
+#include "cast_ray.h"
+#include "constants.h"
 #include <math.h>
 
 float		normalize_angle(float ray_angle)

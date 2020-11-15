@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 22:00:21 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:18:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/utilities.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/constants.h"
+#include "struct_game.h"
+#include "utilities.h"
+#include "libft.h"
+#include "constants.h"
 
 int		can_start_reading_map(t_cub_data *cub_data)
 {

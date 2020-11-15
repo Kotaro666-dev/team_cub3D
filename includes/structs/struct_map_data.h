@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 11:36:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:22:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_MAP_DATA_H
 # define STRUCT_MAP_DATA_H
 
-# include "../constants.h"
+# include "constants.h"
 
 typedef struct		s_map_data
 {

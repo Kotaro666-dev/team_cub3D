@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   testmain.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:33 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:23:53 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:15:49 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_player.h"
-#include "../../includes/structs/struct_ray.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/constants.h"
-#include "../../includes/game.h"
+#include "struct_player.h"
+#include "struct_ray.h"
+#include "struct_game.h"
+#include "constants.h"
+#include "game.h"
 
 int		g_map[ROWS][COLS] = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1},
