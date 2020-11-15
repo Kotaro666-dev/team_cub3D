@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/08 13:20:49 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 12:06:16 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@
 # include "structs/struct_game.h"
 
 int		key_press(int keycode);
-int		close_window(t_game *game);
+// int		close_window(t_game *game);
 
 #endif

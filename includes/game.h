@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:25:59 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 12:04:01 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void			render(t_game *game);
 
 int				key_pressed(int key_code, t_game *game);
 int				key_released(int key_code, t_game *game);
-int				close(t_game *game);
+int				close_window(t_game *game);
 void			register_hook(t_game *game);
 
 

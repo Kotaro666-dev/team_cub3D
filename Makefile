@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/14 21:32:20 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/15 12:23:28 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SRCS = main.c \
 	$(UTILITIES_DIR)/read_cub_file_utils.c \
 	$(UTILITIES_DIR)/debug_funcs.c \
 	$(UTILITIES_DIR)/validate_map_utils.c \
-	$(UTILITIES_DIR)/useful_render_funcs.c \
 	$(UTILITIES_DIR)/create_rectanglar_map.c \
 	$(UTILITIES_DIR)/handle_command_line_utils.c \
 	$(PARSING_DIR)/parse_cub_elems.c \
@@ -44,7 +43,12 @@ SRCS = main.c \
 	$(CONTROLLERS_DIR)/detect_key_actions.c \
 	$(CONTROLLERS_DIR)/handle_command_line.c \
 	$(CONTROLLERS_DIR)/read_cub_file.c \
-	$(CONTROLLERS_DIR)/validate_map.c \
+	$(CONTROLLERS_DIR)/validate_map.c
+SRCS += ${shell find ./srcs/game/draw_utils/ -type f -name "*.c"}
+SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
+SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
+SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
+SRCS += ./srcs/game/start_game.c
 
 
 OBJS = $(SRCS:.c=.o)
@@ -52,29 +56,33 @@ LIBFT = ./libs/libft/libft.a
 SANITIZE = -fsanitize=address -g
 LLDB = -g
 
-# DYNAMIC MINILIBX
+
+ifdef MAC_FLAG
+					#### DYNAMIC MINILIBX
 MLX = dynamic_mlx
 LIBMLX = libmlx.dylib
 
-# MINILIBX-LINUX
-# MLX = minilibx-linux
-# LIBMLX = libmlx.a
-# LIBMLX_PATH = $(MLX)/$(LIBMLX)
-# OPTIONS = -lXext -lX11
-
-# DYNAMIC MINILIBX
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp ./$(MLX)/$(LIBMLX) ./
 	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
 
-# MINILIBX-LINUX
-# $(NAME): $(OBJS)
-# 	$(MAKE) bonus -C ./libs/libft
-# 	$(MAKE) -C ./$(MLX)
-# 	cp $(LIBMLX_PATH) ./
-# 	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+else
+					#### MINILIBX-LINUX
+MLX = minilibx-linux
+LIBMLX = libmlx.a
+LIBMLX_PATH = $(MLX)/$(LIBMLX)
+OPTIONS = -lXext -lX11
+
+$(NAME): $(OBJS)
+	$(MAKE) bonus -C ./libs/libft
+	$(MAKE) -C ./$(MLX)
+	cp $(LIBMLX_PATH) ./
+	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+
+endif
+
 
 all: $(NAME)
 
@@ -96,4 +104,17 @@ error:
 ok:
 	sh ok_test.sh
 
-.PHONY: all clean fclean re
+				# mac os compile (incomplete)
+mac:
+	make MAC_FLAG=1 all
+
+maclean:
+	make MAC_FLAG=1 clean
+
+macfclean:
+	make MAC_FLAG=1 fclean
+
+macre:
+	make MAC_FLAG=1 re
+
+.PHONY: all clean fclean re error ok mac maclean macfclean macre

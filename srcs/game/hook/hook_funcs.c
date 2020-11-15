@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:36:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 12:03:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		key_released(int key_code, t_game *game)
 	return (0);
 }
 
-int		close(t_game *game)
+int		close_window(t_game *game)
 {
 	exit(0);
 	(void)game;
