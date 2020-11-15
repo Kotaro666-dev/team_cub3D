@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 17:23:49 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 17:41:50 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,10 @@
 #include "../../../includes/constants.h"
 #include "../../../includes/colors.h"
 
-void	draw_lines(t_game *game)
+static void	draw_lines2(t_game *game)
 {
-	int		i;
-	int		j;
+	int	j;
 
-	i = 0;
-	while (i < COLS)
-	{
-		draw_line(game, init_line_info(
-			i * TILE_SIZE * MAP_SCALE,
-			0,
-			i * TILE_SIZE * MAP_SCALE,
-			HEIGHT * MAP_SCALE),
-			0xb3b3b3);
-		i++;
-	}
-	draw_line(game, init_line_info(
-		COLS * TILE_SIZE * MAP_SCALE - 1,
-		0,
-		COLS * TILE_SIZE * MAP_SCALE - 1,
-		HEIGHT * MAP_SCALE),
-		0xb3b3b3);
 	j = 0;
 	while (j < ROWS)
 	{
@@ -59,7 +41,31 @@ void	draw_lines(t_game *game)
 		0xb3b3b3);
 }
 
-void	draw_rectangle(t_game *game, int x, int y, int color)
+void		draw_lines(t_game *game)
+{
+	int		i;
+
+	i = 0;
+	while (i < COLS)
+	{
+		draw_line(game, init_line_info(
+			i * TILE_SIZE * MAP_SCALE,
+			0,
+			i * TILE_SIZE * MAP_SCALE,
+			HEIGHT * MAP_SCALE),
+			0xb3b3b3);
+		i++;
+	}
+	draw_line(game, init_line_info(
+		COLS * TILE_SIZE * MAP_SCALE - 1,
+		0,
+		COLS * TILE_SIZE * MAP_SCALE - 1,
+		HEIGHT * MAP_SCALE),
+		0xb3b3b3);
+	draw_lines2(game);
+}
+
+void		draw_rectangle(t_game *game, int x, int y, int color)
 {
 	int i;
 	int j;
@@ -67,10 +73,10 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 	x *= TILE_SIZE * MAP_SCALE;
 	y *= TILE_SIZE * MAP_SCALE;
 	i = 0;
-	while (i < TILE_SIZE)
+	while (i < TILE_SIZE * MAP_SCALE)
 	{
 		j = 0;
-		while (j < TILE_SIZE)
+		while (j < TILE_SIZE * MAP_SCALE)
 		{
 			game->image.buffer[(y + i) * WIDTH + x + j] = color;
 			j++;
@@ -79,7 +85,7 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 	}
 }
 
-void	draw_rectangles(t_game *game)
+void		draw_rectangles(t_game *game)
 {
 	int		i;
 	int		j;

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:21:55 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 17:29:22 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	render_rays(t_game *game)
 		draw_line(
 			game,
 			init_line_info(
-				g_player.x,
-				g_player.y,
-				g_rays[i].wall_hit_x,
-				g_rays[i].wall_hit_y
+				g_player.x * MAP_SCALE,
+				g_player.y * MAP_SCALE,
+				g_rays[i].wall_hit_x * MAP_SCALE,
+				g_rays[i].wall_hit_y * MAP_SCALE
 				),
 			YELLOW
 			);
@@ -52,8 +52,10 @@ void	render_rays(t_game *game)
 
 void	render_player(t_game *game)
 {
-	t_rect_info	rect;
-	
-	rect = init_rect_info(g_player.x, g_player.y, 10, 10);
-	draw_player_rect(game, rect, 0x00ff00);
+	draw_player_rect(game, init_rect_info(
+		g_player.x * MAP_SCALE,
+		g_player.y * MAP_SCALE,
+		10 * MAP_SCALE,
+		10 * MAP_SCALE),
+		0x00ff00);
 }
