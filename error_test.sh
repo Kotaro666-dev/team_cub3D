@@ -20,16 +20,16 @@ echo "error_test/error20.cub"
 
 for i in `seq 9`
 do
-echo " error_test/error2$i.cub"
+echo "error_test/error2$i.cub"
 ./cub3D error_test/error2$i.cub
 done
 
 echo "error_test/error30.cub"
 ./cub3D error_test/error30.cub
 
-for i in `seq 7`
+for i in `seq 9`
 do
-echo " error_test/error3$i.cub"
+echo "error_test/error3$i.cub"
 ./cub3D error_test/error3$i.cub
 done
 
@@ -38,7 +38,7 @@ echo "error_test/error40.cub"
 
 for i in `seq 4`
 do
-echo " error_test/error4$i.cub"
+echo "error_test/error4$i.cub"
 ./cub3D error_test/error4$i.cub
 done
 

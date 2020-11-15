@@ -23,3 +23,12 @@ do
 echo "ok_test/ok_test2$i.cub"
 ./cub3D ok_test/ok_test2$i.cub
 done
+
+echo "ok_test/ok_test_format.cub.cub"
+./cub3D ok_test/ok_test_format.cub.cub
+
+echo "ok_test/ok_test_format.ok...cub"
+./cub3D ok_test/ok_test_format.ok...cub
+
+echo "ok_test/ok_test_format.ok.cub"
+./cub3D ok_test/ok_test_format.ok.cub
