@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/15 19:43:14 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/15 22:21:01 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,14 +50,19 @@ SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ./srcs/game/start_game.c
 
-INCLUDE = ./includes \
-		$(LIBS_DIR)/get_next_line \
-		$(LIBS_DIR)/libft \
+INCLUDE = -I ./includes/ \
+			-I ./libs/get_next_line/ \
+			-I ./libs/libft/ \
+			-I ./includes/structs/
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libs/libft/libft.a
 SANITIZE = -fsanitize=address -g
 LLDB = -g
+
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
 
 
 ifdef MAC_FLAG
