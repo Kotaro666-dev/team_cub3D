@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 17:19:08 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 17:23:49 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	draw_rectangle(t_game *game, int x, int y, int color)
 	int i;
 	int j;
 
-	x *= TILE_SIZE;
-	y *= TILE_SIZE;
+	x *= TILE_SIZE * MAP_SCALE;
+	y *= TILE_SIZE * MAP_SCALE;
 	i = 0;
 	while (i < TILE_SIZE)
 	{
