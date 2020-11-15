@@ -13,6 +13,10 @@ CFLAGS = -lm -lXext -lX11
 CFLAGS += -Wall -Wextra -Werror
 SANITIZE = -g -fsanitize=address,undefined
 NAME = cub3D
+INCLUDE = -I../../includes/
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 

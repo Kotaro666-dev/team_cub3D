@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   struct_3d_projection.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 11:05:02 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 23:10:07 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/15 19:08:13 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
-
-# define WHITE 0xffffff
-# define BLACK 0x000000
-# define RED 0xff0000
-# define BLUE 0x0000ff
-# define GREEN 0x00ff00
-# define YELLOW 0xffff00
-# define ORANGE 0xe18a00
-# define PURPLE 0xff00ff
-# define L_GRAY 0xcccccc
-
-#endif
+typedef struct s_3D_prj
+{
+	float	perp_distance;
+	float	distance_prj_plane;
+	float	prjctd_wall_height;
+	int		wall_strip_height;
+	int		wall_top_pixel;
+	int		wall_bottom_pixel;
+}	t_3D_prj;
