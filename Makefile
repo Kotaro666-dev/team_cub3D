@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/15 11:58:39 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/15 12:23:28 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,19 @@ SANITIZE = -fsanitize=address -g
 LLDB = -g
 
 
-ifdef LINUX_FLAG
-#### MINILIBX-LINUX
+ifdef MAC_FLAG
+					#### DYNAMIC MINILIBX
+MLX = dynamic_mlx
+LIBMLX = libmlx.dylib
+
+$(NAME): $(OBJS)
+	$(MAKE) bonus -C ./libs/libft
+	$(MAKE) -C ./$(MLX)
+	cp ./$(MLX)/$(LIBMLX) ./
+	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
+
+else
+					#### MINILIBX-LINUX
 MLX = minilibx-linux
 LIBMLX = libmlx.a
 LIBMLX_PATH = $(MLX)/$(LIBMLX)
@@ -69,19 +80,6 @@ $(NAME): $(OBJS)
 	$(MAKE) -C ./$(MLX)
 	cp $(LIBMLX_PATH) ./
 	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
-
-
-else
-#### DYNAMIC MINILIBX
-MLX = dynamic_mlx
-LIBMLX = libmlx.dylib
-
-$(NAME): $(OBJS)
-	$(MAKE) bonus -C ./libs/libft
-	$(MAKE) -C ./$(MLX)
-	cp ./$(MLX)/$(LIBMLX) ./
-	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
-
 
 endif
 
@@ -100,19 +98,23 @@ fclean: clean
 
 re: fclean all
 
-linux:
-	make LINUX_FLAG=1 all
-
-liclean:
-	make LINUX_FLAG=1 clean
-
-lire:
-	make LINUX_FLAG=1 re
-
 error:
 	sh error_test.sh
 
 ok:
 	sh ok_test.sh
 
-.PHONY: all clean fclean re linux liclean lire
+				# mac os compile (incomplete)
+mac:
+	make MAC_FLAG=1 all
+
+maclean:
+	make MAC_FLAG=1 clean
+
+macfclean:
+	make MAC_FLAG=1 fclean
+
+macre:
+	make MAC_FLAG=1 re
+
+.PHONY: all clean fclean re error ok mac maclean macfclean macre
