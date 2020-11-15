@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 19:54:01 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 11:57:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,5 @@ int		is_data_unsigned_integer(char *str);
 int		is_ext_xpm(char *file);
 int		can_open_the_file(char *id, t_cub_data *cub_data);
 int		is_tex_ext_valid(char *id, t_cub_data *cub_data);
-
-/*
-** USEFUL_RENDER_FUNCS.C
-*/
-
-int		has_wall_at(t_cub_data *cub_data,float x, float y);
-float	normalize_angle(float ray_angle);
-float	distance_between_points(float x1, float y1, float x2, float y2);
 
 #endif
