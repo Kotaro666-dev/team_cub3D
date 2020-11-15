@@ -45,3 +45,6 @@ dynamic_mlx/mlx_window.swiftdoc
 dynamic_mlx/mlx_window.swiftmodule
 dynamic_mlx/mlx_window.swiftsourceinfo
 dynamic_mlx/mlx_image.swiftsourceinfo
+
+# minilibx-linux
+mlx-test

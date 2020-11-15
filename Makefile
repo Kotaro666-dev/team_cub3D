@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/14 21:32:20 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/15 11:44:55 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,29 +52,35 @@ LIBFT = ./libs/libft/libft.a
 SANITIZE = -fsanitize=address -g
 LLDB = -g
 
-# DYNAMIC MINILIBX
+
+ifdef LINUX_FLAG
+#### MINILIBX-LINUX
+MLX = minilibx-linux
+LIBMLX = libmlx.a
+LIBMLX_PATH = $(MLX)/$(LIBMLX)
+OPTIONS = -lXext -lX11
+
+$(NAME): $(OBJS)
+	$(MAKE) bonus -C ./libs/libft
+	$(MAKE) -C ./$(MLX)
+	cp $(LIBMLX_PATH) ./
+	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+
+
+else
+#### DYNAMIC MINILIBX
 MLX = dynamic_mlx
 LIBMLX = libmlx.dylib
 
-# MINILIBX-LINUX
-# MLX = minilibx-linux
-# LIBMLX = libmlx.a
-# LIBMLX_PATH = $(MLX)/$(LIBMLX)
-# OPTIONS = -lXext -lX11
-
-# DYNAMIC MINILIBX
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp ./$(MLX)/$(LIBMLX) ./
 	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
 
-# MINILIBX-LINUX
-# $(NAME): $(OBJS)
-# 	$(MAKE) bonus -C ./libs/libft
-# 	$(MAKE) -C ./$(MLX)
-# 	cp $(LIBMLX_PATH) ./
-# 	${CC} ${CFLAGS} ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+
+endif
+
 
 all: $(NAME)
 
@@ -90,10 +96,19 @@ fclean: clean
 
 re: fclean all
 
+linux:
+	make LINUX_FLAG=1 all
+
+liclean:
+	make LINUX_FLAG=1 clean
+
+lire:
+	make LINUX_FLAG=1 re
+
 error:
 	sh error_test.sh
 
 ok:
 	sh ok_test.sh
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re linux liclean lire
