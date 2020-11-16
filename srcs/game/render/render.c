@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:15:18 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:01:02 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,80 @@
 #include "struct_rect_line.h"
 #include "game.h"
 #include "mlx.h"
+#include "struct_3d_projection.h"
+#include <math.h>
 
 void	render(t_game *game)
 {
+	render_background(game);
+	// render_sprite(game);
+	render_3d_walls(game);
 	render_map(game);
 	render_rays(game);
 	render_player(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
+}
+
+void	set_3d_wall_info(t_3D_prj *pj, int i)
+{
+	pj->perp_distance = g_rays[i].distance *
+		cos(g_rays[i].ray_angle - g_player.rotation_angle);
+	pj->distance_prj_plane = (WIDTH / 2) / tan(FOV_ANGLE / 2);
+	pj->prjctd_wall_height = (TILE_SIZE / pj->perp_distance) *
+		pj->distance_prj_plane;
+	//
+	pj->wall_strip_height = (int)pj->prjctd_wall_height;
+	//
+	pj->wall_top_pixel = (HEIGHT / 2) - (pj->wall_strip_height / 2);
+	pj->wall_top_pixel = (pj->wall_top_pixel < 0)
+		? 0 : pj->wall_top_pixel;
+	pj->wall_bottom_pixel = (HEIGHT / 2) + (pj->wall_strip_height / 2);
+	pj->wall_bottom_pixel =
+		(pj->wall_bottom_pixel > HEIGHT ? HEIGHT : pj->wall_bottom_pixel);
+}
+
+void	render_3d_walls(t_game *game)
+{
+	int			i;
+	int			j;
+	t_3D_prj	pj;
+
+	i = 0;
+	while (i < NUM_RAYS)
+	{
+		set_3d_wall_info(&pj, i);
+		j = pj.wall_top_pixel;
+		while (j < pj.wall_bottom_pixel)
+		{
+			my_mlx_pixel_put(game, i, j,
+				(g_rays[i].was_hit_vertical) ? WHITE : L_GRAY);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	render_background(t_game *game)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	while (x < WIDTH)
+	{
+		y = 0;
+		while (y < HEIGHT / 2)
+		{
+			my_mlx_pixel_put(game, x, y, ORANGE);
+			y++;
+		}
+		while (y < HEIGHT)
+		{
+			my_mlx_pixel_put(game, x, y, PURPLE);
+			y++;
+		}
+		x++;
+	}
 }
 
 void	render_map(t_game *game)
@@ -33,6 +100,7 @@ void	render_map(t_game *game)
 void	render_rays(t_game *game)
 {
 	int	i;
+
 	i = 0;
 	while (i < NUM_RAYS)
 	{
@@ -42,10 +110,8 @@ void	render_rays(t_game *game)
 				g_player.x * MAP_SCALE,
 				g_player.y * MAP_SCALE,
 				g_rays[i].wall_hit_x * MAP_SCALE,
-				g_rays[i].wall_hit_y * MAP_SCALE
-				),
-			YELLOW
-			);
+				g_rays[i].wall_hit_y * MAP_SCALE),
+			YELLOW);
 		i++;
 	}
 }

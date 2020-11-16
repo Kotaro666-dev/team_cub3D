@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:21:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:59:26 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ t_line_info		init_line_info(double x1, double y1, double x2, double y2);
 void			render_player(t_game *game);
 void			render_rays(t_game *game);
 void			render_map(t_game *game);
+void			render_background(t_game *game);
+void			render_3d_walls(t_game *game);
+void			render_sprite(t_game *game);
 void			render(t_game *game);
 
 
