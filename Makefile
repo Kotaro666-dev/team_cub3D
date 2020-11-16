@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/15 12:23:28 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/16 22:19:48 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = main.c \
 	$(UTILITIES_DIR)/useful_funcs.c \
 	$(UTILITIES_DIR)/validate_cub_file_utils.c \
 	$(UTILITIES_DIR)/read_cub_file_utils.c \
+	$(UTILITIES_DIR)/read_cub_map_utils.c \
 	$(UTILITIES_DIR)/debug_funcs.c \
 	$(UTILITIES_DIR)/validate_map_utils.c \
 	$(UTILITIES_DIR)/create_rectanglar_map.c \
@@ -43,6 +44,7 @@ SRCS = main.c \
 	$(CONTROLLERS_DIR)/detect_key_actions.c \
 	$(CONTROLLERS_DIR)/handle_command_line.c \
 	$(CONTROLLERS_DIR)/read_cub_file.c \
+	$(CONTROLLERS_DIR)/read_cub_map.c \
 	$(CONTROLLERS_DIR)/validate_map.c
 SRCS += ${shell find ./srcs/game/draw_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}

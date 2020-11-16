@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:56 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 22:20:13 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:13:47 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int		handle_command_line(int argc, char **argv, t_game *game);
 int		read_cub_file(t_game *game);
 int		parse_cub_elems(char **data, t_game *game);
-int		check_contents_in_line(char *line, t_cub_data *cub_data);
 int		validate_map(t_game *game);
+int		read_cub_map(char **line, t_game *game);
 
 #endif

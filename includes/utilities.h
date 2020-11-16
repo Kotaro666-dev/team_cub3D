@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 11:57:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/16 22:27:56 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,18 @@ int		print_error_msg(t_err_msg *err_msg);
 ** READ_CUB_FILES_UTILS.C
 */
 
+int		err_action_with_free(t_game *game);
+int		did_reach_eof(t_game *game);
 int		can_start_reading_map(t_cub_data *cub_data);
-int		should_ignore_empty_line(char **line);
 int		did_collect_all_must_data(t_cub_data *cub_data);
+
+/*
+** READ_CUB_FILES_UTILS.C
+*/
+
+void	store_player_data(t_cub_data *cub_data, int pos_x, char orient);
+void	update_max_x_on_map(t_cub_data *cub_data, int x);
+int		have_already_found_player(t_cub_data *cub_data);
 
 /*
 ** USEFUL_FUNCS.C
