@@ -6,13 +6,13 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:49 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/11 10:16:07 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:18:42 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/utilities.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/constants.h"
+#include "utilities.h"
+#include "struct_map_data.h"
+#include "constants.h"
 
 static void	init_resolution(t_cub_data *cub_elems)
 {

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:50:05 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 21:08:19 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:20:24 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "limits.h"
 # include "utilities.h"
-# include "../libs/libft/libft.h"
-# include "./structs/struct_map_data.h"
-# include "./structs/struct_ray.h"
+# include "libft.h"
+# include "struct_map_data.h"
+# include "struct_ray.h"
 
 #endif

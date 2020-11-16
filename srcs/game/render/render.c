@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 17:29:22 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:15:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/colors.h"
-#include "../../../includes/structs/struct_game.h"
-#include "../../../includes/structs/struct_rect_line.h"
-#include "../../../includes/game.h"
-#include "../../../minilibx-linux/mlx.h"
+#include "colors.h"
+#include "struct_game.h"
+#include "struct_rect_line.h"
+#include "game.h"
+#include "mlx.h"
 
 void	render(t_game *game)
 {

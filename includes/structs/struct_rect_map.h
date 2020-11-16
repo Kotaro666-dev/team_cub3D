@@ -1,7 +1,7 @@
 #ifndef STRUCT_RECT_MAP_H
 # define STRUCT_RECT_MAP_H
 
-# include "../constants.h"
+# include "constants.h"
 
 typedef struct	s_rect_map
 {

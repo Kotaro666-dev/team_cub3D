@@ -6,19 +6,19 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 22:35:26 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:12:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../libs/get_next_line/get_next_line.h"
-#include "../../includes/utilities.h"
-#include "../../includes/controllers.h"
-#include "../../includes/parsing.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "struct_game.h"
+#include "struct_map_data.h"
+#include "get_next_line.h"
+#include "utilities.h"
+#include "controllers.h"
+#include "parsing.h"
+#include "structs/struct_error_msg.h"
+#include "constants.h"
 
 static int		read_cub_elems(char **line, t_game *game)
 {

@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:36:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:16:52 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/parsing.h"
-#include "../../includes/constants.h"
+#include "struct_map_data.h"
+#include "struct_game.h"
+#include "parsing.h"
+#include "constants.h"
 
 static int		is_clr_int_valid(char **color_data)
 {

@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 09:21:57 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:18:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "structs/struct_game.h"
+#include "structs/struct_error_msg.h"
+#include "constants.h"
 
 static char		*which_error_msg_else(t_err_msg *err_msg)
 {

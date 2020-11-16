@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bmp.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:52:41 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/28 16:40:07 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:21:49 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BMP_H
 
 # include <unistd.h>
-# include "../../libs/libft/libft.h"
+# include "libft.h"
 # include "utilities.h"
 
 /*
