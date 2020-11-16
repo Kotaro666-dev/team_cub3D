@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 23:08:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/16 18:27:47 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void			render_player(t_game *game);
 void			render_rays(t_game *game);
 void			render_map(t_game *game);
 void			render_background(t_game *game);
-void			render_3D_walls(t_game *game);
+void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
 void			render(t_game *game);
 
