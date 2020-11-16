@@ -6,16 +6,16 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/16 18:30:50 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/16 22:01:02 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/colors.h"
-#include "../../../includes/structs/struct_game.h"
-#include "../../../includes/structs/struct_rect_line.h"
-#include "../../../includes/structs/struct_3d_projection.h"
-#include "../../../includes/game.h"
-#include "../../../minilibx-linux/mlx.h"
+#include "colors.h"
+#include "struct_game.h"
+#include "struct_rect_line.h"
+#include "game.h"
+#include "mlx.h"
+#include "struct_3d_projection.h"
 #include <math.h>
 
 void	render(t_game *game)
@@ -56,7 +56,7 @@ void	render_3d_walls(t_game *game)
 	i = 0;
 	while (i < NUM_RAYS)
 	{
-		set_3D_wall_info(&pj, i);
+		set_3d_wall_info(&pj, i);
 		j = pj.wall_top_pixel;
 		while (j < pj.wall_bottom_pixel)
 		{

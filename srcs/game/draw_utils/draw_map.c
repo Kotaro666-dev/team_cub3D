@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 17:41:50 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:14:17 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 ** githubから拝借した関数達。マップ描画に使われる
 */
 
-#include "../../../includes/game.h"
-#include "../../../includes/constants.h"
-#include "../../../includes/colors.h"
+#include "game.h"
+#include "constants.h"
+#include "colors.h"
 
 static void	draw_lines2(t_game *game)
 {

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 12:02:23 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:19:50 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "includes/keys.h"
-#include "includes/controllers.h"
-#include "includes/structs/struct_game.h"
-#include "includes/utilities.h"
-#include "includes/constants.h"
-#include "includes/game.h"
+#include "cub3d.h"
+#include "keys.h"
+#include "controllers.h"
+#include "structs/struct_game.h"
+#include "utilities.h"
+#include "constants.h"
+#include "game.h"
 
 int		g_map[ROWS][COLS] = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1},

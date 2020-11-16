@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/12 14:01:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:17:42 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libs/libft/libft.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/utilities.h"
-#include "../../includes/constants.h"
+#include "libft.h"
+#include "struct_map_data.h"
+#include "utilities.h"
+#include "constants.h"
 
 static void	is_this_coord_safe(t_cub_data *cub_data, int y, int x, int *is_safe)
 {

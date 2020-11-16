@@ -6,6 +6,12 @@ SRCS += ${shell find ./cast_ray/ -type f -name "*.c"}
 SRCS += start_game.c
 SRCS += testmain.c
 
+INCLUDE = -I./../../includes/ \
+			-I./../../libs/get_next_line/ \
+			-I./../../libs/libft/ \
+			-I./../../includes/structs/ \
+			-I./../../minilibx-linux/
+
 OBJS = ${SRCS:%.c=%.o}
 LIBMLX = ./../../libmlx.a
 CC = gcc
@@ -13,15 +19,14 @@ CFLAGS = -lm -lXext -lX11
 CFLAGS += -Wall -Wextra -Werror
 SANITIZE = -g -fsanitize=address,undefined
 NAME = cub3D
-INCLUDE = -I../../includes/
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBMLX)
-	${CC} -o ${NAME} ${OBJS} ${LIBMLX} ${CFLAGS} ${SANITIZE}
+	${CC} -o ${NAME} ${INCLUDE} ${OBJS} ${LIBMLX} ${CFLAGS} ${SANITIZE}
 
 clean:
 	rm -f ${OBJS}

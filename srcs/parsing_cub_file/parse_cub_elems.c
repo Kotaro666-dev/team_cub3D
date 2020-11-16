@@ -6,15 +6,15 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:36:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:16:39 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_game.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/utilities.h"
-#include "../../includes/parsing.h"
-#include "../../includes/constants.h"
+#include "struct_game.h"
+#include "libft.h"
+#include "utilities.h"
+#include "parsing.h"
+#include "constants.h"
 
 static int		is_len_of_line_correct(char **data, int valid_len)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_info_func.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:54:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 18:44:27 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:15:24 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ** その構造体を作るのを簡単にする補助関数
 */
 
-#include "../../../includes/structs/struct_rect_line.h"
+#include "struct_rect_line.h"
 
 t_rect_info	init_rect_info(int x, int y, int width, int height)
 {
