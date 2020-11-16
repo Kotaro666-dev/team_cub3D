@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 23:20:24 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/16 18:06:01 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	render_3D_walls(t_game *game)
 		pj.wall_top_pixel = (HEIGHT / 2) - (pj.wall_strip_height / 2);
 		pj.wall_top_pixel = (pj.wall_top_pixel < 0)
 			? 0 : pj.wall_top_pixel;
-		pj.wall_bottom_pixel = (pj.wall_bottom_pixel > HEIGHT)
-			? HEIGHT : pj.wall_bottom_pixel;
+		pj.wall_bottom_pixel = (HEIGHT / 2) + (pj.wall_strip_height / 2);
+		pj.wall_bottom_pixel = (pj.wall_bottom_pixel > HEIGHT ? HEIGHT : pj.wall_bottom_pixel);
 		
 		j = pj.wall_top_pixel;
 		while (j < pj.wall_bottom_pixel)
