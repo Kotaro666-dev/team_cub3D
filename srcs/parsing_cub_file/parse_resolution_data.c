@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 20:31:49 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:16:20 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/utilities.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "structs/struct_game.h"
+#include "utilities.h"
+#include "constants.h"
 
 static void		store_rez_data(LL width, LL height, t_cub_data *cub_data)
 {

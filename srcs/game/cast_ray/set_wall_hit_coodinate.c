@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   set_wall_hit_coodinate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 22:14:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:13:51 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/cast_ray.h"
-#include "../../../includes/constants.h"
-#include "../../../includes/game.h"
+#include "cast_ray.h"
+#include "constants.h"
+#include "game.h"
 
 
 /*

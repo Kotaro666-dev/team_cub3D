@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 12:06:16 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:20:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define KEY_ARROW_RIGHT		123
 # define KEY_ARROW_LEFT			124
 
-# include "structs/struct_game.h"
+# include "struct_game.h"
 
 int		key_press(int keycode);
 // int		close_window(t_game *game);

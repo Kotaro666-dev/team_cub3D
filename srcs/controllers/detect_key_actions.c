@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   detect_key_actions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 12:06:01 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 19:11:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/keys.h"
-#include "../../includes/cub3d.h"
-#include "../../includes/constants.h"
+#include "keys.h"
+#include "cub3d.h"
+#include "constants.h"
 // #include "../../includes/structs/struct_game.h"
 
 // int				key_press(int keycode)

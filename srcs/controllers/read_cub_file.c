@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../libs/get_next_line/get_next_line.h"
-#include "../../includes/utilities.h"
-#include "../../includes/controllers.h"
-#include "../../includes/parsing.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "struct_game.h"
+#include "struct_map_data.h"
+#include "get_next_line.h"
+#include "utilities.h"
+#include "controllers.h"
+#include "parsing.h"
+#include "structs/struct_error_msg.h"
+#include "constants.h"
 
 static int		read_cub_elements(char **line, t_game *game)
 {

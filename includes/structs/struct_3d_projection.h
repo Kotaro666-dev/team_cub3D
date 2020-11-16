@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.h                                       :+:      :+:    :+:   */
+/*   struct_3d_projection.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 20:50:05 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:20:24 by kkamashi         ###   ########.fr       */
+/*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/15 19:08:13 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCASTING_H
-# define RAYCASTING_H
-
-# include "limits.h"
-# include "utilities.h"
-# include "libft.h"
-# include "struct_map_data.h"
-# include "struct_ray.h"
-
-#endif
+typedef struct s_3D_prj
+{
+	float	perp_distance;
+	float	distance_prj_plane;
+	float	prjctd_wall_height;
+	int		wall_strip_height;
+	int		wall_top_pixel;
+	int		wall_bottom_pixel;
+}	t_3D_prj;

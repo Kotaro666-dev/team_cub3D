@@ -52,6 +52,20 @@ SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ./srcs/game/start_game.c
 
+INCLUDE = -I./includes/ \
+			-I./libs/get_next_line/ \
+			-I./libs/libft/ \
+			-I./includes/structs/ \
+
+ifdef MAC_FLAG
+
+INCLUDE += -I./dynamic_mlx/
+
+else
+
+INCLUDE += -I./minilibx-linux/
+
+endif
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libs/libft/libft.a
@@ -59,16 +73,22 @@ SANITIZE = -fsanitize=address -g
 LLDB = -g
 
 
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
+
+
 ifdef MAC_FLAG
 					#### DYNAMIC MINILIBX
 MLX = dynamic_mlx
 LIBMLX = libmlx.dylib
 
+
+
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp ./$(MLX)/$(LIBMLX) ./
-	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT) $(SRCS)
+	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) -I${INCLUDE} ${OBJS} $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT)
 
 else
 					#### MINILIBX-LINUX

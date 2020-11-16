@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
+#include "cub3d.h"
+#include "structs/struct_game.h"
+#include "structs/struct_error_msg.h"
+#include "constants.h"
 
 static char		*which_error_msg_else(t_err_msg *err_msg)
 {

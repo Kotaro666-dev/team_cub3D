@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/utilities.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/constants.h"
+#include "struct_game.h"
+#include "utilities.h"
+#include "libft.h"
+#include "constants.h"
 
 int		err_action_with_free(t_game *game)
 {

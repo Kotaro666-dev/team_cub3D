@@ -18,9 +18,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "./structs/struct_game.h"
-# include "./structs/struct_map_data.h"
-# include "./structs/struct_error_msg.h"
+# include "struct_game.h"
+# include "struct_map_data.h"
+# include "struct_error_msg.h"
 
 /*
 ** CREATE_RECTANGLAR_MAP.C

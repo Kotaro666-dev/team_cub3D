@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libs/libft/libft.h"
-#include "../../includes/controllers.h"
-#include "../../includes/structs/struct_map_data.h"
-#include "../../includes/utilities.h"
-#include "../../includes/constants.h"
+#include "libft.h"
+#include "controllers.h"
+#include "struct_map_data.h"
+#include "utilities.h"
+#include "constants.h"
 
 /*
 ** ADDED 2 POX_X AND P0S_Y

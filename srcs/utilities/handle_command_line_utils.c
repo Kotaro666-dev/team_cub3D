@@ -6,15 +6,15 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:51:57 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/14 22:28:23 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:18:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/utilities.h"
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/structs/struct_error_msg.h"
-#include "../../includes/constants.h"
-#include "../../includes/cub3d.h"
+#include "utilities.h"
+#include "struct_game.h"
+#include "struct_error_msg.h"
+#include "constants.h"
+#include "cub3d.h"
 
 int	is_cub_file_ext_valid(char *format)
 {

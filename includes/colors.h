@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:05:02 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/13 11:05:33 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/15 23:10:07 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 # define YELLOW 0xffff00
 # define ORANGE 0xe18a00
 # define PURPLE 0xff00ff
+# define L_GRAY 0xcccccc
 
 #endif
