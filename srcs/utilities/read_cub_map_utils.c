@@ -6,14 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:17:04 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 22:27:44 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:44:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/structs/struct_game.h"
-#include "../../includes/utilities.h"
-#include "../../libs/libft/libft.h"
-#include "../../includes/constants.h"
+#include "struct_game.h"
+#include "utilities.h"
+#include "libft.h"
+#include "constants.h"
 
 void	store_player_data(t_cub_data *cub_data, int pos_x, char orient)
 {
