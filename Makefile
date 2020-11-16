@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/15 22:21:01 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/16 20:58:41 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,20 @@ SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ./srcs/game/start_game.c
 
-INCLUDE = -I ./includes/ \
-			-I ./libs/get_next_line/ \
-			-I ./libs/libft/ \
-			-I ./includes/structs/
+INCLUDE = -I./includes/ \
+			-I./libs/get_next_line/ \
+			-I./libs/libft/ \
+			-I./includes/structs/ \
+
+ifdef MAC_FLAG
+
+INCLUDE += -I./dynamic_mlx/
+
+else
+
+INCLUDE += -I./minilibx-linux/
+
+endif
 
 OBJS = $(SRCS:.c=.o)
 LIBFT = ./libs/libft/libft.a
@@ -69,6 +79,8 @@ ifdef MAC_FLAG
 					#### DYNAMIC MINILIBX
 MLX = dynamic_mlx
 LIBMLX = libmlx.dylib
+
+
 
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
