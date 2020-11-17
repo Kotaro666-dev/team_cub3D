@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:12:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:15:35 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "structs/struct_error_msg.h"
 #include "constants.h"
 
-static int		read_cub_elems(char **line, t_game *game)
+static int		read_cub_elements(char **line, t_game *game)
 {
 	int		is_line_data_valid;
 	char	**splitted_line;
@@ -31,77 +31,7 @@ static int		read_cub_elems(char **line, t_game *game)
 	return (is_line_data_valid);
 }
 
-static int		is_size_of_line_too_big(char **line)
-{
-	if (ft_strlen(*line) > COL)
-	{
-		return (TRUE);
-	}
-	else
-	{
-		return (FALSE);
-	}
-}
-
-static int		read_cub_map(char **line, t_game *game)
-{
-	int			index;
-
-	index = game->cub_data.map_data.max_y;
-	if (is_size_of_line_too_big(line))
-	{
-		game->err_msg.which_msg = MAP_ERROR;
-		return (ERROR);
-	}
-	if (should_ignore_empty_line(line))
-	{
-		;
-	}
-	else if (*line)
-	{
-		if (!check_contents_in_line(*line, &game->cub_data))
-		{
-			game->err_msg.which_msg = MAP_ERROR;
-			return (ERROR);
-		}
-		ft_strlcpy(game->cub_data.map_data.map[index], *line, ARR_SIZE);
-		game->cub_data.map_data.has_started_reading_map = TRUE;
-		game->cub_data.map_data.max_y++;
-	}
-	else
-	{
-		game->err_msg.which_msg = MAP_ERROR;
-		return (ERROR);
-	}
-	return (TRUE);
-}
-
-static int		err_action_with_free(t_game *game)
-{
-	if (*game->gnl.line)
-	{
-		free(game->gnl.line);
-		game->gnl.line = NULL;
-	}
-	return (ERROR);
-}
-
-static int		did_reach_eof(t_game *game)
-{
-	if (game->gnl.rv == 0)
-	{
-		if (!did_collect_all_must_data(&game->cub_data))
-		{
-			game->err_msg.which_msg = INSUFFICIENT_DATA;
-			return (err_action_with_free(game));
-		}
-		game->cub_data.map_data.map[game->cub_data.map_data.max_y][0] = '\0';
-		return (TRUE);
-	}
-	return (FALSE);
-}
-
-static int		get_next_lines(t_game *game)
+static int		read_file_line_by_line(t_game *game)
 {
 	if ((game->gnl.rv = get_next_line(game->gnl.fd, &game->gnl.line)) == ERROR)
 	{
@@ -115,7 +45,7 @@ int				read_cub_file(t_game *game)
 {
 	while (TRUE)
 	{
-		if (get_next_lines(game) == ERROR)
+		if (read_file_line_by_line(game) == ERROR)
 		{
 			return (ERROR);
 		}
@@ -126,7 +56,7 @@ int				read_cub_file(t_game *game)
 		}
 		else
 		{
-			if (read_cub_elems(&game->gnl.line, game) == ERROR)
+			if (read_cub_elements(&game->gnl.line, game) == ERROR)
 				return (err_action_with_free(game));
 		}
 		free(game->gnl.line);

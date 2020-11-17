@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:18:15 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:45:12 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 		msg = "COULDN'T FIND SOME FILE FOR TEXTURES!";
 	else if (err_msg->which_msg == MAP_ERROR)
 		msg = "MAP DATA IS INVALID!";
+	else if (err_msg->which_msg == MAP_TOO_BIG)
+		msg = "MAP DATA IS TOO BIG! PLEASE MAKE IT SMALLER!";
 	else if (err_msg->which_msg == MAP_NOT_CLOSED)
 		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS";
 	else if (err_msg->which_msg == NOT_FOUND_PLAYER)

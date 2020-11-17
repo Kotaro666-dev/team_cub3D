@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:13:01 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:11:16 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,6 @@
 #include "struct_map_data.h"
 #include "utilities.h"
 #include "constants.h"
-
-static void	store_player_data(t_cub_data *cub_data, int pos_x, char orient)
-{
-	cub_data->map_data.have_found_player = TRUE;
-	cub_data->map_data.player_pos_x = pos_x;
-	cub_data->map_data.player_pos_y = cub_data->map_data.p_pos_y_tracker;
-	cub_data->map_data.player_orient = orient;
-}
-
-static void	update_max_x_on_map(t_cub_data *cub_data, int x)
-{
-	if (x > cub_data->map_data.max_x)
-	{
-		cub_data->map_data.max_x = x;
-	}
-}
-
-int			check_contents_in_line(char *line, t_cub_data *cub_data)
-{
-	int		x;
-	char	c;
-
-	x = 0;
-	while (line[x])
-	{
-		c = line[x];
-		if (c == '0' || c == '1' || c == '2' || c == ' ')
-		{
-			;
-		}
-		else if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
-		{
-			if (cub_data->map_data.have_found_player)
-			{
-				return (FALSE);
-			}
-			store_player_data(cub_data, x, c);
-		}
-		else
-			return (FALSE);
-		x++;
-	}
-	update_max_x_on_map(cub_data, x);
-	cub_data->map_data.p_pos_y_tracker++;
-	return (TRUE);
-}
 
 /*
 ** ADDED 2 POX_X AND P0S_Y
