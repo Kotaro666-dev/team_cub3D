@@ -36,10 +36,19 @@ done
 echo "error_test/error40.cub"
 ./cub3D error_test/error40.cub
 
-for i in `seq 4`
+for i in `seq 9`
 do
 echo "error_test/error4$i.cub"
 ./cub3D error_test/error4$i.cub
+done
+
+echo "error_test/error50.cub"
+./cub3D error_test/error50.cub
+
+for i in `seq 1`
+do
+echo "error_test/error5$i.cub"
+./cub3D error_test/error5$i.cub
 done
 
 # WRONG FORMAT
