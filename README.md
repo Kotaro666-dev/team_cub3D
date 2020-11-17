@@ -23,7 +23,6 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 - 始める前にgit pull origin mainでアップデート。
 
 # 全体でのTODOリスト
-ボイスチャットで話す
 
 # 終わっているパート
 ## rnakai
@@ -37,17 +36,19 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 
 # 残りのパート
 
-1. Rayのキャスティング
-2. textureの読み込み
+1. Rayのキャスティング -> DONE
+2. textureの読み込み -> NOW by rnakai
 3. sprite
-4. BMPファイルへの出力
+4. BMPファイルへの出力 -> NOW by kkamashi
 5. normチェック
 6. 最終的なエラーチェック
 
 ## rnakaiのパート
-1. 描画のところを引き続きやる（目標：今週の日曜日まで）
+1. 描画のところを引き続きやる -> DONE
+2. textureの貼り付け -> NOW
 
 ## kkamashiのパート
-1. マップデータを長方形に整形（目標：明日）
-2. bmpファイルを作る関数（）
+1. マップデータを長方形に整形 -> DONE
+2. bmpファイルを作る関数
 3. textureを貼る勉強
+4. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める
