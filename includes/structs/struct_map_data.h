@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:22:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:56:28 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_clr_floor
 	int				red;
 	int				green;
 	int				blue;
+	char			hex[10];
 }					t_clr_floor;
 
 typedef struct		s_clr_ceiling
@@ -83,6 +84,7 @@ typedef struct		s_clr_ceiling
 	int				red;
 	int				green;
 	int				blue;
+	char			hex[10];
 }					t_clr_ceiling;
 
 typedef struct		s_cub_data
