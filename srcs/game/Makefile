@@ -34,7 +34,9 @@ clean:
 fclean: clean
 	rm -f ./cub3D
 
+re: fclean all
+
 run:
 	./${NAME}
 
-.PHONY: all clean fclean run
+.PHONY: all clean fclean re run

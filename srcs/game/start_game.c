@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:17:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/18 12:19:38 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	initialize_window(t_game *game)
 
 void	setup(void)
 {
-	g_player.x = WIDTH / 2;
-	g_player.y = HEIGHT / 2;
+	g_player.x = COLS * TILE_SIZE / 2;
+	g_player.y = ROWS * TILE_SIZE / 2;
 	g_player.width = 5;
 	g_player.height = 5;
 	g_player.turn_direction = 0; //-1 if left, +1 if right

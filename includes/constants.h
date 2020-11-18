@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 17:33:04 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 13:28:16 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,12 @@
 # define COLS 20
 
 
-# define WIDTH (COLS * TILE_SIZE)
-# define HEIGHT (ROWS * TILE_SIZE)
+# define WIDTH 608
+# define HEIGHT 384
 # define MAP_SCALE 0.3
+
+// WIDTH = COLS * TILE_SIZE
+// HEIGT = ROWS * TILE_SIZE
 
 # define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 

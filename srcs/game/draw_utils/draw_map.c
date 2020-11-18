@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:14:17 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/18 13:00:53 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "constants.h"
 #include "colors.h"
 
-static void	draw_lines2(t_game *game)
+void		draw_horizontal_lines(t_game *game)
 {
 	int	j;
 
@@ -28,7 +28,7 @@ static void	draw_lines2(t_game *game)
 		draw_line(game, init_line_info(
 			0,
 			j * TILE_SIZE * MAP_SCALE,
-			WIDTH * MAP_SCALE,
+			COLS * TILE_SIZE * MAP_SCALE,
 			j * TILE_SIZE * MAP_SCALE),
 			0xb3b3b3);
 		j++;
@@ -36,12 +36,12 @@ static void	draw_lines2(t_game *game)
 	draw_line(game, init_line_info(
 		0,
 		ROWS * TILE_SIZE * MAP_SCALE - 1,
-		WIDTH * MAP_SCALE,
+		COLS * TILE_SIZE * MAP_SCALE,
 		ROWS * TILE_SIZE * MAP_SCALE - 1),
 		0xb3b3b3);
 }
 
-void		draw_lines(t_game *game)
+void		draw_vertical_lines(t_game *game)
 {
 	int		i;
 
@@ -52,7 +52,7 @@ void		draw_lines(t_game *game)
 			i * TILE_SIZE * MAP_SCALE,
 			0,
 			i * TILE_SIZE * MAP_SCALE,
-			HEIGHT * MAP_SCALE),
+			ROWS * TILE_SIZE * MAP_SCALE),
 			0xb3b3b3);
 		i++;
 	}
@@ -60,9 +60,8 @@ void		draw_lines(t_game *game)
 		COLS * TILE_SIZE * MAP_SCALE - 1,
 		0,
 		COLS * TILE_SIZE * MAP_SCALE - 1,
-		HEIGHT * MAP_SCALE),
+		ROWS * TILE_SIZE * MAP_SCALE),
 		0xb3b3b3);
-	draw_lines2(game);
 }
 
 void		draw_rectangle(t_game *game, int x, int y, int color)
@@ -78,7 +77,11 @@ void		draw_rectangle(t_game *game, int x, int y, int color)
 		j = 0;
 		while (j < TILE_SIZE * MAP_SCALE)
 		{
-			game->image.buffer[(y + i) * WIDTH + x + j] = color;
+			my_mlx_pixel_put(
+				game,
+				x + i,
+				y + j,
+				color);
 			j++;
 		}
 		i++;
