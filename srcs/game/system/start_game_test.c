@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 16:54:50 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 17:27:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	start_game(t_game *game)
 {
 	initialize_window(game);
-	setup(); //initializing by putting every global var
+	setup(game); //initializing by putting every global var
 	register_hook(game); //calling main loop inside this func
 	mlx_loop(game->mlx);
 	mlx_destroy_image(game->mlx, game->image.img);
@@ -34,8 +34,9 @@ void	initialize_window(t_game *game)
 	game->image.buffer = (int *)mlx_get_data_addr(game->image.img, &game->image.bpp, &game->image.size_line, &game->image.endian);
 }
 
-void	setup(void)
+void	setup(t_game *game)
 {
+	(void)game;
 	g_player.x = WIDTH / 2;
 	g_player.y = HEIGHT / 2;
 	g_player.width = 5;

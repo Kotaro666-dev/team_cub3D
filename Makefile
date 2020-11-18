@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/16 22:19:48 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/18 17:30:50 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRCS += ${shell find ./srcs/game/draw_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
-SRCS += ./srcs/game/start_game.c
+SRCS += ${shell find ./srcs/game/system/ -type f -name "*.c" -type f -not -name "start_game_test.c"}
 
 INCLUDE = -I./includes/ \
 			-I./libs/get_next_line/ \
