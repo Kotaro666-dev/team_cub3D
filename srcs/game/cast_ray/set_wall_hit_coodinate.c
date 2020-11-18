@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_wall_hit_coodinate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:13:51 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:17:47 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void		hrz_set_first_intercept(t_cast_ray_var *hrz,
 void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 				t_cast_ray_var_common *cmn)
 {
-	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= WIDTH
-		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= HEIGHT)
+	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= MAP_WIDTH
+		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= MAP_HEIGHT)
 	{
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
@@ -116,8 +116,8 @@ void		vrt_set_first_intercept(t_cast_ray_var *vrt,
 void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 				t_cast_ray_var_common *cmn)
 {
-	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= WIDTH
-		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= HEIGHT)
+	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= MAP_WIDTH
+		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= MAP_HEIGHT)
 	{
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);
