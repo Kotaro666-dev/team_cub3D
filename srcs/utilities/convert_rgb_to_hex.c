@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_rgb_to_hex.c                               :+:      :+:    :+:   */
+/*   create_hexadecimal_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:28:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/18 14:33:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/18 17:02:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 #include "libft.h"
 #include "utilities.h"
 
-static char	*decToHexa(int color)
+static char	*convert_dec_to_hex(int color)
 {
 	char	hexaDeciNum[3];
 	char	*hexCode;
 	int		i;
 	int		temp;
 
-	if (!(hexCode = (char *)malloc(sizeof(char) * (2 + 1))))
+	if (!(hexCode = ft_calloc(3, sizeof(char))))
 		return (NULL);
 	i = 0;
 	temp = 0;
+	if (color == 0)
+		ft_strlcpy(hexCode, "00", 3);
 	while (color != 0)
 	{
 		temp = color % 16;
@@ -33,7 +35,7 @@ static char	*decToHexa(int color)
 		else
 			hexaDeciNum[i] = temp + 55;
 		i++;
-		color = color / 16;
+		color /= 16;
 	}
 	hexaDeciNum[2] = '\0';
 	if (i == 2)
@@ -46,43 +48,57 @@ static char	*decToHexa(int color)
 		hexCode[0] = '0';
 		hexCode[1] = hexaDeciNum[0];
 	}
-	else if (i == 0)
-		ft_strlcpy(hexCode, "00", 2);
+	hexCode[2] = '\0';
 	return (hexCode);
 }
 
-static void	append_prefix_0x(char *hex)
+static void	append_prefix_hex(char *hex)
 {
 	hex[0] = '0';
 	hex[1] = 'x';
 }
 
-static char			*convert_rgb_to_hex(int red, int green, int blue)
+static char			*create_hexadecimal_color(int red, int green, int blue)
 {
 	char *hexCode;
 	char *temp;
 
-	if (!(hexCode = (char *)malloc(sizeof(char) * (8 + 1))))
+	if (!(hexCode = ft_calloc(9, sizeof(char))))
 		return (NULL);
-	append_prefix_0x(hexCode);
-	temp = decToHexa(red);
+	append_prefix_hex(hexCode);
+	if (!(temp = convert_dec_to_hex(red)))
+		return (NULL);
 	ft_strlcat(hexCode, temp, 9);
 	free(temp);
-	temp = decToHexa(green);
+	if (!(temp = convert_dec_to_hex(green)))
+		return (NULL);
 	ft_strlcat(hexCode, temp, 9);
 	free(temp);
-	temp = decToHexa(blue);
+	if (!(temp = convert_dec_to_hex(blue)))
+		return (NULL);
 	ft_strlcat(hexCode, temp, 9);
 	free(temp);
 	temp = NULL;
 	hexCode[8] = '\0';
-	// どうやらここのhexcodeで使用しているメモリを開放していないことが原因？
 	return (hexCode);
 }
 
-void		set_hexadecimal_color(t_cub_data *cub_data)
+static int			set_hexadecimal_color(int red, int green, int blue, char *hex)
 {
-	char	*temp;
+	char *temp;
+
+	if (!(temp = create_hexadecimal_color(red, green, blue)))
+	{
+		return (ERROR);
+	}
+	ft_strlcpy(hex, temp, 9);
+	free(temp);
+	temp = NULL;
+	return (TRUE);
+}
+
+int				convert_rgb_to_hex(t_cub_data *cub_data)
+{
 	int		red;
 	int		green;
 	int		blue;
@@ -91,15 +107,13 @@ void		set_hexadecimal_color(t_cub_data *cub_data)
 	red = cub_data->clr_floor.red;
 	green = cub_data->clr_floor.green;
 	blue = cub_data->clr_floor.blue;
-	temp = convert_rgb_to_hex(red, green, blue);
-	ft_strlcpy(cub_data->clr_floor.hex, temp, 9);
-	free(temp);
+	if (set_hexadecimal_color(red, green, blue, cub_data->clr_floor.hex) == ERROR)
+		return (ERROR);
 	// CEILING
 	red = cub_data->clr_ceiling.red;
 	green = cub_data->clr_ceiling.green;
 	blue = cub_data->clr_ceiling.blue;
-	temp = convert_rgb_to_hex(red, green, blue);
-	ft_strlcpy(cub_data->clr_ceiling.hex, temp, 9);
-	free(temp);
-	temp = NULL;
+	if (set_hexadecimal_color(red, green, blue, cub_data->clr_ceiling.hex) == ERROR)
+		return (ERROR);
+	return (TRUE);
 }
