@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 17:15:25 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 17:59:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void			draw_player_rect(t_game *game, t_rect_info rect, int color);
 ** draw_2Dmap utils (from 42seoul git hub)
 */
 
-void			draw_lines(t_game *game);
+void			draw_horizontal_lines(t_game *game);
+void			draw_vertical_lines(t_game *game);
 void			draw_rectangle(t_game *game, int x, int y, int color);
 void			draw_rectangles(t_game *game);
 
