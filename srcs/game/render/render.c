@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/16 22:01:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 16:37:14 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }
 
-void	set_3d_wall_info(t_3D_prj *pj, int i)
+void	set_3d_wall_info(t_3d_prj *pj, int i)
 {
 	pj->perp_distance = g_rays[i].distance *
 		cos(g_rays[i].ray_angle - g_player.rotation_angle);
@@ -51,7 +51,7 @@ void	render_3d_walls(t_game *game)
 {
 	int			i;
 	int			j;
-	t_3D_prj	pj;
+	t_3d_prj	pj;
 
 	i = 0;
 	while (i < NUM_RAYS)
