@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 12:47:55 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 17:59:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,11 @@ void			register_hook(t_game *game);
 
 
 /*
-** utility func
+** system utility func
 */
 
 int				has_wall_at(float x, float y);
+float			convert_orient_ch2angle(char orient);
 
 
 /*
@@ -86,7 +87,7 @@ int				has_wall_at(float x, float y);
 
 void			start_game(t_game *game);
 void			initialize_window(t_game *game);
-void			setup(void);
+void			setup(t_game *game);
 int				main_loop(t_game *game);
 
 

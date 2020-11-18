@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_3d_projection.h                             :+:      :+:    :+:   */
+/*   convert_player_orient.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 16:36:54 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/18 17:08:25 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/18 17:14:05 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_3d_prj
+#include "constants.h"
+
+/////
+#include <stdio.h>
+/////
+
+float	convert_orient_ch2angle(char orient)
 {
-	float	perp_distance;
-	float	distance_prj_plane;
-	float	prjctd_wall_height;
-	int		wall_strip_height;
-	int		wall_top_pixel;
-	int		wall_bottom_pixel;
-}	t_3d_prj;
+	if (orient == 'N')
+		return (PI * 1.5);
+	else if (orient == 'S')
+		return (PI * 0.5);
+	else if (orient == 'W')
+		return (PI * 1);
+	else if (orient == 'E')
+		return (PI * 0);
+	else
+	{
+		printf("orient error");
+		return (ERROR);
+	}
+}
