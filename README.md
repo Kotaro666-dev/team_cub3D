@@ -49,6 +49,7 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 
 ## kkamashiのパート
 1. マップデータを長方形に整形 -> DONE
-2. bmpファイルを作る関数
-3. textureを貼る勉強
-4. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める
+2. convert rbg to hex
+3. bmpファイルを作る関数
+4. textureを貼る勉強
+5. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める
