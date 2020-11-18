@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/16 22:01:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/18 12:49:06 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void	render_background(t_game *game)
 void	render_map(t_game *game)
 {
 	draw_rectangles(game);
-	draw_lines(game);
+	draw_horizontal_lines(game);
+	draw_vertical_lines(game);
 }
 
 void	render_rays(t_game *game)
