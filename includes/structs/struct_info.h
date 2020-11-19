@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_image.h                                     :+:      :+:    :+:   */
+/*   struct_info.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:52:55 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 15:58:28 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/19 15:58:58 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_IMAGE_H
-# define STRUCT_IMAGE_H
+#ifndef STRUCT_INFO_H
+# define STRUCT_INFO_H
 
-typedef struct	s_image
+typedef struct
 {
-	void	*img;
-	int		*buffer;
-	int		size_line;
-	int		bpp; // bits per pixel
-	int		endian;
-}				t_image;
+	const int	width;
+	const int	height;
+	const int	num_rays;
+}				t_info;
 
 #endif
