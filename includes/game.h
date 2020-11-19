@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 16:06:24 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 16:42:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void			register_hook(t_game *game);
 
 int				has_wall_at(float x, float y);
 float			convert_orient_ch2angle(char orient);
-void			cpy_map(char dst[ROW + 1][COL + 1], char src[ROW + 1][COL + 1]);
+void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
+					char src[ROW + 1][COL + 1]);
 
 
 /*
