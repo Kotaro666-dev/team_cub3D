@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 16:45:06 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 17:07:46 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	setup(t_game *game)
 {
-	g_player.x = game->cub_data.map_data.player_pos_x;
-	g_player.y = game->cub_data.map_data.player_pos_y;
+	g_player.x = game->cub_data.map_data.player_pos_x * TILE_SIZE;
+	g_player.y = game->cub_data.map_data.player_pos_y * TILE_SIZE;
 	g_player.width = 5;
 	g_player.height = 5;
 	g_player.turn_direction = 0; //-1 if left, +1 if right
@@ -25,6 +25,6 @@ void	setup(t_game *game)
 		game->cub_data.map_data.player_orient);
 	g_player.walk_speed = 3;
 	g_player.turn_speed = 10 * (PI / 180);
-	g_key_flag = TRUE;
+	g_info.key_flag = TRUE;
 	convert_ch2num_map(g_map, game->cub_data.map_data.map);
 }
