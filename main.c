@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 16:06:11 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 17:02:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 #include "utilities.h"
 #include "constants.h"
 #include "game.h"
+#include "structs/struct_info.h"
 
 char		g_map[ROW + 1][COL + 1];
-int			g_key_flag;
+
 t_player	g_player;
 t_ray		g_rays[NUM_RAYS];
+t_info		g_info;
 
 #include <stdio.h>
 int main(int argc, char **argv)
