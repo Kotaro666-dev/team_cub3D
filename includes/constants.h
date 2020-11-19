@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/18 15:40:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 16:14:25 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@
 ** map size (array size)
 */
 
-# define ROWS 13
-# define COLS 20
+// # define ROWS 13
+// # define COLS 20
 
 
 /*
@@ -111,8 +111,8 @@
 ** actual map size (pixel)
 */
 
-# define MAP_WIDTH (COLS * TILE_SIZE)
-# define MAP_HEIGHT (ROWS * TILE_SIZE)
+# define MAP_WIDTH (COL * TILE_SIZE)
+# define MAP_HEIGHT (ROW * TILE_SIZE)
 
 # define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 
