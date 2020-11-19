@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 16:14:25 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 18:22:14 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@
 ** window width and height
 */
 
-# define WIDTH 1980
-# define HEIGHT 1080
+# define WIDTH 1200
+# define HEIGHT 800
 
 
 /*
