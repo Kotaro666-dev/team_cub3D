@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 16:04:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 16:45:06 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	setup(t_game *game)
 	g_player.walk_speed = 3;
 	g_player.turn_speed = 10 * (PI / 180);
 	g_key_flag = TRUE;
-	cpy_map(g_map, game->cub_data.map_data.map);
+	convert_ch2num_map(g_map, game->cub_data.map_data.map);
 }
