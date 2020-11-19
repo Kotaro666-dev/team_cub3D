@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 17:02:34 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 16:05:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,6 @@ void	initialize_window(t_game *game)
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "mlx 42");
 	game->image.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	game->image.buffer = (int *)mlx_get_data_addr(game->image.img, &game->image.bpp, &game->image.size_line, &game->image.endian);
-}
-
-void	setup(t_game *game)
-{
-	g_player.x = game->cub_data.map_data.player_pos_x;
-	g_player.y = game->cub_data.map_data.player_pos_y;
-	g_player.width = 5;
-	g_player.height = 5;
-	g_player.turn_direction = 0; //-1 if left, +1 if right
-	g_player.walk_direction = 0; //-1 if back, +1 if front
-	g_player.side_angle = 0;
-	g_player.rotation_angle = convert_orient_ch2angle(
-		game->cub_data.map_data.player_orient);
-	g_player.walk_speed = 3;
-	g_player.turn_speed = 10 * (PI / 180);
-	g_key_flag = TRUE;
-	// g_map = ...
 }
 
 void		register_hook(t_game *game)
