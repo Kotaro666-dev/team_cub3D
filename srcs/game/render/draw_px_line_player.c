@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 18:28:42 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:29:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_line(t_game *game, t_line_info line, int color)
 	delta_y /= step * 100;
 	while (fabs(line.x2 - line.x1) > 0.01 || fabs(line.y2 - line.y1) > 0.01)
 	{
-		game->image.buffer[TO_COORD(line.x1, line.y1)] = color;
+		game->image.buffer[to_coord(line.x1, line.y1)] = color;
 		line.x1 += delta_x;
 		line.y1 += delta_y;
 	}
