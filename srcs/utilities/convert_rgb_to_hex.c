@@ -14,14 +14,9 @@
 #include "libft.h"
 #include "utilities.h"
 
-static uint32_t			create_rgb(int red, int green, int blue)
-{
-	return(red << 16 | green << 8 | blue);
-}
-
 static void				set_hexadecimal_color(int red, int green, int blue, uint32_t *hex)
 {
-	*hex = create_trgb(red, green, blue);
+	*hex = red << 16 | green << 8 | blue;
 }
 
 void					convert_rgb_to_hex(t_cub_data *cub_data)
