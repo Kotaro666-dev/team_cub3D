@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_3d_projection.h                             :+:      :+:    :+:   */
+/*   struct_info.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 16:36:54 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/19 17:18:00 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_3d_prj
+#ifndef STRUCT_INFO_H
+# define STRUCT_INFO_H
+
+typedef struct
 {
-	float	perp_distance;
-	float	distance_prj_plane;
-	float	prjctd_wall_height;
-	int		wall_strip_height;
-	int		wall_top_pixel;
-	int		wall_bottom_pixel;
-}	t_3d_prj;
+	int		width;
+	int		height;
+	int		num_rays;
+	int		key_flag;
+	int		show_minimap;
+}				t_info;
+
+#endif

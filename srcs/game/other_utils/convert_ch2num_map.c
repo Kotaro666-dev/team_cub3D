@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_3d_projection.h                             :+:      :+:    :+:   */
+/*   convert_ch2num_map.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 16:36:54 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/19 16:01:00 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/19 16:42:01 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_3d_prj
+#include "game.h"
+#include "constants.h"
+
+void		convert_ch2num_map(char dst[ROW + 1][COL + 1], char src[ROW + 1][COL + 1])
 {
-	float	perp_distance;
-	float	distance_prj_plane;
-	float	prjctd_wall_height;
-	int		wall_strip_height;
-	int		wall_top_pixel;
-	int		wall_bottom_pixel;
-}	t_3d_prj;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < ROW + 1)
+	{
+		j = 0;
+		while (j < COL + 1)
+		{
+			dst[i][j] = src[i][j] - '0';
+			j++;
+		}
+		i++;
+	}
+}

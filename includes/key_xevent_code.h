@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_xevent_code.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:37:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:21:00 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 16:53:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define KEY_A					97
 # define KEY_S					115
 # define KEY_D					100
+# define KEY_M					109
 # define KEY_LEFT_ARROW			65361
 # define KEY_RIGHT_ARROW		65363
 

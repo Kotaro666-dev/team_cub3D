@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:14:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 17:08:24 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int		key_pressed(int key_code, t_game *game)
 		g_player.turn_direction = -1;
 	else if (key_code == KEY_RIGHT_ARROW)
 		g_player.turn_direction = +1;
-	g_key_flag = TRUE;
+	else if (key_code == KEY_M)
+		g_info.show_minimap = (g_info.show_minimap ? FALSE : TRUE);
+	g_info.key_flag = TRUE;
 	return (0);
 }
 

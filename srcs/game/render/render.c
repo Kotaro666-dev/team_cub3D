@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/16 22:01:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 18:29:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,38 @@ void	render(t_game *game)
 	render_background(game);
 	// render_sprite(game);
 	render_3d_walls(game);
-	render_map(game);
-	render_rays(game);
-	render_player(game);
+	if (g_info.show_minimap)
+	{
+		render_map(game);
+		render_rays(game);
+		render_player(game);
+	}
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }
 
-void	set_3d_wall_info(t_3D_prj *pj, int i)
+void	set_3d_wall_info(t_3d_prj *pj, int i)
 {
 	pj->perp_distance = g_rays[i].distance *
 		cos(g_rays[i].ray_angle - g_player.rotation_angle);
-	pj->distance_prj_plane = (WIDTH / 2) / tan(FOV_ANGLE / 2);
+	pj->distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
 	pj->prjctd_wall_height = (TILE_SIZE / pj->perp_distance) *
 		pj->distance_prj_plane;
 	//
 	pj->wall_strip_height = (int)pj->prjctd_wall_height;
 	//
-	pj->wall_top_pixel = (HEIGHT / 2) - (pj->wall_strip_height / 2);
+	pj->wall_top_pixel = (g_info.height / 2) - (pj->wall_strip_height / 2);
 	pj->wall_top_pixel = (pj->wall_top_pixel < 0)
 		? 0 : pj->wall_top_pixel;
-	pj->wall_bottom_pixel = (HEIGHT / 2) + (pj->wall_strip_height / 2);
+	pj->wall_bottom_pixel = (g_info.height / 2) + (pj->wall_strip_height / 2);
 	pj->wall_bottom_pixel =
-		(pj->wall_bottom_pixel > HEIGHT ? HEIGHT : pj->wall_bottom_pixel);
+		(pj->wall_bottom_pixel > g_info.height ? g_info.height : pj->wall_bottom_pixel);
 }
 
 void	render_3d_walls(t_game *game)
 {
 	int			i;
 	int			j;
-	t_3D_prj	pj;
+	t_3d_prj	pj;
 
 	i = 0;
 	while (i < NUM_RAYS)
@@ -74,15 +77,15 @@ void	render_background(t_game *game)
 	int		y;
 
 	x = 0;
-	while (x < WIDTH)
+	while (x < g_info.width)
 	{
 		y = 0;
-		while (y < HEIGHT / 2)
+		while (y < g_info.height / 2)
 		{
 			my_mlx_pixel_put(game, x, y, ORANGE);
 			y++;
 		}
-		while (y < HEIGHT)
+		while (y < g_info.height)
 		{
 			my_mlx_pixel_put(game, x, y, PURPLE);
 			y++;
@@ -94,7 +97,8 @@ void	render_background(t_game *game)
 void	render_map(t_game *game)
 {
 	draw_rectangles(game);
-	draw_lines(game);
+	draw_horizontal_lines(game);
+	draw_vertical_lines(game);
 }
 
 void	render_rays(t_game *game)

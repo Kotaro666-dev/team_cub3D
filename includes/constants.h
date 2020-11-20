@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 17:33:04 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 18:22:14 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,43 @@
 # define PI 3.14159265
 # define TWO_PI 6.28318530
 
+
+/*
+** tile size per one array element
+*/
+
 # define TILE_SIZE 32
-# define ROWS 13
-# define COLS 20
 
 
-# define WIDTH (COLS * TILE_SIZE)
-# define HEIGHT (ROWS * TILE_SIZE)
+/*
+** map size (array size)
+*/
+
+// # define ROWS 13
+// # define COLS 20
+
+
+/*
+** window width and height
+*/
+
+# define WIDTH 1200
+# define HEIGHT 800
+
+
+/*
+** minimap scale factor
+*/
+
 # define MAP_SCALE 0.3
+
+
+/*
+** actual map size (pixel)
+*/
+
+# define MAP_WIDTH (COL * TILE_SIZE)
+# define MAP_HEIGHT (ROW * TILE_SIZE)
 
 # define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 

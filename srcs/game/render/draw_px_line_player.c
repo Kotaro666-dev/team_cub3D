@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_px_line_player.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:14:10 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 18:28:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
 {
-	game->image.buffer[y * WIDTH + x] = color;
+	game->image.buffer[y * g_info.width + x] = color;
 }
 
 void	draw_line(t_game *game, t_line_info line, int color)

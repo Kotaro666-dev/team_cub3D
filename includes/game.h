@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/16 21:59:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 17:03:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include "struct_rect_line.h"
 # include "struct_game.h"
+# include "struct_info.h"
 
-extern int		g_map[ROWS][COLS];
+extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
-extern int		g_key_flag;
+extern t_info	g_info;
 extern t_player	g_player;
 extern t_ray	g_rays[NUM_RAYS];
 
@@ -36,7 +37,8 @@ void			draw_player_rect(t_game *game, t_rect_info rect, int color);
 ** draw_2Dmap utils (from 42seoul git hub)
 */
 
-void			draw_lines(t_game *game);
+void			draw_horizontal_lines(t_game *game);
+void			draw_vertical_lines(t_game *game);
 void			draw_rectangle(t_game *game, int x, int y, int color);
 void			draw_rectangles(t_game *game);
 
@@ -73,10 +75,13 @@ void			register_hook(t_game *game);
 
 
 /*
-** utility func
+** system utility func
 */
 
 int				has_wall_at(float x, float y);
+float			convert_orient_ch2angle(char orient);
+void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
+					char src[ROW + 1][COL + 1]);
 
 
 /*
@@ -85,7 +90,7 @@ int				has_wall_at(float x, float y);
 
 void			start_game(t_game *game);
 void			initialize_window(t_game *game);
-void			setup(void);
+void			setup(t_game *game);
 int				main_loop(t_game *game);
 
 
