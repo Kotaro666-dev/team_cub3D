@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 18:29:40 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:32:31 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	render_3d_walls(t_game *game)
 	t_3d_prj	pj;
 
 	i = 0;
-	while (i < NUM_RAYS)
+	while (i < g_info.num_rays)
 	{
 		set_3d_wall_info(&pj, i);
 		j = pj.wall_top_pixel;
@@ -106,7 +106,7 @@ void	render_rays(t_game *game)
 	int	i;
 
 	i = 0;
-	while (i < NUM_RAYS)
+	while (i < g_info.num_rays)
 	{
 		draw_line(
 			game,

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:22:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:33:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRUCT_MAP_DATA_H
 
 # include "constants.h"
+# include <stdint.h>
 
 typedef struct		s_map_data
 {
@@ -75,6 +76,7 @@ typedef struct		s_clr_floor
 	int				red;
 	int				green;
 	int				blue;
+	uint32_t		hex;
 }					t_clr_floor;
 
 typedef struct		s_clr_ceiling
@@ -83,6 +85,7 @@ typedef struct		s_clr_ceiling
 	int				red;
 	int				green;
 	int				blue;
+	uint32_t		hex;
 }					t_clr_ceiling;
 
 typedef struct		s_cub_data

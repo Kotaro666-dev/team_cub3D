@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:19:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:32:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ void	show_cub_data_for_debug(t_cub_data *cub_data)
 	printf("R: %d\n", cub_data->clr_floor.red);
 	printf("G: %d\n", cub_data->clr_floor.green);
 	printf("B: %d\n", cub_data->clr_floor.blue);
+	printf("HEX: 0x%08x\n", cub_data->clr_floor.hex);
 	printf("--------------ceiling-----------------\n");
 	printf("TIMES?: %d\n", cub_data->clr_ceiling.number_of_times_seen);
 	printf("R: %d\n", cub_data->clr_ceiling.red);
 	printf("G: %d\n", cub_data->clr_ceiling.green);
 	printf("B: %d\n", cub_data->clr_ceiling.blue);
+	printf("HEX: 0x%08x\n", cub_data->clr_ceiling.hex);
 	printf("--------------map-------------------\n");
 	int i = 0;
 	int upto = cub_data->map_data.max_y;

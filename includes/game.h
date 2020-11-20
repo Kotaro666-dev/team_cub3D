@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 17:03:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:27:21 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
 extern t_info	g_info;
 extern t_player	g_player;
-extern t_ray	g_rays[NUM_RAYS];
+extern t_ray	*g_rays;
 
 /*
 ** my drawing functions
@@ -82,6 +82,7 @@ int				has_wall_at(float x, float y);
 float			convert_orient_ch2angle(char orient);
 void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
 					char src[ROW + 1][COL + 1]);
+int				to_coord(int x, int y);
 
 
 /*

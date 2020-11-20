@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 22:27:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:22:16 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include "struct_game.h"
 # include "struct_map_data.h"
 # include "struct_error_msg.h"
+
+/*
+** CONVERT_RGB_TO_HEX.C
+*/
+
+void	convert_rgb_to_hex(t_cub_data *cub_data);
 
 /*
 ** CREATE_RECTANGLAR_MAP.C
