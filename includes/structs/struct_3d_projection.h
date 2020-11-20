@@ -6,9 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 17:25:18 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 17:33:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef STRUCT_3D_PROJECTION_H
+# define STRUCT_3D_PROJECTION_H
 
 #include <stdint.h>
 
@@ -26,3 +29,5 @@ typedef struct s_3d_prj
 	int			tex_offset_y;
 	uint32_t	texel_color;
 }	t_3d_prj;
+
+#endif

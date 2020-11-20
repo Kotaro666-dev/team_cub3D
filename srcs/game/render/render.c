@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 17:25:53 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 20:25:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 #include "struct_3d_projection.h"
 #include <math.h>
 #include <stdint.h>
+
+///
+#include <stdio.h>
+///
 
 void	render(t_game *game)
 {
@@ -63,6 +67,8 @@ void	render_3d_walls(t_game *game)
 	{
 		set_3d_wall_info(game, &pj, i);
 
+		g_info.n_tex_hei = 64;
+		g_info.n_tex_wid = 64;
 		if (g_rays[i].was_hit_vertical)
 			pj.tex_offset_x = (int)g_rays[i].wall_hit_y % g_info.n_tex_hei;
 		else
@@ -72,9 +78,9 @@ void	render_3d_walls(t_game *game)
 		while (j < pj.wall_bottom_pixel)
 		{
 			pj.distance_from_top =
-				j + (pj.wall_strip_height / 2) - (g_info.width / 2);
+				j + (pj.wall_strip_height / 2) - (g_info.height / 2);
 			pj.tex_offset_y = pj.distance_from_top *
-				((float)g_info.e_tex_hei / pj.wall_strip_height);
+				((float)g_info.n_tex_hei / pj.wall_strip_height);
 
 			pj.texel_color =
 				pj.texture[(g_info.n_tex_wid * pj.tex_offset_y) + pj.tex_offset_x];

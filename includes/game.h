@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 17:05:27 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 17:32:16 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "struct_game.h"
 # include "struct_info.h"
 # include <stdint.h>
+# include "struct_3d_projection.h"
 
 extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
