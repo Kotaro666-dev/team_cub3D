@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 15:27:21 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:49:55 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "struct_rect_line.h"
 # include "struct_game.h"
 # include "struct_info.h"
+# include <stdint.h>
 
 extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
@@ -27,10 +28,10 @@ extern t_ray	*g_rays;
 ** my drawing functions
 */
 
-void			my_mlx_pixel_put(t_game *game, int x, int y, int color);
+void			my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color);
 void			draw_line
-				(t_game *game, t_line_info line, int color);
-void			draw_player_rect(t_game *game, t_rect_info rect, int color);
+				(t_game *game, t_line_info line, uint32_t color);
+void			draw_player_rect(t_game *game, t_rect_info rect, uint32_t color);
 
 
 /*
@@ -39,7 +40,7 @@ void			draw_player_rect(t_game *game, t_rect_info rect, int color);
 
 void			draw_horizontal_lines(t_game *game);
 void			draw_vertical_lines(t_game *game);
-void			draw_rectangle(t_game *game, int x, int y, int color);
+void			draw_rectangle(t_game *game, int x, int y, uint32_t color);
 void			draw_rectangles(t_game *game);
 
 
