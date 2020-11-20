@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 18:22:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:39:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 ** IT WILL CAUSE SEGMENTAION FAULT WITH MORE THAN 400 ARRAY SIZE
 */
 
-# define ROW 100
-# define COL 100
+# define ROW 50
+# define COL 50
 # define ARR_SIZE 1000
 
 /*
@@ -85,22 +85,6 @@
 
 
 /*
-** map size (array size)
-*/
-
-// # define ROWS 13
-// # define COLS 20
-
-
-/*
-** window width and height
-*/
-
-# define WIDTH 1200
-# define HEIGHT 800
-
-
-/*
 ** minimap scale factor
 */
 
@@ -114,11 +98,7 @@
 # define MAP_WIDTH (COL * TILE_SIZE)
 # define MAP_HEIGHT (ROW * TILE_SIZE)
 
-# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
-
 # define FOV_ANGLE (60 * (PI / 180))
-
-# define NUM_RAYS WIDTH
 
 #define FPS 30
 #define FRAME_TIME_LENGTH (1000 / FPS)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:14:52 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:32:31 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	cast_rays(void)
 
 	strip_id = 0;
 	ray_angle = g_player.rotation_angle - (FOV_ANGLE / 2);
-	while (strip_id < NUM_RAYS)
+	while (strip_id < g_info.num_rays)
 	{
 		cast_ray(ray_angle, strip_id);
-		ray_angle += FOV_ANGLE / NUM_RAYS;
+		ray_angle += FOV_ANGLE / g_info.num_rays;
 		strip_id++;
 	}
 }
