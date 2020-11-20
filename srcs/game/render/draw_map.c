@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 13:00:53 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 16:15:32 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ void		draw_horizontal_lines(t_game *game)
 	int	j;
 
 	j = 0;
-	while (j < ROWS)
+	while (j < ROW)
 	{
 		draw_line(game, init_line_info(
 			0,
 			j * TILE_SIZE * MAP_SCALE,
-			COLS * TILE_SIZE * MAP_SCALE,
+			COL * TILE_SIZE * MAP_SCALE,
 			j * TILE_SIZE * MAP_SCALE),
 			0xb3b3b3);
 		j++;
 	}
 	draw_line(game, init_line_info(
 		0,
-		ROWS * TILE_SIZE * MAP_SCALE - 1,
-		COLS * TILE_SIZE * MAP_SCALE,
-		ROWS * TILE_SIZE * MAP_SCALE - 1),
+		ROW * TILE_SIZE * MAP_SCALE - 1,
+		COL * TILE_SIZE * MAP_SCALE,
+		ROW * TILE_SIZE * MAP_SCALE - 1),
 		0xb3b3b3);
 }
 
@@ -46,21 +46,21 @@ void		draw_vertical_lines(t_game *game)
 	int		i;
 
 	i = 0;
-	while (i < COLS)
+	while (i < COL)
 	{
 		draw_line(game, init_line_info(
 			i * TILE_SIZE * MAP_SCALE,
 			0,
 			i * TILE_SIZE * MAP_SCALE,
-			ROWS * TILE_SIZE * MAP_SCALE),
+			ROW * TILE_SIZE * MAP_SCALE),
 			0xb3b3b3);
 		i++;
 	}
 	draw_line(game, init_line_info(
-		COLS * TILE_SIZE * MAP_SCALE - 1,
+		COL * TILE_SIZE * MAP_SCALE - 1,
 		0,
-		COLS * TILE_SIZE * MAP_SCALE - 1,
-		ROWS * TILE_SIZE * MAP_SCALE),
+		COL * TILE_SIZE * MAP_SCALE - 1,
+		ROW * TILE_SIZE * MAP_SCALE),
 		0xb3b3b3);
 }
 
@@ -94,10 +94,10 @@ void		draw_rectangles(t_game *game)
 	int		j;
 
 	i = 0;
-	while (i < ROWS)
+	while (i < ROW)
 	{
 		j = 0;
-		while (j < COLS)
+		while (j < COL)
 		{
 			if (g_map[i][j] == WALL)
 				draw_rectangle(game, j, i, WHITE);

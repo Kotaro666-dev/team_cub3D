@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/18 17:47:15 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/19 16:44:35 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,8 +109,6 @@ endif
 all: $(NAME)
 
 clean:
-	$(MAKE) clean -C ./libs/libft
-	$(MAKE) clean -C ./$(MLX)
 	$(RM) $(OBJS)
 
 fclean: clean

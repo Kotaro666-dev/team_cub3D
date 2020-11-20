@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 17:59:45 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/19 17:03:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include "struct_rect_line.h"
 # include "struct_game.h"
+# include "struct_info.h"
 
-extern int		g_map[ROWS][COLS];
+extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
-extern int		g_key_flag;
+extern t_info	g_info;
 extern t_player	g_player;
 extern t_ray	g_rays[NUM_RAYS];
 
@@ -79,6 +80,8 @@ void			register_hook(t_game *game);
 
 int				has_wall_at(float x, float y);
 float			convert_orient_ch2angle(char orient);
+void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
+					char src[ROW + 1][COL + 1]);
 
 
 /*
