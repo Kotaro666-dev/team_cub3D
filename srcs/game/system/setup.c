@@ -6,11 +6,12 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 17:17:30 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:31:59 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
+#include <stdlib.h>
 
 void	setup(t_game *game)
 {
@@ -29,4 +30,6 @@ void	setup(t_game *game)
 	convert_ch2num_map(g_map, game->cub_data.map_data.map);
 	g_info.width = game->cub_data.rez.width;
 	g_info.height = game->cub_data.rez.height;
+	g_info.num_rays = g_info.width;
+	g_rays = (t_ray*)malloc(sizeof(t_ray) * (game->cub_data.rez.width + 1));
 }
