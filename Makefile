@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/20 16:05:13 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/20 20:35:19 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ BMP = ./srcs/bmp
 RAYCASTING = ./srcs/raycasting
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address,undefined
 DEBUG = -g
 
 SRCS = main.c \
