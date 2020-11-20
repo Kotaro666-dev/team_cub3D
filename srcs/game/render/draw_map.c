@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:14:47 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 16:15:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:59:00 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "game.h"
 #include "constants.h"
 #include "colors.h"
+#include <stdint.h>
 
 void		draw_horizontal_lines(t_game *game)
 {
@@ -64,7 +65,7 @@ void		draw_vertical_lines(t_game *game)
 		0xb3b3b3);
 }
 
-void		draw_rectangle(t_game *game, int x, int y, int color)
+void		draw_rectangle(t_game *game, int x, int y, uint32_t color)
 {
 	int i;
 	int j;

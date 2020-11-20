@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 15:32:31 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 16:00:06 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	render_background(t_game *game)
 		y = 0;
 		while (y < g_info.height / 2)
 		{
-			my_mlx_pixel_put(game, x, y, ORANGE);
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_ceiling.hex);
 			y++;
 		}
 		while (y < g_info.height)
 		{
-			my_mlx_pixel_put(game, x, y, PURPLE);
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_floor.hex);
 			y++;
 		}
 		x++;
