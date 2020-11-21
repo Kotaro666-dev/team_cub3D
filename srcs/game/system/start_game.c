@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 15:26:45 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 20:13:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	start_game(t_game *game)
 
 void	initialize_window(t_game *game)
 {
-	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, g_info.width, g_info.height, "mlx 42");
 	game->image.img = mlx_new_image(game->mlx, g_info.width, g_info.height);
 	game->image.buffer = (int *)mlx_get_data_addr(game->image.img, &game->image.bpp, &game->image.size_line, &game->image.endian);
