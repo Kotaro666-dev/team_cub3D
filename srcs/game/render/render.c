@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 14:31:40 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 15:08:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ void	render_3d_walls(t_game *game)
 		if (g_rays[i].was_hit_vertical)
 			pj.tex_offset_x = (int)g_rays[i].wall_hit_y % TILE_SIZE;
 		else
-		{
 			pj.tex_offset_x = (int)g_rays[i].wall_hit_x % TILE_SIZE;
-		}
+		pj.tex_offset_x *= g_textures[0].width / TILE_SIZE;
 
 		j = pj.wall_top_pixel;
 		while (j < pj.wall_bottom_pixel)
