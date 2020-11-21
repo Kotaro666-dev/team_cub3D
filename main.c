@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/20 15:13:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 13:51:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 #include "constants.h"
 #include "game.h"
 #include "structs/struct_info.h"
+#include "struct_texture.h"
 
 char		g_map[ROW + 1][COL + 1];
 
 t_player	g_player;
 t_ray		*g_rays;
 t_info		g_info;
+t_texture	g_textures[TEXTURE_NUM];
 
 #include <stdio.h>
 int main(int argc, char **argv)

@@ -6,12 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 17:18:00 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 14:33:19 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_INFO_H
 # define STRUCT_INFO_H
+
+# include "struct_map_data.h"
 
 typedef struct
 {

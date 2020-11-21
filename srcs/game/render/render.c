@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 15:32:31 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 15:08:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include "mlx.h"
 #include "struct_3d_projection.h"
 #include <math.h>
+#include <stdint.h>
+
+///
+#include <stdio.h>
+///
 
 void	render(t_game *game)
 {
@@ -32,8 +37,10 @@ void	render(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }
 
-void	set_3d_wall_info(t_3d_prj *pj, int i)
+void	set_3d_wall_info(t_game *game, t_3d_prj *pj, int i)
 {
+	(void)game;
+
 	pj->perp_distance = g_rays[i].distance *
 		cos(g_rays[i].ray_angle - g_player.rotation_angle);
 	pj->distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
@@ -47,9 +54,11 @@ void	set_3d_wall_info(t_3d_prj *pj, int i)
 		? 0 : pj->wall_top_pixel;
 	pj->wall_bottom_pixel = (g_info.height / 2) + (pj->wall_strip_height / 2);
 	pj->wall_bottom_pixel =
-		(pj->wall_bottom_pixel > g_info.height ? g_info.height : pj->wall_bottom_pixel);
+		(pj->wall_bottom_pixel > g_info.height
+			? g_info.height : pj->wall_bottom_pixel);
 }
 
+#include <stdio.h>
 void	render_3d_walls(t_game *game)
 {
 	int			i;
@@ -59,12 +68,24 @@ void	render_3d_walls(t_game *game)
 	i = 0;
 	while (i < g_info.num_rays)
 	{
-		set_3d_wall_info(&pj, i);
+		set_3d_wall_info(game, &pj, i);
+
+		if (g_rays[i].was_hit_vertical)
+			pj.tex_offset_x = (int)g_rays[i].wall_hit_y % TILE_SIZE;
+		else
+			pj.tex_offset_x = (int)g_rays[i].wall_hit_x % TILE_SIZE;
+		pj.tex_offset_x *= g_textures[0].width / TILE_SIZE;
+
 		j = pj.wall_top_pixel;
 		while (j < pj.wall_bottom_pixel)
 		{
-			my_mlx_pixel_put(game, i, j,
-				(g_rays[i].was_hit_vertical) ? WHITE : L_GRAY);
+			pj.distance_from_top =
+				j + (pj.wall_strip_height / 2) - (g_info.height / 2);
+			pj.tex_offset_y = pj.distance_from_top *
+				((float)g_textures[0].height / pj.wall_strip_height);
+			pj.texel_color = get_texel_color(&pj, i);
+
+			my_mlx_pixel_put(game, i, j, pj.texel_color);
 			j++;
 		}
 		i++;
@@ -82,12 +103,12 @@ void	render_background(t_game *game)
 		y = 0;
 		while (y < g_info.height / 2)
 		{
-			my_mlx_pixel_put(game, x, y, ORANGE);
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_ceiling.hex);
 			y++;
 		}
 		while (y < g_info.height)
 		{
-			my_mlx_pixel_put(game, x, y, PURPLE);
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_floor.hex);
 			y++;
 		}
 		x++;

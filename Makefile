@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/19 16:44:35 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/20 20:35:19 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ BMP = ./srcs/bmp
 RAYCASTING = ./srcs/raycasting
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address,undefined
 DEBUG = -g
 
 SRCS = main.c \
@@ -51,7 +51,7 @@ SRCS += ${shell find ./srcs/game/other_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
-SRCS += ${shell find ./srcs/game/system/ -type f -name "*.c" -type f -not -name "start_game_test.c"}
+SRCS += ${shell find ./srcs/game/system/ -type f -name "*.c"}
 
 INCLUDE = -I./includes/ \
 			-I./libs/get_next_line/ \

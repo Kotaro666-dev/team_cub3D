@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 18:35:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 15:26:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	start_game(t_game *game)
 	initialize_window(game);
 	register_hook(game); //calling main loop inside this func
 	mlx_loop(game->mlx);
-	mlx_destroy_image(game->mlx, game->image.img);
-	mlx_destroy_window(game->mlx, game->image.img);
 }
 
 void	initialize_window(t_game *game)

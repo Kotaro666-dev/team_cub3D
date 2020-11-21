@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_coordinate.c                                    :+:      :+:    :+:   */
+/*   struct_texture.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 15:24:59 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 16:02:59 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 13:47:38 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 13:48:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include "game.h"
+#ifndef STRUCT_TECTURE_H
+# define STRUCT_TECTURE_H
 
-int		to_coord(int x, int y)
+typedef struct	s_texture
 {
-	return ((int)floor(y) * g_info.width + (int)floor(x));
-}
+	void	*img_ptr;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+	char	*path;
+}				t_texture;
+
+#endif

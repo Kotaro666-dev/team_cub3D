@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 15:29:09 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/20 15:50:56 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 #include "game.h"
 #include "constants.h"
 #include <math.h>
+#include <stdint.h>
 
-void	my_mlx_pixel_put(t_game *game, int x, int y, int color)
+void	my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color)
 {
 	game->image.buffer[y * g_info.width + x] = color;
 }
 
-void	draw_line(t_game *game, t_line_info line, int color)
+void	draw_line(t_game *game, t_line_info line, uint32_t color)
 {
 	double	delta_x;
 	double	delta_y;
@@ -42,7 +43,7 @@ void	draw_line(t_game *game, t_line_info line, int color)
 	}
 }
 
-void	draw_player_rect(t_game *game, t_rect_info rect, int color)
+void	draw_player_rect(t_game *game, t_rect_info rect, uint32_t color)
 {
 	int	x_start;
 	int	y_start;
