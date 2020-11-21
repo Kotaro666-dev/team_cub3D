@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 16:28:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 20:49:10 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 14:37:53 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 #include <stdlib.h>
 //
 
-void		set_accurate_texture(t_game *game, t_3d_prj *pj, int i)
+//
+#include <stdio.h>
+//
+
+void		set_accurate_texture(t_game *game)
 {
 	// if (g_rays[i].is_ray_facing_up && g_rays[i].was_hit_vertical == FALSE)
 	// {
@@ -30,13 +34,19 @@ void		set_accurate_texture(t_game *game, t_3d_prj *pj, int i)
 	// 		mlx_xpm_file_to_image(game->mlx,
 	// 			)
 	// }
-
-	(void)i;
-	pj->texture =
+	g_textures[0].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
 			game->cub_data.north_tex.path,
-			&(g_info.n_tex_wid),
-			&(g_info.n_tex_hei));
+			&(g_textures[0].width),
+			&(g_textures[0].height));
+	// if (g_textures[0].img_ptr == NULL)
+	// 	;//エラー処理
+		
+	g_textures[0].addr = mlx_get_data_addr(
+		g_textures[0].img_ptr,
+		&g_textures[0].bits_per_pixel,
+		&g_textures[0].line_length,
+		&g_textures[0].endian);
 
 	// (void)i;
 	// (void)game;

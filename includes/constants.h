@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/20 15:39:28 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 13:51:34 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,7 @@
 
 # define FOV_ANGLE (60 * (PI / 180))
 
-#define FPS 30
-#define FRAME_TIME_LENGTH (1000 / FPS)
+# define TEXTURE_NUM 5
 
 #define CLR_WHITE 0xFFFFFF
 #define CLR_GRAY 0xCCCCCC
