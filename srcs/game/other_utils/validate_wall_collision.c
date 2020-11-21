@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 15:16:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 21:11:00 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int		has_wall_at(float x, float y)
 		return (TRUE);
 	map_grid_idx_x = floor(x / TILE_SIZE);
 	map_grid_idx_y = floor(y / TILE_SIZE);
-	return (g_map[map_grid_idx_y][map_grid_idx_x] == 1);
+	return (g_map[map_grid_idx_y][map_grid_idx_x] == WALL);
 }
