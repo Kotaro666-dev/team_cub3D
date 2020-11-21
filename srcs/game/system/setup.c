@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 14:22:48 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 16:05:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	setup(t_game *game)
 	g_info.height = game->cub_data.rez.height;
 	g_info.num_rays = g_info.width;
 	g_rays = (t_ray*)malloc(sizeof(t_ray) * (game->cub_data.rez.width + 1));
-	set_accurate_texture(game);
+	store_textures(game);
 }

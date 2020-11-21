@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 14:22:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 16:05:15 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
 void			render(t_game *game);
 void			set_3d_wall_info(t_game *game, t_3d_prj *pj, int i);
-void			set_accurate_texture(t_game *game);
+void			store_textures(t_game *game);
 uint32_t		get_texel_color(t_3d_prj *pj, int i);
 
 

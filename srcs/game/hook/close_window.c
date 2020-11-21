@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_coordinate.c                                    :+:      :+:    :+:   */
+/*   hook_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 15:24:59 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 16:02:59 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 16:00:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#include "struct_game.h"
 #include "game.h"
+#include <stdlib.h>
+#include "mlx.h"
 
-int		to_coord(int x, int y)
+int		close_window(t_game *game)
 {
-	return ((int)floor(y) * g_info.width + (int)floor(x));
+	free(g_rays);
+	mlx_destroy_image(game->mlx, game->image.img);
+	mlx_destroy_image(game->mlx, g_textures[0].img_ptr);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	exit(0);
+	return (0);
 }
