@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_wall_collision.c                          :+:      :+:    :+:   */
+/*   render_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:11:00 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 21:43:28 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 21:43:47 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "constants.h"
 #include "game.h"
-#include <math.h>
 
-int		has_wall_at(float x, float y)
+void	render_player(t_game *game)
 {
-	int	map_grid_idx_x;
-	int	map_grid_idx_y;
-
-	if (x < 0 || x > MAP_WIDTH || y < 0 || y > MAP_HEIGHT)
-		return (TRUE);
-	map_grid_idx_x = floor(x / TILE_SIZE);
-	map_grid_idx_y = floor(y / TILE_SIZE);
-	return (g_map[map_grid_idx_y][map_grid_idx_x] == WALL);
+	draw_player_rect(game, init_rect_info(
+		g_player.x * MAP_SCALE,
+		g_player.y * MAP_SCALE,
+		10 * MAP_SCALE,
+		10 * MAP_SCALE),
+		0x00ff00);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_wall_collision.c                          :+:      :+:    :+:   */
+/*   render_rays.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:11:00 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 21:43:58 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 21:44:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "constants.h"
 #include "game.h"
-#include <math.h>
+#include "colors.h"
 
-int		has_wall_at(float x, float y)
+void	render_rays(t_game *game)
 {
-	int	map_grid_idx_x;
-	int	map_grid_idx_y;
+	int	i;
 
-	if (x < 0 || x > MAP_WIDTH || y < 0 || y > MAP_HEIGHT)
-		return (TRUE);
-	map_grid_idx_x = floor(x / TILE_SIZE);
-	map_grid_idx_y = floor(y / TILE_SIZE);
-	return (g_map[map_grid_idx_y][map_grid_idx_x] == WALL);
+	i = 0;
+	while (i < g_info.num_rays)
+	{
+		draw_line(
+			game,
+			init_line_info(
+				g_player.x * MAP_SCALE,
+				g_player.y * MAP_SCALE,
+				g_rays[i].wall_hit_x * MAP_SCALE,
+				g_rays[i].wall_hit_y * MAP_SCALE),
+			YELLOW);
+		i++;
+	}
 }
