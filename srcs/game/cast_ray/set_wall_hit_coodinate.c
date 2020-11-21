@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/18 15:17:47 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/21 14:56:38 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 	{
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
+		if (hrz->y_to_check < 0)
+			hrz->y_to_check = 0;
 		if (has_wall_at(hrz->x_to_check, hrz->y_to_check))
 		{
 		// found a wall hit
@@ -121,6 +123,8 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 	{
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);
+		if (vrt->x_to_check < 0)
+			vrt->x_to_check = 0;
 		vrt->y_to_check = vrt->next_touch_y;
 		if (has_wall_at(vrt->x_to_check, vrt->y_to_check))
 		{
