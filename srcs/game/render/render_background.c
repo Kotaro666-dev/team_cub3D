@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_background.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:51:44 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 21:40:51 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 21:42:02 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_game.h"
 #include "game.h"
-#include "mlx.h"
 
-void	render(t_game *game)
+void	render_background(t_game *game)
 {
-	render_background(game);
-	// render_sprite(game);
-	render_3d_walls(game);
-	if (g_info.show_minimap)
+	int		x;
+	int		y;
+
+	x = 0;
+	while (x < g_info.width)
 	{
-		render_map(game);
-		render_rays(game);
-		render_player(game);
+		y = 0;
+		while (y < g_info.height / 2)
+		{
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_ceiling.hex);
+			y++;
+		}
+		while (y < g_info.height)
+		{
+			my_mlx_pixel_put(game, x, y, game->cub_data.clr_floor.hex);
+			y++;
+		}
+		x++;
 	}
-	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }

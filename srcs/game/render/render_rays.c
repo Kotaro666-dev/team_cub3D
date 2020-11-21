@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_rays.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:51:44 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 21:43:58 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 21:44:45 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_game.h"
 #include "game.h"
-#include "mlx.h"
+#include "colors.h"
 
-void	render(t_game *game)
+void	render_rays(t_game *game)
 {
-	render_background(game);
-	// render_sprite(game);
-	render_3d_walls(game);
-	if (g_info.show_minimap)
+	int	i;
+
+	i = 0;
+	while (i < g_info.num_rays)
 	{
-		render_map(game);
-		render_rays(game);
-		render_player(game);
+		draw_line(
+			game,
+			init_line_info(
+				g_player.x * MAP_SCALE,
+				g_player.y * MAP_SCALE,
+				g_rays[i].wall_hit_x * MAP_SCALE,
+				g_rays[i].wall_hit_y * MAP_SCALE),
+			YELLOW);
+		i++;
 	}
-	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 }

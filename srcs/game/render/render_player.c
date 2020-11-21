@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:51:44 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/21 21:43:28 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/21 21:43:47 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_game.h"
 #include "game.h"
-#include "mlx.h"
 
-void	render(t_game *game)
+void	render_player(t_game *game)
 {
-	render_background(game);
-	// render_sprite(game);
-	render_3d_walls(game);
-	if (g_info.show_minimap)
-	{
-		render_map(game);
-		render_rays(game);
-		render_player(game);
-	}
-	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
+	draw_player_rect(game, init_rect_info(
+		g_player.x * MAP_SCALE,
+		g_player.y * MAP_SCALE,
+		10 * MAP_SCALE,
+		10 * MAP_SCALE),
+		0x00ff00);
 }
