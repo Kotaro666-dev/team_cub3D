@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/21 13:51:08 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/22 13:17:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int main(int argc, char **argv)
 	if (game.should_game_start == ERROR)
 	{
 		print_error_msg(&game.err_msg);
+		free(game.mlx);
+		game.mlx = NULL;
 		return (ERROR);
 	}
 	// TRANSFORM MAP INTO RECTANGLE
