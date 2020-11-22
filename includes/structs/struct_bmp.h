@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bmp.h                                              :+:      :+:    :+:   */
+/*   struct_bmp.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:52:41 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 19:42:41 by kkamashi         ###   ########.fr       */
+/*   Created: 2020/11/22 19:26:22 by kkamashi          #+#    #+#             */
+/*   Updated: 2020/11/22 19:46:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BMP_H
-# define BMP_H
+#ifndef STRUCT_BMP_H
+# define STRUCT_BMP_H
 
-# include <unistd.h>
-# include "libft.h"
-# include "utilities.h"
+# include "bmp.h"
 
-# define FILEHEADERSIZE 14
-# define INFOHEADERSIZE 40
-# define TOTALHEADERSIZE (FILEHEADERSIZE + INFOHEADERSIZE)
-# define OFFSET_TO_DATA HEADERSIZE
-# define PLANES 1
-# define COLOR 24
-
-int		create_bmp(t_game *game);
-void	render_bmp_image(t_game *game);
+typedef struct		s_bmp
+{
+	int				fd;
+	int				width;
+	int				height;
+	int				image_size;
+	int				file_size;
+	unsigned char	file_header[FILEHEADERSIZE];
+	unsigned char	info_header[INFOHEADERSIZE];
+	int				padding_size;
+	unsigned char	padding[3];
+	int				color;
+}					t_bmp;
 
 #endif
