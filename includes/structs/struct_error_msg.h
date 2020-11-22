@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 21:44:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/22 20:45:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ typedef enum	e_msg
 	MAP_ERROR,
 	MAP_TOO_BIG,
 	MAP_NOT_CLOSED,
-	NOT_FOUND_PLAYER
+	NOT_FOUND_PLAYER,
+	BMP_FAILED
 }				t_msg;
 
 #endif

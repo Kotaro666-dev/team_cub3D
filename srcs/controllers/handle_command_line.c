@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:12:00 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/22 21:01:01 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 		{
 			return (ERROR);
 		}
-		ft_putendl_fd("FOUND --SAVE", 1);
-		// TODO: save the first rendered image in bmp format
-		// create_bmp_image(game);
+		game->should_create_bmp = TRUE;
 	}
 	return (TRUE);
 }

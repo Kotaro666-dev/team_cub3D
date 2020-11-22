@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
+#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/20 20:35:19 by rnakai           ###   ########.fr        #
+#    Updated: 2020/11/22 17:26:22 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS = main.c \
 	$(CONTROLLERS_DIR)/handle_command_line.c \
 	$(CONTROLLERS_DIR)/read_cub_file.c \
 	$(CONTROLLERS_DIR)/read_cub_map.c \
-	$(CONTROLLERS_DIR)/validate_map.c
+	$(CONTROLLERS_DIR)/validate_map.c \
+	$(BMP)/bmp.c \
+	$(BMP)/render_bmp_image.c
 SRCS += ${shell find ./srcs/game/other_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
