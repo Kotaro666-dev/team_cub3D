@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 19:26:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 19:46:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:44:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_bmp
 	int				padding_size;
 	unsigned char	padding[3];
 	int				color;
+	int				width_in_bytes;
 }					t_bmp;
 
 #endif
