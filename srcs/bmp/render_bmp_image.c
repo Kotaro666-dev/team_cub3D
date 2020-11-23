@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bmp.h                                              :+:      :+:    :+:   */
+/*   render_bmp_image.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 15:52:41 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 19:42:41 by kkamashi         ###   ########.fr       */
+/*   Created: 2020/11/22 17:14:44 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/22 20:42:22 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BMP_H
-# define BMP_H
+#include "game.h"
+#include "mlx.h"
 
-# include <unistd.h>
-# include "libft.h"
-# include "utilities.h"
-
-# define FILEHEADERSIZE 14
-# define INFOHEADERSIZE 40
-# define TOTALHEADERSIZE (FILEHEADERSIZE + INFOHEADERSIZE)
-# define OFFSET_TO_DATA HEADERSIZE
-# define PLANES 1
-# define COLOR 24
-
-int		create_bmp(t_game *game);
-void	render_bmp_image(t_game *game);
-
-#endif
+void		render_bmp_image(t_game *game)
+{
+	setup(game);
+	game->image.img = mlx_new_image(game->mlx, g_info.width, g_info.height);
+	game->image.buffer = (int *)mlx_get_data_addr(game->image.img, &game->image.bpp, &game->image.size_line, &game->image.endian);
+	cast_rays();
+	render_background(game);
+	render_3d_walls(game);
+}

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 10:52:17 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 11:46:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef enum	e_msg
 	MAP_ERROR,
 	MAP_TOO_BIG,
 	MAP_NOT_CLOSED,
-	NOT_FOUND_PLAYER
+	NOT_FOUND_PLAYER,
+	BMP_FAILED
 }				t_msg;
 
 #endif

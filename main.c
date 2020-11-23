@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/21 13:51:08 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/22 20:58:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "game.h"
 #include "structs/struct_info.h"
 #include "struct_texture.h"
+#include "bmp.h"
 
 char		g_map[ROW + 1][COL + 1];
 
@@ -39,23 +40,23 @@ int main(int argc, char **argv)
 	if (game.should_game_start == ERROR)
 	{
 		print_error_msg(&game.err_msg);
+		free(game.mlx);
+		game.mlx = NULL;
 		return (ERROR);
 	}
 	// TRANSFORM MAP INTO RECTANGLE
 	create_rectanglar_map(&game);
 	// debug_rectanglar_map(&game);
+	if (game.should_create_bmp == TRUE)
+	{
+		render_bmp_image(&game);
+		if (create_bmp(&game) == ERROR)
+		{
+			print_error_msg(&game.err_msg);
+		}
+		exit(0);
+	}
 	// AND THEN GAME START
-
-	printf("x:%d, y:%d\n", game.cub_data.map_data.player_pos_x,game.cub_data.map_data.player_pos_x);
 	start_game(&game);
-
-
-	/*
-	** 以下は、Minilibx-linuxを使用する際に、引数やイベントキーが異なるかもしれないので、こちらはコメントアウトしています。
-	*/
-	// game.win = mlx_new_window(game.mlx, game.cub_data.rez.width, game.cub_data.rez.height, "cub3D");
-	// mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game.mlx);
-	// mlx_hook(game.win, 17, 1L<<17, close_window, &game);
-	// mlx_loop(game.mlx);
 	return (0);
 }
