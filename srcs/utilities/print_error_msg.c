@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error_msg.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 11:00:08 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 12:53:14 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS";
 	else if (err_msg->which_msg == NOT_FOUND_PLAYER)
 		msg = "NOT FOUND ANY PLAYER ON MAP";
+	else if (err_msg->which_msg == BMP_FAILED)
+		msg = "FAILED TO CREATE OR OPEN BMP FILE";
 	return (msg);
 }
 
