@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 20:58:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:08:02 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int main(int argc, char **argv)
 	if (game.should_game_start == ERROR)
 	{
 		print_error_msg(&game.err_msg);
-		free(game.mlx);
-		game.mlx = NULL;
+		free_mlx_ptr(&game);
 		return (ERROR);
 	}
 	// TRANSFORM MAP INTO RECTANGLE
@@ -54,6 +53,7 @@ int main(int argc, char **argv)
 		{
 			print_error_msg(&game.err_msg);
 		}
+		free_mlx_ptr(&game);
 		exit(0);
 	}
 	// AND THEN GAME START

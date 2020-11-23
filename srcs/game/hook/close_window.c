@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/23 11:34:25 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 17:09:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct_game.h"
 #include "game.h"
+#include "utilities.h"
 #include <stdlib.h>
 #include "mlx.h"
 
@@ -27,7 +28,7 @@ int		close_window(t_game *game)
 		i++;
 	}
 	// mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
+	free_mlx_ptr(game);
 	exit(0);
 	return (0);
 }
