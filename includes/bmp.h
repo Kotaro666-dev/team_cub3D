@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:52:41 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 19:42:41 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:44:57 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define OFFSET_TO_DATA HEADERSIZE
 # define PLANES 1
 # define COLOR 24
+# define BYTES_PER_PIXEL 3
 
 int		create_bmp(t_game *game);
 void	render_bmp_image(t_game *game);

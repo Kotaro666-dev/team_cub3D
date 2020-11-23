@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 13:44:41 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:44:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void		init_bmp(t_bmp *bmp, t_game *game)
 	bmp->height = game->cub_data.rez.height;
 	bmp->image_size = bmp->width * bmp->height * 3;
 	bmp->file_size = TOTALHEADERSIZE + bmp->image_size;
-	bmp->padding_size = (4 - (bmp->width) % 4) % 4;
+	bmp->width_in_bytes = bmp->width * BYTES_PER_PIXEL;
+	bmp->padding_size = (4 - (bmp->width_in_bytes) % 4) % 4;
 	ft_bzero(bmp->file_header, FILEHEADERSIZE);
 	ft_bzero(bmp->info_header, INFOHEADERSIZE);
 	ft_bzero(bmp->padding, 3);
