@@ -6,12 +6,94 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 20:45:52 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:44:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bmp.h"
 #include "struct_bmp.h"
+
+static void		init_bmp(t_bmp *bmp, t_game *game)
+{
+	bmp->width = game->cub_data.rez.width;
+	bmp->height = game->cub_data.rez.height;
+	bmp->image_size = bmp->width * bmp->height * 3;
+	bmp->file_size = TOTALHEADERSIZE + bmp->image_size;
+	bmp->padding_size = (4 - (bmp->width) % 4) % 4;
+	ft_bzero(bmp->file_header, FILEHEADERSIZE);
+	ft_bzero(bmp->info_header, INFOHEADERSIZE);
+	ft_bzero(bmp->padding, 3);
+}
+
+static void		write_file_header(t_bmp *bmp)
+{
+	bmp->file_header[0] = 'B';
+	bmp->file_header[1] = 'M';
+	ft_memcpy(&bmp->file_header[2], &bmp->file_size, sizeof(bmp->file_size));
+	bmp->file_header[10] = TOTALHEADERSIZE;
+	write(bmp->fd, bmp->file_header, FILEHEADERSIZE);
+}
+
+static void		write_info_header(t_bmp *bmp)
+{
+	bmp->info_header[0] = INFOHEADERSIZE;
+	ft_memcpy(&bmp->info_header[4], &bmp->width, sizeof(bmp->width));
+	ft_memcpy(&bmp->info_header[8], &bmp->height, sizeof(bmp->height));
+	bmp->info_header[12] = PLANES;
+	bmp->info_header[14] = COLOR;
+	bmp->info_header[20] = bmp->image_size;
+	write(bmp->fd, bmp->info_header, INFOHEADERSIZE);
+}
+
+static void		write_image_data(t_game *game, t_bmp *bmp)
+{
+	int	x;
+	int	y;
+	int	offset_x;
+	int	offset_y;
+
+	y = 0;
+	while (y < bmp->height)
+	{
+		x = 0;
+		while (x < bmp->width)
+		{
+			offset_x = x;
+			offset_y = (bmp->height - 1) - y;
+			bmp->color = game->image.buffer[offset_x + (offset_y * bmp->width)];
+			write(bmp->fd, &bmp->color, 3);
+			x++;
+		}
+		// Is this part necessary?
+		x = 0;
+		while (x < bmp->padding_size)
+		{
+			write(bmp->fd, &bmp->padding, 1);
+			x++;
+		}
+		y++;
+	}
+}
+
+int				create_bmp(t_game *game)
+{
+	t_bmp	bmp;
+
+	init_bmp(&bmp, game);
+	if ((bmp.fd = open("./cub3D.bmp", O_CREAT | O_WRONLY, S_IRWXU)) == ERROR)
+	{
+		game->err_msg.which_msg = BMP_FAILED;
+		return (ERROR);
+	}
+	// 1. WRITE FILE HEADER
+	write_file_header(&bmp);
+	// 2. WRITE INFO HEADER
+	write_info_header(&bmp);
+	// 3. WRITE IMAGE DATA
+	write_image_data(game, &bmp);
+	close(bmp.fd);
+	return (TRUE);
+}
 
 // // static int		write_image_data(int fd, t_game *game)
 // // {
@@ -79,85 +161,3 @@
 // // 	bmp_line_data = NULL;
 // // 	return (TRUE);
 // // }
-
-void init_bmp(t_bmp *bmp, t_game *game)
-{
-	bmp->width = game->cub_data.rez.width;
-	bmp->height = game->cub_data.rez.height;
-	bmp->image_size = bmp->width * bmp->height * 3;
-	bmp->file_size = TOTALHEADERSIZE + bmp->image_size;
-	bmp->padding_size = (4 - (bmp->width) % 4) % 4;
-	ft_bzero(bmp->file_header, FILEHEADERSIZE);
-	ft_bzero(bmp->info_header, INFOHEADERSIZE);
-	ft_bzero(bmp->padding, 3);
-}
-
-static void		write_file_header(t_bmp *bmp)
-{
-	bmp->file_header[0] = 'B';
-	bmp->file_header[1] = 'M';
-	ft_memcpy(&bmp->file_header[2], &bmp->file_size, sizeof(bmp->file_size));
-	bmp->file_header[10] = TOTALHEADERSIZE;
-	write(bmp->fd, bmp->file_header, FILEHEADERSIZE);
-}
-
-static void		write_info_header(t_bmp *bmp)
-{
-	bmp->info_header[0] = INFOHEADERSIZE;
-	ft_memcpy(&bmp->info_header[4], &bmp->width, sizeof(bmp->width));
-	ft_memcpy(&bmp->info_header[8], &bmp->height, sizeof(bmp->height));
-	bmp->info_header[12] = PLANES;
-	bmp->info_header[14] = COLOR;
-	bmp->info_header[20] = bmp->image_size;
-	write(bmp->fd, bmp->info_header, INFOHEADERSIZE);
-}
-
-static void		write_image_data(t_game *game, t_bmp *bmp)
-{
-	int	i;
-	int	j;
-	int	x;
-	int	y;
-
-	j = 0;
-	while (j < bmp->height)
-	{
-		i = 0;
-		while (i < bmp->width)
-		{
-			x = i;
-			y = (bmp->height - 1) - j;
-			bmp->color = game->image.buffer[x + y * bmp->width];
-			write(bmp->fd, &bmp->color, 3);
-			i++;
-		}
-		// Is this part necessary?
-		i = 0;
-		while (i < bmp->padding_size)
-		{
-			write(bmp->fd, &bmp->padding, 1);
-			i++;
-		}
-		j++;
-	}
-}
-
-int		create_bmp(t_game *game)
-{
-	t_bmp	bmp;
-
-	init_bmp(&bmp, game);
-	if ((bmp.fd = open("./cub3D.bmp", O_CREAT | O_WRONLY, S_IRWXU)) == ERROR)
-	{
-		game->err_msg.which_msg = BMP_FAILED;
-		return (ERROR);
-	}
-	// 1. WRITE FILE HEADER
-	write_file_header(&bmp);
-	// 2. WRITE INFO HEADER
-	write_info_header(&bmp);
-	// 3. WRITE IMAGE DATA
-	write_image_data(game, &bmp);
-	close(bmp.fd);
-	return (TRUE);
-}

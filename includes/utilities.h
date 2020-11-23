@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 09:22:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:06:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int		have_already_found_player(t_cub_data *cub_data);
 
 int		ft_strcmp(char *s1, char *s2);
 void	free_memory_of_2d_array(char **line);
+void	free_mlx_ptr(t_game *game);
 void	free_memory(char *str);
 
 /*

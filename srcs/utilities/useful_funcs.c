@@ -6,12 +6,13 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:18:07 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:07:50 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 #include "constants.h"
+#include "mlx.h"
 
 int			ft_strcmp(char *s1, char *s2)
 {
@@ -44,6 +45,13 @@ void		free_memory_of_2d_array(char **line)
 		i++;
 	}
 	free(line);
+}
+
+void		free_mlx_ptr(t_game *game)
+{
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	game->mlx = NULL;
 }
 
 void		free_memory(char *line)
