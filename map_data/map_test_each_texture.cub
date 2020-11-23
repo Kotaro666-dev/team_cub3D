@@ -1,12 +1,12 @@
 R 1200 800
 
-NO ./textures/north.xpm
-SO ./textures/south.xpm
-WE ./textures/west.xpm
-EA ./textures/east.xpm
+NO ./textures/colorstone.xpm
+SO ./textures/eagle.xpm
+WE ./textures/greystone.xpm
+EA ./textures/purplestone.xpm
 S ./textures/pillar.xpm
-F 220,100,0
-C 225,30,0
+F 100,40,0
+C 0,0,100
 
 1111111111111111111111111
 1000000000110000000000001

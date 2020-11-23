@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_error_msg.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 20:45:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 11:46:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef enum	e_msg
 	COLOR_ERROR,
 	TEXTURE_EXT_ERROR,
 	TEXTURE_PATH_ERROR,
+	TEXTURE_FILE_NOT_VALID,
 	MAP_ERROR,
 	MAP_TOO_BIG,
 	MAP_NOT_CLOSED,

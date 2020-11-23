@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/21 13:51:34 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 10:47:46 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,17 @@
 ** tile size per one array element
 */
 
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 
+# define DEFAULT_TILE_SIZE_RACIO ((float)32 / TILE_SIZE)
+# define DEFAULT_COL_RACIO ((float)50 / COL)
+# define DEFAULT_ROW_RACIO ((float)50 / ROW)
 
 /*
 ** minimap scale factor
 */
 
-# define MAP_SCALE 0.3
+# define MAP_SCALE (0.4 * DEFAULT_TILE_SIZE_RACIO * DEFAULT_COL_RACIO * DEFAULT_ROW_RACIO)
 
 
 /*
@@ -100,7 +103,17 @@
 
 # define FOV_ANGLE (60 * (PI / 180))
 
+
+/*
+** for texture index
+*/
+
 # define TEXTURE_NUM 5
+# define NORTH_IDX 0
+# define SOUTH_IDX 1
+# define EAST_IDX 2
+# define WEST_IDX 3
+# define SPRITE_IDX 4
 
 #define CLR_WHITE 0xFFFFFF
 #define CLR_GRAY 0xCCCCCC

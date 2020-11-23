@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 13:28:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 11:18:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct	s_3d_prj
 	int			wall_strip_height;
 	int			wall_top_pixel;
 	int			wall_bottom_pixel;
-	uint32_t	*texture;
 	int			distance_from_top;
 	int			tex_offset_x;
 	int			tex_offset_y;
