@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error_msg.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 21:45:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 11:00:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 		msg = "TEXTURE EXTENSION IS INVALID";
 	else if (err_msg->which_msg == TEXTURE_PATH_ERROR)
 		msg = "COULDN'T FIND SOME FILE FOR TEXTURES!";
+	else if (err_msg->which_msg == TEXTURE_FILE_NOT_VALID)
+		msg = "COULDN'T READ THE TEXTURE FILE CORRECTLY";
 	else if (err_msg->which_msg == MAP_ERROR)
 		msg = "MAP DATA IS INVALID!";
 	else if (err_msg->which_msg == MAP_TOO_BIG)
