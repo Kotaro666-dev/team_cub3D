@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 16:05:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/23 11:30:39 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ void			render_sprite(t_game *game);
 void			render(t_game *game);
 void			set_3d_wall_info(t_game *game, t_3d_prj *pj, int i);
 void			store_textures(t_game *game);
-uint32_t		get_texel_color(t_3d_prj *pj, int i);
+uint32_t		get_texel_color(t_3d_prj *pj, int i, int tex_idx);
+int				get_texture_orient_index(int i);
+void			set_texture_offset_x(t_3d_prj *pj, int i, int tex_idx);
 
 
 /*
