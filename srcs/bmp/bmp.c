@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 12:53:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:44:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,31 @@ static void		write_info_header(t_bmp *bmp)
 
 static void		write_image_data(t_game *game, t_bmp *bmp)
 {
-	int	i;
-	int	j;
 	int	x;
 	int	y;
+	int	offset_x;
+	int	offset_y;
 
-	j = 0;
-	while (j < bmp->height)
+	y = 0;
+	while (y < bmp->height)
 	{
-		i = 0;
-		while (i < bmp->width)
+		x = 0;
+		while (x < bmp->width)
 		{
-			x = i;
-			y = (bmp->height - 1) - j;
-			bmp->color = game->image.buffer[x + y * bmp->width];
+			offset_x = x;
+			offset_y = (bmp->height - 1) - y;
+			bmp->color = game->image.buffer[offset_x + (offset_y * bmp->width)];
 			write(bmp->fd, &bmp->color, 3);
-			i++;
+			x++;
 		}
 		// Is this part necessary?
-		i = 0;
-		while (i < bmp->padding_size)
+		x = 0;
+		while (x < bmp->padding_size)
 		{
 			write(bmp->fd, &bmp->padding, 1);
-			i++;
+			x++;
 		}
-		j++;
+		y++;
 	}
 }
 
