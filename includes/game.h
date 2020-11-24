@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/23 11:30:39 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/24 09:41:32 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int				to_coord(int x, int y);
 ** game start functions
 */
 
-void			start_game(t_game *game);
+void			start_play_mode(t_game *game);
+void			start_save_mode(t_game *game);
 void			initialize_window(t_game *game);
 void			setup(t_game *game);
 int				main_loop(t_game *game);

@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/22 17:26:22 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/24 09:38:38 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRCS = main.c \
 	$(CONTROLLERS_DIR)/read_cub_map.c \
 	$(CONTROLLERS_DIR)/validate_map.c \
 	$(BMP)/bmp.c \
-	$(BMP)/render_bmp_image.c
+	$(BMP)/create_image_for_bmp.c
 SRCS += ${shell find ./srcs/game/other_utils/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}

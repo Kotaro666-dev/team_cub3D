@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_game.c                                       :+:      :+:    :+:   */
+/*   start_play_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 20:13:58 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:39:09 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_game.h"
 #include "struct_game.h"
 #include "game.h"
 #include "mlx.h"
 #include "key_xevent_code.h"
 
-void	start_game(t_game *game)
+void	start_play_mode(t_game *game)
 {
 	setup(game); //initializing by putting every global var
 	initialize_window(game);

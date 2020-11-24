@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 18:44:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:33:41 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,70 +95,3 @@ int				create_bmp(t_game *game)
 	close(bmp.fd);
 	return (TRUE);
 }
-
-// // static int		write_image_data(int fd, t_game *game)
-// // {
-// // 	int				i;
-// // 	int				j;
-// // 	unsigned char	buffer[4];
-
-// // 	i = game->cub_data.rez.width * (game->cub_data.rez.height - 1);
-// // 	while (i >= 0)
-// // 	{
-// // 		j = 0;
-// // 		while (j < game->cub_data.rez.width)
-// // 		{
-// // 			buffer[0] = (unsigned char)(game->image.buffer[i] % 256);
-// // 			buffer[1] = (unsigned char)(game->image.buffer[i] / 256 % 256);
-// // 			buffer[2] = (unsigned char)(game->image.buffer[i] / 256 / 256 % 256);
-// // 			buffer[3] = (unsigned char)(0);
-// // 			write(fd, buffer, 4);
-// // 			i++;
-// // 			j++;
-// // 		}
-// // 		i -= 2 * game->cub_data.rez.width;
-// // 	}
-// // 	return (TRUE);
-// // }
-
-// // static int		write_image_data(int fd, t_game *game)
-// // {
-// // 	int		x;
-// // 	int		y;
-// // 	int		height;
-// // 	int		width;
-// // 	unsigned char	*bmp_line_data;
-// // 	int				real_width;
-
-// // 	height = game->cub_data.rez.height;
-// // 	width = game->cub_data.rez.width;
-// // 	// real_width = width * 3 + width % 4;
-// // 	real_width = game->cub_data.rez.height * game->cub_data.rez.width * 4;
-// // 	// if (!(bmp_line_data = (unsigned char *)malloc(sizeof(unsigned char) * game->cub_data.rez.width * 4)))
-// // 	// 	return (ERROR);
-// // 	if (!(bmp_line_data = (unsigned char *)malloc(sizeof(unsigned char) * real_width)))
-// // 		return (ERROR);
-// // 	y = 0;
-// // 	while (y < game->cub_data.rez.height)
-// // 	{
-// // 		x = 0;
-// // 		while (x < game->cub_data.rez.width)
-// // 		{
-// // 			bmp_line_data[x * 3] = game->image.buffer[(height - y - 1) * width + 1] / 256;
-// // 			bmp_line_data[x * 3 + 1] = game->image.buffer[(height - y - 1) * width + 1] / 256 % 256;
-// // 			bmp_line_data[x * 3 + 2] = game->image.buffer[(height - y - 1) * width + 1] / 256 / 256 % 256;
-// // 			x++;
-// // 		}
-// // 		x = width * 3;
-// // 		while (x < width * 4)
-// // 		{
-// // 			bmp_line_data[x] = 0;
-// // 			x++;
-// // 		}
-// // 		write(fd, bmp_line_data, sizeof(unsigned char) * width * 4);
-// // 		y++;
-// // 	}
-// // 	free(bmp_line_data);
-// // 	bmp_line_data = NULL;
-// // 	return (TRUE);
-// // }
