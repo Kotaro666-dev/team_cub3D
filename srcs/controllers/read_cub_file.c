@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 09:21:52 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 21:15:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int				read_cub_file(t_game *game)
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
 	convert_rgb_to_hex(&game->cub_data);
-	show_cub_data_for_debug(&game->cub_data);
+	// show_cub_data_for_debug(&game->cub_data);
 	return (TRUE);
 }
