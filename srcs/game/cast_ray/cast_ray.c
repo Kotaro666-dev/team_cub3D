@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:13:28 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:39:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 #include "cast_ray.h"
 #include "constants.h"
 #include <math.h>
-
-float		normalize_angle(float ray_angle)
-{
-	ray_angle = remainder(ray_angle, TWO_PI);
-	if (ray_angle < 0)
-	{
-		ray_angle = TWO_PI + ray_angle;
-	}
-	return (ray_angle);
-}
+#include "game.h"
 
 void		cast_ray(float ray_angle, int strip_id)
 {
