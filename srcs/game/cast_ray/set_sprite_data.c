@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 18:23:13 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/25 17:29:58 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "game.h"
 #include "cast_ray.h"
 #include <math.h>
+#include <stdlib.h>
 #include "struct_sprite.h"
 
 static float	get_sprite_angle(void)
@@ -51,9 +52,17 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 	g_sprite.distance = distance_between_points(
 		g_player.x, g_player.y, g_sprite.x, g_sprite.y);
 	angle_of_sprite = get_sprite_angle();
-	angle_of_left_side_of_fov =
-		normalize_angle(g_player.rotation_angle - (FOV_ANGLE / 2));
-	g_sprite.angle_from_left = angle_of_sprite - angle_of_left_side_of_fov;
+	g_sprite.angle = angle_of_sprite;
+
+	//distance * tan(x) > TILE_SIZE / 2ならreturn
+	if (abs(g_sprite.distance *
+		tan(angle_of_sprite - cmn->ray_angle)) > TILE_SIZE / 2)
+		return ;
+
+	g_sprite.should_render = TRUE;
+	angle_of_left_side_of_fov = g_player.rotation_angle - (FOV_ANGLE / 2);
+	g_sprite.angle_from_left =
+		normalize_angle(angle_of_sprite - angle_of_left_side_of_fov);
 	//スプライトがFOVよりも左側に中心がある場合
 	if (g_sprite.angle_from_left < 0)
 		g_sprite.center_x_to_render = 0;

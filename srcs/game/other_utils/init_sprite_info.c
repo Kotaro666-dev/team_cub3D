@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_sprite.h                                    :+:      :+:    :+:   */
+/*   init_sprite_info.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 16:58:44 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/25 15:10:16 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/25 15:21:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_SPRITE_H
-# define STRUCT_SPRITE_H
+#include "game.h"
 
-typedef struct
+void		init_sprite_info(void)
 {
-	int			should_render;
-	int			x; //spriteのx座標。
-	int			y;
-	float		distance; //spriteとプレイヤーの距離
-	float		angle_from_left; //次のcenter_x_to_renderがあればいらないかも
-	int			center_x_to_render; //スプライトの描画の中心x座標。ここを起点に描画
-	float		angle;
-}		t_sprite;
-
-#endif
+	g_sprite.should_render = FALSE;
+	g_sprite.x = 0;
+	g_sprite.y = 0;
+	g_sprite.distance = 0;
+	g_sprite.angle_from_left = 0;
+	g_sprite.center_x_to_render = 0;
+}

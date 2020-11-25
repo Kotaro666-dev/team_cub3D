@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 14:21:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 15:14:58 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 ** IT WILL CAUSE SEGMENTAION FAULT WITH MORE THAN 400 ARRAY SIZE
 */
 
-# define ROW 100
-# define COL 100
+# define ROW 50
+# define COL 50
 # define ARR_SIZE 1000
 
 /*
