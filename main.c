@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:47:58 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:51:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ int			main(int argc, char **argv)
 	{
 		start_save_mode(&game);
 	}
-	return (0);
+	return (SUCCESS);
 }
