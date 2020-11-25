@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:49:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,12 @@
 void	convert_rgb_to_hex(t_cub_elems *cub_elems);
 
 /*
-** CREATE_RECTANGLAR_MAP.C
-*/
-
-void	create_rectanglar_map(t_game *game);
-
-/*
 ** DEBUG_FUNCS.C
 */
 
 void	show_cub_elems_for_debug(t_cub_elems *cub_elems);
 void	debug_flood_fill_before(t_cub_elems *cub_elems);
 void	debug_flood_fill_after(t_cub_elems *cub_elems);
-void	debug_rectanglar_map(t_game *game);
 
 /*
 ** HANDLE_COMMAND_LINE.C
