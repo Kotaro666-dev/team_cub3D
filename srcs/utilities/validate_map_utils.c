@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:28:08 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "utilities.h"
 #include "constants.h"
 
-static void	is_this_coord_safe(t_cub_elems *cub_elems, int y, int x, int *is_safe)
+static void		is_this_coord_safe(t_cub_elems *cub_elems, int y, int x,
+															int *is_safe)
 {
 	if (cub_elems->map_data.fill[y - 1][x] == OUTER_WALL ||
 		cub_elems->map_data.fill[y + 1][x] == OUTER_WALL ||
@@ -51,7 +52,7 @@ void			flood_fill(t_cub_elems *cub_elems, int y, int x, int *is_safe)
 	return ;
 }
 
-static void	copy_map_to_flood_map(t_cub_elems *cub_elems)
+static void		copy_map_to_flood_map(t_cub_elems *cub_elems)
 {
 	int map_x;
 	int map_y;
@@ -79,7 +80,7 @@ static void	copy_map_to_flood_map(t_cub_elems *cub_elems)
 	}
 }
 
-void		create_box_for_flood_map(t_cub_elems *cub_elems)
+void			create_box_for_flood_map(t_cub_elems *cub_elems)
 {
 	int x;
 	int y;

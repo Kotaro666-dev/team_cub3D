@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 12:53:14 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:33:32 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,12 @@
 #include "structs/struct_error_msg.h"
 #include "constants.h"
 
-static char		*which_error_msg_else(t_err_msg *err_msg)
+static char		*which_error_msg3(t_err_msg *err_msg)
 {
 	char *msg;
 
 	msg = NULL;
-	if (err_msg->which_msg == SPRITE_EXT_ERROR)
-		msg = "SPRITE EXTENSION IS INVALID";
-	else if (err_msg->which_msg == SPRITE_PATH_ERROR)
-		msg = "COULDN'T FIND FILE FOR SPRITE!";
-	else if (err_msg->which_msg == COLOR_ERROR)
-		msg = "SOME COLOR VALUE IS INVALID!";
-	else if (err_msg->which_msg == TEXTURE_EXT_ERROR)
-		msg = "TEXTURE EXTENSION IS INVALID";
-	else if (err_msg->which_msg == TEXTURE_PATH_ERROR)
-		msg = "COULDN'T FIND SOME FILE FOR TEXTURES!";
-	else if (err_msg->which_msg == TEXTURE_FILE_NOT_VALID)
-		msg = "COULDN'T READ THE TEXTURE FILE CORRECTLY";
-	else if (err_msg->which_msg == MAP_ERROR)
+	if (err_msg->which_msg == MAP_ERROR)
 		msg = "MAP DATA IS INVALID!";
 	else if (err_msg->which_msg == MAP_TOO_BIG)
 		msg = "MAP DATA IS TOO BIG! PLEASE MAKE IT SMALLER!";
@@ -45,7 +33,31 @@ static char		*which_error_msg_else(t_err_msg *err_msg)
 	return (msg);
 }
 
-static char		*which_error_msg(t_err_msg *err_msg)
+static char		*which_error_msg2(t_err_msg *err_msg)
+{
+	char *msg;
+
+	msg = NULL;
+	if (err_msg->which_msg == RESOLUTION_ERROR)
+		msg = "RESOLUTION VALUE IS INVALID!";
+	else if (err_msg->which_msg == SPRITE_EXT_ERROR)
+		msg = "SPRITE EXTENSION IS INVALID";
+	else if (err_msg->which_msg == SPRITE_PATH_ERROR)
+		msg = "COULDN'T FIND FILE FOR SPRITE!";
+	else if (err_msg->which_msg == COLOR_ERROR)
+		msg = "SOME COLOR VALUE IS INVALID!";
+	else if (err_msg->which_msg == TEXTURE_EXT_ERROR)
+		msg = "TEXTURE EXTENSION IS INVALID";
+	else if (err_msg->which_msg == TEXTURE_PATH_ERROR)
+		msg = "COULDN'T FIND SOME FILE FOR TEXTURES!";
+	else if (err_msg->which_msg == TEXTURE_FILE_NOT_VALID)
+		msg = "COULDN'T READ THE TEXTURE FILE CORRECTLY";
+	else
+		msg = which_error_msg3(err_msg);
+	return (msg);
+}
+
+static char		*which_error_msg1(t_err_msg *err_msg)
 {
 	char *msg;
 
@@ -66,20 +78,16 @@ static char		*which_error_msg(t_err_msg *err_msg)
 		msg = "ELEMENT ID OR PROPERTY'S NUM DON'T MATCH!";
 	else if (err_msg->which_msg == MULTI_ELEMS_SEEN)
 		msg = "SOME ELEMENT IS WRITTEIN MULTIPLE TIMES IN CUB FILE!";
-	else if (err_msg->which_msg == RESOLUTION_ERROR)
-		msg = "RESOLUTION VALUE IS INVALID!";
 	else
-	{
-		msg = which_error_msg_else(err_msg);
-	}
+		msg = which_error_msg2(err_msg);
 	return (msg);
 }
 
-void				print_error_msg(t_err_msg *err_msg)
+void			print_error_msg(t_err_msg *err_msg)
 {
 	char *msg;
 
-	msg = which_error_msg(err_msg);
+	msg = which_error_msg1(err_msg);
 	ft_putstr_fd("\x1b[31m", 1);
 	ft_putendl_fd(ERROR_MSG, 1);
 	ft_putendl_fd(msg, 1);
