@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/25 13:07:53 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/25 15:55:48 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ SRCS = main.c \
 	$(PARSING_DIR)/parse_color_data.c \
 	$(PARSING_DIR)/parse_resolution_data.c \
 	$(PARSING_DIR)/parse_texture_data.c \
-	$(CONTROLLERS_DIR)/detect_key_actions.c \
 	$(CONTROLLERS_DIR)/handle_command_line.c \
 	$(CONTROLLERS_DIR)/read_cub_file.c \
 	$(CONTROLLERS_DIR)/read_cub_map.c \
