@@ -6,12 +6,13 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 09:39:09 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:17:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct_game.h"
 #include "game.h"
+#include "utilities.h"
 #include "mlx.h"
 #include "key_xevent_code.h"
 
@@ -19,6 +20,8 @@ void	start_play_mode(t_game *game)
 {
 	setup(game); //initializing by putting every global var
 	initialize_window(game);
+	create_rectanglar_map(game);
+	// debug_rectanglar_map(&game);
 	register_hook(game); //calling main loop inside this func
 	mlx_loop(game->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 09:40:03 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:14:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ int main(int argc, char **argv)
 		free_mlx_ptr(&game);
 		return (ERROR);
 	}
-	// TRANSFORM MAP INTO RECTANGLE
-	create_rectanglar_map(&game);
-	// debug_rectanglar_map(&game);
 	if (game.which_mode == PLAY_MODE)
 	{
 		start_play_mode(&game);
