@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_bmp_image.c                                 :+:      :+:    :+:   */
+/*   create_bmp_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 13:00:53 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void		init_bmp_struct(t_bmp *bmp, t_game *game)
 {
-	bmp->width = game->cub_data.rez.width;
-	bmp->height = game->cub_data.rez.height;
+	bmp->width = game->cub_elems.rez.width;
+	bmp->height = game->cub_elems.rez.height;
 	bmp->image_size = bmp->width * bmp->height * 3;
 	bmp->file_size = TOTALHEADERSIZE + bmp->image_size;
 	bmp->width_in_bytes = bmp->width * BYTES_PER_PIXEL;

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:51:57 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:18:55 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:00:03 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,6 @@ int	is_cub_file_ext_valid(char *format)
 int	should_write_bmp_image(char **argv)
 {
 	if (ft_strcmp(argv[2], "--save") == TRUE)
-	{
-		return (TRUE);
-	}
-	else
-	{
-		return (FALSE);
-	}
-}
-
-int	is_argc_valid(int argc)
-{
-	if (argc == 2 || argc == 3)
 	{
 		return (TRUE);
 	}
