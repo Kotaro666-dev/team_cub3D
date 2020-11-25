@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:32:17 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:47:58 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "structs/struct_info.h"
 #include "struct_texture.h"
 #include "bmp.h"
+#include <stdio.h>
 
 char		g_map[ROW + 1][COL + 1];
 
@@ -28,14 +29,18 @@ t_ray		*g_rays;
 t_info		g_info;
 t_texture	g_textures[TEXTURE_NUM];
 
-#include <stdio.h>
-int main(int argc, char **argv)
+static void initialize_config(t_game *game)
+{
+	game->mlx = mlx_init();
+	init_cub_elems(&game->cub_elems);
+	mlx_get_screen_size(game->mlx, &game->cub_elems.rez.my_width, &game->cub_elems.rez.my_height);
+}
+
+int			main(int argc, char **argv)
 {
 	t_game			game;
 
-	game.mlx = mlx_init();
-	init_cub_elems(&game.cub_elems);
-	mlx_get_screen_size(game.mlx, &game.cub_elems.rez.my_width, &game.cub_elems.rez.my_height);
+	initialize_config(&game);
 	game.which_mode = handle_command_line(argc, argv, &game);
 	if (game.which_mode == ERROR)
 	{
