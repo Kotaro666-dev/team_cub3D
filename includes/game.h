@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 09:41:32 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:36:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ float			convert_orient_ch2angle(char orient);
 void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
 					char src[ROW + 1][COL + 1]);
 int				to_coord(int x, int y);
+void			print_debug_info_in_game(t_game *game);
+
 
 
 /*
