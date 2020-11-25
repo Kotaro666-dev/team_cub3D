@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 21:01:01 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:30:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-// TODO: REFACTORING
 int			handle_command_line(int argc, char **argv, t_game *game)
 {
 	if (!is_argc_valid(argc))
@@ -63,6 +62,7 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 		{
 			return (ERROR);
 		}
+		return (PLAY_MODE);
 	}
 	else if (argc == 3)
 	{
@@ -75,7 +75,8 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 		{
 			return (ERROR);
 		}
-		game->should_create_bmp = TRUE;
+		return (SAVE_MODE);
+		// game->should_create_bmp = TRUE;
 	}
 	return (TRUE);
 }

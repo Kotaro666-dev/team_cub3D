@@ -36,6 +36,8 @@
 
 # define SAVE_COMMAND "--save"
 # define ERROR_MSG "Error"
+# define PLAY_MODE 2
+# define SAVE_MODE 3
 
 /*
 ** VALIDATE MAP MACRO
