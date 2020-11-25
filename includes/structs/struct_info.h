@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   struct_info.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 14:33:19 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/25 16:27:00 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_INFO_H
 # define STRUCT_INFO_H
 
-# include "struct_map_data.h"
+# include "struct_cub_elems.h"
 
 typedef struct
 {

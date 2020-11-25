@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   store_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 16:28:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/23 11:03:42 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,27 @@ static void	load_textures(t_game *game)
 {
 	g_textures[NORTH_IDX].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
-			game->cub_data.north_tex.path,
+			game->cub_elems.north_tex.path,
 			&(g_textures[NORTH_IDX].width),
 			&(g_textures[NORTH_IDX].height));
 	g_textures[SOUTH_IDX].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
-			game->cub_data.south_tex.path,
+			game->cub_elems.south_tex.path,
 			&(g_textures[SOUTH_IDX].width),
 			&(g_textures[SOUTH_IDX].height));
 	g_textures[EAST_IDX].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
-			game->cub_data.east_tex.path,
+			game->cub_elems.east_tex.path,
 			&(g_textures[EAST_IDX].width),
 			&(g_textures[EAST_IDX].height));
 	g_textures[WEST_IDX].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
-			game->cub_data.west_tex.path,
+			game->cub_elems.west_tex.path,
 			&(g_textures[WEST_IDX].width),
 			&(g_textures[WEST_IDX].height));
 	g_textures[SPRITE_IDX].img_ptr = (uint32_t*)
 		mlx_xpm_file_to_image(game->mlx,
-			game->cub_data.sprite_tex.path,
+			game->cub_elems.sprite_tex.path,
 			&(g_textures[SPRITE_IDX].width),
 			&(g_textures[SPRITE_IDX].height));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_background.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:40:51 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 21:42:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	render_background(t_game *game)
 		y = 0;
 		while (y < g_info.height / 2)
 		{
-			my_mlx_pixel_put(game, x, y, game->cub_data.clr_ceiling.hex);
+			my_mlx_pixel_put(game, x, y, game->cub_elems.clr_ceiling.hex);
 			y++;
 		}
 		while (y < g_info.height)
 		{
-			my_mlx_pixel_put(game, x, y, game->cub_data.clr_floor.hex);
+			my_mlx_pixel_put(game, x, y, game->cub_elems.clr_floor.hex);
 			y++;
 		}
 		x++;

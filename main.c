@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:14:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:32:17 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int main(int argc, char **argv)
 	t_game			game;
 
 	game.mlx = mlx_init();
-	init_cub_data(&game.cub_data);
-	mlx_get_screen_size(game.mlx, &game.cub_data.rez.my_width, &game.cub_data.rez.my_height);
+	init_cub_elems(&game.cub_elems);
+	mlx_get_screen_size(game.mlx, &game.cub_elems.rez.my_width, &game.cub_elems.rez.my_height);
 	game.which_mode = handle_command_line(argc, argv, &game);
 	if (game.which_mode == ERROR)
 	{

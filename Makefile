@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/25 15:55:48 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/25 16:27:32 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ DEBUG = -g
 SRCS = main.c \
 	$(LIBS_DIR)/get_next_line/get_next_line.c \
 	$(UTILITIES_DIR)/print_error_msg.c \
-	$(UTILITIES_DIR)/init_cub_data.c \
+	$(UTILITIES_DIR)/init_cub_elems.c \
 	$(UTILITIES_DIR)/useful_funcs.c \
 	$(UTILITIES_DIR)/validate_cub_file_utils.c \
 	$(UTILITIES_DIR)/read_cub_file_utils.c \

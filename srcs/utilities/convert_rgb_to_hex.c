@@ -19,20 +19,20 @@ static void				set_hexadecimal_color(int red, int green, int blue, uint32_t *hex
 	*hex = red << 16 | green << 8 | blue;
 }
 
-void					convert_rgb_to_hex(t_cub_data *cub_data)
+void					convert_rgb_to_hex(t_cub_elems *cub_elems)
 {
 	int		red;
 	int		green;
 	int		blue;
 
 	// FLOOR
-	red = cub_data->clr_floor.red;
-	green = cub_data->clr_floor.green;
-	blue = cub_data->clr_floor.blue;
-	set_hexadecimal_color(red, green, blue, &cub_data->clr_floor.hex);
+	red = cub_elems->clr_floor.red;
+	green = cub_elems->clr_floor.green;
+	blue = cub_elems->clr_floor.blue;
+	set_hexadecimal_color(red, green, blue, &cub_elems->clr_floor.hex);
 	// CEILING
-	red = cub_data->clr_ceiling.red;
-	green = cub_data->clr_ceiling.green;
-	blue = cub_data->clr_ceiling.blue;
-	set_hexadecimal_color(red, green, blue, &cub_data->clr_ceiling.hex);
+	red = cub_elems->clr_ceiling.red;
+	green = cub_elems->clr_ceiling.green;
+	blue = cub_elems->clr_ceiling.blue;
+	set_hexadecimal_color(red, green, blue, &cub_elems->clr_ceiling.hex);
 }
