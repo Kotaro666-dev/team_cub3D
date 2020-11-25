@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_hexadecimal_color.c                               :+:      :+:    :+:   */
+/*   convert_rgb_to_hex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 12:28:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/18 17:02:59 by kkamashi         ###   ########.fr       */
+/*   Created: 2020/11/25 18:34:40 by kkamashi          #+#    #+#             */
+/*   Updated: 2020/11/25 18:35:28 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 #include "libft.h"
 #include "utilities.h"
 
-static void				set_hexadecimal_color(int red, int green, int blue, uint32_t *hex)
+static void	set_hexadecimal_color(int red, int green, int blue, uint32_t *hex)
 {
 	*hex = red << 16 | green << 8 | blue;
 }
 
-void					convert_rgb_to_hex(t_cub_elems *cub_elems)
+void		convert_rgb_to_hex(t_cub_elems *cub_elems)
 {
 	int		red;
 	int		green;
 	int		blue;
 
-	// FLOOR
 	red = cub_elems->clr_floor.red;
 	green = cub_elems->clr_floor.green;
 	blue = cub_elems->clr_floor.blue;
 	set_hexadecimal_color(red, green, blue, &cub_elems->clr_floor.hex);
-	// CEILING
 	red = cub_elems->clr_ceiling.red;
 	green = cub_elems->clr_ceiling.green;
 	blue = cub_elems->clr_ceiling.blue;
