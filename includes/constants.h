@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 21:51:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 21:55:11 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 
 # define SAVE_COMMAND "--save"
 # define ERROR_MSG "Error"
+# define PLAY_MODE 2
+# define SAVE_MODE 3
 
 /*
 ** VALIDATE MAP MACRO

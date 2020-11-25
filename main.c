@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 17:08:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:40:03 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int main(int argc, char **argv)
 	game.mlx = mlx_init();
 	init_cub_data(&game.cub_data);
 	mlx_get_screen_size(game.mlx, &game.cub_data.rez.my_width, &game.cub_data.rez.my_height);
-	game.should_game_start = handle_command_line(argc, argv, &game);
-	if (game.should_game_start == ERROR)
+	game.which_mode = handle_command_line(argc, argv, &game);
+	if (game.which_mode == ERROR)
 	{
 		print_error_msg(&game.err_msg);
 		free_mlx_ptr(&game);
@@ -46,17 +46,13 @@ int main(int argc, char **argv)
 	// TRANSFORM MAP INTO RECTANGLE
 	create_rectanglar_map(&game);
 	// debug_rectanglar_map(&game);
-	if (game.should_create_bmp == TRUE)
+	if (game.which_mode == PLAY_MODE)
 	{
-		render_bmp_image(&game);
-		if (create_bmp(&game) == ERROR)
-		{
-			print_error_msg(&game.err_msg);
-		}
-		free_mlx_ptr(&game);
-		exit(0);
+		start_play_mode(&game);
 	}
-	// AND THEN GAME START
-	start_game(&game);
+	else if (game.which_mode == SAVE_MODE)
+	{
+		start_save_mode(&game);
+	}
 	return (0);
 }

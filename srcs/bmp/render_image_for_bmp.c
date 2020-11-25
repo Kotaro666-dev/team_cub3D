@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_bmp_image.c                                 :+:      :+:    :+:   */
+/*   render_image_for_bmp.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 17:14:44 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/22 20:42:22 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 13:05:57 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "mlx.h"
 
-void		render_bmp_image(t_game *game)
+void		render_image_for_bmp(t_game *game)
 {
 	setup(game);
 	game->image.img = mlx_new_image(game->mlx, g_info.width, g_info.height);

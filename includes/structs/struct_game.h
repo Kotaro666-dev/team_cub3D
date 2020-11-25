@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 12:43:14 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/22 15:32:29 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:32:22 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ typedef struct	s_game
 {
 	void			*mlx;
 	void			*win;
-	int				should_game_start;
-	int				should_create_bmp;
+	int				which_mode;
 	t_cub_data		cub_data;
 	t_err_msg		err_msg;
 	t_gnl			gnl;
