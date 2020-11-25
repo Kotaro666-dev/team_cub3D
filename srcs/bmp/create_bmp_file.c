@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bmp.c                                              :+:      :+:    :+:   */
+/*   create_bmp_image.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:50:51 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 09:33:41 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 13:00:53 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bmp.h"
 #include "struct_bmp.h"
 
-static void		init_bmp(t_bmp *bmp, t_game *game)
+static void		init_bmp_struct(t_bmp *bmp, t_game *game)
 {
 	bmp->width = game->cub_data.rez.width;
 	bmp->height = game->cub_data.rez.height;
@@ -65,7 +65,6 @@ static void		write_image_data(t_game *game, t_bmp *bmp)
 			write(bmp->fd, &bmp->color, 3);
 			x++;
 		}
-		// Is this part necessary?
 		x = 0;
 		while (x < bmp->padding_size)
 		{
@@ -76,11 +75,11 @@ static void		write_image_data(t_game *game, t_bmp *bmp)
 	}
 }
 
-int				create_bmp(t_game *game)
+int				create_bmp_file(t_game *game)
 {
 	t_bmp	bmp;
 
-	init_bmp(&bmp, game);
+	init_bmp_struct(&bmp, game);
 	if ((bmp.fd = open("./cub3D.bmp", O_CREAT | O_WRONLY, S_IRWXU)) == ERROR)
 	{
 		game->err_msg.which_msg = BMP_FAILED;
