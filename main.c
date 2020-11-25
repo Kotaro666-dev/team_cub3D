@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 17:08:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:18:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_player	g_player;
 t_ray		*g_rays;
 t_info		g_info;
 t_texture	g_textures[TEXTURE_NUM];
+t_sprite	g_sprite;
 
 #include <stdio.h>
 int main(int argc, char **argv)
