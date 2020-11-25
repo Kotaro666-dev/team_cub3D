@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 21:55:11 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 14:21:12 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@
 ** VALIDATE_MAP_UTILS.C
 */
 
-# define TARGET "0-"
+# define TARGET "02-"
 
 /*
 ** FOR RENDERING

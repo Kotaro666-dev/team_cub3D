@@ -45,7 +45,7 @@ done
 echo "error_test/error50.cub"
 ./cub3D error_test/error50.cub
 
-for i in `seq 1`
+for i in `seq 7`
 do
 echo "error_test/error5$i.cub"
 ./cub3D error_test/error5$i.cub
