@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:59:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,5 @@ int				parse_color_data(char **data, t_game *game)
 		game->err_msg.which_msg = COLOR_ERROR;
 		return (ERROR);
 	}
-	// free_memory_of_2d_array(splitted_color_data);
 	return (TRUE);
 }
