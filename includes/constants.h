@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 14:21:12 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:51:06 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 /*
 ** MAP
-** IT WILL CAUSE SEGMENTAION FAULT WITH MORE THAN 400 ARRAY SIZE
 */
 
 # define ROW 100
@@ -38,6 +37,7 @@
 # define ERROR_MSG "Error"
 # define PLAY_MODE 2
 # define SAVE_MODE 3
+# define SUCCESS 0
 
 /*
 ** VALIDATE MAP MACRO
@@ -80,7 +80,7 @@
 
 
 /*
-** tile size per one array element
+** TILE SIZE PER ONE ARRAY ELEMENT
 */
 
 # define TILE_SIZE 64
@@ -90,14 +90,14 @@
 # define DEFAULT_ROW_RACIO ((float)50 / ROW)
 
 /*
-** minimap scale factor
+** MINIMAP SCALE FACTOR
 */
 
 # define MAP_SCALE (0.4 * DEFAULT_TILE_SIZE_RACIO * DEFAULT_COL_RACIO * DEFAULT_ROW_RACIO)
 
 
 /*
-** actual map size (pixel)
+** ACTUAL MAP SIZE (PIXEL)
 */
 
 # define MAP_WIDTH (COL * TILE_SIZE)
@@ -107,7 +107,7 @@
 
 
 /*
-** for texture index
+** TEXTURE INDEX
 */
 
 # define TEXTURE_NUM 5
