@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/23 17:09:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:03:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		close_window(t_game *game)
 		mlx_destroy_image(game->mlx, g_textures[i].img_ptr);
 		i++;
 	}
-	// mlx_destroy_window(game->mlx, game->win);
 	free_mlx_ptr(game);
 	exit(0);
 	return (0);
