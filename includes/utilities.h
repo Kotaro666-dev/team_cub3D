@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 17:06:05 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:00:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	debug_rectanglar_map(t_game *game);
 
 int		is_cub_file_ext_valid(char *format);
 int		should_write_bmp_image(char **argv);
-int		is_argc_valid(int argc);
-
 
 /*
 ** INIT_STRUCTS.C
