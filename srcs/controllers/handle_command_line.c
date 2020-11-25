@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 15:59:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:02:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		can_open_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-static int	verify_cub_file(char *cub_file, t_game *game)
+static int		verify_cub_file(char *cub_file, t_game *game)
 {
 	if (!is_cub_file_ext_valid(cub_file))
 	{
@@ -49,7 +49,7 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-int			handle_command_line(int argc, char **argv, t_game *game)
+int				handle_command_line(int argc, char **argv, t_game *game)
 {
 	if (argc == 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:02:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ int				read_cub_file(t_game *game)
 		}
 		free(game->gnl.line);
 		if (did_reach_eof(game))
-		{
 			break ;
-		}
 	}
 	game->gnl.line = NULL;
 	close(game->gnl.fd);

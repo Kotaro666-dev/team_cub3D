@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:08:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:26:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,15 @@ static int		check_contents_in_line(char *line, t_cub_elems *cub_elems)
 	return (TRUE);
 }
 
+static void		update_map_data_config(t_map_data *map_data, char **line)
+{
+	ft_strlcpy(map_data->map[map_data->max_y], *line, ARR_SIZE);
+	map_data->has_started_reading_map = TRUE;
+	map_data->max_y++;
+}
+
 int				read_cub_map(char **line, t_game *game)
 {
-	int index;
-
-	index = game->cub_elems.map_data.max_y;
 	if (is_map_too_big(line))
 	{
 		game->err_msg.which_msg = MAP_TOO_BIG;
@@ -91,9 +95,7 @@ int				read_cub_map(char **line, t_game *game)
 			game->err_msg.which_msg = MAP_ERROR;
 			return (ERROR);
 		}
-		ft_strlcpy(game->cub_elems.map_data.map[index], *line, ARR_SIZE);
-		game->cub_elems.map_data.has_started_reading_map = TRUE;
-		game->cub_elems.map_data.max_y++;
+		update_map_data_config(&game->cub_elems.map_data, line);
 	}
 	else
 	{
