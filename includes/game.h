@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 15:41:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/25 11:27:50 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
 					char src[ROW + 1][COL + 1]);
 int				to_coord(int x, int y);
 float			normalize_angle(float ray_angle);
+void			print_debug_info_in_game(t_game *game);
 
 
 /*
