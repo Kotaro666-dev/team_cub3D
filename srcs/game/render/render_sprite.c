@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 14:27:42 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 18:28:17 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <stdlib.h>
 
 //
+#include "colors.h"
 #include <stdio.h>
 #include "debug_game.h"
 //
 
 void		render_sprite(t_game *game)
 {
-	(void)game;
 	t_3d_prj	pj;
 
 	if (!g_sprite.should_render)
@@ -46,20 +46,33 @@ void		render_sprite(t_game *game)
 		pj.wall_bottom_pixel = g_info.height;
 
 	int			i;
-	// int			j;
+	int			j;
 	int			x_end;
 
 	//spriteの描画を始める場所
 	i = (int)(g_sprite.center_x_to_render -
 		pj.wall_strip_width * g_sprite.left_len / TILE_SIZE);
+	if (i < 0)
+		i = 0;
 	x_end = (int)(g_sprite.center_x_to_render -
 		pj.wall_strip_width * g_sprite.right_len / TILE_SIZE);
-
+	if (x_end > g_info.width)
+		x_end = g_info.width;
+	//
 	g_debug.i = i;
 	g_debug.x_end = x_end;
-	// while (i <= x_end)
-	// {
+	//
 
-	// }
-	// while (i < )
+	while (i <= x_end)
+	{
+		j = pj.wall_top_pixel;
+		while (j < pj.wall_bottom_pixel)
+		{
+			// pj.distance_from_top =
+			// 	j + (pj.wall_strip_height / 2) - (g_info.height / 2);
+			my_mlx_pixel_put(game, i, j, BLUE);
+			j++;
+		}
+		i++;
+	}
 }

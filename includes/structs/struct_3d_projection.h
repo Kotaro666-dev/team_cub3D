@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 10:54:30 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:44:38 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct	s_3d_prj
 	float		distance_prj_plane;
 	float		prjctd_wall_height;
 	int			wall_strip_height;
-	int			wall_strip_width;
+	float		wall_strip_width;
 	int			wall_top_pixel;
 	int			wall_bottom_pixel;
 	int			distance_from_top;
