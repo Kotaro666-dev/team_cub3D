@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:26:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 17:51:52 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 21:58:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 
 void		print_debug_info_in_game(t_game *game)
 {
-	if (g_sprite.should_render)
-	{
+	// if (g_sprite.should_render)
+	// {
 		draw_player_rect(game,
 			init_rect_info(g_debug.i, g_info.height / 2, 30, 30),
-			0x2222ee);
+			0x8888ee);
 		draw_player_rect(game,
 			init_rect_info(g_debug.x_end, g_info.height / 2, 30, 30),
 			0x442222);
@@ -36,7 +36,7 @@ void		print_debug_info_in_game(t_game *game)
 				0x224433);
 		}
 		mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
-	}
+	// }
 	g_sprite.should_render = FALSE;
 
 	printf("distance %f\n", g_sprite.distance);
