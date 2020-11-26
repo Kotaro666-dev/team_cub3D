@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:26:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 17:42:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 10:43:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //should remove below after completing this project
 #include <stdio.h>
 #include "mlx.h"
+#include <math.h>
 //
 
 void		print_debug_info_in_game(t_game *game)
@@ -28,8 +29,11 @@ void		print_debug_info_in_game(t_game *game)
 	}
 	g_sprite.should_render = FALSE;
 
-	printf("angle_from_left = %f\n", g_sprite.angle_from_left * 180 / PI);
-	printf("center_x = %d\n", g_sprite.center_x_to_render);
+	printf("leftlen = %f\n", g_sprite.left_len);
+	printf("intlen%d\n", (int)(g_sprite.left_len));
+	printf("rightlen = %f\n", g_sprite.right_len);
+	printf("intlen%d\n", (int)(g_sprite.right_len));
 	printf("\n");
+	init_sprite_info();
 	// printf("playerx:%f\n", g_player.x);
 }

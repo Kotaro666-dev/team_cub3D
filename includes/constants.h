@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 15:14:58 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 09:59:21 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@
 # define DEFAULT_TILE_SIZE_RACIO ((float)32 / TILE_SIZE)
 # define DEFAULT_COL_RACIO ((float)50 / COL)
 # define DEFAULT_ROW_RACIO ((float)50 / ROW)
+
+
+/*
+** useful macro
+*/
+
+# define MAX(x, y) (x > y) ? x : y
+# define MIN(x, y) (x < y) ? x : y
 
 /*
 ** minimap scale factor
