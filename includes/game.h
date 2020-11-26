@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 12:27:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:26:13 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "struct_3d_projection.h"
 # include "struct_texture.h"
 # include "struct_sprite.h"
-# include "struct_debug.h"
 
 extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
@@ -29,10 +28,6 @@ extern t_player	g_player;
 extern t_ray	*g_rays;
 extern t_texture	g_textures[TEXTURE_NUM];
 extern t_sprite	g_sprite;
-
-//
-extern t_debug	g_debug;
-//
 
 /*
 ** my drawing functions
@@ -102,7 +97,6 @@ void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
 					char src[ROW + 1][COL + 1]);
 int				to_coord(int x, int y);
 float			normalize_angle(float ray_angle);
-void			print_debug_info_in_game(t_game *game);
 
 
 /*

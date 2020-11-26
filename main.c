@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/26 12:27:24 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:27:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "structs/struct_info.h"
 #include "struct_texture.h"
 #include "bmp.h"
-#include "struct_debug.h"
+#include "debug_game.h"
 
 char		g_map[ROW + 1][COL + 1];
 

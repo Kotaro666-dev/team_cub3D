@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 12:49:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:27:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 //
 #include <stdio.h>
+#include "debug_game.h"
 //
 
 void		render_sprite(t_game *game)
