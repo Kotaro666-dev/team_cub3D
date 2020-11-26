@@ -36,27 +36,27 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 
 # 残りのパート
 
-1. Rayのキャスティング -> DONE
-2. textureの読み込み -> NOW by rnakai
-3. sprite
-4. BMPファイルへの出力 -> NOW by kkamashi
-5. normチェック
+1. Rayのキャスティング -> DONE by rnakai
+2. textureの読み込み -> DONE by rnakai
+3. sprite -> NOW by rnakai
+4. BMPファイルへの出力 -> DONE by kkamashi
+5. normチェック -> NOW by kkamashi
 6. 最終的なエラーチェック
 
 ## rnakaiのパート
 1. 描画のところを引き続きやる -> DONE
-2. textureの貼り付け -> NOW
+2. textureの貼り付け -> DONE
+3. Spriteの実装 -> NOW
 #### 進捗予定
-11/25水 sprite1個を画面に映す  
-26木　上の続き、修正など  
-27金　データ構造を考える  
-28土　データ構造を実装し複数のspriteの描画  
-29日　上の続き、修正  
-30月　デバッグ、完成！！  
+11/25水 sprite1個を画面に映す
+26木　上の続き、修正など
+27金　データ構造を考える
+28土　データ構造を実装し複数のspriteの描画
+29日　上の続き、修正
+30月　デバッグ、完成！！
 
 ## kkamashiのパート
 1. マップデータを長方形に整形 -> DONE
-2. convert rbg to hex
-3. bmpファイルを作る関数
-4. textureを貼る勉強
-5. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める
+2. convert rbg to hex -> DONE
+3. bmpファイルを作る関数 -> DONE
+4. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める

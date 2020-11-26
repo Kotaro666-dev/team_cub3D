@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 09:30:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:02:46 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		can_open_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-static int	verify_cub_file(char *cub_file, t_game *game)
+static int		verify_cub_file(char *cub_file, t_game *game)
 {
 	if (!is_cub_file_ext_valid(cub_file))
 	{
@@ -49,13 +49,8 @@ static int	verify_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-int			handle_command_line(int argc, char **argv, t_game *game)
+int				handle_command_line(int argc, char **argv, t_game *game)
 {
-	if (!is_argc_valid(argc))
-	{
-		game->err_msg.which_msg = NUM_COMMAND_LINE_INVALID;
-		return (ERROR);
-	}
 	if (argc == 2)
 	{
 		if (verify_cub_file(argv[1], game) == ERROR)
@@ -76,7 +71,7 @@ int			handle_command_line(int argc, char **argv, t_game *game)
 			return (ERROR);
 		}
 		return (SAVE_MODE);
-		// game->should_create_bmp = TRUE;
 	}
-	return (TRUE);
+	game->err_msg.which_msg = NUM_COMMAND_LINE_INVALID;
+	return (ERROR);
 }

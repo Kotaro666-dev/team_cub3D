@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 14:51:44 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 18:57:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 void	setup(t_game *game)
 {
 	g_player.x =
-		game->cub_data.map_data.player_pos_x * TILE_SIZE + TILE_SIZE / 2;
+		game->cub_elems.map_data.player_pos_x * TILE_SIZE + TILE_SIZE / 2;
 	g_player.y =
-		game->cub_data.map_data.player_pos_y * TILE_SIZE + TILE_SIZE / 2;
+		game->cub_elems.map_data.player_pos_y * TILE_SIZE + TILE_SIZE / 2;
 	g_player.width = 5;
 	g_player.height = 5;
 	g_player.turn_direction = 0; //-1 if left, +1 if right
 	g_player.walk_direction = 0; //-1 if back, +1 if front
 	g_player.side_angle = 0;
 	g_player.rotation_angle = convert_orient_ch2angle(
-		game->cub_data.map_data.player_orient);
+		game->cub_elems.map_data.player_orient);
 	g_player.walk_speed = 2;
 	g_player.turn_speed = 5 * (PI / 180);
 	g_info.key_flag = TRUE;
-	convert_ch2num_map(g_map, game->cub_data.map_data.map);
-	g_info.width = game->cub_data.rez.width;
-	g_info.height = game->cub_data.rez.height;
+	convert_ch2num_map(g_map, game->cub_elems.map_data.map);
+	g_info.width = game->cub_elems.rez.width;
+	g_info.height = game->cub_elems.rez.height;
 	g_info.num_rays = g_info.width;
-	g_rays = (t_ray*)malloc(sizeof(t_ray) * (game->cub_data.rez.width + 1));
+	g_rays = (t_ray*)malloc(sizeof(t_ray) * (game->cub_elems.rez.width + 1));
 	store_textures(game);
 	init_sprite_info();
 }

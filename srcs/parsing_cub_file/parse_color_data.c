@@ -6,11 +6,11 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 21:22:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:59:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_map_data.h"
+#include "struct_cub_elems.h"
 #include "struct_game.h"
 #include "parsing.h"
 #include "constants.h"
@@ -42,25 +42,25 @@ static int		is_color_in_range(int color)
 }
 
 static void		store_color_data(char *id, char **color_data,
-									t_cub_data *cub_data)
+									t_cub_elems *cub_elems)
 {
 	if (ft_strcmp(id, "F"))
 	{
-		cub_data->clr_floor.number_of_times_seen = TRUE;
-		cub_data->clr_floor.red = ft_atoi(color_data[0]);
-		cub_data->clr_floor.green = ft_atoi(color_data[1]);
-		cub_data->clr_floor.blue = ft_atoi(color_data[2]);
+		cub_elems->clr_floor.number_of_times_seen = TRUE;
+		cub_elems->clr_floor.red = ft_atoi(color_data[0]);
+		cub_elems->clr_floor.green = ft_atoi(color_data[1]);
+		cub_elems->clr_floor.blue = ft_atoi(color_data[2]);
 	}
 	else
 	{
-		cub_data->clr_ceiling.number_of_times_seen = TRUE;
-		cub_data->clr_ceiling.red = ft_atoi(color_data[0]);
-		cub_data->clr_ceiling.green = ft_atoi(color_data[1]);
-		cub_data->clr_ceiling.blue = ft_atoi(color_data[2]);
+		cub_elems->clr_ceiling.number_of_times_seen = TRUE;
+		cub_elems->clr_ceiling.red = ft_atoi(color_data[0]);
+		cub_elems->clr_ceiling.green = ft_atoi(color_data[1]);
+		cub_elems->clr_ceiling.blue = ft_atoi(color_data[2]);
 	}
 }
 
-int				is_color_value_valid(char *id, t_cub_data *cub_data)
+int				is_color_value_valid(char *id, t_cub_elems *cub_elems)
 {
 	int is_red_valid;
 	int is_green_valid;
@@ -68,16 +68,16 @@ int				is_color_value_valid(char *id, t_cub_data *cub_data)
 
 	if (ft_strcmp(id, "F"))
 	{
-		is_red_valid = is_color_in_range(cub_data->clr_floor.red);
-		is_green_valid = is_color_in_range(cub_data->clr_floor.green);
-		is_blue_valid = is_color_in_range(cub_data->clr_floor.blue);
+		is_red_valid = is_color_in_range(cub_elems->clr_floor.red);
+		is_green_valid = is_color_in_range(cub_elems->clr_floor.green);
+		is_blue_valid = is_color_in_range(cub_elems->clr_floor.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
 	else
 	{
-		is_red_valid = is_color_in_range(cub_data->clr_ceiling.red);
-		is_green_valid = is_color_in_range(cub_data->clr_ceiling.green);
-		is_blue_valid = is_color_in_range(cub_data->clr_ceiling.blue);
+		is_red_valid = is_color_in_range(cub_elems->clr_ceiling.red);
+		is_green_valid = is_color_in_range(cub_elems->clr_ceiling.green);
+		is_blue_valid = is_color_in_range(cub_elems->clr_ceiling.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
 }
@@ -99,14 +99,13 @@ int				parse_color_data(char **data, t_game *game)
 		game->err_msg.which_msg = COLOR_ERROR;
 		return (ERROR);
 	}
-	store_color_data(id, splitted_color_data, &game->cub_data);
+	store_color_data(id, splitted_color_data, &game->cub_elems);
 	free_memory_of_2d_array(splitted_color_data);
-	is_data_valid = is_color_value_valid(id, &game->cub_data);
+	is_data_valid = is_color_value_valid(id, &game->cub_elems);
 	if (!is_data_valid)
 	{
 		game->err_msg.which_msg = COLOR_ERROR;
 		return (ERROR);
 	}
-	// free_memory_of_2d_array(splitted_color_data);
 	return (TRUE);
 }

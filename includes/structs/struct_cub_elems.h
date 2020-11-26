@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_map_data.h                                  :+:      :+:    :+:   */
+/*   struct_cub_elems.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 09:33:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:23:45 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct		s_clr_ceiling
 	uint32_t		hex;
 }					t_clr_ceiling;
 
-typedef struct		s_cub_data
+typedef struct		s_cub_elems
 {
 	t_rez			rez;
 	t_no_tex		north_tex;
@@ -99,6 +99,6 @@ typedef struct		s_cub_data
 	t_clr_floor		clr_floor;
 	t_clr_ceiling	clr_ceiling;
 	t_map_data		map_data;
-}					t_cub_data;
+}					t_cub_elems;
 
 #endif

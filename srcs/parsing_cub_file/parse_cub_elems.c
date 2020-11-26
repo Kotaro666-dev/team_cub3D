@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:16:39 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 17:59:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ int				parse_cub_elems(char **data, t_game *game)
 
 	id = data[0];
 	if (id == NULL)
-	{
 		return (TRUE);
-	}
 	else if (is_target_rez(id) && is_len_of_line_correct(data, 3))
 	{
 		is_data_valid = parse_resolution_data(data, game);

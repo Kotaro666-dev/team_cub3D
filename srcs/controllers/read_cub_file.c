@@ -6,13 +6,13 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/24 21:15:58 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 18:02:05 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "struct_game.h"
-#include "struct_map_data.h"
+#include "struct_cub_elems.h"
 #include "get_next_line.h"
 #include "utilities.h"
 #include "controllers.h"
@@ -49,7 +49,7 @@ int				read_cub_file(t_game *game)
 		{
 			return (ERROR);
 		}
-		if (can_start_reading_map(&game->cub_data))
+		if (can_start_reading_map(&game->cub_elems))
 		{
 			if (read_cub_map(&game->gnl.line, game) == ERROR)
 				return (err_action_with_free(game));
@@ -61,13 +61,11 @@ int				read_cub_file(t_game *game)
 		}
 		free(game->gnl.line);
 		if (did_reach_eof(game))
-		{
 			break ;
-		}
 	}
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
-	convert_rgb_to_hex(&game->cub_data);
-	// show_cub_data_for_debug(&game->cub_data);
+	convert_rgb_to_hex(&game->cub_elems);
+	// show_cub_elems_for_debug(&game->cub_elems);
 	return (TRUE);
 }

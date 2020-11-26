@@ -1,9 +1,9 @@
 R 1920 1080
-N ./map_data/path_to_the_north_texture.xpm
-S ./map_data/path_to_the_south_texture.xpm
-W ./map_data/path_to_the_west_texture.xpm
-E ./map_data/path_to_the_east_texture.xpm
-S ./map_data/path_to_the_sprite_texture.xpm
+N ./textures/north.xpm
+S ./textures/south.xpm
+W ./textures/west.xpm
+E ./textures/east.xpm
+S ./textures/pillar.xpm
 F 220,100,0
 C 225,30,0
 

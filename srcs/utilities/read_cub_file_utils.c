@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 22:15:43 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,27 @@ int		did_reach_eof(t_game *game)
 {
 	if (game->gnl.rv == 0)
 	{
-		if (!did_collect_all_must_data(&game->cub_data))
+		if (!did_collect_all_must_data(&game->cub_elems))
 		{
 			game->err_msg.which_msg = INSUFFICIENT_DATA;
 			return (err_action_with_free(game));
 		}
-		game->cub_data.map_data.map[game->cub_data.map_data.max_y][0] = '\0';
+		game->cub_elems.map_data.map[game->cub_elems.map_data.max_y][0] = '\0';
 		return (TRUE);
 	}
 	return (FALSE);
 }
 
-int		can_start_reading_map(t_cub_data *cub_data)
+int		can_start_reading_map(t_cub_elems *cub_elems)
 {
-	if (cub_data->rez.number_of_times_seen == ONCE &&
-		cub_data->north_tex.number_of_times_seen == ONCE &&
-		cub_data->south_tex.number_of_times_seen == ONCE &&
-		cub_data->west_tex.number_of_times_seen == ONCE &&
-		cub_data->east_tex.number_of_times_seen == ONCE &&
-		cub_data->sprite_tex.number_of_times_seen == ONCE &&
-		cub_data->clr_floor.number_of_times_seen == ONCE &&
-		cub_data->clr_ceiling.number_of_times_seen == ONCE)
+	if (cub_elems->rez.number_of_times_seen == ONCE &&
+		cub_elems->north_tex.number_of_times_seen == ONCE &&
+		cub_elems->south_tex.number_of_times_seen == ONCE &&
+		cub_elems->west_tex.number_of_times_seen == ONCE &&
+		cub_elems->east_tex.number_of_times_seen == ONCE &&
+		cub_elems->sprite_tex.number_of_times_seen == ONCE &&
+		cub_elems->clr_floor.number_of_times_seen == ONCE &&
+		cub_elems->clr_ceiling.number_of_times_seen == ONCE)
 	{
 		return (TRUE);
 	}
@@ -59,17 +59,17 @@ int		can_start_reading_map(t_cub_data *cub_data)
 	}
 }
 
-int		did_collect_all_must_data(t_cub_data *cub_data)
+int		did_collect_all_must_data(t_cub_elems *cub_elems)
 {
-	if (cub_data->rez.number_of_times_seen == ONCE &&
-		cub_data->north_tex.number_of_times_seen == ONCE &&
-		cub_data->south_tex.number_of_times_seen == ONCE &&
-		cub_data->west_tex.number_of_times_seen == ONCE &&
-		cub_data->east_tex.number_of_times_seen == ONCE &&
-		cub_data->sprite_tex.number_of_times_seen == ONCE &&
-		cub_data->clr_floor.number_of_times_seen == ONCE &&
-		cub_data->clr_ceiling.number_of_times_seen == ONCE &&
-		cub_data->map_data.has_started_reading_map == TRUE)
+	if (cub_elems->rez.number_of_times_seen == ONCE &&
+		cub_elems->north_tex.number_of_times_seen == ONCE &&
+		cub_elems->south_tex.number_of_times_seen == ONCE &&
+		cub_elems->west_tex.number_of_times_seen == ONCE &&
+		cub_elems->east_tex.number_of_times_seen == ONCE &&
+		cub_elems->sprite_tex.number_of_times_seen == ONCE &&
+		cub_elems->clr_floor.number_of_times_seen == ONCE &&
+		cub_elems->clr_ceiling.number_of_times_seen == ONCE &&
+		cub_elems->map_data.has_started_reading_map == TRUE)
 	{
 		return (TRUE);
 	}

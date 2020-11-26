@@ -6,12 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 15:06:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 18:57:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct_game.h"
 #include "game.h"
+#include "utilities.h"
 #include "mlx.h"
 #include "key_xevent_code.h"
 
