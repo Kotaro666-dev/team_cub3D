@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 15:11:00 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 12:27:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "struct_3d_projection.h"
 # include "struct_texture.h"
 # include "struct_sprite.h"
+# include "struct_debug.h"
 
 extern char		g_map[ROW + 1][COL + 1];
 extern int		g_is_game_running;
@@ -28,6 +29,10 @@ extern t_player	g_player;
 extern t_ray	*g_rays;
 extern t_texture	g_textures[TEXTURE_NUM];
 extern t_sprite	g_sprite;
+
+//
+extern t_debug	g_debug;
+//
 
 /*
 ** my drawing functions

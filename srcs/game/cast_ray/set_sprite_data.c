@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 10:40:22 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 13:20:20 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@
 /*
 ** プレイヤーから見た絶対的なスプライトの角度を算出する
 */
+
+// static float	normalize_over_len(void)
+// {
+// 	if (g_sprite.left_len > 32)
+// 		g_sprite.left_len = 32;
+// 	else if (g_sprite.left_len < -32)
+// 		g_sprite.left_len = -32;
+// 	//
+// 	if (g_sprite.right_len > 32)
+// 		g_sprite.right_len = 32;
+// 	else if (g_sprite.right_len < -32)
+// 		g_sprite.right_len = -32;
+// }
 
 static float	get_sprite_angle(void)
 {
@@ -62,24 +75,26 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 	ray_hit_len_from_center =
 		g_sprite.distance * tan(angle_of_sprite - cmn->ray_angle);
 	//distance * tan(x) > TILE_SIZE / 2ならreturn
-	if (abs(ray_hit_len_from_center) > TILE_SIZE / 2)
+	if (fabs(ray_hit_len_from_center) > TILE_SIZE / 2)
 		return ;
 
 	g_sprite.should_render = TRUE;
 	angle_of_left_side_of_fov = g_player.rotation_angle - (FOV_ANGLE / 2);
 	angle_from_left =
 		normalize_angle(angle_of_sprite - angle_of_left_side_of_fov);
-	//スプライトがFOVよりも左側に中心がある場合
-	if (angle_from_left < 0)
-		g_sprite.center_x_to_render = 0;
-	//スプライトがFOVよりも右側に中心がある場合
-	else if (angle_from_left > FOV_ANGLE)
-		g_sprite.center_x_to_render = g_info.width - 1;
-	else
+	// //スプライトがFOVよりも左側に中心がある場合
+	// if (angle_from_left < 0)
+	// 	g_sprite.center_x_to_render = 0;
+	// //スプライトがFOVよりも右側に中心がある場合
+	// else if (angle_from_left > FOV_ANGLE)
+	// 	g_sprite.center_x_to_render = g_info.width - 1;
+	// else
 		g_sprite.center_x_to_render =
 			g_info.width * angle_from_left / FOV_ANGLE;
 	//中心から見て左側に当たったレイは最初の値で固定したい
 	g_sprite.left_len = MAX(ray_hit_len_from_center, g_sprite.left_len);
 	//右側に当たったレイは常に値が更新され続ける。
 	g_sprite.right_len = MIN(ray_hit_len_from_center, g_sprite.right_len);
+
+	// normalize_over_len();
 }
