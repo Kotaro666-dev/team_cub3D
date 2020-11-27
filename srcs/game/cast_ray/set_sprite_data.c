@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:42:48 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 14:46:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <math.h>
 #include <stdlib.h>
 #include "struct_sprite.h"
+
+//
+#include <stdio.h>
+//
 
 static float	get_sprite_angle(void)
 {
@@ -59,6 +63,7 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv,
 
 	ray_hit_len_from_center =
 		g_sprite.distance * tan(angle_of_sprite - cmn->ray_angle);
+
 	//distance * tan(x) > TILE_SIZE / 2ならreturn
 	if (fabs(ray_hit_len_from_center) > TILE_SIZE / 2)
 		return ;
@@ -66,32 +71,22 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv,
 	map_id = get_map_id(hv->x_to_check, hv->y_to_check);
 	if (hv_flag == HORZ)
 	{
-		if (g_sprite.first_hit_flag == HORZ_YET)
-		{
-			g_sprite.hrz_left_edge_px = cmn->strip_id;
-			g_sprite.first_hit_flag = HORZ_DONE_VERT_YET;
-		}
-		g_sprite.hrz_right_edge_px = cmn->strip_id;
+		g_sprite.tmp_strip_id = cmn->strip_id;
 		g_sprite.map_id = map_id;
 		return ;
 	}
-	if (!(g_sprite.hrz_left_edge_px <= cmn->strip_id &&
-			cmn->strip_id <= g_sprite.hrz_right_edge_px) &&
-				map_id == g_sprite.map_id)
+	printf("test\n");
+	if (g_sprite.tmp_strip_id != cmn->strip_id || map_id != g_sprite.map_id)
 		return ;
 
 	g_sprite.should_render = TRUE;
-	// angle_of_left_side_of_fov =
-	// 	normalize_angle(g_player.rotation_angle - (FOV_ANGLE / 2));
-	// angle_from_left = angle_of_sprite - angle_of_left_side_of_fov;
 
-	//HORZの設定でfalseのままになっている
-	if (g_sprite.first_hit_flag == HORZ_DONE_VERT_YET)
+	if (g_sprite.first_hit_flag == TRUE)
 	{
 		//中心から見て左側に当たったレイは最初の値で固定したい
 		g_sprite.left_pos = ray_hit_len_from_center;
 		g_sprite.left_edge_px = cmn->strip_id;
-		g_sprite.first_hit_flag = ALL_DONE;
+		g_sprite.first_hit_flag = FALSE;
 	}
 	//右側に当たったレイは常に値が更新され続ける。
 	g_sprite.right_pos = ray_hit_len_from_center;

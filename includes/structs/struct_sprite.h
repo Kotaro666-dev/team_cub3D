@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:43:10 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 13:19:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct
 	// 次にHORZ_DONE_VERT_YET, 最後にALL_DONE
 	int			hrz_left_edge_px; //hrz_rayが当たった左端。g_rays[i]のiで記録できる
 	int			hrz_right_edge_px;
+	int			tmp_strip_id;
 	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
 	int			right_edge_px;
 }		t_sprite;

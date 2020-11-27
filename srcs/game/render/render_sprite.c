@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:31:21 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 13:01:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@
 void		render_sprite(t_game *game)
 {
 	t_3d_prj	pj;
-
-	if (!g_sprite.should_render)
-	{
-		g_debug.i = -1;
-		g_debug.x_end = -1;
-		return ;
-	}
 
 	pj.distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
 	pj.prjctd_wall_height =
@@ -49,6 +42,13 @@ void		render_sprite(t_game *game)
 	// int			j;
 	// int			x_end;
 	(void)game;
+	g_debug.map_id = g_sprite.map_id;
+	g_debug.hrz_left_edge_px = g_sprite.hrz_left_edge_px;
+	g_debug.hrz_right_edge_px = g_sprite.hrz_right_edge_px;
+	g_debug.left_edge_px = g_sprite.left_edge_px;
+	g_debug.right_edge_px = g_sprite.right_edge_px;
+
+
 	//spriteの描画を始める場所
 	// i = (int)(g_sprite.center_x_to_render -
 	// 	pj.wall_strip_width * g_sprite.left_pos / TILE_SIZE);
