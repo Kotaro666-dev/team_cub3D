@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:40:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 15:14:38 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 12:30:27 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	update(void)
 {
 	move_player();
 	cast_rays();
+	//init_sprite_data();
 }
 
 void	cast_rays(void)

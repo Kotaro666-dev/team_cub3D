@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:26:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 21:58:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 11:32:25 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,29 @@ void		print_debug_info_in_game(t_game *game)
 		draw_player_rect(game,
 			init_rect_info(g_debug.x_end, g_info.height / 2, 30, 30),
 			0x442222);
-		if (g_sprite.center_x_to_render >= 0)
-		{
-			draw_player_rect(game,
-				init_rect_info(g_sprite.center_x_to_render, g_info.height / 2, 30, 30),
-				0x224433);
-		}
+		// if (g_sprite.center_x_to_render >= 0)
+		// {
+		// 	draw_player_rect(game,
+		// 		init_rect_info(g_sprite.center_x_to_render, g_info.height / 2, 30, 30),
+		// 		0x224433);
+		// }
 		mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 	// }
 	g_sprite.should_render = FALSE;
 
-	printf("distance %f\n", g_sprite.distance);
-	printf("\n");
-	printf("leftlen %f\n", g_sprite.left_len);
-	printf("i %d\n", g_debug.i);
-	printf("\n");
-	printf("rightlen %f\n", g_sprite.right_len);
-	printf("x_end %d\n", g_debug.x_end);
-	printf("\n");
-	printf("player x %d, y %d\n", (int)g_player.x % TILE_SIZE, (int)g_player.y % TILE_SIZE);
+	// printf("distance %f\n", g_sprite.distance);
+	// printf("\n");
+	// printf("leftlen %f\n", g_sprite.left_pos);
+	// printf("i %d\n", g_debug.i);
+	// printf("\n");
+	// printf("rightlen %f\n", g_sprite.right_pos);
+	// printf("x_end %d\n", g_debug.x_end);
+	// printf("\n");
+	// printf("player x %d, y %d\n", (int)g_player.x % TILE_SIZE, (int)g_player.y % TILE_SIZE);
+	// printf("angle from left %f\n", g_debug.angle_from_left);
+	// printf("center_x %f\n", g_sprite.center_x_to_render);
 
-	printf("angle from left %f\n", g_debug.angle_from_left);
-	printf("center_x %f\n", g_sprite.center_x_to_render);
-	printf("\n");
-	// printf("")	
+
 	printf("----------------------\n");
 
 
