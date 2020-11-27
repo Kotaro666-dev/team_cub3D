@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 15:06:19 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 12:15:07 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= MAP_WIDTH
 		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= MAP_HEIGHT)
 	{
+		if (validate_sprite_hit(hrz, cmn, HORZ) == TRUE)
+			set_sprite_data(cmn, hrz, HORZ);
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
 		if (hrz->y_to_check < 0)
 			hrz->y_to_check = 0;
-		if (has_sprite_at(hrz->x_to_check, hrz->y_to_check))
-			set_sprite_data(cmn, hrz);
 		if (has_wall_at(hrz->x_to_check, hrz->y_to_check))
 		{
 		// found a wall hit
@@ -119,13 +119,13 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= MAP_WIDTH
 		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= MAP_HEIGHT)
 	{
+		if (validate_sprite_hit(vrt, cmn, VERT) == TRUE)
+			set_sprite_data(cmn, vrt, VERT);
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);
 		if (vrt->x_to_check < 0)
 			vrt->x_to_check = 0;
 		vrt->y_to_check = vrt->next_touch_y;
-		if (has_sprite_at(vrt->x_to_check, vrt->y_to_check))
-			set_sprite_data(cmn, vrt);
 		if (has_wall_at(vrt->x_to_check, vrt->y_to_check))
 		{
 			vrt->wall_hit_x = vrt->next_touch_x;
