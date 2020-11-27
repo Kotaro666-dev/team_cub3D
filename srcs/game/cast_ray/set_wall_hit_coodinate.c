@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:15:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 15:45:03 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= MAP_WIDTH
 		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= MAP_HEIGHT)
 	{
-		if (validate_sprite_hit(hrz, cmn, HORZ) == TRUE)
+		if (g_info.set_sprite_flag == TRUE &&
+			validate_sprite_hit(hrz, cmn, HORZ) == TRUE)
 			set_sprite_data(cmn, hrz, HORZ);
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
@@ -119,7 +120,8 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= MAP_WIDTH
 		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= MAP_HEIGHT)
 	{
-		if (validate_sprite_hit(vrt, cmn, VERT) == TRUE)
+		if (g_info.set_sprite_flag == TRUE &&
+			validate_sprite_hit(vrt, cmn, VERT) == TRUE)
 			set_sprite_data(cmn, vrt, VERT);
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);

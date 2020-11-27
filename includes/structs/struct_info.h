@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_info.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 16:27:00 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/27 15:42:46 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct
 	int		num_rays;
 	int		key_flag;
 	int		show_minimap;
+	int		set_sprite_flag;
 }				t_info;
 
 #endif

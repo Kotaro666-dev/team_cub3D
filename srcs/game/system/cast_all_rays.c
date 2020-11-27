@@ -6,14 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:23:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 15:24:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 15:38:20 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cast_ray.h"
 #include "game.h"
 
-void	cast_rays(void)
+void	cast_all_rays(void)
 {
 	int		strip_id;
 	float	ray_angle;
