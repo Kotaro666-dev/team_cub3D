@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 15:04:27 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 12:42:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include "struct_cast_ray.h"
 # include <math.h>
+
+# define HORZ 44
+# define VERT 45
+
+# define HORZ_YET 21
+# define HORZ_DONE_VERT_YET 22
+# define ALL_DONE 23
 
 void			cast_ray(float ray_angle, int strip_id);
 
@@ -33,6 +40,9 @@ void			set_ray_distances
 				(t_cast_ray_var *hrz, t_cast_ray_var *vrt);
 float			distance_between_points
 				(float x1, float y1, float x2, float y2);
-void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv);
+void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv,
+				int hv_flag);
+int				validate_sprite_hit(t_cast_ray_var *hv,
+				t_cast_ray_var_common *cmn, int hv_flag);
 
 # endif

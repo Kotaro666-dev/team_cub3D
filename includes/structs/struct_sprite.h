@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 23:43:03 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/27 12:43:10 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ typedef struct
 {
 	int			should_render;
 	int			map_id; //map idx y * COL + map idx xで一意の値を得られる
-	int			hrz_flag; //hrz, vrtでどちらもレイが到達していないと描写しない
 	int			x; //spriteのx座標。
-	int			y;
+	int			y; //x, yは描画には使わない情報なのであとで消す
 	float		distance; //spriteとプレイヤーの距離
-	float		center_x_to_render; //スプライトの描画の中心x座標。
-	float		left_len; //中央から見た、左端の位置。 
-	float		right_len; //右側の位置。
+	// float		center_x_to_render; //スプライトの描画の中心x座標。
+	float		left_pos; //中央から見た、左端の位置。 
+	float		right_pos; //右側の位置。
+	int			first_hit_flag; //最初はHORZ_YET,
+	// 次にHORZ_DONE_VERT_YET, 最後にALL_DONE
+	int			hrz_left_edge_px; //hrz_rayが当たった左端。g_rays[i]のiで記録できる
+	int			hrz_right_edge_px;
 	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
 	int			right_edge_px;
 }		t_sprite;

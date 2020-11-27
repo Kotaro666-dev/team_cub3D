@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_sprite_info.c                                 :+:      :+:    :+:   */
+/*   get_map_id.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 15:10:16 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:37:01 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/27 10:55:59 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/27 10:58:18 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
-#include <float.h>
-#include "cast_ray.h"
+#include <math.h>
+#include "constants.h"
 
-void		init_sprite_info(void)
+int		get_map_id(float x, float y)
 {
-	g_sprite.should_render = FALSE;
-	g_sprite.x = 0;
-	g_sprite.y = 0;
-	g_sprite.distance = 0;
-	// g_sprite.center_x_to_render = 0;
-	// g_sprite.left_pos = -FLT_MAX;
-	// g_sprite.right_pos = FLT_MAX;
-	// g_sprite.hrz_flag = FALSE;
-	g_sprite.first_hit_flag = HORZ_YET;
+	return ((int)floor(y / TILE_SIZE) * COL + (int)floor(x / TILE_SIZE));
 }
