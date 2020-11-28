@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 12:42:37 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 11:41:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 # define HORZ 44
 # define VERT 45
-
-# define HORZ_YET 21
-# define HORZ_DONE_VERT_YET 22
-# define ALL_DONE 23
 
 void			cast_ray(float ray_angle, int strip_id);
 
