@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:40:08 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 16:54:06 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,13 @@ void		render_sprite(t_game *game)
 	if (pj.wall_bottom_pixel > g_info.height)
 		pj.wall_bottom_pixel = g_info.height;
 
+	//input debug info
 	g_debug.map_id = g_sprite.map_id;
 	g_debug.left_edge_px = g_sprite.left_edge_on_win;
 	g_debug.right_edge_px = g_sprite.right_edge_on_win;
+	g_debug.left_pos = g_sprite.left_pos_from_center;
+	g_debug.right_pos = g_sprite.right_pos_from_center;
+	//
 
 	int			i;
 	int			j;

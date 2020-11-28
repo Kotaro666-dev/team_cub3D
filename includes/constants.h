@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 14:52:38 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 21:27:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,13 @@
 
 # define DETECTING_WALLS 413
 # define DETECTING_SPRITE 414
+
+
+/*
+** SET SPRITE DATA MARGIN OF ERROR
+*/
+
+# define MARGIN 0.1
 
 #define CLR_WHITE 0xFFFFFF
 #define CLR_GRAY 0xCCCCCC

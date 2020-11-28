@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:24:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 11:12:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 16:50:58 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct
 	int			key_flag;
 	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
 	int			right_edge_px;
+	float		left_pos;
+	float		right_pos;
 }			t_debug;
 
 extern t_debug	g_debug;
