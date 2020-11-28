@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:26:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 13:11:41 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 11:13:16 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@
 void		print_debug_info_in_game(t_game *game)
 {
 	draw_player_rect(game,
-		init_rect_info(g_debug.hrz_left_edge_px, g_info.height / 2, 30, 30),
+		init_rect_info(g_debug.left_edge_px, g_info.height / 2, 30, 30),
 		SKY_BLUE);
 	draw_player_rect(game,
-		init_rect_info(g_debug.hrz_right_edge_px, g_info.height / 2, 30, 30),
+		init_rect_info(g_debug.right_edge_px, g_info.height / 2, 30, 30),
 		BROWN);
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 
-	printf("hrz_left_edge_px:%d\n", g_debug.hrz_left_edge_px);
-	printf("hrz_right_edge_px:%d\n", g_debug.hrz_right_edge_px);
 	printf("left_edge_px:%d\n", g_debug.left_edge_px);
 	printf("right_edge_px:%d\n", g_debug.right_edge_px);
 	printf("----------------------\n");

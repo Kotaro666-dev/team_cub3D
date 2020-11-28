@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 13:01:23 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 11:30:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void		render_sprite(t_game *game)
 {
 	t_3d_prj	pj;
 
+	if (!g_sprite.should_render)
+		return ;
+
 	pj.distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
 	pj.prjctd_wall_height =
 		(TILE_SIZE / g_sprite.distance) * pj.distance_prj_plane;
@@ -38,43 +41,24 @@ void		render_sprite(t_game *game)
 	if (pj.wall_bottom_pixel > g_info.height)
 		pj.wall_bottom_pixel = g_info.height;
 
-	// int			i;
-	// int			j;
-	// int			x_end;
-	(void)game;
 	g_debug.map_id = g_sprite.map_id;
-	g_debug.hrz_left_edge_px = g_sprite.hrz_left_edge_px;
-	g_debug.hrz_right_edge_px = g_sprite.hrz_right_edge_px;
 	g_debug.left_edge_px = g_sprite.left_edge_px;
 	g_debug.right_edge_px = g_sprite.right_edge_px;
 
+	int			i;
+	int			j;
 
-	//spriteの描画を始める場所
-	// i = (int)(g_sprite.center_x_to_render -
-	// 	pj.wall_strip_width * g_sprite.left_pos / TILE_SIZE);
-	// if (i < 0)
-	// 	i = 0;
-	// x_end = (int)(g_sprite.center_x_to_render -
-	// 	pj.wall_strip_width * g_sprite.right_pos / TILE_SIZE);
-	// if (x_end > g_info.width)
-	// 	x_end = g_info.width;
-	// //
-	// g_debug.i = i;
-	// g_debug.x_end = x_end;
-	// //
+	i = g_sprite.left_edge_px;
+	while (i <= g_sprite.right_edge_px)
+	{
+		j = pj.wall_top_pixel;
+		while (j < pj.wall_bottom_pixel)
+		{
+			my_mlx_pixel_put(game, i, j, BLUE);
+			j++;
+		}
+		i++;
+	}
 
-	// while (i <= x_end)
-	// {
-	// 	j = pj.wall_top_pixel;
-	// 	while (j < pj.wall_bottom_pixel)
-	// 	{
-	// 		// pj.distance_from_top =
-	// 		// 	j + (pj.wall_strip_height / 2) - (g_info.height / 2);
-	// 		my_mlx_pixel_put(game, i, j, BLUE);
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
-	//これつけなければ端っこが抜けることはない
 	init_sprite_info();
 }

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 11:41:57 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 11:43:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ void			set_ray_distances
 				(t_cast_ray_var *hrz, t_cast_ray_var *vrt);
 float			distance_between_points
 				(float x1, float y1, float x2, float y2);
-void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv,
-				int hv_flag);
+void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv);
 int				validate_sprite_hit(t_cast_ray_var *hv,
 				t_cast_ray_var_common *cmn, int hv_flag);
 
