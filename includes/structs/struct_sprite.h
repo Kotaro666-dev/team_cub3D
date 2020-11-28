@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:08:33 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:23:51 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct
 	float		distance_to_center; //spriteとプレイヤーの距離
 	// float		center_x_to_render; //スプライトの描画の中心x座標。
 	int			is_first_hit;
-	float		left_pos; //中央から見た、左端の位置。 
-	float		right_pos; //右側の位置。
-	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
-	int			right_edge_px;
+	float		left_pos_from_center; //中央から見た、左端の位置。 
+	float		right_pos_from_center; //右側の位置。
+	int			left_edge_on_win; //window上の左端の位置。g_rays[i]のiで記録できる
+	int			right_edge_on_win;
 }		t_sprite;
 
 #endif
