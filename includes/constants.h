@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/26 18:58:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:52:38 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@
 
 
 /*
-** useful macro
+** USEFUL MACRO
 */
 
 # define MAX(x, y) (x > y) ? x : y
@@ -124,6 +124,14 @@
 # define EAST_IDX 2
 # define WEST_IDX 3
 # define SPRITE_IDX 4
+
+
+/*
+** RAY CASTING DETECTING MODE FLAG
+*/
+
+# define DETECTING_WALLS 413
+# define DETECTING_SPRITE 414
 
 #define CLR_WHITE 0xFFFFFF
 #define CLR_GRAY 0xCCCCCC

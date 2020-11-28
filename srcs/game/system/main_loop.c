@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:41:09 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 13:42:30 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:47:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	update(void)
 {
 	move_player();
 
-	g_info.should_set_sprite = FALSE;
+	g_info.which_mode = DETECTING_WALLS;
 	cast_all_rays();
 
 	//spriteの情報設定をするためにレイを飛ばしなおす
-	g_info.should_set_sprite = TRUE;
+	g_info.which_mode = DETECTING_SPRITE;
 	cast_all_rays();
 }
