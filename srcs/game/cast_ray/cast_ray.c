@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 16:06:28 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 13:42:30 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void		cast_ray(float ray_angle, int strip_id)
 	vrt_set_first_intercept(&vrt, &cmn);
 	vrt_cast_ray_until_wall(&vrt, &cmn);
 	//
-	//二回目のキャスティングのとき(set_sprite_flag == TRUE)は使わないのでリソース節約
-	if (g_info.set_sprite_flag == FALSE)
+	//二回目のキャスティングのとき(should_set_sprite == TRUE)は使わないのでリソース節約
+	if (g_info.should_set_sprite == FALSE)
 	{
 		set_ray_distances(&hrz, &vrt);
 		set_g_rays_each_element(&hrz, &vrt, &cmn);
