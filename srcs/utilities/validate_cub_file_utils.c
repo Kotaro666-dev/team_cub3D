@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:23:20 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:40:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		does_len_array_match(char **data, int valid_len)
 	return (TRUE);
 }
 
+// TODO: MUST COME UP WTIH BETTER NAMING
 int		is_data_unsigned_integer(char *str)
 {
 	int		is_unsigned_integer;

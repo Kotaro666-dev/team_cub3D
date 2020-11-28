@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:24:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:38:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "parsing.h"
 #include "constants.h"
 
-static int		is_clr_int_valid(char **color_data)
+static int		do_colors_have_only_digits(char **color_data)
 {
 	if (is_data_unsigned_integer(color_data[0]) &&
 		is_data_unsigned_integer(color_data[1]) &&
@@ -29,7 +29,7 @@ static int		is_clr_int_valid(char **color_data)
 	}
 }
 
-static int		is_color_in_range(int color)
+static int		is_color_value_in_range(int color)
 {
 	if (0 <= color && color <= 255)
 	{
@@ -68,16 +68,16 @@ int				is_color_value_valid(char *id, t_cub_elems *cub_elems)
 
 	if (ft_strcmp(id, "F"))
 	{
-		is_red_valid = is_color_in_range(cub_elems->clr_floor.red);
-		is_green_valid = is_color_in_range(cub_elems->clr_floor.green);
-		is_blue_valid = is_color_in_range(cub_elems->clr_floor.blue);
+		is_red_valid = is_color_value_in_range(cub_elems->clr_floor.red);
+		is_green_valid = is_color_value_in_range(cub_elems->clr_floor.green);
+		is_blue_valid = is_color_value_in_range(cub_elems->clr_floor.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
 	else if (ft_strcmp(id, "C"))
 	{
-		is_red_valid = is_color_in_range(cub_elems->clr_ceiling.red);
-		is_green_valid = is_color_in_range(cub_elems->clr_ceiling.green);
-		is_blue_valid = is_color_in_range(cub_elems->clr_ceiling.blue);
+		is_red_valid = is_color_value_in_range(cub_elems->clr_ceiling.red);
+		is_green_valid = is_color_value_in_range(cub_elems->clr_ceiling.green);
+		is_blue_valid = is_color_value_in_range(cub_elems->clr_ceiling.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
 	return (FALSE);
@@ -87,14 +87,13 @@ int				parse_color_data(char **data, t_game *game)
 {
 	char	*id;
 	char	**splitted_color_data;
-	int		is_safe_to_store_color;
-	int		is_data_valid;
+	int		is_safe_store_value;
 
 	id = data[0];
 	splitted_color_data = ft_split(data[1], ',');
-	is_safe_to_store_color = does_len_array_match(splitted_color_data, 3) &&
-							is_clr_int_valid(splitted_color_data);
-	if (!is_safe_to_store_color)
+	is_safe_store_value = does_len_array_match(splitted_color_data, 3) &&
+							do_colors_have_only_digits(splitted_color_data);
+	if (!is_safe_store_value)
 	{
 		free_memory_2d_array(splitted_color_data);
 		game->err_msg.which_msg = COLOR_ERROR;
@@ -102,8 +101,7 @@ int				parse_color_data(char **data, t_game *game)
 	}
 	store_color_data(id, splitted_color_data, &game->cub_elems);
 	free_memory_2d_array(splitted_color_data);
-	is_data_valid = is_color_value_valid(id, &game->cub_elems);
-	if (!is_data_valid)
+	if (!is_color_value_valid(id, &game->cub_elems))
 	{
 		game->err_msg.which_msg = COLOR_ERROR;
 		return (ERROR);
