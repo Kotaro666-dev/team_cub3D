@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:42:15 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/23 11:31:20 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 23:26:20 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 #include <math.h>
 #include "constants.h"
 
-void	set_3d_wall_info(t_game *game, t_3d_prj *pj, int i)
+void	set_3d_wall_info(t_3d_prj *pj, int i)
 {
-	(void)game;
-
 	pj->perp_distance = g_rays[i].distance *
 		cos(g_rays[i].ray_angle - g_player.rotation_angle);
 	pj->distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
@@ -48,7 +46,7 @@ void	render_3d_walls(t_game *game)
 	while (i < g_info.num_rays)
 	{
 		tex_idx = get_texture_orient_index(i);
-		set_3d_wall_info(game, &pj, i);
+		set_3d_wall_info(&pj, i);
 		set_texture_offset_x(&pj, i, tex_idx);
 
 		j = pj.wall_top_pixel;
