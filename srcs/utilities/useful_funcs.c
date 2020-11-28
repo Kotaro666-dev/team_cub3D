@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 17:07:50 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:17:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			ft_strcmp(char *s1, char *s2)
 	return (TRUE);
 }
 
-void		free_memory_of_2d_array(char **line)
+void		free_memory_2d_array(char **line)
 {
 	int	i;
 
