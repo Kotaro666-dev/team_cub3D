@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:45:49 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 20:32:42 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,47 +31,37 @@ int		does_len_array_match(char **data, int valid_len)
 	return (TRUE);
 }
 
-// TODO: MUST COME UP WTIH BETTER NAMING
-int		is_data_unsigned_integer(char *str)
+int		does_target_have_only_digits(char *target)
 {
-	int		is_unsigned_integer;
 	int		i;
 
-	is_unsigned_integer = TRUE;
 	i = 0;
-	while (str[i])
+	while (target[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(target[i]))
 		{
-			is_unsigned_integer = FALSE;
-			break ;
+			return (FALSE);
 		}
 		i++;
 	}
-	return (is_unsigned_integer);
+	return (TRUE);
 }
 
-int		is_ext_xpm(char *file)
+int		is_file_extention_xpm(char *file)
 {
 	char	*last_dot_address;
-	int		is_ext_xpm;
 
 	last_dot_address = ft_strrchr(file, '.');
 	if (ft_strcmp(last_dot_address, ".xpm"))
 	{
-		is_ext_xpm = TRUE;
+		return (TRUE);
 	}
-	else
-	{
-		is_ext_xpm = FALSE;
-	}
-	return (is_ext_xpm);
+	return (FALSE);
 }
 
 int		can_open_the_file(char *id, t_cub_elems *cub_elems)
 {
 	int	open_rv;
-	int	can_open_the_file;
 
 	open_rv = TRUE;
 	if (ft_strcmp(id, "NO"))
@@ -87,37 +77,38 @@ int		can_open_the_file(char *id, t_cub_elems *cub_elems)
 		open_rv = open(cub_elems->west_tex.path, O_RDONLY);
 	}
 	else if (ft_strcmp(id, "EA"))
+	{
 		open_rv = open(cub_elems->east_tex.path, O_RDONLY);
+	}
 	else if (ft_strcmp(id, "S"))
+	{
 		open_rv = open(cub_elems->sprite_tex.path, O_RDONLY);
-	can_open_the_file = open_rv == ERROR ? FALSE : TRUE;
-	return (can_open_the_file);
+	}
+	open_rv = (open_rv == ERROR) ? FALSE : TRUE;
+	return (open_rv);
 }
 
-int		is_tex_ext_valid(char *id, t_cub_elems *cub_elems)
+int		is_texture_extension_valid(char *id, t_cub_elems *cub_elems)
 {
-	int	is_tex_ext_valid;
-
-	is_tex_ext_valid = ERROR;
 	if (ft_strcmp(id, "NO"))
 	{
-		is_tex_ext_valid = is_ext_xpm(cub_elems->north_tex.path);
+		return (is_file_extention_xpm(cub_elems->north_tex.path));
 	}
 	else if (ft_strcmp(id, "SO"))
 	{
-		is_tex_ext_valid = is_ext_xpm(cub_elems->south_tex.path);
+		return (is_file_extention_xpm(cub_elems->south_tex.path));
 	}
 	else if (ft_strcmp(id, "WE"))
 	{
-		is_tex_ext_valid = is_ext_xpm(cub_elems->west_tex.path);
+		return (is_file_extention_xpm(cub_elems->west_tex.path));
 	}
 	else if (ft_strcmp(id, "EA"))
 	{
-		is_tex_ext_valid = is_ext_xpm(cub_elems->east_tex.path);
+		return (is_file_extention_xpm(cub_elems->east_tex.path));
 	}
 	else if (ft_strcmp(id, "S"))
 	{
-		is_tex_ext_valid = is_ext_xpm(cub_elems->sprite_tex.path);
+		return (is_file_extention_xpm(cub_elems->sprite_tex.path));
 	}
-	return (is_tex_ext_valid);
+	return (FALSE);
 }

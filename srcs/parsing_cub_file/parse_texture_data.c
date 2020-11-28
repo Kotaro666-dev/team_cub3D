@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:47:29 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 20:21:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			parse_texture_data(char **data, t_game *game)
 
 	id = data[0];
 	store_tex_data(id, data[1], &game->cub_elems);
-	if (!is_tex_ext_valid(id, &game->cub_elems))
+	if (!is_texture_extension_valid(id, &game->cub_elems))
 	{
 		game->err_msg.which_msg = TEXTURE_EXT_ERROR;
 		return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:08:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 20:17:56 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int				parse_resolution_data(char **data, t_game *game)
 	long long int	height_temp;
 
 	game->cub_elems.rez.number_of_times_seen++;
-	if (!is_data_unsigned_integer(data[1]) &&
-		 !is_data_unsigned_integer(data[2]))
+	if (!does_target_have_only_digits(data[1]) &&
+		 !does_target_have_only_digits(data[2]))
 	{
 		game->err_msg.which_msg = RESOLUTION_ERROR;
 		return (ERROR);

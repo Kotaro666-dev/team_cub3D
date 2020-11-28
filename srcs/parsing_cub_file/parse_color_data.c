@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:38:55 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 20:17:56 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "parsing.h"
 #include "constants.h"
 
-static int		do_colors_have_only_digits(char **color_data)
+static int		are_color_values_only_digits(char **color_data)
 {
-	if (is_data_unsigned_integer(color_data[0]) &&
-		is_data_unsigned_integer(color_data[1]) &&
-		is_data_unsigned_integer(color_data[2]))
+	if (does_target_have_only_digits(color_data[0]) &&
+		does_target_have_only_digits(color_data[1]) &&
+		does_target_have_only_digits(color_data[2]))
 	{
 		return (TRUE);
 	}
@@ -92,7 +92,7 @@ int				parse_color_data(char **data, t_game *game)
 	id = data[0];
 	splitted_color_data = ft_split(data[1], ',');
 	is_safe_store_value = does_len_array_match(splitted_color_data, 3) &&
-							do_colors_have_only_digits(splitted_color_data);
+							are_color_values_only_digits(splitted_color_data);
 	if (!is_safe_store_value)
 	{
 		free_memory_2d_array(splitted_color_data);

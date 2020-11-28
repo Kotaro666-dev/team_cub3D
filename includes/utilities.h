@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:23:17 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 20:21:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	create_box_for_flood_map(t_cub_elems *cub_elems);
 */
 
 int		does_len_array_match(char **color_data, int valid_len);
-int		is_data_unsigned_integer(char *str);
-int		is_ext_xpm(char *file);
+int		does_target_have_only_digits(char *str);
+int		is_file_extention_xpm(char *file);
 int		can_open_the_file(char *id, t_cub_elems *cub_elems);
-int		is_tex_ext_valid(char *id, t_cub_elems *cub_elems);
+int		is_texture_extension_valid(char *id, t_cub_elems *cub_elems);
 
 #endif
