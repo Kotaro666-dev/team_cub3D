@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 11:44:05 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:18:39 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,21 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 	float	ray_hit_pos_from_center;
 	float	ray_hit_distance;
 	int		map_id;
-	float	angle_ray2sprite_center;
+	float	angle_btwn_ray_sprite_center;
 
 	g_sprite.x =
 		floor(hv->x_to_check / TILE_SIZE) * TILE_SIZE + (TILE_SIZE / 2);
 	g_sprite.y =
 		floor(hv->y_to_check / TILE_SIZE) * TILE_SIZE + (TILE_SIZE / 2);
-	g_sprite.distance = distance_between_points(
+	g_sprite.distance_to_center = distance_between_points(
 		g_player.x, g_player.y, g_sprite.x, g_sprite.y);
-	angle_ray2sprite_center =
+	angle_btwn_ray_sprite_center =
 		normalize_angle(get_sprite_angle() - cmn->ray_angle);
 
 	ray_hit_pos_from_center =
-		g_sprite.distance * tan(angle_ray2sprite_center);
+		g_sprite.distance_to_center * tan(angle_btwn_ray_sprite_center);
 	
-	ray_hit_distance = g_sprite.distance / cos(angle_ray2sprite_center);
+	ray_hit_distance = g_sprite.distance_to_center / cos(angle_btwn_ray_sprite_center);
 
 	//distance * tan(x) > TILE_SIZE / 2ならreturn
 	if (fabs(ray_hit_pos_from_center) > TILE_SIZE / 2 ||

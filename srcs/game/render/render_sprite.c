@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 11:30:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 13:50:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		render_sprite(t_game *game)
 
 	pj.distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
 	pj.prjctd_wall_height =
-		(TILE_SIZE / g_sprite.distance) * pj.distance_prj_plane;
+		(TILE_SIZE / g_sprite.distance2center_crd) * pj.distance_prj_plane;
 
 	pj.wall_strip_height = (int)pj.prjctd_wall_height;
 	pj.wall_strip_width = pj.prjctd_wall_height;
