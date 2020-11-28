@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:40:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:45:49 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		is_tex_ext_valid(char *id, t_cub_elems *cub_elems)
 {
 	int	is_tex_ext_valid;
 
-	is_tex_ext_valid = -1;
+	is_tex_ext_valid = ERROR;
 	if (ft_strcmp(id, "NO"))
 	{
 		is_tex_ext_valid = is_ext_xpm(cub_elems->north_tex.path);
