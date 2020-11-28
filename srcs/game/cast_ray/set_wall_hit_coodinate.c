@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 13:42:30 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:39:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 	{
 		if (g_info.should_set_sprite == TRUE &&
 			validate_sprite_hit(hrz, cmn, HORZ) == TRUE)
-			set_sprite_data(cmn, hrz, HORZ);
+			set_sprite_data(cmn, hrz);
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
 		if (hrz->y_to_check < 0)
@@ -122,7 +122,7 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 	{
 		if (g_info.should_set_sprite == TRUE &&
 			validate_sprite_hit(vrt, cmn, VERT) == TRUE)
-			set_sprite_data(cmn, vrt, VERT);
+			set_sprite_data(cmn, vrt);
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);
 		if (vrt->x_to_check < 0)

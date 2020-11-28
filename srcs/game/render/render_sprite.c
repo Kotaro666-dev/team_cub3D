@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 13:50:40 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:40:08 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		render_sprite(t_game *game)
 
 	pj.distance_prj_plane = (g_info.width / 2) / tan(FOV_ANGLE / 2);
 	pj.prjctd_wall_height =
-		(TILE_SIZE / g_sprite.distance2center_crd) * pj.distance_prj_plane;
+		(TILE_SIZE / g_sprite.distance_to_center) * pj.distance_prj_plane;
 
 	pj.wall_strip_height = (int)pj.prjctd_wall_height;
 	pj.wall_strip_width = pj.prjctd_wall_height;
@@ -42,14 +42,14 @@ void		render_sprite(t_game *game)
 		pj.wall_bottom_pixel = g_info.height;
 
 	g_debug.map_id = g_sprite.map_id;
-	g_debug.left_edge_px = g_sprite.left_edge_px;
-	g_debug.right_edge_px = g_sprite.right_edge_px;
+	g_debug.left_edge_px = g_sprite.left_edge_on_win;
+	g_debug.right_edge_px = g_sprite.right_edge_on_win;
 
 	int			i;
 	int			j;
 
-	i = g_sprite.left_edge_px;
-	while (i <= g_sprite.right_edge_px)
+	i = g_sprite.left_edge_on_win;
+	while (i <= g_sprite.right_edge_on_win)
 	{
 		j = pj.wall_top_pixel;
 		while (j < pj.wall_bottom_pixel)
