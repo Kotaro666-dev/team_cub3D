@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:08:25 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,19 @@ int				parse_resolution_data(char **data, t_game *game)
 	long long int	height_temp;
 
 	game->cub_elems.rez.number_of_times_seen++;
-	if (is_data_unsigned_integer(data[1]) && is_data_unsigned_integer(data[2]))
-	{
-		width_temp = ft_atoi(data[1]);
-		height_temp = ft_atoi(data[2]);
-		if (is_rez_value_valid(width_temp, height_temp))
-		{
-			store_rez_data(width_temp, height_temp, &game->cub_elems);
-		}
-		else
-		{
-			game->err_msg.which_msg = RESOLUTION_ERROR;
-			return (ERROR);
-		}
-	}
-	else
+	if (!is_data_unsigned_integer(data[1]) &&
+		 !is_data_unsigned_integer(data[2]))
 	{
 		game->err_msg.which_msg = RESOLUTION_ERROR;
 		return (ERROR);
 	}
+	width_temp = ft_atoi(data[1]);
+	height_temp = ft_atoi(data[2]);
+	if (!is_rez_value_valid(width_temp, height_temp))
+	{
+		game->err_msg.which_msg = RESOLUTION_ERROR;
+		return (ERROR);
+	}
+	store_rez_data(width_temp, height_temp, &game->cub_elems);
 	return (TRUE);
 }

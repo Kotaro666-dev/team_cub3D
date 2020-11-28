@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 18:02:05 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:17:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		read_cub_elements(char **line, t_game *game)
 
 	splitted_line = ft_split(*line, ' ');
 	is_line_data_valid = parse_cub_elems(splitted_line, game);
-	free_memory_of_2d_array(splitted_line);
+	free_memory_2d_array(splitted_line);
 	return (is_line_data_valid);
 }
 

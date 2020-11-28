@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 17:59:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:24:25 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void		store_color_data(char *id, char **color_data,
 		cub_elems->clr_floor.green = ft_atoi(color_data[1]);
 		cub_elems->clr_floor.blue = ft_atoi(color_data[2]);
 	}
-	else
+	else if (ft_strcmp(id, "C"))
 	{
 		cub_elems->clr_ceiling.number_of_times_seen = TRUE;
 		cub_elems->clr_ceiling.red = ft_atoi(color_data[0]);
@@ -73,13 +73,14 @@ int				is_color_value_valid(char *id, t_cub_elems *cub_elems)
 		is_blue_valid = is_color_in_range(cub_elems->clr_floor.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
-	else
+	else if (ft_strcmp(id, "C"))
 	{
 		is_red_valid = is_color_in_range(cub_elems->clr_ceiling.red);
 		is_green_valid = is_color_in_range(cub_elems->clr_ceiling.green);
 		is_blue_valid = is_color_in_range(cub_elems->clr_ceiling.blue);
 		return (is_red_valid && is_green_valid && is_blue_valid);
 	}
+	return (FALSE);
 }
 
 int				parse_color_data(char **data, t_game *game)
@@ -91,16 +92,16 @@ int				parse_color_data(char **data, t_game *game)
 
 	id = data[0];
 	splitted_color_data = ft_split(data[1], ',');
-	is_safe_to_store_color = is_len_of_data_valid(splitted_color_data, 3) &&
+	is_safe_to_store_color = does_len_array_match(splitted_color_data, 3) &&
 							is_clr_int_valid(splitted_color_data);
 	if (!is_safe_to_store_color)
 	{
-		free_memory_of_2d_array(splitted_color_data);
+		free_memory_2d_array(splitted_color_data);
 		game->err_msg.which_msg = COLOR_ERROR;
 		return (ERROR);
 	}
 	store_color_data(id, splitted_color_data, &game->cub_elems);
-	free_memory_of_2d_array(splitted_color_data);
+	free_memory_2d_array(splitted_color_data);
 	is_data_valid = is_color_value_valid(id, &game->cub_elems);
 	if (!is_data_valid)
 	{

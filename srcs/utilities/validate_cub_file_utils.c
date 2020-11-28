@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:23:20 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,20 @@
 #include "struct_cub_elems.h"
 #include "constants.h"
 
-int		is_len_of_data_valid(char **color_data, int valid_len)
+int		does_len_array_match(char **data, int valid_len)
 {
 	int		len;
 
 	len = 0;
-	while (color_data[len] != NULL)
+	while (data[len] != NULL)
 	{
 		len++;
 	}
-	if (len == valid_len)
-	{
-		return (TRUE);
-	}
-	else
+	if (len != valid_len)
 	{
 		return (FALSE);
 	}
+	return (TRUE);
 }
 
 int		is_data_unsigned_integer(char *str)

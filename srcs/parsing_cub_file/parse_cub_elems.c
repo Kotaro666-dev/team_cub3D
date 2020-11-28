@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 17:59:30 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:22:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,6 @@
 #include "utilities.h"
 #include "parsing.h"
 #include "constants.h"
-
-static int		is_len_of_line_correct(char **data, int valid_len)
-{
-	int		len;
-
-	len = 0;
-	while (data[len] != NULL)
-	{
-		len++;
-	}
-	if (len == valid_len)
-	{
-		return (TRUE);
-	}
-	else
-	{
-		return (FALSE);
-	}
-}
 
 static int		is_target_tex(char *id)
 {
@@ -66,15 +47,15 @@ int				parse_cub_elems(char **data, t_game *game)
 	id = data[0];
 	if (id == NULL)
 		return (TRUE);
-	else if (is_target_rez(id) && is_len_of_line_correct(data, 3))
+	else if (is_target_rez(id) && does_len_array_match(data, 3))
 	{
 		is_data_valid = parse_resolution_data(data, game);
 	}
-	else if (is_target_tex(id) && is_len_of_line_correct(data, 2))
+	else if (is_target_tex(id) && does_len_array_match(data, 2))
 	{
 		is_data_valid = parse_texture_data(data, game);
 	}
-	else if (is_target_color(id) && is_len_of_line_correct(data, 2))
+	else if (is_target_color(id) && does_len_array_match(data, 2))
 	{
 		is_data_valid = parse_color_data(data, game);
 	}

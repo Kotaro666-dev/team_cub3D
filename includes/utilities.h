@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:23:17 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		have_already_found_player(t_cub_elems *cub_elems);
 */
 
 int		ft_strcmp(char *s1, char *s2);
-void	free_memory_of_2d_array(char **line);
+void	free_memory_2d_array(char **line);
 void	free_mlx_ptr(t_game *game);
 void	free_memory(char *str);
 
@@ -92,7 +92,7 @@ void	create_box_for_flood_map(t_cub_elems *cub_elems);
 ** VALIDATE_CUB_FILE_UTILS.C
 */
 
-int		is_len_of_data_valid(char **color_data, int valid_len);
+int		does_len_array_match(char **color_data, int valid_len);
 int		is_data_unsigned_integer(char *str);
 int		is_ext_xpm(char *file);
 int		can_open_the_file(char *id, t_cub_elems *cub_elems);
