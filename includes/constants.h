@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:51:06 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 14:52:38 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 ** MAP
 */
 
-# define ROW 100
-# define COL 100
+# define ROW 50
+# define COL 50
 # define ARR_SIZE 1000
 
 /*
@@ -89,6 +89,14 @@
 # define DEFAULT_COL_RACIO ((float)50 / COL)
 # define DEFAULT_ROW_RACIO ((float)50 / ROW)
 
+
+/*
+** USEFUL MACRO
+*/
+
+# define MAX(x, y) (x > y) ? x : y
+# define MIN(x, y) (x < y) ? x : y
+
 /*
 ** MINIMAP SCALE FACTOR
 */
@@ -116,6 +124,14 @@
 # define EAST_IDX 2
 # define WEST_IDX 3
 # define SPRITE_IDX 4
+
+
+/*
+** RAY CASTING DETECTING MODE FLAG
+*/
+
+# define DETECTING_WALLS 413
+# define DETECTING_SPRITE 414
 
 #define CLR_WHITE 0xFFFFFF
 #define CLR_GRAY 0xCCCCCC

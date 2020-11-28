@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   struct_info.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 16:27:00 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 14:44:25 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_INFO_H
 # define STRUCT_INFO_H
-
-# include "struct_cub_elems.h"
 
 typedef struct
 {
@@ -22,6 +20,7 @@ typedef struct
 	int		num_rays;
 	int		key_flag;
 	int		show_minimap;
+	int		which_mode;
 }				t_info;
 
 #endif

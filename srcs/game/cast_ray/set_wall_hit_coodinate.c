@@ -6,14 +6,13 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/21 14:56:38 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/28 14:48:11 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cast_ray.h"
 #include "constants.h"
 #include "game.h"
-
 
 /*
 ** ///////////////////////////////////////////
@@ -57,6 +56,9 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 	while (hrz->next_touch_x >= 0 && hrz->next_touch_x <= MAP_WIDTH
 		&& hrz->next_touch_y >= 0 && hrz->next_touch_y <= MAP_HEIGHT)
 	{
+		if (g_info.which_mode == DETECTING_SPRITE &&
+			validate_sprite_hit(hrz, cmn, HORZ) == TRUE)
+			set_sprite_data(cmn, hrz);
 		hrz->x_to_check = hrz->next_touch_x;
 		hrz->y_to_check = hrz->next_touch_y + (cmn->is_ray_facing_up ? -1 : 0);
 		if (hrz->y_to_check < 0)
@@ -72,11 +74,8 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 			hrz->found_wall_hit = TRUE;
 			break ;
 		}
-		else
-		{
-			hrz->next_touch_x += hrz->xstep;
-			hrz->next_touch_y += hrz->ystep;
-		}
+		hrz->next_touch_x += hrz->xstep;
+		hrz->next_touch_y += hrz->ystep;
 	}
 }
 
@@ -121,6 +120,9 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 	while (vrt->next_touch_x >= 0 && vrt->next_touch_x <= MAP_WIDTH
 		&& vrt->next_touch_y >= 0 && vrt->next_touch_y <= MAP_HEIGHT)
 	{
+		if (g_info.which_mode == DETECTING_SPRITE &&
+			validate_sprite_hit(vrt, cmn, VERT) == TRUE)
+			set_sprite_data(cmn, vrt);
 		vrt->x_to_check = vrt->next_touch_x +
 					(cmn->is_ray_facing_left ? -1 : 0);
 		if (vrt->x_to_check < 0)
@@ -128,7 +130,6 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 		vrt->y_to_check = vrt->next_touch_y;
 		if (has_wall_at(vrt->x_to_check, vrt->y_to_check))
 		{
-		// found a wall hit
 			vrt->wall_hit_x = vrt->next_touch_x;
 			vrt->wall_hit_y = vrt->next_touch_y;
 			vrt->wall_content =
@@ -137,10 +138,7 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 			vrt->found_wall_hit = TRUE;
 			break ;
 		}
-		else
-		{
-			vrt->next_touch_x += vrt->xstep;
-			vrt->next_touch_y += vrt->ystep;
-		}
+		vrt->next_touch_x += vrt->xstep;
+		vrt->next_touch_y += vrt->ystep;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:21:44 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 11:43:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "struct_cast_ray.h"
 # include <math.h>
+
+# define HORZ 44
+# define VERT 45
 
 void			cast_ray(float ray_angle, int strip_id);
 
@@ -33,6 +36,8 @@ void			set_ray_distances
 				(t_cast_ray_var *hrz, t_cast_ray_var *vrt);
 float			distance_between_points
 				(float x1, float y1, float x2, float y2);
-float			normalize_angle(float ray_angle);
+void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv);
+int				validate_sprite_hit(t_cast_ray_var *hv,
+				t_cast_ray_var_common *cmn, int hv_flag);
 
 # endif

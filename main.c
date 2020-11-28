@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 17:58:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:57:52 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "structs/struct_info.h"
 #include "struct_texture.h"
 #include "bmp.h"
+#include "debug_game.h"
 
 char		g_map[ROW + 1][COL + 1];
 
@@ -27,6 +28,11 @@ t_player	g_player;
 t_ray		*g_rays;
 t_info		g_info;
 t_texture	g_textures[TEXTURE_NUM];
+t_sprite	g_sprite;
+
+//
+t_debug		g_debug;
+//
 
 static void	initialize_config(t_game *game)
 {

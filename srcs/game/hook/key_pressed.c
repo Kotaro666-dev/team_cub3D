@@ -6,13 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 10:47:06 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/26 14:28:39 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "key_xevent_code.h"
 #include "struct_game.h"
+#include "debug_game.h"
 
 int		key_pressed(int key_code, t_game *game)
 {

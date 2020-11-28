@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_image_for_bmp.c                             :+:      :+:    :+:   */
+/*   debug_game.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 17:14:44 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 15:38:20 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/26 14:24:48 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/28 11:12:07 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
-#include "mlx.h"
+#ifndef STRUCT_DEBUG_H
+# define STRUCT_DEBUG_H
 
-void		render_image_for_bmp(t_game *game)
+#include "game.h"
+
+typedef struct
 {
-	setup(game);
-	game->image.img = mlx_new_image(game->mlx, g_info.width, g_info.height);
-	game->image.buffer =
-		(int *)mlx_get_data_addr(game->image.img, &game->image.bpp,
-								&game->image.size_line, &game->image.endian);
-	cast_all_rays();
-	render_background(game);
-	render_3d_walls(game);
-}
+	// int		i;
+	// int		x_end;
+	// float	angle_from_left;
+	int			map_id; //map idx y * COL + map idx xで一意の値を得られる
+	int			key_flag;
+	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
+	int			right_edge_px;
+}			t_debug;
+
+extern t_debug	g_debug;
+
+void			print_debug_info_in_game(t_game *game);
+
+#endif

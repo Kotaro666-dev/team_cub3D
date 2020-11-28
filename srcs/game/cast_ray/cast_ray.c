@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/15 19:13:28 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/28 14:48:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 #include "cast_ray.h"
 #include "constants.h"
 #include <math.h>
-
-float		normalize_angle(float ray_angle)
-{
-	ray_angle = remainder(ray_angle, TWO_PI);
-	if (ray_angle < 0)
-	{
-		ray_angle = TWO_PI + ray_angle;
-	}
-	return (ray_angle);
-}
+#include "game.h"
 
 void		cast_ray(float ray_angle, int strip_id)
 {
@@ -42,9 +33,11 @@ void		cast_ray(float ray_angle, int strip_id)
 	vrt_set_first_intercept(&vrt, &cmn);
 	vrt_cast_ray_until_wall(&vrt, &cmn);
 	//
-	set_ray_distances(&hrz, &vrt);
-	//
-	set_g_rays_each_element(&hrz, &vrt, &cmn);
+	if (g_info.which_mode == DETECTING_WALLS)
+	{
+		set_ray_distances(&hrz, &vrt);
+		set_g_rays_each_element(&hrz, &vrt, &cmn);
+	}
 }
 
 void		set_where_ray_is_facing(t_cast_ray_var_common *cmn)

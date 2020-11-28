@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   validate_sprite_hit.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 13:05:13 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/27 10:07:44 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/27 10:22:20 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_game.h"
 #include "game.h"
-#include "mlx.h"
+#include "cast_ray.h"
 
-void	render(t_game *game)
+int		validate_sprite_hit(t_cast_ray_var *hv, t_cast_ray_var_common *cmn,
+			int hv_flag)
 {
-	render_background(game);
-	render_3d_walls(game);
-	render_sprite(game);
-	if (g_info.show_minimap)
+	if (hv_flag == HORZ)
 	{
-		render_map(game);
-		render_rays(game);
-		render_player(game);
+		if (cmn->is_ray_facing_down)
+			hv->y_to_check = hv->next_touch_y - 1;
 	}
-	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
+	else if (hv_flag == VERT)
+	{
+		if (cmn->is_ray_facing_right)
+			hv->x_to_check = hv->next_touch_x - 1;
+	}
+	else
+		return (ERROR);
+	if (has_sprite_at(hv->x_to_check, hv->y_to_check))
+		return (TRUE);
+	else
+		return (FALSE);
 }
