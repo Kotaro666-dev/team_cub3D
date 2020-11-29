@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/27 15:38:20 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/29 10:13:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,7 @@ void			render_background(t_game *game);
 void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
 void			render(t_game *game);
-void			set_3d_wall_info(t_game *game, t_3d_prj *pj, int i);
 void			store_textures(t_game *game);
-uint32_t		get_texel_color(t_3d_prj *pj, int i, int tex_idx);
-int				get_texture_orient_index(int i);
-void			set_texture_offset_x(t_3d_prj *pj, int i, int tex_idx);
 
 
 /*
@@ -98,6 +94,7 @@ void			convert_ch2num_map(char dst[ROW + 1][COL + 1],
 int				to_coord(int x, int y);
 float			normalize_angle(float ray_angle);
 int				get_map_id(float x, float y);
+uint32_t		get_texel_color(int x, int y, int tex_idx);
 
 /*
 ** game start functions

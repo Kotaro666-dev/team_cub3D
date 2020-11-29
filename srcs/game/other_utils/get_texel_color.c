@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_game.h                                       :+:      :+:    :+:   */
+/*   get_texel_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 14:24:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/29 11:03:56 by rnakai           ###   ########.fr       */
+/*   Created: 2020/11/29 10:10:54 by rnakai            #+#    #+#             */
+/*   Updated: 2020/11/29 10:11:30 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_DEBUG_H
-# define STRUCT_DEBUG_H
-
+#include <stdint.h>
 #include "game.h"
 
-typedef struct
+uint32_t		get_texel_color(int x, int y, int tex_idx)
 {
-	int			map_id; //map idx y * COL + map idx xで一意の値を得られる
-	int			key_flag;
-	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる
-	int			right_edge_px;
-	float		left_pos;
-	float		right_pos;
-}			t_debug;
+	uint32_t	*pix_clr_ptr;
 
-extern t_debug	g_debug;
-
-void			print_debug_info_in_game(t_game *game);
-
-#endif
+	pix_clr_ptr = (uint32_t*)(g_textures[tex_idx].addr +
+		y * g_textures[tex_idx].line_length +
+			x * (g_textures[tex_idx].bits_per_pixel / 8));
+	return (*pix_clr_ptr);
+}
