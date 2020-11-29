@@ -6,17 +6,16 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:37:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/29 10:44:54 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/29 10:58:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include <math.h>
 #include <stdlib.h>
+#include "colors.h"
 
 //
-#include "colors.h"
-#include <stdio.h>
 #include "debug_game.h"
 //
 
@@ -71,7 +70,8 @@ void		render_sprite(t_game *game)
 				((float)g_textures[SPRITE_IDX].height / pj.wall_strip_height);
 			pj.texel_color =
 				get_texel_color(tex_offset_x_f, pj.tex_offset_y, SPRITE_IDX);
-			my_mlx_pixel_put(game, i, j, pj.texel_color);
+			if ((pj.texel_color & 0x00ffffff) != 0)
+				my_mlx_pixel_put(game, i, j, pj.texel_color);
 			j++;
 		}
 		tex_offset_x_f += tex_delta_x;
