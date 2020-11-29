@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:24:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 16:50:58 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/29 11:03:56 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 typedef struct
 {
-	// int		i;
-	// int		x_end;
-	// float	angle_from_left;
 	int			map_id; //map idx y * COL + map idx xで一意の値を得られる
 	int			key_flag;
 	int			left_edge_px; //window上の左端の位置。g_rays[i]のiで記録できる

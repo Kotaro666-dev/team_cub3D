@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:26:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 20:59:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/29 11:04:19 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,4 @@ void		print_debug_info_in_game(t_game *game)
 	printf("right_pos:%f\n", g_debug.right_pos + TILE_SIZE / 2);
 	printf("right_edge_px:%d\n", g_debug.right_edge_px);
 	printf("----------------------\n");
-
-
-	//考えられる可能性、起きている問題
-	//だいぶ誤差がある
-	// 壁越しでも端っこが当たっている判定になってしまっている。水平、垂直どちらの壁も
-	// 当たっていなければ描画しないように設定する必要がある。
-	// 水平フラグと垂直フラグを使うべし
-	// init_sprite_info();
-	// printf("playerx:%f\n", g_player.x);
 }
