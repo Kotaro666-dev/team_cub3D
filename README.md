@@ -59,4 +59,5 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 1. マップデータを長方形に整形 -> DONE
 2. convert rbg to hex -> DONE
 3. bmpファイルを作る関数 -> DONE
-4. cubファイル読み込みのエラーパターンをどんどん追加して精度を高める
+4. rnakaiさんが書いたsprite実装コードを読んで理解を深める
+5. Makefileのヘッダーインクルードの依存関係を正す
