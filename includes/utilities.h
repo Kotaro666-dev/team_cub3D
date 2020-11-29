@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 20:21:55 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/29 14:42:43 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	free_memory(char *str);
 ** VALIDATE_MAP_UTILS.C
 */
 
-void	flood_fill(t_cub_elems *cub_elems, int y, int x, int *is_safe);
+void	flood_fill(t_game *game, int y, int x, int *is_safe);
 void	create_box_for_flood_map(t_cub_elems *cub_elems);
 
 /*
