@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 18:28:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/29 14:52:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,38 @@ static void		is_this_coord_safe(t_cub_elems *cub_elems, int y, int x,
 	}
 }
 
-void			flood_fill(t_cub_elems *cub_elems, int y, int x, int *is_safe)
+static void		terminate_flood_fill(t_game *game)
+{
+	free(game->mlx);
+	game->mlx = NULL;
+	game->err_msg.which_msg = MAP_NOT_CLOSED;
+	print_error_msg(&game->err_msg);
+	exit(1);
+}
+
+void			flood_fill(t_game *game, int y, int x, int *is_safe)
 {
 	char player;
 
-	player = cub_elems->map_data.player_orient;
-	if (cub_elems->map_data.fill[y][x] != player)
+	player = game->cub_elems.map_data.player_orient;
+	if (game->cub_elems.map_data.fill[y][x] != player)
 	{
-		cub_elems->map_data.fill[y][x] = PAINT;
+		game->cub_elems.map_data.fill[y][x] = PAINT;
 	}
-	is_this_coord_safe(cub_elems, y, x, is_safe);
+	// debug_flood_fill_after(&game->cub_elems);
+	is_this_coord_safe(&game->cub_elems, y, x, is_safe);
 	if (*is_safe == FALSE)
 	{
-		return ;
+		terminate_flood_fill(game);
 	}
-	if (ft_strchr(TARGET, cub_elems->map_data.fill[y - 1][x]) != NULL)
-		flood_fill(cub_elems, y - 1, x, is_safe);
-	if (ft_strchr(TARGET, cub_elems->map_data.fill[y][x + 1]) != NULL)
-		flood_fill(cub_elems, y, x + 1, is_safe);
-	if (ft_strchr(TARGET, cub_elems->map_data.fill[y + 1][x]) != NULL)
-		flood_fill(cub_elems, y + 1, x, is_safe);
-	if (ft_strchr(TARGET, cub_elems->map_data.fill[y][x - 1]) != NULL)
-		flood_fill(cub_elems, y, x - 1, is_safe);
-	return ;
+	if (ft_strchr(TARGET, game->cub_elems.map_data.fill[y - 1][x]) != NULL)
+		flood_fill(game, y - 1, x, is_safe);
+	if (ft_strchr(TARGET, game->cub_elems.map_data.fill[y][x + 1]) != NULL)
+		flood_fill(game, y, x + 1, is_safe);
+	if (ft_strchr(TARGET, game->cub_elems.map_data.fill[y + 1][x]) != NULL)
+		flood_fill(game, y + 1, x, is_safe);
+	if (ft_strchr(TARGET, game->cub_elems.map_data.fill[y][x - 1]) != NULL)
+		flood_fill(game, y, x - 1, is_safe);
 }
 
 static void		copy_map_to_flood_map(t_cub_elems *cub_elems)
