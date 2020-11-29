@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 16:28:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/29 13:25:22 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	check_loaded_textures(t_game *game)
 	{
 		if (g_textures[i].img_ptr == NULL)
 		{
+			free(game->mlx);
+			game->mlx = NULL;
 			game->err_msg.which_msg = TEXTURE_FILE_NOT_VALID;
 			print_error_msg(&game->err_msg);
 			exit(1);
