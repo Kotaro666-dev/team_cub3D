@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   debug_game.h                                       :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 14:24:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/29 11:03:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/30 22:20:11 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_DEBUG_H
-# define STRUCT_DEBUG_H
+#ifndef DEBUG_H
+# define DEBUG_H
 
 #include "game.h"
 
@@ -28,5 +28,8 @@ typedef struct
 extern t_debug	g_debug;
 
 void			print_debug_info_in_game(t_game *game);
+void		show_cub_elems_for_debug(t_cub_elems *cub_elems);
+void			debug_flood_fill_before(t_cub_elems *cub_elems);
+void			debug_flood_fill_after(t_cub_elems *cub_elems);
 
 #endif

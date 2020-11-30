@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   key_pressed.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 14:28:39 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/30 22:21:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "key_xevent_code.h"
 #include "struct_game.h"
-#include "debug_game.h"
+#include "debug.h"
 
 int		key_pressed(int key_code, t_game *game)
 {
