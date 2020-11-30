@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_error_msg.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/23 11:46:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/11/30 08:51:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct	s_err_msg
 typedef enum	e_msg
 {
 	CUB_FILE_EXT_INVALID = 4,
-	CUB_FILE_DOESNT_EXSIT,
+	CUB_FILE_DOESNT_EXIST,
+	CUB_FILE_IS_EMPTY,
 	SAVE_COMMAND_INVALID,
 	NUM_COMMAND_LINE_INVALID,
 	INSUFFICIENT_DATA,

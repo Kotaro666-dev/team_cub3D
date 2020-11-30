@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 18:33:32 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 08:51:44 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ static char		*which_error_msg1(t_err_msg *err_msg)
 	msg = NULL;
 	if (err_msg->which_msg == CUB_FILE_EXT_INVALID)
 		msg = "CUB FILE EXTENTION IS INVALID!";
-	else if (err_msg->which_msg == CUB_FILE_DOESNT_EXSIT)
+	else if (err_msg->which_msg == CUB_FILE_DOESNT_EXIST)
 		msg = "CUB FILE DOESN'T EXIST!";
+	else if (err_msg->which_msg == CUB_FILE_IS_EMPTY)
+		msg = "CUB FILE IS EMPTY!";
 	else if (err_msg->which_msg == SAVE_COMMAND_INVALID)
 		msg = "SAVE COMMAND IS INVALID!";
 	else if (err_msg->which_msg == NUM_COMMAND_LINE_INVALID)
