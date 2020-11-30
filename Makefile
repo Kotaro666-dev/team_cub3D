@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/11/25 17:49:19 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/11/30 22:18:29 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CONTROLLERS_DIR = ./srcs/controllers
 UTILITIES_DIR = ./srcs/utilities
 PARSING_DIR = ./srcs/parsing_cub_file
 BMP = ./srcs/bmp
-RAYCASTING = ./srcs/raycasting
+DEBUG = ./srcs/debug
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address,undefined
@@ -33,7 +33,6 @@ SRCS = main.c \
 	$(UTILITIES_DIR)/validate_cub_file_utils.c \
 	$(UTILITIES_DIR)/read_cub_file_utils.c \
 	$(UTILITIES_DIR)/read_cub_map_utils.c \
-	$(UTILITIES_DIR)/debug_funcs.c \
 	$(UTILITIES_DIR)/validate_map_utils.c \
 	$(UTILITIES_DIR)/handle_command_line_utils.c \
 	$(UTILITIES_DIR)/convert_rgb_to_hex.c \
@@ -52,6 +51,7 @@ SRCS += ${shell find ./srcs/game/render/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/hook/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/system/ -type f -name "*.c"}
+SRCS += ${shell find ./srcs/debug/ -type f -name "*.c"}
 
 INCLUDE = -I./includes/ \
 			-I./libs/get_next_line/ \

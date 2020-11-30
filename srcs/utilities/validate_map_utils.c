@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/29 14:52:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:22:19 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "struct_cub_elems.h"
 #include "utilities.h"
 #include "constants.h"
+#include "debug.h"
+
 
 static void		is_this_coord_safe(t_cub_elems *cub_elems, int y, int x,
 															int *is_safe)

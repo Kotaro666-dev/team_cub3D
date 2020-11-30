@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/29 14:48:28 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:22:10 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "struct_cub_elems.h"
 #include "utilities.h"
 #include "constants.h"
+#include "debug.h"
+
 
 /*
 ** ADDED 2 POX_X AND P0S_Y

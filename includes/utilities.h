@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 08:49:36 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:18:36 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,6 @@
 */
 
 void	convert_rgb_to_hex(t_cub_elems *cub_elems);
-
-/*
-** DEBUG_FUNCS.C
-*/
-
-void	show_cub_elems_for_debug(t_cub_elems *cub_elems);
-void	debug_flood_fill_before(t_cub_elems *cub_elems);
-void	debug_flood_fill_after(t_cub_elems *cub_elems);
 
 /*
 ** HANDLE_COMMAND_LINE.C
