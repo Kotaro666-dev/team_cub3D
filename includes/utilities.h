@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/29 14:42:43 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 08:49:36 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		print_error_msg(t_err_msg *err_msg);
 int		err_action_with_free(t_game *game);
 int		did_reach_eof(t_game *game);
 int		can_start_reading_map(t_cub_elems *cub_elems);
+int		have_you_seen_any_elemets(t_cub_elems *cub_elems);
 int		did_collect_all_must_data(t_cub_elems *cub_elems);
 
 /*

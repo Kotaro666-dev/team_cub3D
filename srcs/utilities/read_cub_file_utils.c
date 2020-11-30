@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 09:08:04 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "utilities.h"
 #include "libft.h"
 #include "constants.h"
+#include "get_next_line.h"
 
 int		err_action_with_free(t_game *game)
 {
@@ -27,7 +28,7 @@ int		err_action_with_free(t_game *game)
 
 int		did_reach_eof(t_game *game)
 {
-	if (game->gnl.rv == 0)
+	if (game->gnl.rv == GNL_EOF)
 	{
 		if (!did_collect_all_must_data(&game->cub_elems))
 		{
@@ -56,6 +57,26 @@ int		can_start_reading_map(t_cub_elems *cub_elems)
 	else
 	{
 		return (FALSE);
+	}
+}
+
+int		have_you_seen_any_elemets(t_cub_elems *cub_elems)
+{
+	if (cub_elems->rez.number_of_times_seen == 0 &&
+		cub_elems->north_tex.number_of_times_seen == 0 &&
+		cub_elems->south_tex.number_of_times_seen == 0 &&
+		cub_elems->west_tex.number_of_times_seen == 0 &&
+		cub_elems->east_tex.number_of_times_seen == 0 &&
+		cub_elems->sprite_tex.number_of_times_seen == 0 &&
+		cub_elems->clr_floor.number_of_times_seen == 0 &&
+		cub_elems->clr_ceiling.number_of_times_seen == 0 &&
+		cub_elems->map_data.has_started_reading_map == 0)
+	{
+		return (FALSE);
+	}
+	else
+	{
+		return (TRUE);
 	}
 }
 
