@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 21:30:14 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 10:08:49 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 	if (fabs(ray_hit_pos_from_center) > TILE_SIZE / 2 + MARGIN ||
 		ray_hit_distance_from_player > g_rays[cmn->strip_id].distance)
 		return ;
-	g_sprite.should_render = TRUE;
 
 	//許容した誤差を溢れた場合、ray_hit_posが範囲外をとらないように調整する
 	if (ray_hit_pos_from_center > TILE_SIZE / 2)
