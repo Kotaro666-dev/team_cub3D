@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:26:42 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 11:37:32 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 18:08:10 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void		sort_node(void)
 		current = head->next;
 		while (current != g_nil)
 		{
-			if (head->data.distance_to_center < head->data.distance_to_center)
+			if (head->data.distance_to_center <
+				current->data.distance_to_center)
 				swap_node(head, current);
 			current = current->next;
 		}
