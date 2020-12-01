@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:08:29 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 11:12:23 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 12:31:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void		insert_node(int map_id)
 
 	x = (t_sprite_list*)malloc(sizeof(t_sprite_list));
 	x->data.map_id = map_id;
+	x->data.is_first_hit = TRUE;
 
 	x->next = g_nil->next;
 	g_nil->next->prev = x;
