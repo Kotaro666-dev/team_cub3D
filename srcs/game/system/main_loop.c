@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 14:41:09 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:47:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 18:35:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main_loop(t_game *game)
 		//	描画する
 		update();
 		render(game);
+		g_sprite.clear();
 	}
 	g_info.key_flag = FALSE;
 	return (0);
@@ -32,6 +33,8 @@ void	update(void)
 	cast_all_rays();
 
 	//spriteの情報設定をするためにレイを飛ばしなおす
+	g_sprite.init();
 	g_info.which_mode = DETECTING_SPRITE;
 	cast_all_rays();
+	g_sprite.sort();
 }

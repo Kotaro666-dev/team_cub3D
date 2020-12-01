@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 12:39:18 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 13:19:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void			render_map(t_game *game);
 void			render_background(t_game *game);
 void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
+void			render_all_sprites(t_game *game);
+void			render_each_sprite(t_game *game, t_sprite_data *p_sprite);
 void			render(t_game *game);
 void			store_textures(t_game *game);
 
