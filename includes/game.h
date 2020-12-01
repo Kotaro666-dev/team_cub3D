@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 13:19:09 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 20:17:22 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ int				main_loop(t_game *game);
 ** game update functions
 */
 
-void			update(void);
 void			cast_all_rays(void);
 void			move_player(void);
 
