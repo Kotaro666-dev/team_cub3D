@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 12:39:37 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 18:24:37 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ void	setup(t_game *game)
 	g_rays = (t_ray*)malloc(sizeof(t_ray) * (game->cub_elems.rez.width + 1));
 
 	store_textures(game);
-	init_sprite_info();
 }

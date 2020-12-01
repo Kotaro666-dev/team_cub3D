@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 12:57:00 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 15:05:17 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 	g_sprite.create_elem(map_id);
 	p_sprite = g_sprite.get_elem_by_id(map_id);
 
+	p_sprite->distance_to_center = distance_to_center;
 	if (p_sprite->is_first_hit)
 	{
 		//中心から見て左側に当たったレイは最初の値で固定したい

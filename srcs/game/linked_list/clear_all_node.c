@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 10:50:46 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 11:08:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 18:31:40 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void		clear_all_node(void)
 	while (current != g_nil)
 	{
 		current_next = current->next;
-		// current->next = NULL;
-		// current->prev = NULL;
 		free(current);
 		current = current_next;
 	}
