@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_play_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 18:57:41 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 09:29:19 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void		register_hook(t_game *game)
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, KEY_PRESS_MASK, &key_pressed, game);
 	mlx_hook(game->win, X_EVENT_KEY_RELEASE, KEY_RELEASE_MASK, &key_released, game);
 	mlx_hook(game->win, X_EVENT_KEY_EXIT, STRUCTURE_NOTIFY_MASK, &close_window, game);
-	//focus in イベント（最小化してもう一度画面を戻すとき）が発生したときに再度描画するhookを登録する必要がある. linux vmで要検証。mlx_put_image_to_windowを呼び出して再描画させればよさげ
+	mlx_hook(game->win, X_EVENT_FOCUSIN, ENTER_WINDOW_MASK, &mlx_put_image_to_window, game);
 	mlx_loop_hook(game->mlx, &main_loop, game);
 }
