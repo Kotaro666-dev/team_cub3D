@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 09:11:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:21:59 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "parsing.h"
 #include "structs/struct_error_msg.h"
 #include "constants.h"
+#include "debug.h"
 
 static int		read_cub_elements(char **line, t_game *game)
 {
