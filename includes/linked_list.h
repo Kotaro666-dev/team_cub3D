@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 10:39:21 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 11:43:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 13:26:34 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ t_sprite_list	*get_first_element(void);
 t_sprite_list	*get_nil(void);
 void			insert_node(int map_id);
 void			clear_all_node(void);
-void			create_elment(int map_id);
+void			create_element(int map_id);
 
 #endif
