@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/12/01 11:19:22 by rnakai           ###   ########.fr        #
+#    Updated: 2020/12/01 20:28:17 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ DEBUG = ./srcs/debug
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address,undefined
 DEBUG = -g
+DEPENDENCY_OPTION = -MMD -MP -MF
 
 SRCS = main.c \
 	$(LIBS_DIR)/get_next_line/get_next_line.c \
@@ -73,13 +74,13 @@ INCLUDE += -I./minilibx-linux/
 endif
 
 OBJS = $(SRCS:.c=.o)
+DEPS = ${SRCS:.c=.d}
 LIBFT = ./libs/libft/libft.a
 SANITIZE = -fsanitize=address -g
 LLDB = -g
 
-
 .c.o:
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(DEPENDENCY_OPTION) ${<:.c=.d} $< -o ${<:.c=.o}
 
 
 ifdef MAC_FLAG
@@ -87,13 +88,12 @@ ifdef MAC_FLAG
 MLX = dynamic_mlx
 LIBMLX = libmlx.dylib
 
-
-
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp ./$(MLX)/$(LIBMLX) ./
 	$(CC) $(CFLAGS) $(LLDB) -o $(NAME) -I${INCLUDE} ${OBJS} $(LIBMLX) -framework OpenGL -framework AppKit -lm $(LIBFT)
+
 
 else
 					#### MINILIBX-LINUX
@@ -114,7 +114,7 @@ endif
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
 	$(MAKE) fclean -C ./libs/libft
@@ -143,3 +143,5 @@ macre:
 	make MAC_FLAG=1 re
 
 .PHONY: all clean fclean re error ok mac maclean macfclean macre
+
+-include $(DEPS)
