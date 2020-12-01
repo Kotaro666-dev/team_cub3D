@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 11:18:39 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 13:04:21 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 typedef struct
 {
 	int			map_id; //map idx y * COL + map idx xで一意の値を得られる
-	int			x; //spriteのx座標。
-	int			y; 
 	float		distance_to_center; //spriteとプレイヤーの距離
 	int			is_first_hit;
 	float		left_pos_from_center; //中央から見た、左端の位置。 
