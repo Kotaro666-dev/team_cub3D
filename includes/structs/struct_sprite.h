@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:38:55 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 10:29:22 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/01 11:18:39 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ typedef struct
 	t_sprite_list	*(*get_nil)(void);
 	void			(*swap)(t_sprite_list*, t_sprite_list*);
 	void			(*sort)(void);
-}		t_sprite
+}		t_sprite;
 
 #endif
