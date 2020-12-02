@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:37:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 09:28:54 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/01 23:25:14 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 # define KEY_PRESS_MASK			1<<0
 # define KEY_RELEASE_MASK		1<<1
-# define ENTER_WINDOW_MASK		1<<4
 # define STRUCTURE_NOTIFY_MASK	1<<17
+# define FOCUS_CHANGE_MASK		1<<21
 
 # define KEY_ESC				65307
 # define KEY_W					119

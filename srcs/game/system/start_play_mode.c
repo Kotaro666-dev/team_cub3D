@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 09:29:19 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:30:51 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void		register_hook(t_game *game)
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, KEY_PRESS_MASK, &key_pressed, game);
 	mlx_hook(game->win, X_EVENT_KEY_RELEASE, KEY_RELEASE_MASK, &key_released, game);
 	mlx_hook(game->win, X_EVENT_KEY_EXIT, STRUCTURE_NOTIFY_MASK, &close_window, game);
-	mlx_hook(game->win, X_EVENT_FOCUSIN, ENTER_WINDOW_MASK, &mlx_put_image_to_window, game);
+	mlx_hook(game->win, X_EVENT_FOCUSIN, FOCUS_CHANGE_MASK, &render, game);
 	mlx_loop_hook(game->mlx, &main_loop, game);
 }
