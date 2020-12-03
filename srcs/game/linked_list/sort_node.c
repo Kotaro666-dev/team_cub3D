@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_node.c                                        :+:      :+:    :+:   */
+/*   sort_node_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:26:42 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 18:08:10 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/03 11:07:52 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "linked_list.h"
 #include "constants.h"
 
-void		sort_node(void)
+void		sort_node_list(void)
 {
 	t_sprite_list	*head;
 	t_sprite_list	*current;
