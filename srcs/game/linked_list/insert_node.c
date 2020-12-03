@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   insert_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 14:41:09 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 20:14:06 by rnakai           ###   ########.fr       */
+/*   Created: 2020/12/01 11:08:29 by rnakai            #+#    #+#             */
+/*   Updated: 2020/12/03 11:05:39 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "struct_sprite.h"
+#include "linked_list.h"
+#include <stdlib.h>
+#include "constants.h"
 
-int		main_loop(t_game *game)
+void		insert_node(int map_id)
 {
-	if (g_info.key_flag == TRUE)
-	{
-		move_player();
+	t_sprite_list	*new_node;
 
-		g_info.which_mode = DETECTING_WALLS;
-		cast_all_rays();
+	new_node = (t_sprite_list*)malloc(sizeof(t_sprite_list));
+	new_node->data.map_id = map_id;
+	new_node->data.is_first_hit = TRUE;
 
-		//spriteの情報設定をするためにレイを飛ばしなおす
-		g_info.which_mode = DETECTING_SPRITE;
-		g_sprite.init();
-		cast_all_rays();
-		g_sprite.sort();
-
-		render(game);
-		g_sprite.clear();
-	}
-	g_info.key_flag = FALSE;
-	return (0);
+	new_node->next = g_nil->next;
+	g_nil->next->prev = new_node;
+	g_nil->next = new_node;
+	new_node->prev = g_nil;
 }

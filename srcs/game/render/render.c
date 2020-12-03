@@ -18,8 +18,9 @@ void		render(t_game *game)
 {
 	render_background(game);
 	render_3d_walls(game);
-	render_sprite(game);
-	init_sprite_info();
+	//spriteが視界の中に入っていたら描画
+	if (g_sprite.get_1st_elem() != g_sprite.get_nil())
+		render_all_sprites(game);
 	if (g_info.show_minimap)
 	{
 		render_map(game);
