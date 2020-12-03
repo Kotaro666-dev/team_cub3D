@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 20:12:16 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/03 11:17:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "game.h"
 #include "mlx.h"
 
-void	render(t_game *game)
+void		render(t_game *game)
 {
 	render_background(game);
 	render_3d_walls(game);
