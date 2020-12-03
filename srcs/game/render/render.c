@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 15:48:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/02 10:30:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/03 11:17:44 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "game.h"
 #include "mlx.h"
 
-int		render(t_game *game)
+void		render(t_game *game)
 {
 	render_background(game);
 	render_3d_walls(game);
@@ -27,5 +27,4 @@ int		render(t_game *game)
 		render_player(game);
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
-	return (0);
 }

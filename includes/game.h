@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/02 10:30:08 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/03 11:17:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void			render_map(t_game *game);
 void			render_background(t_game *game);
 void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
-int				render(t_game *game);
+void			render(t_game *game);
 void			store_textures(t_game *game);
 
 
