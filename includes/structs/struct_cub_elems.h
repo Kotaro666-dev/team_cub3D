@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   struct_cub_elems.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:23:45 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:34:00 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_MAP_DATA_H
-# define STRUCT_MAP_DATA_H
+#ifndef STRUCT_CUB_ELEMS_H
+# define STRUCT_CUB_ELEMS_H
 
 # include "constants.h"
 # include <stdint.h>

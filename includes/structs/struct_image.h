@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 13:52:55 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/19 15:58:28 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:38:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct	s_image
 	void	*img;
 	int		*buffer;
 	int		size_line;
-	int		bpp; // bits per pixel
+	int		bpp;
 	int		endian;
 }				t_image;
 
