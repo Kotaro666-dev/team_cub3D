@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 15:24:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:48:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 10:15:49 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ void		cast_ray(float ray_angle, int strip_id)
 	cmn.ray_angle = ray_angle;
 	cmn.strip_id = strip_id;
 	set_where_ray_is_facing(&cmn);
-	//
 	hrz_set_first_intercept(&hrz, &cmn);
 	hrz_cast_ray_until_wall(&hrz, &cmn);
-	//
 	vrt_set_first_intercept(&vrt, &cmn);
 	vrt_cast_ray_until_wall(&vrt, &cmn);
-	//
 	if (g_info.which_mode == DETECTING_WALLS)
 	{
 		set_ray_distances(&hrz, &vrt);
