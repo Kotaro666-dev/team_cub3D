@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 21:27:37 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 13:27:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 
 # define OUTER_WALL 'X'
 # define INNER_SPACE '-'
-# define PAINT 'p';
+# define PAINT 'p'
 # define DIFF_X 2
 # define DIFF_Y 2
 
@@ -53,7 +53,7 @@
 ** PARSE_RESOLUTION_DATA
 */
 
-#define LL long long int
+# define LL long long int
 
 /*
 ** READ_CUB_FILE_UTILS
@@ -78,31 +78,21 @@
 # define PI 3.14159265
 # define TWO_PI 6.28318530
 
-
 /*
 ** TILE SIZE PER ONE ARRAY ELEMENT
 */
 
 # define TILE_SIZE 64
 
-# define DEFAULT_TILE_SIZE_RACIO ((float)32 / TILE_SIZE)
-# define DEFAULT_COL_RACIO ((float)50 / COL)
-# define DEFAULT_ROW_RACIO ((float)50 / ROW)
-
-
-/*
-** USEFUL MACRO
-*/
-
-# define MAX(x, y) (x > y) ? x : y
-# define MIN(x, y) (x < y) ? x : y
+# define TILE_SIZE_RACIO ((float)32 / TILE_SIZE)
+# define COL_RACIO ((float)50 / COL)
+# define ROW_RACIO ((float)50 / ROW)
 
 /*
 ** MINIMAP SCALE FACTOR
 */
 
-# define MAP_SCALE (0.4 * DEFAULT_TILE_SIZE_RACIO * DEFAULT_COL_RACIO * DEFAULT_ROW_RACIO)
-
+# define MAP_SCALE (0.4 * TILE_SIZE_RACIO * COL_RACIO * ROW_RACIO)
 
 /*
 ** ACTUAL MAP SIZE (PIXEL)
@@ -112,7 +102,6 @@
 # define MAP_HEIGHT (ROW * TILE_SIZE)
 
 # define FOV_ANGLE (60 * (PI / 180))
-
 
 /*
 ** TEXTURE INDEX
@@ -125,7 +114,6 @@
 # define WEST_IDX 3
 # define SPRITE_IDX 4
 
-
 /*
 ** RAY CASTING DETECTING MODE FLAG
 */
@@ -133,18 +121,10 @@
 # define DETECTING_WALLS 413
 # define DETECTING_SPRITE 414
 
-
 /*
 ** SET SPRITE DATA MARGIN OF ERROR
 */
 
 # define MARGIN 0.1
-
-#define CLR_WHITE 0xFFFFFF
-#define CLR_GRAY 0xCCCCCC
-#define CLR_BLACK 0x000000
-#define CLR_RED 0xFF0000
-#define CLR_CEIL 0x95C0EC
-#define CLR_FLOOR 0xCD8500
 
 #endif
