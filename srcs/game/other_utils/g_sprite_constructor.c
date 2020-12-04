@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 15:10:16 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/03 11:08:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:49:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "linked_list.h"
 #include "game.h"
 
-void		init_sprite(void)
+void		g_sprite_constructor(void)
 {
 	g_sprite.init = init_node;
 	g_sprite.clear = clear_all_nodes;

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 18:24:37 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:52:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	setup(t_game *game)
 
 	convert_ch2num_map(g_map, game->cub_elems.map_data.map);
 
-	init_sprite();
+	g_sprite_constructor();
 
 	g_info.key_flag = TRUE;
 	g_info.width = game->cub_elems.rez.width;

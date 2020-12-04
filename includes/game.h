@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/03 11:17:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:49:09 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			draw_rectangles(t_game *game);
 
 t_rect_info		init_rect_info(int x, int y, int width, int height);
 t_line_info		init_line_info(double x1, double y1, double x2, double y2);
-void			init_sprite(void);
+void			g_sprite_constructor(void);
 
 
 /*
