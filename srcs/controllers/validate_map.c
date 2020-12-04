@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 22:22:10 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:55:26 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "utilities.h"
 #include "constants.h"
 #include "debug.h"
-
 
 /*
 ** ADDED 2 POX_X AND P0S_Y

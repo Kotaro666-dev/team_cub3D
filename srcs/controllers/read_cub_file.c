@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cub_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 22:21:59 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:54:42 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static int		read_cub_elements(char **line, t_game *game)
 
 static int		is_cub_file_empty(t_game *game)
 {
-	return (game->gnl.rv == GNL_EOF && !have_you_seen_any_elemets(&game->cub_elems));
+	return (game->gnl.rv == GNL_EOF &&
+			!have_you_seen_any_elemets(&game->cub_elems));
 }
 
 static int		handle_error_empty_cub_file(t_game *game)
