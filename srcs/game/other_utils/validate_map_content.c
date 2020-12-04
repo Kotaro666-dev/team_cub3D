@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:12:30 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/24 14:48:20 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/03 12:13:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ int		has_sprite_at(float x, float y)
 	map_grid_idx_x = floor(x / TILE_SIZE);
 	map_grid_idx_y = floor(y / TILE_SIZE);
 	return (g_map[map_grid_idx_y][map_grid_idx_x] == SPRITE);
+}
+
+int		has_object_at(float x, float y)
+{
+	if (has_wall_at(x, y))
+		return (TRUE);
+	else if (has_sprite_at(x, y))
+		return (TRUE);
+	else
+		return (FALSE);
 }
