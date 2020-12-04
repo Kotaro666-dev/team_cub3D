@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   store_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 16:28:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/29 13:25:22 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:34:18 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void		store_textures(t_game *game)
 
 	load_textures(game);
 	check_loaded_textures(game);
-
 	i = 0;
 	while (i < TEXTURE_NUM)
 	{
