@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 11:07:43 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:35:21 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 11:51:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 float	get_sprite_angle(float sprite_x, float sprite_y)
 {
 	float	angle;
+
 	//ｘで０除算しないように調整　スプライトの方が上なら90度
 	if (g_player.x == sprite_x && g_player.y < sprite_y)
 		return (PI * 0.5);
