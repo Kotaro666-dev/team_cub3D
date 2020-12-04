@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:51:57 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:48:11 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 16:52:48 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,20 @@ void		hrz_set_first_intercept(t_cast_ray_var *hrz,
 				t_cast_ray_var_common *cmn)
 {
 	hrz->found_wall_hit = FALSE;
-	//
-	// Find the y-coordinate of the closest horizontal grid intersection
 	hrz->yintercept = floor(g_player.y / TILE_SIZE) * TILE_SIZE;
-	hrz->yintercept += cmn->is_ray_facing_down ? TILE_SIZE : 0;
-	//
-	// Find the x-coordinate of the closest horizontal grid intersection
+	if (cmn->is_ray_facing_down)
+		hrz->yintercept += TILE_SIZE;
 	hrz->xintercept =
 		g_player.x + (hrz->yintercept - g_player.y) / tan(cmn->ray_angle);
-	//
-	// Calculate the increment xstep and ystep
 	hrz->ystep = TILE_SIZE;
-	hrz->ystep *= cmn->is_ray_facing_up ? -1 : 1;
-	//
+	if (cmn->is_ray_facing_up)
+		hrz->ystep *= -1;
 	hrz->xstep = TILE_SIZE / tan(cmn->ray_angle);
-	hrz->xstep *= (cmn->is_ray_facing_left && hrz->xstep > 0) ? -1 : 1;
-	hrz->xstep *= (cmn->is_ray_facing_right && hrz->xstep < 0) ? -1 : 1;
-	//
+	if ((cmn->is_ray_facing_left && hrz->xstep > 0) ||
+		(cmn->is_ray_facing_right && hrz->xstep < 0))
+		hrz->xstep *= -1;
 	hrz->next_touch_x = hrz->xintercept;
 	hrz->next_touch_y = hrz->yintercept;
-	//
 }
 
 /*
@@ -65,7 +59,6 @@ void		hrz_cast_ray_until_wall(t_cast_ray_var *hrz,
 			hrz->y_to_check = 0;
 		if (has_wall_at(hrz->x_to_check, hrz->y_to_check))
 		{
-		// found a wall hit
 			hrz->wall_hit_x = hrz->next_touch_x;
 			hrz->wall_hit_y = hrz->next_touch_y;
 			hrz->wall_content =
@@ -92,7 +85,8 @@ void		vrt_set_first_intercept(t_cast_ray_var *vrt,
 	//
 	// Find the y-coordinate of the closest horizontal grid intersection
 	vrt->xintercept = floor(g_player.x / TILE_SIZE) * TILE_SIZE;
-	vrt->xintercept += cmn->is_ray_facing_right ? TILE_SIZE : 0;
+	if (cmn->is_ray_facing_right)
+		vrt->xintercept += TILE_SIZE;
 	//
 	// Find the x-coordinate of the closest horizontal grid intersection
 	vrt->yintercept =
@@ -100,11 +94,13 @@ void		vrt_set_first_intercept(t_cast_ray_var *vrt,
 	//
 	// Calculate the increment xstep and ystep
 	vrt->xstep = TILE_SIZE;
-	vrt->xstep *= cmn->is_ray_facing_left ? -1 : 1;
+	if (cmn->is_ray_facing_left)
+		vrt->xstep *= -1;
 	//
 	vrt->ystep = TILE_SIZE * tan(cmn->ray_angle);
-	vrt->ystep *= (cmn->is_ray_facing_up && vrt->ystep > 0) ? -1 : 1;
-	vrt->ystep *= (cmn->is_ray_facing_down && vrt->ystep < 0) ? -1 : 1;
+	if ((cmn->is_ray_facing_up && vrt->ystep > 0) ||
+		(cmn->is_ray_facing_down && vrt->ystep < 0))
+		vrt->ystep *= -1;
 	//
 	vrt->next_touch_x = vrt->xintercept;
 	vrt->next_touch_y = vrt->yintercept;
@@ -142,3 +138,63 @@ void		vrt_cast_ray_until_wall(t_cast_ray_var *vrt,
 		vrt->next_touch_y += vrt->ystep;
 	}
 }
+
+/*
+** void		hrz_set_first_intercept(t_cast_ray_var *hrz,
+** 				t_cast_ray_var_common *cmn)
+** {
+** 	hrz->found_wall_hit = FALSE;
+** 	//
+** 	// Find the y-coordinate of the closest horizontal grid intersection
+** 	hrz->yintercept = floor(g_player.y / TILE_SIZE) * TILE_SIZE;
+** 	if (cmn->is_ray_facing_down)
+** 		hrz->yintercept += TILE_SIZE;
+** 	//
+** 	// Find the x-coordinate of the closest horizontal grid intersection
+** 	hrz->xintercept =
+** 		g_player.x + (hrz->yintercept - g_player.y) / tan(cmn->ray_angle);
+** 	//
+** 	// Calculate the increment xstep and ystep
+** 	hrz->ystep = TILE_SIZE;
+** 	if (cmn->is_ray_facing_up)
+** 		hrz->ystep *= -1;
+** 	//
+** 	hrz->xstep = TILE_SIZE / tan(cmn->ray_angle);
+** 	if ((cmn->is_ray_facing_left && hrz->xstep > 0) ||
+** 		(cmn->is_ray_facing_right && hrz->xstep < 0))
+** 		hrz->xstep *= -1;
+** 	//
+** 	hrz->next_touch_x = hrz->xintercept;
+** 	hrz->next_touch_y = hrz->yintercept;
+** }
+*/
+
+/*
+** void		vrt_set_first_intercept(t_cast_ray_var *vrt,
+** 				t_cast_ray_var_common *cmn)
+** {
+** 	vrt->found_wall_hit = FALSE;
+** 	//
+** 	// Find the y-coordinate of the closest horizontal grid intersection
+** 	vrt->xintercept = floor(g_player.x / TILE_SIZE) * TILE_SIZE;
+** 	if (cmn->is_ray_facing_right)
+** 		vrt->xintercept += TILE_SIZE;
+** 	//
+** 	// Find the x-coordinate of the closest horizontal grid intersection
+** 	vrt->yintercept =
+** 		g_player.y + (vrt->xintercept - g_player.x) * tan(cmn->ray_angle);
+** 	//
+** 	// Calculate the increment xstep and ystep
+** 	vrt->xstep = TILE_SIZE;
+** 	if (cmn->is_ray_facing_left)
+** 		vrt->xstep *= -1;
+** 	//
+** 	vrt->ystep = TILE_SIZE * tan(cmn->ray_angle);
+** 	if ((cmn->is_ray_facing_up && vrt->ystep > 0) ||
+** 		(cmn->is_ray_facing_down && vrt->ystep < 0))
+** 		vrt->ystep *= -1;
+** 	//
+** 	vrt->next_touch_x = vrt->xintercept;
+** 	vrt->next_touch_y = vrt->yintercept;
+** }
+*/
