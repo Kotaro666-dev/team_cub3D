@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_play_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/02 11:35:35 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:32:06 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,26 @@
 #include "mlx.h"
 #include "key_xevent_code.h"
 
-void	start_play_mode(t_game *game)
+void		start_play_mode(t_game *game)
 {
-	setup(game); //initializing by putting every global var
+	setup(game);
 	initialize_window(game);
-	register_hook(game); //calling main loop inside this func
+	register_hook(game);
+	mlx_loop_hook(game->mlx, &main_loop, game);
 	mlx_loop(game->mlx);
 }
 
-void	initialize_window(t_game *game)
+void		initialize_window(t_game *game)
 {
-	game->win = mlx_new_window(game->mlx, g_info.width, g_info.height, "mlx 42");
-	game->image.img = mlx_new_image(game->mlx, g_info.width, g_info.height);
-	game->image.buffer = (int *)mlx_get_data_addr(game->image.img, &game->image.bpp, &game->image.size_line, &game->image.endian);
+	game->win =
+		mlx_new_window(game->mlx, g_info.width, g_info.height, "mlx 42");
+	game->image.img =
+		mlx_new_image(game->mlx, g_info.width, g_info.height);
+	game->image.buffer = (int *)mlx_get_data_addr(
+			game->image.img,
+			&game->image.bpp,
+			&game->image.size_line,
+			&game->image.endian);
 }
 
 static int	reput_image_to_window(t_game *game)
@@ -37,12 +44,22 @@ static int	reput_image_to_window(t_game *game)
 	return (0);
 }
 
-
 void		register_hook(t_game *game)
 {
-	mlx_hook(game->win, X_EVENT_KEY_PRESS, KEY_PRESS_MASK, &key_pressed, game);
-	mlx_hook(game->win, X_EVENT_KEY_RELEASE, KEY_RELEASE_MASK, &key_released, game);
-	mlx_hook(game->win, X_EVENT_KEY_EXIT, STRUCTURE_NOTIFY_MASK, &close_window, game);
-	mlx_hook(game->win, X_EVENT_FOCUSIN, FOCUS_CHANGE_MASK, &reput_image_to_window, game);
-	mlx_loop_hook(game->mlx, &main_loop, game);
+	mlx_hook(game->win,
+		X_EVENT_KEY_PRESS,
+		KEY_PRESS_MASK,
+		&key_pressed, game);
+	mlx_hook(game->win,
+		X_EVENT_KEY_RELEASE,
+		KEY_RELEASE_MASK,
+		&key_released, game);
+	mlx_hook(game->win,
+		X_EVENT_KEY_EXIT,
+		STRUCTURE_NOTIFY_MASK,
+		&close_window, game);
+	mlx_hook(game->win,
+		X_EVENT_FOCUSIN,
+		FOCUS_CHANGE_MASK,
+		&reput_image_to_window, game);
 }
