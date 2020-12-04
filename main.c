@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:26:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 16:02:57 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ t_texture		g_textures[TEXTURE_NUM];
 t_sprite_list	*g_nil;
 t_sprite		g_sprite;
 
-//
-t_debug			g_debug;
-//
+/*
+** t_debug			g_debug;
+*/
 
 static void		initialize_config(t_game *game)
 {
