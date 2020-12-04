@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 12:49:09 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 13:14:33 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ extern t_sprite	g_sprite;
 
 void			my_mlx_pixel_put(t_game *game, int x, int y, uint32_t color);
 void			draw_line
-				(t_game *game, t_line_info line, uint32_t color);
-void			draw_player_rect(t_game *game, t_rect_info rect, uint32_t color);
-
+					(t_game *game, t_line_info line, uint32_t color);
+void			draw_player_rect
+					(t_game *game, t_rect_info rect, uint32_t color);
 
 /*
 ** draw_2Dmap utils (from 42seoul git hub)
@@ -48,7 +48,6 @@ void			draw_vertical_lines(t_game *game);
 void			draw_rectangle(t_game *game, int x, int y, uint32_t color);
 void			draw_rectangles(t_game *game);
 
-
 /*
 ** functions: init rect, line struct easily
 */
@@ -56,7 +55,6 @@ void			draw_rectangles(t_game *game);
 t_rect_info		init_rect_info(int x, int y, int width, int height);
 t_line_info		init_line_info(double x1, double y1, double x2, double y2);
 void			g_sprite_constructor(void);
-
 
 /*
 ** render_functions
@@ -73,7 +71,6 @@ void			render_each_sprite(t_game *game, t_sprite_data *p_sprite);
 void			render(t_game *game);
 void			store_textures(t_game *game);
 
-
 /*
 ** hook functions
 */
@@ -82,7 +79,6 @@ int				key_pressed(int key_code, t_game *game);
 int				key_released(int key_code, t_game *game);
 int				close_window(t_game *game);
 void			register_hook(t_game *game);
-
 
 /*
 ** system utility func
@@ -107,7 +103,6 @@ void			start_save_mode(t_game *game);
 void			initialize_window(t_game *game);
 void			setup(t_game *game);
 int				main_loop(t_game *game);
-
 
 /*
 ** game update functions
