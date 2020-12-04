@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 11:07:43 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:51:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:57:55 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ float	get_sprite_angle(float sprite_x, float sprite_y)
 	//ｘで０除算しないように調整　スプライトの方が上なら90度
 	if (g_player.x == sprite_x && g_player.y < sprite_y)
 		return (PI * 0.5);
-	//スプライトの方が下なら270度
+		//スプライトの方が下なら270度
 	if (g_player.x == sprite_x && g_player.y > sprite_y)
 		return (PI * 1.5);
-	//アークタンジェントで-PI/2 ~ PI/2の間でプレイヤーから見たスプライトの角度を求める
+		//アークタンジェントで-PI/2 ~ PI/2の間でプレイヤーから見たスプライトの角度を求める
 	angle = atanf((g_player.y - sprite_y) / (g_player.x - sprite_x));
 	//スプライトがプレイヤーに対して第二象限にある場合(y座標が同じときも含む)
 	if (g_player.x > sprite_x && g_player.y <= sprite_y)
 		angle += PI;
-	//第三象限にある場合
+		//第三象限にある場合
 	else if (g_player.x > sprite_x && g_player.y > sprite_y)
 		angle += PI;
-	//第四象限にある場合
+		//第四象限にある場合
 	else if (g_player.x < sprite_x && g_player.y > sprite_y)
 		angle += PI * 2;
 	return (angle);
