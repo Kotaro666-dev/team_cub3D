@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 11:07:43 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 16:57:18 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 17:17:59 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void	set_sprite_element_property(int map_id, int strip_id,
 ** float	get_sprite_angle(float sprite_x, float sprite_y)
 ** {
 ** 	float	angle;
-** 
 ** 	//ｘで０除算しないように調整　スプライトの方が上なら90度
 ** 	if (g_player.x == sprite_x && g_player.y < sprite_y)
 ** 		return (PI * 0.5);
