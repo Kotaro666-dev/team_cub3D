@@ -6,12 +6,11 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/01 11:13:36 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:26:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "keys.h"
 #include "controllers.h"
 #include "structs/struct_game.h"
 #include "utilities.h"
