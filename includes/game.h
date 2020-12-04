@@ -55,7 +55,7 @@ void			draw_rectangles(t_game *game);
 
 t_rect_info		init_rect_info(int x, int y, int width, int height);
 t_line_info		init_line_info(double x1, double y1, double x2, double y2);
-void			init_sprite_info(void);
+void			init_sprite(void);
 
 
 /*
@@ -68,6 +68,8 @@ void			render_map(t_game *game);
 void			render_background(t_game *game);
 void			render_3d_walls(t_game *game);
 void			render_sprite(t_game *game);
+void			render_all_sprites(t_game *game);
+void			render_each_sprite(t_game *game, t_sprite_data *p_sprite);
 void			render(t_game *game);
 void			store_textures(t_game *game);
 
@@ -112,7 +114,6 @@ int				main_loop(t_game *game);
 ** game update functions
 */
 
-void			update(void);
 void			cast_all_rays(void);
 void			move_player(void);
 

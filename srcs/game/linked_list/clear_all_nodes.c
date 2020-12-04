@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   clear_all_nodes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 14:41:09 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 20:14:06 by rnakai           ###   ########.fr       */
+/*   Created: 2020/12/01 10:50:46 by rnakai            #+#    #+#             */
+/*   Updated: 2020/12/03 11:04:29 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "game.h"
+#include "struct_sprite.h"
+#include "linked_list.h"
+#include <stdlib.h>
 
-int		main_loop(t_game *game)
+void		clear_all_nodes(void)
 {
-	if (g_info.key_flag == TRUE)
+	t_sprite_list	*current;
+	t_sprite_list	*next;
+
+	current = g_nil->next;
+	while (current != g_nil)
 	{
-		move_player();
-
-		g_info.which_mode = DETECTING_WALLS;
-		cast_all_rays();
-
-		//spriteの情報設定をするためにレイを飛ばしなおす
-		g_info.which_mode = DETECTING_SPRITE;
-		g_sprite.init();
-		cast_all_rays();
-		g_sprite.sort();
-
-		render(game);
-		g_sprite.clear();
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	g_info.key_flag = FALSE;
-	return (0);
+	free(g_nil);
+	g_nil = NULL;
 }

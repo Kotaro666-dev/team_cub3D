@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 22:21:19 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/01 11:13:36 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@
 #include "struct_texture.h"
 #include "bmp.h"
 #include "debug.h"
+#include "struct_sprite.h"
 
-char		g_map[ROW + 1][COL + 1];
-
-t_player	g_player;
-t_ray		*g_rays;
-t_info		g_info;
-t_texture	g_textures[TEXTURE_NUM];
-t_sprite	g_sprite;
+char			g_map[ROW + 1][COL + 1];
+t_player		g_player;
+t_ray			*g_rays;
+t_info			g_info;
+t_texture		g_textures[TEXTURE_NUM];
+t_sprite_list	*g_nil;
+t_sprite		g_sprite;
 
 //
-t_debug		g_debug;
+t_debug			g_debug;
 //
 
-static void	initialize_config(t_game *game)
+static void		initialize_config(t_game *game)
 {
 	game->mlx = mlx_init();
 	init_cub_elems(&game->cub_elems);
@@ -42,7 +43,7 @@ static void	initialize_config(t_game *game)
 						&game->cub_elems.rez.my_height);
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_game			game;
 
