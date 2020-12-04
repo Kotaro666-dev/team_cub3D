@@ -6,14 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 19:06:35 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/26 14:44:38 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:23:04 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_3D_PROJECTION_H
 # define STRUCT_3D_PROJECTION_H
 
-#include <stdint.h>
+# include <stdint.h>
 
 typedef struct	s_3d_prj
 {
@@ -28,6 +28,6 @@ typedef struct	s_3d_prj
 	int			tex_offset_x;
 	int			tex_offset_y;
 	uint32_t	texel_color;
-}	t_3d_prj;
+}				t_3d_prj;
 
 #endif

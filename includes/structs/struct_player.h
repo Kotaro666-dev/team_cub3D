@@ -6,14 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:37:22 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/13 11:09:07 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:22:24 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_PLAYER_H
 # define STRUCT_PLAYER_H
 
-typedef struct s_player
+typedef struct	s_player
 {
 	float	x;
 	float	y;
