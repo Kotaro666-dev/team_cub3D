@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 11:44:19 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/25 16:03:15 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 11:52:10 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 int		close_window(t_game *game)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	free(g_rays);
 	mlx_destroy_image(game->mlx, game->image.img);
 	while (i < TEXTURE_NUM)

@@ -6,14 +6,15 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:01:00 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/19 16:42:01 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:00:54 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "constants.h"
 
-void		convert_ch2num_map(char dst[ROW + 1][COL + 1], char src[ROW + 1][COL + 1])
+void		convert_ch2num_map(
+				char dst[ROW + 1][COL + 1], char src[ROW + 1][COL + 1])
 {
 	int		i;
 	int		j;
