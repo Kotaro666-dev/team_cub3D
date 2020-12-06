@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:51:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/06 13:11:05 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		key_pressed(int key_code, t_game *game)
 		g_player.turn_direction = +1;
 	else if (key_code == KEY_M)
 		g_info.show_minimap = (g_info.show_minimap ? FALSE : TRUE);
-	g_info.key_flag = TRUE;
+	main_loop(game);
 	return (0);
 }
 

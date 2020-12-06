@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_play_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/02 11:35:35 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/06 13:14:03 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	start_play_mode(t_game *game)
 	setup(game); //initializing by putting every global var
 	initialize_window(game);
 	register_hook(game); //calling main loop inside this func
+	main_loop(game);
 	mlx_loop(game->mlx);
 }
 
@@ -44,5 +45,4 @@ void		register_hook(t_game *game)
 	mlx_hook(game->win, X_EVENT_KEY_RELEASE, KEY_RELEASE_MASK, &key_released, game);
 	mlx_hook(game->win, X_EVENT_KEY_EXIT, STRUCTURE_NOTIFY_MASK, &close_window, game);
 	mlx_hook(game->win, X_EVENT_FOCUSIN, FOCUS_CHANGE_MASK, &reput_image_to_window, game);
-	mlx_loop_hook(game->mlx, &main_loop, game);
 }

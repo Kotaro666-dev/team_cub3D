@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/01 18:24:37 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/06 13:11:54 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	setup(t_game *game)
 
 	init_sprite();
 
-	g_info.key_flag = TRUE;
 	g_info.width = game->cub_elems.rez.width;
 	g_info.height = game->cub_elems.rez.height;
 	g_info.num_rays = g_info.width;
