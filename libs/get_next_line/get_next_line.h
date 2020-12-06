@@ -6,10 +6,9 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:36 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/29 19:50:44 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/06 23:27:29 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
