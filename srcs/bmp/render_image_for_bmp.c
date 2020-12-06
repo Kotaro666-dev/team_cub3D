@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 17:14:44 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/06 22:29:11 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/06 22:53:00 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	render_objects_for_bmp(t_game *game)
 	{
 		render_all_sprites(game);
 	}
+	g_sprite.clear();
 }
 
 void		render_image_for_bmp(t_game *game)
