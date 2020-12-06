@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cub_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:54:42 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/06 23:15:51 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int				read_cub_file(t_game *game)
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
 	convert_rgb_to_hex(&game->cub_elems);
-	// show_cub_elems_for_debug(&game->cub_elems);
+	// debug_data_from_cub_file(&game->cub_elems);
 	return (TRUE);
 }
