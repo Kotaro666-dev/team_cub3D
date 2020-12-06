@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 15:55:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/28 14:44:25 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:20:12 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ typedef struct
 	int		key_flag;
 	int		show_minimap;
 	int		which_mode;
-}				t_info;
+}			t_info;
 
 #endif

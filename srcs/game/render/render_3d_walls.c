@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:42:15 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 12:08:29 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:56:17 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void			render_3d_walls(t_game *game)
 		while (j < pj.wall_bottom_pixel)
 		{
 			set_texture_offset_y(&pj, j, tex_idx);
-			pj.texel_color =	
+			pj.texel_color =
 				get_texel_color(pj.tex_offset_x, pj.tex_offset_y, tex_idx);
 			my_mlx_pixel_put(game, i, j, pj.texel_color);
 			j++;

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 10:15:13 by rnakai            #+#    #+#             */
-/*   Updated: 2020/11/20 15:50:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 12:08:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,33 +67,3 @@ void	draw_player_rect(t_game *game, t_rect_info rect, uint32_t color)
 		x_start += 1;
 	}
 }
-
-// void	render_line(t_game *game, t_line_info *line, int color)
-// {
-// 	double		a;
-// 	double		b;
-// 	t_line_info	lncp;
-// 	//x1には必ず小さいほう、x2には必ず大きい数がはいる
-// 	lncp.x1 = (line->x1 <= line->x2) ? line->x1 : line->x2;
-// 	lncp.x2 = (line->x1 <= line->x2) ? line->x2 : line->x1;
-// 	if (line->x1 == line->x2)
-// 	{
-// 		lncp.y1 = (line->y1 <= line->y2) ? line->y1 : line->y2;
-// 		lncp.y2 = (line->y1 <= line->y2) ? line->y2 : line->y1;
-// 		while (lncp.y1 <= lncp.y2)
-// 		{
-// 			my_mlx_pixel_put(game, lncp.x1, lncp.y1, color);
-// 			lncp.y1++;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		a = (line->y1 - line->y2) / (line->x1 - line->x2);
-// 		b = line->y1 - (a * line->x1);
-// 		while (lncp.x1 <= lncp.x2)
-// 		{
-// 			my_mlx_pixel_put(game, lncp.x1, (a * lncp.x1 + b), color);
-// 			lncp.x1++;
-// 		}
-// 	}
-// }
