@@ -6,14 +6,14 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 10:39:21 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/03 11:08:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:26:00 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKED_LIST_H
 # define LINKED_LIST_H
 
-#include "struct_sprite.h"
+# include "struct_sprite.h"
 
 extern t_sprite_list	*g_nil;
 extern t_sprite			g_sprite;

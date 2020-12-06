@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:45:38 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:25:13 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,4 @@ float			cut_margin_of(float ray_hit_pos_from_center);
 void			set_sprite_element_property(int map_id, int strip_id,
 					float distance_to_center, float ray_hit_pos_from_center);
 
-# endif
+#endif

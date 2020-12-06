@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_resolution_data.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 20:17:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:53:50 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				parse_resolution_data(char **data, t_game *game)
 
 	game->cub_elems.rez.number_of_times_seen++;
 	if (!does_target_have_only_digits(data[1]) &&
-		 !does_target_have_only_digits(data[2]))
+		!does_target_have_only_digits(data[2]))
 	{
 		game->err_msg.which_msg = RESOLUTION_ERROR;
 		return (ERROR);

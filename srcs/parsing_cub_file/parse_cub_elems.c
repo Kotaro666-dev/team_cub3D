@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub_elems.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 20:12:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:53:14 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ int				parse_cub_elems(char **data, t_game *game)
 
 	id = data[0];
 	if (id == NULL)
-	{
 		return (TRUE);
-	}
 	else if (is_target_rez(id) && does_len_array_match(data, 3))
 	{
 		is_data_valid = parse_resolution_data(data, game);

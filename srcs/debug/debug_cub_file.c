@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug_cub_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 22:23:26 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/04 15:58:12 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "struct_cub_elems.h"
 #include "constants.h"
 
-void	show_cub_elems_for_debug(t_cub_elems *cub_elems)
+void		show_cub_elems_for_debug(t_cub_elems *cub_elems)
 {
 	printf("\n----------------------------------------\n");
 	printf("-----------------  DEBUG  ---------------\n");
