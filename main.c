@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 07:52:47 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 07:57:40 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ static void		initialize_config(t_game *game)
 {
 	game->mlx = mlx_init();
 	init_cub_elems(&game->cub_elems);
-	// TODO: limit_width, limit_height
-	mlx_get_screen_size(game->mlx, &game->cub_elems.rez.my_width,
-						&game->cub_elems.rez.my_height);
+	mlx_get_screen_size(game->mlx, &game->cub_elems.rez.your_screen_width,
+						&game->cub_elems.rez.your_screen_height);
 }
 
 int				main(int argc, char **argv)

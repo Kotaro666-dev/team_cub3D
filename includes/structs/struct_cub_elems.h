@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/07 14:21:26 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 07:57:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct		s_rez
 	int				number_of_times_seen;
 	int				width;
 	int				height;
-	int				my_width;
-	int				my_height;
+	int				your_screen_width;
+	int				your_screen_height;
 }					t_rez;
 
 typedef struct		s_no_tex
