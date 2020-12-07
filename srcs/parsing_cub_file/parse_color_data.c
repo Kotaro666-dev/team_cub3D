@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 20:17:56 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:39:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static void		store_color_data(char *id, char **color_data,
 {
 	if (ft_strcmp(id, "F"))
 	{
-		cub_elems->clr_floor.number_of_times_seen = TRUE;
+		cub_elems->clr_floor.number_of_times_seen++;
 		cub_elems->clr_floor.red = ft_atoi(color_data[0]);
 		cub_elems->clr_floor.green = ft_atoi(color_data[1]);
 		cub_elems->clr_floor.blue = ft_atoi(color_data[2]);
 	}
 	else if (ft_strcmp(id, "C"))
 	{
-		cub_elems->clr_ceiling.number_of_times_seen = TRUE;
+		cub_elems->clr_ceiling.number_of_times_seen++;
 		cub_elems->clr_ceiling.red = ft_atoi(color_data[0]);
 		cub_elems->clr_ceiling.green = ft_atoi(color_data[1]);
 		cub_elems->clr_ceiling.blue = ft_atoi(color_data[2]);
