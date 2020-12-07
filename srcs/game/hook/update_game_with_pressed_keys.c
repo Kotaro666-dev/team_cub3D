@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_pressed.c                                      :+:      :+:    :+:   */
+/*   update_game_with_pressed_keys.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:19:02 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ int		update_game_info_with_pressed_keys(int key_code, t_game *game)
 		g_player.turn_direction = -1;
 	else if (key_code == KEY_RIGHT_ARROW)
 		g_player.turn_direction = +1;
-	else if (key_code == KEY_M)
-		g_info.show_minimap = (g_info.show_minimap ? FALSE : TRUE);
 	update_and_render_game(game);
 	return (0);
 }
+
+/*
+** else if (key_code == KEY_M)
+** 	g_info.show_minimap = (g_info.show_minimap ? FALSE : TRUE);
+*/
 
 /*
 ** 	else if (key_code == KEY_P)
