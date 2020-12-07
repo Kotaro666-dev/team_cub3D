@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 08:51:33 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:27:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct	s_err_msg
 typedef enum	e_msg
 {
 	CUB_FILE_EXT_INVALID = 4,
-	CUB_FILE_DOESNT_EXIST,
+	CANNNOT_OPEN_CUB_FILE,
 	CUB_FILE_IS_EMPTY,
 	SAVE_COMMAND_INVALID,
 	NUM_COMMAND_LINE_INVALID,

@@ -83,3 +83,13 @@ echo "error_test/errorformat01.cubwrong"
 
 echo "error_test/errorformat02.cub.cubwrong"
 ./cub3D error_test/errorformat02.cub.cubwrong
+
+# FILE DOESNT'T EXSIT
+
+echo "error_test/file_doesnt_exist.cub"
+./cub3D error_test/file_doesnt_exist.cub
+
+# FILE PERMISSION
+
+echo "error_test/file_permisson.cub"
+./cub3D error_test/file_permisson.cub
