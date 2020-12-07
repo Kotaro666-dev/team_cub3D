@@ -49,3 +49,6 @@ dynamic_mlx/mlx_image.swiftsourceinfo
 
 # minilibx-linux
 mlx-test
+
+# bmp file
+*.bmp
