@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_play_mode.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:52:48 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static int	reput_image_to_window(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->image.img, 0, 0);
 	return (0);
 }
-
 
 /*
 **  At the end of the update_game_info_with_pressed_keys func,
