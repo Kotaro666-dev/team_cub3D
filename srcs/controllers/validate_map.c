@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:55:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 11:37:43 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 /*
 ** ADDED 2 POX_X AND P0S_Y
 ** BECAUSE OF I CREATED + 2 DIFF FOR FLOOD FILL MAP
+** you can debug by adding functions below,
+** into before and after calling flood_fill();
+** (around line 41)
+** debug_flood_fill_before(&game->cub_elems);
+** debug_flood_fill_after(&game->cub_elems);
 */
 
 static int		is_player_surrounded_by_walls(t_game *game)
@@ -32,9 +37,7 @@ static int		is_player_surrounded_by_walls(t_game *game)
 	pos_y = game->cub_elems.map_data.player_pos_y + DIFF_Y;
 	is_safe = TRUE;
 	create_box_for_flood_map(&game->cub_elems);
-	// debug_flood_fill_before(&game->cub_elems);
 	flood_fill(game, pos_y, pos_x, &is_safe);
-	// debug_flood_fill_after(&game->cub_elems);
 	return (is_safe);
 }
 

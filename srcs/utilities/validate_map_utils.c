@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:27:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:56:02 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 11:35:34 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void			flood_fill(t_game *game, int y, int x, int *is_safe)
 	{
 		game->cub_elems.map_data.fill[y][x] = PAINT;
 	}
-	// debug_flood_fill_after(&game->cub_elems);
 	is_this_coord_safe(&game->cub_elems, y, x, is_safe);
 	if (*is_safe == FALSE)
 	{
