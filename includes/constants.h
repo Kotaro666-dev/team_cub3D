@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:23:57 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:54:21 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@
 
 # define LL long long int
 # define INT_OVERFLOW_VALUE -1
+
+/*
+** PARSE_CUB_ELEMS
+*/
+
+# define SKIP 1
 
 /*
 ** READ_CUB_FILE_UTILS
