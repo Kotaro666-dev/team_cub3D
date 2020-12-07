@@ -3,7 +3,7 @@ NO ./textures/north.xpm
 SO ./textures/south.xpm
 WE ./textures/west.xpm
 EA ./textures/east.xpm
-S ./textures/pillar.xpm
+S ./textures/sprite_barrel.xpm
 R 123.45,123.67,13.56
 C 225,30,0
 
