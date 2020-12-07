@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cub_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/06 23:15:51 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/07 11:37:24 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ static int		read_file_line_by_line(t_game *game)
 	return (TRUE);
 }
 
+/*
+** you can debug by adding the func below, into
+** after calling convert_rgb_to_hex (the line 94)
+** debug_data_from_cub_file(&game->cub_elems);
+*/
+
 int				read_cub_file(t_game *game)
 {
 	while (TRUE)
@@ -86,6 +92,5 @@ int				read_cub_file(t_game *game)
 	game->gnl.line = NULL;
 	close(game->gnl.fd);
 	convert_rgb_to_hex(&game->cub_elems);
-	// debug_data_from_cub_file(&game->cub_elems);
 	return (TRUE);
 }
