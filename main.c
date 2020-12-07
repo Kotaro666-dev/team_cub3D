@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/07 14:48:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 07:52:47 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ int				main(int argc, char **argv)
 		free_mlx_ptr(&game);
 		return (ERROR);
 	}
-	// FIXME: else if
-	if (game.which_mode == PLAY_MODE)
+	else if (game.which_mode == PLAY_MODE)
 	{
 		start_play_mode(&game);
 	}
