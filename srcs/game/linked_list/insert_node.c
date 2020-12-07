@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 11:08:29 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/07 11:24:05 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:38:31 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		insert_node(int map_id)
 	{
 		perror("ERROR");
 		clear_all_nodes();
-		exit(1);
+		exit(ERROR);
 	}
 	new_node->data.map_id = map_id;
 	new_node->data.is_first_hit = TRUE;
