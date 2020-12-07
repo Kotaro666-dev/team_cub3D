@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 12:32:06 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@
 #include "mlx.h"
 #include "key_xevent_code.h"
 
+/*
+** call update_and_render_game func in register_hook_and_main_loop
+*/
+
 void		start_play_mode(t_game *game)
 {
 	setup(game);
 	initialize_window(game);
-	register_hook(game);
-	mlx_loop_hook(game->mlx, &main_loop, game);
+	register_hook_and_main_loop(game);
+	update_and_render_game(game);
 	mlx_loop(game->mlx);
 }
 
@@ -44,12 +48,18 @@ static int	reput_image_to_window(t_game *game)
 	return (0);
 }
 
-void		register_hook(t_game *game)
+
+/*
+**  At the end of the update_game_info_with_pressed_keys func,
+**  this program calls update_and_render_game, which is a main loop
+*/
+
+void		register_hook_and_main_loop(t_game *game)
 {
 	mlx_hook(game->win,
 		X_EVENT_KEY_PRESS,
 		KEY_PRESS_MASK,
-		&key_pressed, game);
+		&update_game_info_with_pressed_keys, game);
 	mlx_hook(game->win,
 		X_EVENT_KEY_RELEASE,
 		KEY_RELEASE_MASK,

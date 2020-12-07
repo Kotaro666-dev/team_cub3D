@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:51:15 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "struct_game.h"
 #include "debug.h"
 
-int		key_pressed(int key_code, t_game *game)
+int		update_game_info_with_pressed_keys(int key_code, t_game *game)
 {
 	(void)game;
 	if (key_code == KEY_ESC)
@@ -40,7 +40,7 @@ int		key_pressed(int key_code, t_game *game)
 		g_player.turn_direction = +1;
 	else if (key_code == KEY_M)
 		g_info.show_minimap = (g_info.show_minimap ? FALSE : TRUE);
-	g_info.key_flag = TRUE;
+	update_and_render_game(game);
 	return (0);
 }
 

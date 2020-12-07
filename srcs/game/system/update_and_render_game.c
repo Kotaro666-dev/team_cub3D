@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   update_and_render_game.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 14:41:09 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 12:34:41 by rnakai           ###   ########.fr       */
+/*   Created: 2020/12/06 23:04:59 by rnakai            #+#    #+#             */
+/*   Updated: 2020/12/06 23:12:47 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int		main_loop(t_game *game)
+int		update_and_render_game(t_game *game)
 {
-	if (g_info.key_flag == TRUE)
-	{
-		move_player();
-		g_info.which_mode = DETECTING_WALLS;
-		cast_all_rays();
-		g_info.which_mode = DETECTING_SPRITE;
-		g_sprite.init();
-		cast_all_rays();
-		g_sprite.sort();
-		render(game);
-		g_sprite.clear();
-	}
-	g_info.key_flag = FALSE;
+	move_player();
+	g_info.which_mode = DETECTING_WALLS;
+	cast_all_rays();
+	g_info.which_mode = DETECTING_SPRITE;
+	g_sprite.init();
+	cast_all_rays();
+	g_sprite.sort();
+	render(game);
+	g_sprite.clear();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:00:11 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 16:37:17 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/06 22:54:55 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	setup(t_game *game)
 	g_player.turn_speed = 5 * (PI / 180);
 	convert_ch2num_map(g_map, game->cub_elems.map_data.map);
 	g_sprite_constructor();
-	g_info.key_flag = TRUE;
 	g_info.width = game->cub_elems.rez.width;
 	g_info.height = game->cub_elems.rez.height;
 	g_info.num_rays = g_info.width;
