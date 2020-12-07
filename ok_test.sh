@@ -24,6 +24,8 @@ echo "ok_test/ok_test2$i.cub"
 ./cub3D ok_test/ok_test2$i.cub
 done
 
+# CUB FORMAT EXTENSION
+
 echo "ok_test/ok_test_format.cub.cub"
 ./cub3D ok_test/ok_test_format.cub.cub
 
@@ -32,3 +34,14 @@ echo "ok_test/ok_test_format.ok...cub"
 
 echo "ok_test/ok_test_format.ok.cub"
 ./cub3D ok_test/ok_test_format.ok.cub
+
+# MAP SIZE
+
+echo "ok_test/map_100.cub"
+./cub3D ok_test/map_100.cub
+
+echo "ok_test/map_199.cub"
+./cub3D ok_test/map_199.cub
+
+echo "ok_test/map_200.cub"
+./cub3D ok_test/map_200.cub

@@ -54,6 +54,29 @@ done
 echo "error_test/error60.cub"
 ./cub3D error_test/error60.cub
 
+# MAP SIZE
+
+echo "error_test/large_map_2000.cub"
+./cub3D error_test/large_map_2000.cub
+
+echo "error_test/map_201.cub"
+./cub3D error_test/map_201.cub
+
+echo "error_test/map_300.cub"
+./cub3D error_test/map_300.cub
+
+echo "error_test/map_400.cub"
+./cub3D error_test/map_400.cub
+
+echo "error_test/map_500.cub"
+./cub3D error_test/map_500.cub
+
+echo "error_test/map_600.cub"
+./cub3D error_test/map_600.cub
+
+echo "error_test/map_800.cub"
+./cub3D error_test/map_800.cub
+
 # WRONG FORMAT
 echo "error_test/errorformat01.cubwrong"
 ./cub3D error_test/errorformat01.cubwrong
