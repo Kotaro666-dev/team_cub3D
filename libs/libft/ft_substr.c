@@ -6,17 +6,17 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 14:47:30 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/10/20 16:17:18 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/06 23:28:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *result;
-	size_t i;
-	size_t length_from_start;
+	char	*result;
+	size_t	i;
+	size_t	length_from_start;
 
 	if (s == NULL)
 		return (NULL);
