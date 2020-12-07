@@ -4,7 +4,7 @@ NO ./textures/colorstone.xpm
 SO ./textures/eagle.xpm
 WE ./textures/greystone.xpm
 EA ./textures/purplestone.xpm
-S ./textures/pillar.xpm
+S ./textures/sprite_barrel.xpm
 F 100,40,0
 C 0,0,100
 
