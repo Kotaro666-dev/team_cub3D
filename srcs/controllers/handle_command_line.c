@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/29 18:02:03 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:27:15 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static int		verify_cub_file(char *cub_file, t_game *game)
 	}
 	if (!can_open_cub_file(cub_file, game))
 	{
-		game->err_msg.which_msg = CUB_FILE_DOESNT_EXIST;
+		// FIXME：権限がない時にファイルOPENできない -> エラーメッセージを一般化
+		game->err_msg.which_msg = CANNNOT_OPEN_CUB_FILE;
 		return (ERROR);
 	}
 	if (read_cub_file(game) == ERROR)
