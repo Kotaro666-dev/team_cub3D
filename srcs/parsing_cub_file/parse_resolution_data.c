@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_resolution_data.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:53:50 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/08 08:04:24 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 
 static void		store_rez_data(LL width, LL height, t_cub_elems *cub_elems)
 {
-	if (width > cub_elems->rez.my_width)
+	if (width > cub_elems->rez.your_screen_width)
 	{
-		cub_elems->rez.width = cub_elems->rez.my_width;
+		cub_elems->rez.width = cub_elems->rez.your_screen_width;
 	}
 	else
 	{
 		cub_elems->rez.width = width;
 	}
-	if (height > cub_elems->rez.my_height)
+	if (height > cub_elems->rez.your_screen_height)
 	{
-		cub_elems->rez.height = cub_elems->rez.my_height;
+		cub_elems->rez.height = cub_elems->rez.your_screen_height;
 	}
 	else
 	{
@@ -37,11 +37,7 @@ static void		store_rez_data(LL width, LL height, t_cub_elems *cub_elems)
 
 static int		is_rez_value_valid(LL width, LL height)
 {
-	if (width == ERROR || height == ERROR)
-	{
-		return (FALSE);
-	}
-	else if (width == 0 || height == 0)
+	if (width == 0 || height == 0)
 	{
 		return (FALSE);
 	}
