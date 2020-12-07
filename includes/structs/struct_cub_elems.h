@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_cub_elems.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/04 15:34:00 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 14:21:26 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct		s_map_data
 {
 	int				is_map_valid;
 	char			map[ROW + 1][COL + 1];
-	char			fill[ROW + 1][COL + 1];
+	char			fill[ROW + DIFF_Y + 1][COL + DIFF_X + 1];
 	int				max_x;
 	int				max_y;
 	int				has_started_reading_map;

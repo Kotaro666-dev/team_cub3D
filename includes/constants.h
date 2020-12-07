@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   constants.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/07 12:21:46 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 14:19:35 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 ** MAP
 */
 
-# define ROW 500
-# define COL 500
+# define ROW 200
+# define COL 200
 # define ARR_SIZE 1000
 
 /*
