@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 20:32:42 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:45:53 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,31 +61,26 @@ int		is_file_extention_xpm(char *file)
 
 int		can_open_the_file(char *id, t_cub_elems *cub_elems)
 {
-	int	open_rv;
+	int	return_value;
+	int	result;
 
-	open_rv = TRUE;
+	return_value = ERROR;
+	result = FALSE;
 	if (ft_strcmp(id, "NO"))
-	{
-		open_rv = open(cub_elems->north_tex.path, O_RDONLY);
-	}
+		return_value = open(cub_elems->north_tex.path, O_RDONLY);
 	else if (ft_strcmp(id, "SO"))
-	{
-		open_rv = open(cub_elems->south_tex.path, O_RDONLY);
-	}
+		return_value = open(cub_elems->south_tex.path, O_RDONLY);
 	else if (ft_strcmp(id, "WE"))
-	{
-		open_rv = open(cub_elems->west_tex.path, O_RDONLY);
-	}
+		return_value = open(cub_elems->west_tex.path, O_RDONLY);
 	else if (ft_strcmp(id, "EA"))
-	{
-		open_rv = open(cub_elems->east_tex.path, O_RDONLY);
-	}
+		return_value = open(cub_elems->east_tex.path, O_RDONLY);
 	else if (ft_strcmp(id, "S"))
+		return_value = open(cub_elems->sprite_tex.path, O_RDONLY);
+	if (return_value != ERROR)
 	{
-		open_rv = open(cub_elems->sprite_tex.path, O_RDONLY);
+		result = TRUE;
 	}
-	open_rv = (open_rv == ERROR) ? FALSE : TRUE;
-	return (open_rv);
+	return (result);
 }
 
 int		is_texture_extension_valid(char *id, t_cub_elems *cub_elems)
