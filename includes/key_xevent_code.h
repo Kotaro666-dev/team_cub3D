@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:37:01 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 15:19:56 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 11:44:15 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # define X_EVENT_FOCUSIN		9
 # define X_EVENT_KEY_EXIT		17
 
-# define KEY_PRESS_MASK			1<<0
-# define KEY_RELEASE_MASK		1<<1
-# define STRUCTURE_NOTIFY_MASK	1<<17
-# define FOCUS_CHANGE_MASK		1<<21
+# define KEY_PRESS_MASK			1 << 0
+# define KEY_RELEASE_MASK		1 << 1
+# define STRUCTURE_NOTIFY_MASK	1 << 17
+# define FOCUS_CHANGE_MASK		1 << 21
 
 # define KEY_ESC				65307
 # define KEY_W					119
