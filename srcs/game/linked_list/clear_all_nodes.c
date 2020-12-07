@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 11:54:48 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:55:04 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 11:20:21 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void		clear_all_nodes(void)
 	t_sprite_list	*current;
 	t_sprite_list	*next;
 
+	if (g_nil == NULL)
+		return ;
 	current = g_nil->next;
 	while (current != g_nil)
 	{
