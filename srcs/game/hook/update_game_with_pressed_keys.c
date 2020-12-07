@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 15:58:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/06 23:07:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "struct_game.h"
 #include "debug.h"
 
-int		key_pressed_with_update_and_render(int key_code, t_game *game)
+int		update_game_info_with_pressed_keys(int key_code, t_game *game)
 {
 	(void)game;
 	if (key_code == KEY_ESC)

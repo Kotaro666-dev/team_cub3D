@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:55:53 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/06 23:17:20 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	reput_image_to_window(t_game *game)
 
 
 /*
-**  At the end of the key_pressed_with_update_and_render func,
+**  At the end of the update_game_info_with_pressed_keys func,
 **  this program calls update_and_render_game, which is a main loop
 */
 
@@ -59,7 +59,7 @@ void		register_hook_and_main_loop(t_game *game)
 	mlx_hook(game->win,
 		X_EVENT_KEY_PRESS,
 		KEY_PRESS_MASK,
-		&key_pressed_with_update_and_render, game);
+		&update_game_info_with_pressed_keys, game);
 	mlx_hook(game->win,
 		X_EVENT_KEY_RELEASE,
 		KEY_RELEASE_MASK,

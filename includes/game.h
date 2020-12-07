@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:31:08 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/06 23:10:26 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:07:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void			store_textures(t_game *game);
 ** hook functions
 */
 
-int				key_pressed_with_update_and_render(int key_code, t_game *game);
+int				update_game_info_with_pressed_keys(int key_code, t_game *game);
 int				key_released(int key_code, t_game *game);
 int				close_window(t_game *game);
 void			register_hook_and_main_loop(t_game *game);
