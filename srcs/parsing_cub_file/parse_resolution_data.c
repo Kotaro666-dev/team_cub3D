@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:24:31 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:04:24 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:06:49 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "utilities.h"
 #include "constants.h"
 
-static void		store_rez_data(LL width, LL height, t_cub_elems *cub_elems)
+static void		store_resolution_size(LL width, LL height, t_cub_elems *cub_elems)
 {
 	if (width > cub_elems->rez.your_screen_width)
 	{
@@ -35,7 +35,7 @@ static void		store_rez_data(LL width, LL height, t_cub_elems *cub_elems)
 	}
 }
 
-static int		is_rez_value_valid(LL width, LL height)
+static int		is_resolution_size_valid(LL width, LL height)
 {
 	if (width == 0 || height == 0)
 	{
@@ -58,11 +58,11 @@ int				parse_resolution_data(char **data, t_game *game)
 	}
 	width_temp = ft_atoi(data[1]);
 	height_temp = ft_atoi(data[2]);
-	if (!is_rez_value_valid(width_temp, height_temp))
+	if (!is_resolution_size_valid(width_temp, height_temp))
 	{
 		game->err_msg.which_msg = RESOLUTION_ERROR;
 		return (ERROR);
 	}
-	store_rez_data(width_temp, height_temp, &game->cub_elems);
+	store_resolution_size(width_temp, height_temp, &game->cub_elems);
 	return (TRUE);
 }
