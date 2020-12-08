@@ -6,13 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:17:18 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 20:03:39 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 #include "constants.h"
 #include "mlx.h"
+#include "libft.h"
 
 int			ft_strcmp(char *s1, char *s2)
 {
@@ -32,6 +33,18 @@ int			ft_strcmp(char *s1, char *s2)
 		i++;
 	}
 	return (TRUE);
+}
+
+int		is_file_extention_valid(char *file, char *extension)
+{
+	char	*last_dot_address;
+
+	last_dot_address = ft_strrchr(file, '.');
+	if (ft_strcmp(last_dot_address, extension))
+	{
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
 void		free_memory_2d_array(char **line)

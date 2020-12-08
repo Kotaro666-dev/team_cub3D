@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 20:21:42 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:54:21 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 20:00:00 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@
 # define PLAY_MODE 2
 # define SAVE_MODE 3
 # define SUCCESS 0
+
+/*
+** FILE EXTENSION
+*/
+
+# define DOT_CUB ".cub"
+# define DOT_XPM ".xpm"
 
 /*
 ** VALIDATE MAP MACRO

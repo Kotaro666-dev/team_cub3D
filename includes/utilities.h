@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/30 22:18:36 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 20:02:51 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	convert_rgb_to_hex(t_cub_elems *cub_elems);
 ** HANDLE_COMMAND_LINE.C
 */
 
-int		is_cub_file_ext_valid(char *format);
 int		should_write_bmp_image(char **argv);
 
 /*
@@ -70,6 +69,7 @@ int		have_already_found_player(t_cub_elems *cub_elems);
 */
 
 int		ft_strcmp(char *s1, char *s2);
+int		is_file_extention_valid(char *file, char *extension);
 void	free_memory_2d_array(char **line);
 void	free_mlx_ptr(t_game *game);
 void	free_memory(char *str);
@@ -87,7 +87,6 @@ void	create_box_for_flood_map(t_cub_elems *cub_elems);
 
 int		does_len_array_match(char **color_data, int valid_len);
 int		does_target_have_only_digits(char *str);
-int		is_file_extention_xpm(char *file);
 int		can_open_the_file(char *id, t_cub_elems *cub_elems);
 int		is_texture_extension_valid(char *id, t_cub_elems *cub_elems);
 

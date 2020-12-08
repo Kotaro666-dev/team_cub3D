@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:45:53 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 20:02:11 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		can_open_cub_file(char *cub_file, t_game *game)
 
 static int		verify_cub_file(char *cub_file, t_game *game)
 {
-	if (!is_cub_file_ext_valid(cub_file))
+	if (!is_file_extention_valid(cub_file, DOT_CUB))
 	{
 		game->err_msg.which_msg = CUB_FILE_EXT_INVALID;
 		return (ERROR);
