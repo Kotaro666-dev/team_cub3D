@@ -93,3 +93,11 @@ echo "error_test/file_doesnt_exist.cub"
 
 echo "error_test/file_permisson.cub"
 ./cub3D error_test/file_permisson.cub
+
+# MULTI MAP ERROR
+
+echo "error_test/double_map.cub"
+./cub3D error_test/double_map.cub
+
+echo "error_test/multi_map.cub"
+./cub3D error_test/multi_map.cub
