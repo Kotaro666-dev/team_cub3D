@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:40:36 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 09:42:34 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		read_cub_elements(char **line, t_game *game)
 	return (is_line_data_valid);
 }
 
-static int		is_cub_file_empty(t_game *game)
+static int		is_cub_file_empty_data(t_game *game)
 {
 	return (game->gnl.return_value == GNL_EOF &&
 			!have_you_seen_any_elemets(&game->cub_elems));
@@ -48,16 +48,14 @@ static int		handle_error_empty_cub_file(t_game *game)
 
 static int		read_file_line_by_line(t_game *game)
 {
-	// FIXME : return_value
 	if ((game->gnl.return_value = get_next_line(game->gnl.fd, &game->gnl.line)) == ERROR)
 	{
 		game->err_msg.which_msg = GET_NEXT_LINE_ERROR;
 		return (err_action_with_free(game));
 	}
-	if (is_cub_file_empty(game))
+	if (is_cub_file_empty_data(game))
 	{
-		// FIXME: エラーメッセージを一般化する
-		game->err_msg.which_msg = CUB_FILE_IS_EMPTY;
+		game->err_msg.which_msg = CUB_FILE_IS_EMPTY_DATA;
 		return (handle_error_empty_cub_file(game));
 	}
 	return (TRUE);
