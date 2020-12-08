@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   useful_funcs.c                                     :+:      :+:    :+:   */
+/*   free_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 23:09:20 by kkamashi         ###   ########.fr       */
+/*   Created: 2020/12/08 23:00:43 by kkamashi          #+#    #+#             */
+/*   Updated: 2020/12/08 23:01:04 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,28 @@
 #include "mlx.h"
 #include "libft.h"
 
-int			ft_strcmp(char *s1, char *s2)
+void		free_memory_2d_array(char **line)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	if (s1 == NULL || s2 == NULL)
+	while (line[i] != NULL)
 	{
-		return (FALSE);
-	}
-	while (s1[i] != '\0' || s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-		{
-			return (FALSE);
-		}
+		free(line[i]);
 		i++;
 	}
-	return (TRUE);
+	free(line);
 }
 
-int			is_file_extention_valid(char *file, char *extension)
+void		free_mlx_ptr(t_game *game)
 {
-	char	*last_dot_address;
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	game->mlx = NULL;
+}
 
-	last_dot_address = ft_strrchr(file, '.');
-	if (ft_strcmp(last_dot_address, extension))
-	{
-		return (TRUE);
-	}
-	return (FALSE);
+void		free_memory(char *line)
+{
+	free(line);
+	line = NULL;
 }
