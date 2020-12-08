@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 20:03:39 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 22:25:00 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			ft_strcmp(char *s1, char *s2)
 	return (TRUE);
 }
 
-int		is_file_extention_valid(char *file, char *extension)
+int			is_file_extention_valid(char *file, char *extension)
 {
 	char	*last_dot_address;
 
