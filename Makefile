@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/12/06 23:43:56 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/12/08 15:01:46 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ MLX = minilibx-linux
 LIBMLX = libmlx.a
 LIBMLX_PATH = $(MLX)/$(LIBMLX)
 OPTIONS = -lXext -lX11
+BMP_IMAGE = cub3D.bmp
 
 $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
@@ -68,7 +69,8 @@ clean:
 fclean: clean
 	$(MAKE) fclean -C ./libs/libft
 	$(MAKE) clean -C ./$(MLX)
-	$(RM) $(NAME) $(LIBMLX)
+	$(RM) $(NAME) $(LIBMLX) $(BMP_IMAGE)
+
 
 re: fclean all
 
