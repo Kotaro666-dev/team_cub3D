@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_command_line.c                              :+:      :+:    :+:   */
+/*   decide_which_mode_to_start.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -49,7 +49,7 @@ static int		verify_cub_file(char *cub_file, t_game *game)
 	return (TRUE);
 }
 
-int				handle_command_line(int argc, char **argv, t_game *game)
+int				decide_which_mode_to_start(int argc, char **argv, t_game *game)
 {
 	if (argc == 2)
 	{

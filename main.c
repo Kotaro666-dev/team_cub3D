@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:17:06 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 07:57:40 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 21:04:33 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				main(int argc, char **argv)
 	t_game			game;
 
 	initialize_config(&game);
-	game.which_mode = handle_command_line(argc, argv, &game);
+	game.which_mode = decide_which_mode_to_start(argc, argv, &game);
 	if (game.which_mode == ERROR)
 	{
 		print_error_msg(&game.err_msg);

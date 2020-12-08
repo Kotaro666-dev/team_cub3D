@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:56 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/16 22:13:47 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 21:01:31 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "libft.h"
 # include "struct_game.h"
 
-int		handle_command_line(int argc, char **argv, t_game *game);
+int		decide_which_mode_to_start(int argc, char **argv, t_game *game);
 int		read_cub_file(t_game *game);
 int		parse_cub_elems(char **data, t_game *game);
 int		validate_map(t_game *game);

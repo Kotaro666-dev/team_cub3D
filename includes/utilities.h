@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 20:02:51 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 21:02:37 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 void	convert_rgb_to_hex(t_cub_elems *cub_elems);
 
 /*
-** HANDLE_COMMAND_LINE.C
+** DICIDE_WHICH_MODE_TO_START.C
 */
 
 int		should_write_bmp_image(char **argv);
