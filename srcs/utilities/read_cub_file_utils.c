@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:40:58 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 09:48:09 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		err_action_with_free(t_game *game)
 
 int		did_reach_eof(t_game *game)
 {
-	if (game->gnl.return_value== GNL_EOF)
+	if (game->gnl.return_value == GNL_EOF)
 	{
 		if (!did_collect_all_must_data(&game->cub_elems))
 		{

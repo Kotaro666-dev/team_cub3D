@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:42:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 09:47:38 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ static int		handle_error_empty_cub_file(t_game *game)
 
 static int		read_file_line_by_line(t_game *game)
 {
-	if ((game->gnl.return_value = get_next_line(game->gnl.fd, &game->gnl.line)) == ERROR)
+	if ((game->gnl.return_value =
+						get_next_line(game->gnl.fd, &game->gnl.line)) == ERROR)
 	{
 		game->err_msg.which_msg = GET_NEXT_LINE_ERROR;
 		return (err_action_with_free(game));
