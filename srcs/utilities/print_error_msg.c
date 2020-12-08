@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:42:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 22:14:44 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ static char		*which_error_msg3(t_err_msg *err_msg)
 	msg = NULL;
 	if (err_msg->which_msg == MAP_ERROR)
 		msg = "MAP DATA IS INVALID!";
-	else if (err_msg->which_msg == MULTI_MAP_ERROR)
-		msg = "THERE ARE MUTLIPLE MAP IN FILE!";
 	else if (err_msg->which_msg == MAP_TOO_BIG)
 		msg = "MAP DATA IS TOO BIG! PLEASE MAKE IT SMALLER!";
 	else if (err_msg->which_msg == MAP_NOT_CLOSED)

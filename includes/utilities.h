@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 21:02:37 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 22:16:42 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		did_collect_all_must_data(t_cub_elems *cub_elems);
 
 void	store_player_data(t_cub_elems *cub_elems, int pos_x, char orient);
 void	update_max_x_on_map(t_cub_elems *cub_elems, int x);
+int		have_already_found_map(t_map_data *map_data);
 int		have_already_found_player(t_cub_elems *cub_elems);
 
 /*

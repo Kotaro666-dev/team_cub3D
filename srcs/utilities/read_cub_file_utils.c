@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:48:09 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 21:15:08 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		have_you_seen_any_elemets(t_cub_elems *cub_elems)
 		cub_elems->sprite_tex.number_of_times_seen == 0 &&
 		cub_elems->clr_floor.number_of_times_seen == 0 &&
 		cub_elems->clr_ceiling.number_of_times_seen == 0 &&
-		cub_elems->map_data.has_started_reading_map == 0)
+		cub_elems->map_data.have_started_reading_map == 0)
 	{
 		return (FALSE);
 	}
@@ -90,7 +90,7 @@ int		did_collect_all_must_data(t_cub_elems *cub_elems)
 		cub_elems->sprite_tex.number_of_times_seen == ONCE &&
 		cub_elems->clr_floor.number_of_times_seen == ONCE &&
 		cub_elems->clr_ceiling.number_of_times_seen == ONCE &&
-		cub_elems->map_data.has_started_reading_map == TRUE)
+		cub_elems->map_data.have_started_reading_map == TRUE)
 	{
 		return (TRUE);
 	}
