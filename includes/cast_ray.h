@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 11:00:20 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 15:25:13 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/08 11:49:41 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,5 @@ int				validate_sprite_hit(t_cast_ray_var *hv,
 					t_cast_ray_var_common *cmn, int hv_flag);
 
 void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv);
-
-/*
-** utils of set_sprite_data func
-*/
-
-float			get_sprite_angle(float sprite_x, float sprite_y);
-int				was_there_sprite_hit_before_wall_hit(
-					float distance_to_center,
-					float angle_btwn_ray_and_sprite_center,
-					float ray_hit_pos_from_center,
-					int strip_id);
-float			cut_margin_of(float ray_hit_pos_from_center);
-void			set_sprite_element_property(int map_id, int strip_id,
-					float distance_to_center, float ray_hit_pos_from_center);
 
 #endif
