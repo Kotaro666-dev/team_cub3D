@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:08:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 22:56:51 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:17:21 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int				read_cub_map(char **line, t_game *game)
 		game->err_msg.which_msg = MAP_TOO_BIG;
 		return (ERROR);
 	}
-	if (can_skip_empty_lines(line, &game->cub_elems.map_data))
+	else if (can_skip_empty_lines(line, &game->cub_elems.map_data))
 	{
 		return (SKIP);
 	}
@@ -109,11 +109,6 @@ int				read_cub_map(char **line, t_game *game)
 			return (ERROR);
 		}
 		update_map_data_config(&game->cub_elems.map_data, line);
-	}
-	else
-	{
-		game->err_msg.which_msg = MAP_ERROR;
-		return (ERROR);
 	}
 	return (TRUE);
 }
