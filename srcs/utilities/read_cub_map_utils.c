@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:17:04 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 22:57:05 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:29:39 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ void	update_max_x_on_map(t_cub_elems *cub_elems, int x)
 
 int		have_finished_reading_map(t_map_data *map_data)
 {
-	if (map_data->have_started_reading_empty_lines &&
-		map_data->have_finished_reading_empty_lines &&
-		map_data->have_started_reading_map)
+	if (map_data->have_started_reading_map)
 	{
 		return (TRUE);
 	}

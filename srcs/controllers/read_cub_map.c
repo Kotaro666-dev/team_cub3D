@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:08:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 23:17:21 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:28:32 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int		can_skip_empty_lines(char **line, t_map_data *map_data)
 {
 	if ((*line == NULL || *line[0] == '\0'))
 	{
-		map_data->have_started_reading_empty_lines = TRUE;
 		if (have_finished_reading_map(map_data))
 		{
 			map_data->have_finished_reading_map = TRUE;
@@ -80,7 +79,6 @@ static int		check_contents_in_line(char *line, t_cub_elems *cub_elems)
 static void		update_map_data_config(t_map_data *map_data, char **line)
 {
 	ft_strlcpy(map_data->map[map_data->max_y], *line, ARR_SIZE);
-	map_data->have_finished_reading_empty_lines = TRUE;
 	map_data->have_started_reading_map = TRUE;
 	map_data->max_y++;
 }

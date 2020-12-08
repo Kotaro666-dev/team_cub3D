@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:28:28 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 22:42:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:28:16 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static void	init_map(t_cub_elems *cub_elems)
 	cub_elems->map_data.max_y = 0;
 	cub_elems->map_data.have_started_reading_map = FALSE;
 	cub_elems->map_data.have_finished_reading_map = FALSE;
-	cub_elems->map_data.have_started_reading_empty_lines = FALSE;
-	cub_elems->map_data.have_finished_reading_empty_lines = FALSE;
 	cub_elems->map_data.have_found_player = FALSE;
 }
 
