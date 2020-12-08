@@ -6,7 +6,7 @@
 #    By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/12/08 15:01:46 by rnakai           ###   ########.fr        #
+#    Updated: 2020/12/08 15:17:16 by rnakai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS += ${shell find ./srcs/game/cast_ray/ -type f -name "*.c"}
 SRCS += ${shell find ./srcs/game/system/ -type f -name "*.c"}
 
 #
-SRCS += ${shell find ./srcs/debug/ -type f -name "*.c"}
+# SRCS += ${shell find ./srcs/debug/ -type f -name "*.c"}
 #
 
 INCLUDE = -I./includes/ \
@@ -47,7 +47,8 @@ DEPS = ${SRCS:.c=.d}
 LIBFT = ./libs/libft/libft.a
 
 .c.o:
-	$(CC) $(CFLAGS) $(DEBUG) $(INCLUDE) -c $(DEPENDENCY_OPTION) ${<:.c=.d} $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) $(DEBUG) $(INCLUDE) -c $(DEPENDENCY_OPTION) ${<:.c=.d} \
+	$< -o ${<:.c=.o}
 
 MLX = minilibx-linux
 LIBMLX = libmlx.a
@@ -59,7 +60,8 @@ $(NAME): $(OBJS)
 	$(MAKE) bonus -C ./libs/libft
 	$(MAKE) -C ./$(MLX)
 	cp $(LIBMLX_PATH) ./
-	${CC} ${CFLAGS} $(DEBUG) ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) -o $(NAME)
+	${CC} ${CFLAGS} $(DEBUG) ${OBJS} ${LIBMLX} ${OPTIONS} -lm $(LIBFT) \
+	-o $(NAME)
 
 all: $(NAME)
 
