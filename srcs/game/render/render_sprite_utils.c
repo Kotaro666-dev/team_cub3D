@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 11:37:22 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/08 11:47:34 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/08 14:58:13 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		is_in_tex_range(float tex_offset_x_f)
 {
-	return (tex_offset_x_f < g_textures[SPRITE].width);
+	return (tex_offset_x_f < g_textures[SPRITE_IDX].width);
 }
 
 float	get_tex_offset_x(t_sprite_data *p_sprite)
