@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:08:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 22:16:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 22:56:51 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static int		can_skip_empty_lines(char **line, t_map_data *map_data)
 {
 	if ((*line == NULL || *line[0] == '\0'))
 	{
-		if (have_already_found_map(map_data))
-		{
-			return (FALSE);
-		}
 		map_data->have_started_reading_empty_lines = TRUE;
+		if (have_finished_reading_map(map_data))
+		{
+			map_data->have_finished_reading_map = TRUE;
+		}
 		return (TRUE);
 	}
 	else
@@ -98,6 +98,11 @@ int				read_cub_map(char **line, t_game *game)
 	}
 	else if (*line)
 	{
+		if (have_already_found_map(&game->cub_elems.map_data))
+		{
+			game->err_msg.which_msg = MULTI_MAPS_SEEN;
+			return (ERROR);
+		}
 		if (check_contents_in_line(*line, &game->cub_elems) == ERROR)
 		{
 			game->err_msg.which_msg = MAP_ERROR;
