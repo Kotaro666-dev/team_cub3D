@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:28:28 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 18:28:31 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:01:08 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	init_resolution(t_cub_elems *cub_elems)
 	cub_elems->rez.number_of_times_seen = 0;
 	cub_elems->rez.width = -1;
 	cub_elems->rez.height = -1;
-	cub_elems->rez.my_width = -1;
-	cub_elems->rez.my_height = -1;
+	cub_elems->rez.your_screen_width = -1;
+	cub_elems->rez.your_screen_height = -1;
 }
 
 static void	init_textures(t_cub_elems *cub_elems)

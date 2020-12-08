@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:26 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/15 19:22:44 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:40:44 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ typedef struct		s_gnl
 {
 	int		fd;
 	char	*line;
-	int		rv;
+	int		return_value;
 }					t_gnl;
 
 #endif

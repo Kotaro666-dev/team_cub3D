@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 12:59:27 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/06 23:14:16 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 08:02:45 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void		display_cub_elements1(t_cub_elems *cub_elems)
 	printf("TIMES?   : %d\n", cub_elems->rez.number_of_times_seen);
 	printf("WIDTH    : %d\n", cub_elems->rez.width);
 	printf("HEIGHT   : %d\n", cub_elems->rez.height);
-	printf("MY_WIDTH : %d\n", cub_elems->rez.my_width);
-	printf("MY_HEIGHT: %d\n", cub_elems->rez.my_height);
+	printf("SCREEN WIDTH : %d\n", cub_elems->rez.your_screen_width);
+	printf("SCREEN HEIGHT: %d\n", cub_elems->rez.your_screen_height);
 	printf("--------------WALL TEXTURES-----------------\n");
 	printf("TIMES?   : %d\n", cub_elems->north_tex.number_of_times_seen);
 	printf("PATH     : %s\n", cub_elems->north_tex.path);
