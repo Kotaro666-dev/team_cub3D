@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:01:17 by rnakai            #+#    #+#             */
-/*   Updated: 2020/12/04 11:43:05 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/08 11:50:15 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "struct_sprite.h"
+#include "set_sprite_data.h"
 
 void			set_sprite_data(t_cast_ray_var_common *cmn, t_cast_ray_var *hv)
 {
