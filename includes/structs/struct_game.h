@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 12:43:14 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/25 16:31:02 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:19:44 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "struct_player.h"
 # include "struct_ray.h"
 # include "struct_image.h"
-# include "struct_rect_map.h"
 
 typedef struct	s_game
 {
@@ -31,7 +30,6 @@ typedef struct	s_game
 	t_gnl			gnl;
 	t_player		player;
 	t_ray			ray;
-	t_rect_map		rect_map;
 	t_image			image;
 }				t_game;
 
