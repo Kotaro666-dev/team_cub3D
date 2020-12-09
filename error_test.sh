@@ -101,3 +101,11 @@ echo "error_test/double_map.cub"
 
 echo "error_test/multi_map.cub"
 ./cub3D error_test/multi_map.cub
+
+# NO MAP ERROR
+
+for i in `seq 3`
+do
+echo "error_test/no_map$i.cub"
+./cub3D error_test/no_map$i.cub
+done

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 14:14:15 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/07 11:37:43 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/09 10:57:30 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,17 @@ static int		is_player_surrounded_by_walls(t_game *game)
 
 int				validate_map(t_game *game)
 {
-	if (!game->cub_elems.map_data.have_found_player)
+	if (!game->cub_elems.map_data.have_started_reading_map)
+	{
+		game->err_msg.which_msg = MAP_ERROR;
+		return (ERROR);
+	}
+	else if (!game->cub_elems.map_data.have_found_player)
 	{
 		game->err_msg.which_msg = NOT_FOUND_PLAYER;
 		return (ERROR);
 	}
-	if (!is_player_surrounded_by_walls(game))
+	else if (!is_player_surrounded_by_walls(game))
 	{
 		game->err_msg.which_msg = MAP_NOT_CLOSED;
 		return (ERROR);

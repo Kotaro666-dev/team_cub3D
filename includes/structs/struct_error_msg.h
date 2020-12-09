@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 06:31:02 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:42:46 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 22:47:52 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef enum	e_msg
 	TEXTURE_PATH_ERROR,
 	TEXTURE_FILE_NOT_VALID,
 	MAP_ERROR,
-	MULTI_MAP_ERROR,
+	MULTI_MAPS_SEEN,
 	MAP_TOO_BIG,
 	MAP_NOT_CLOSED,
 	NOT_FOUND_PLAYER,

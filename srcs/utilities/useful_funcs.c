@@ -6,13 +6,14 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:39 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/11/28 16:17:18 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:09:20 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utilities.h"
 #include "constants.h"
 #include "mlx.h"
+#include "libft.h"
 
 int			ft_strcmp(char *s1, char *s2)
 {
@@ -34,28 +35,14 @@ int			ft_strcmp(char *s1, char *s2)
 	return (TRUE);
 }
 
-void		free_memory_2d_array(char **line)
+int			is_file_extention_valid(char *file, char *extension)
 {
-	int	i;
+	char	*last_dot_address;
 
-	i = 0;
-	while (line[i] != NULL)
+	last_dot_address = ft_strrchr(file, '.');
+	if (ft_strcmp(last_dot_address, extension))
 	{
-		free(line[i]);
-		i++;
+		return (TRUE);
 	}
-	free(line);
-}
-
-void		free_mlx_ptr(t_game *game)
-{
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	game->mlx = NULL;
-}
-
-void		free_memory(char *line)
-{
-	free(line);
-	line = NULL;
+	return (FALSE);
 }

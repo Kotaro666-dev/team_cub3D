@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:34 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:45:53 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 20:01:18 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,6 @@ int		does_target_have_only_digits(char *target)
 	return (TRUE);
 }
 
-int		is_file_extention_xpm(char *file)
-{
-	char	*last_dot_address;
-
-	last_dot_address = ft_strrchr(file, '.');
-	if (ft_strcmp(last_dot_address, ".xpm"))
-	{
-		return (TRUE);
-	}
-	return (FALSE);
-}
-
 int		can_open_the_file(char *id, t_cub_elems *cub_elems)
 {
 	int	return_value;
@@ -87,23 +75,23 @@ int		is_texture_extension_valid(char *id, t_cub_elems *cub_elems)
 {
 	if (ft_strcmp(id, "NO"))
 	{
-		return (is_file_extention_xpm(cub_elems->north_tex.path));
+		return (is_file_extention_valid(cub_elems->north_tex.path, DOT_XPM));
 	}
 	else if (ft_strcmp(id, "SO"))
 	{
-		return (is_file_extention_xpm(cub_elems->south_tex.path));
+		return (is_file_extention_valid(cub_elems->south_tex.path, DOT_XPM));
 	}
 	else if (ft_strcmp(id, "WE"))
 	{
-		return (is_file_extention_xpm(cub_elems->west_tex.path));
+		return (is_file_extention_valid(cub_elems->west_tex.path, DOT_XPM));
 	}
 	else if (ft_strcmp(id, "EA"))
 	{
-		return (is_file_extention_xpm(cub_elems->east_tex.path));
+		return (is_file_extention_valid(cub_elems->east_tex.path, DOT_XPM));
 	}
 	else if (ft_strcmp(id, "S"))
 	{
-		return (is_file_extention_xpm(cub_elems->sprite_tex.path));
+		return (is_file_extention_valid(cub_elems->sprite_tex.path, DOT_XPM));
 	}
 	return (FALSE);
 }

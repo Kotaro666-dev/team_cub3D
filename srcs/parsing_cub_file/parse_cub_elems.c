@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:16 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 08:54:25 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 19:48:25 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "parsing.h"
 #include "constants.h"
 
-static int		is_target_tex(char *id)
+static int		is_target_texture(char *id)
 {
 	if (ft_strcmp(id, "NO") || ft_strcmp(id, "SO") || ft_strcmp(id, "WE") ||
 		ft_strcmp(id, "EA") || ft_strcmp(id, "S"))
@@ -34,7 +34,7 @@ static int		is_target_color(char *id)
 	return (ft_strcmp(id, "F") || ft_strcmp(id, "C"));
 }
 
-static int		is_target_rez(char *id)
+static int		is_target_resolution(char *id)
 {
 	return (ft_strcmp(id, "R"));
 }
@@ -52,11 +52,11 @@ int				parse_cub_elems(char **data, t_game *game)
 	id = data[0];
 	if (is_line_empty_or_with_only_spaces(id))
 		return (SKIP);
-	else if (is_target_rez(id) && does_len_array_match(data, 3))
+	else if (is_target_resolution(id) && does_len_array_match(data, 3))
 	{
 		is_data_valid = parse_resolution_data(data, game);
 	}
-	else if (is_target_tex(id) && does_len_array_match(data, 2))
+	else if (is_target_texture(id) && does_len_array_match(data, 2))
 	{
 		is_data_valid = parse_texture_data(data, game);
 	}

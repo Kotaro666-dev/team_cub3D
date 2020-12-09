@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:21 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 07:57:34 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:28:03 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct		s_map_data
 	char			fill[ROW + DIFF_Y + 1][COL + DIFF_X + 1];
 	int				max_x;
 	int				max_y;
-	int				has_started_reading_map;
+	int				have_started_reading_map;
+	int				have_finished_reading_map;
 	int				have_found_player;
 	int				p_pos_y_tracker;
 	int				player_pos_x;
