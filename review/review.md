@@ -14,7 +14,7 @@ vim review/game_mode.cub
 1. make
 2. ./cub3D review/game_mode.cub
 3. ./cub3D review/save_mode.cub --save
-4. vim review/game_mode.cub --> change the resolution size
+4. vim review/game_mode.cub --> modify the resolution size
 
 ## User basic events
 
