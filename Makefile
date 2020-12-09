@@ -6,7 +6,7 @@
 #    By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/25 15:17:11 by kkamashi          #+#    #+#              #
-#    Updated: 2020/12/08 21:03:06 by kkamashi         ###   ########.fr        #
+#    Updated: 2020/12/09 13:24:27 by kkamashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,8 @@ NAME = cub3D
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-DEBUG = -g -fsanitize=address,undefined
+DEBUG =
 DEPENDENCY_OPTION = -MMD -MP -MF
-
 LIBS_DIR = ./libs
 
 SRCS = main.c \
