@@ -101,3 +101,8 @@ echo "error_test/double_map.cub"
 
 echo "error_test/multi_map.cub"
 ./cub3D error_test/multi_map.cub
+
+# NO MAP ERROR
+
+echo "error_test/no_map.cub"
+./cub3D error_test/no_map.cub
