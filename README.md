@@ -38,15 +38,15 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 
 1. Rayのキャスティング -> DONE by rnakai
 2. textureの読み込み -> DONE by rnakai
-3. sprite -> NOW by rnakai
+3. sprite -> DONE by rnakai
 4. BMPファイルへの出力 -> DONE by kkamashi
-5. normチェック -> NOW by kkamashi
-6. 最終的なエラーチェック
+5. normチェック -> DONE by kkamashi, rnakai
+6. 最終的なエラーチェック NOW by kkamashi., rnakai
 
 ## rnakaiのパート
 1. 描画のところを引き続きやる -> DONE
 2. textureの貼り付け -> DONE
-3. Spriteの実装 -> NOW
+3. Spriteの実装 -> DONE
 #### 進捗予定
 11/25水 sprite1個を画面に映す
 26木　上の続き、修正など
@@ -60,4 +60,4 @@ https://qiita.com/siida36/items/880d92559af9bd245c34
 2. convert rbg to hex -> DONE
 3. bmpファイルを作る関数 -> DONE
 4. rnakaiさんが書いたsprite実装コードを読んで理解を深める
-5. Makefileのヘッダーインクルードの依存関係を正す
+5. Makefileのヘッダーインクルードの依存関係を正す -> DONE
