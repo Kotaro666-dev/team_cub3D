@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cub_file_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/09 10:45:48 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/10 11:54:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		did_reach_eof(t_game *game)
 	return (FALSE);
 }
 
-int		can_start_reading_map(t_cub_elems *cub_elems)
+int		can_start_reading_map(t_cub_elems *cub_elems, char *line)
 {
 	if (cub_elems->rez.number_of_times_seen == ONCE &&
 		cub_elems->north_tex.number_of_times_seen == ONCE &&
@@ -50,7 +50,9 @@ int		can_start_reading_map(t_cub_elems *cub_elems)
 		cub_elems->east_tex.number_of_times_seen == ONCE &&
 		cub_elems->sprite_tex.number_of_times_seen == ONCE &&
 		cub_elems->clr_floor.number_of_times_seen == ONCE &&
-		cub_elems->clr_ceiling.number_of_times_seen == ONCE)
+		cub_elems->clr_ceiling.number_of_times_seen == ONCE &&
+		ft_strchr(" 012NSEW", line[0])
+		)
 	{
 		return (TRUE);
 	}
