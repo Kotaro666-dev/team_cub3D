@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utilities.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:10 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 23:01:24 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/10 10:59:28 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		print_error_msg(t_err_msg *err_msg);
 
 int		err_action_with_free(t_game *game);
 int		did_reach_eof(t_game *game);
-int		can_start_reading_map(t_cub_elems *cub_elems);
+int		can_start_reading_map(t_cub_elems *cub_elems, char *line);
 int		have_you_seen_any_elemets(t_cub_elems *cub_elems);
 int		did_collect_all_must_data(t_cub_elems *cub_elems);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_cub_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:14:50 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 09:47:38 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/10 10:59:35 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				read_cub_file(t_game *game)
 		{
 			return (ERROR);
 		}
-		if (can_start_reading_map(&game->cub_elems))
+		if (can_start_reading_map(&game->cub_elems, game->gnl.line))
 		{
 			if (read_cub_map(&game->gnl.line, game) == ERROR)
 				return (err_action_with_free(game));
