@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:16:44 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 22:48:42 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/10 08:10:55 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static char		*which_error_msg3(t_err_msg *err_msg)
 	else if (err_msg->which_msg == MULTI_MAPS_SEEN)
 		msg = "FOUND MULTIPLE MAPS IN FILE!";
 	else if (err_msg->which_msg == MAP_NOT_CLOSED)
-		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS";
+		msg = "MAP IS NOT CLOSED/SURROUNDED BY WALLS!";
 	else if (err_msg->which_msg == NOT_FOUND_PLAYER)
-		msg = "NOT FOUND ANY PLAYER ON MAP";
+		msg = "NOT FOUND ANY PLAYER ON MAP!";
 	else if (err_msg->which_msg == BMP_FAILED)
-		msg = "FAILED TO CREATE OR OPEN BMP FILE";
+		msg = "FAILED TO CREATE OR OPEN BMP FILE!";
 	return (msg);
 }
 
@@ -43,17 +43,19 @@ static char		*which_error_msg2(t_err_msg *err_msg)
 	if (err_msg->which_msg == RESOLUTION_ERROR)
 		msg = "RESOLUTION VALUE IS INVALID!";
 	else if (err_msg->which_msg == SPRITE_EXT_ERROR)
-		msg = "SPRITE EXTENSION IS INVALID";
+		msg = "SPRITE EXTENSION IS INVALID!";
 	else if (err_msg->which_msg == SPRITE_PATH_ERROR)
 		msg = "COULDN'T FIND FILE FOR SPRITE!";
 	else if (err_msg->which_msg == COLOR_ERROR)
 		msg = "SOME COLOR VALUE IS INVALID!";
 	else if (err_msg->which_msg == TEXTURE_EXT_ERROR)
-		msg = "TEXTURE EXTENSION IS INVALID";
+		msg = "TEXTURE EXTENSION IS INVALID!";
+	else if (err_msg->which_msg == CANNNOT_OPEN_TEXTURE_FILE)
+		msg = "CANNNOT OPEN SOME TEXTURE FILE!";
 	else if (err_msg->which_msg == TEXTURE_PATH_ERROR)
 		msg = "COULDN'T FIND SOME FILE FOR TEXTURES!";
 	else if (err_msg->which_msg == TEXTURE_FILE_NOT_VALID)
-		msg = "COULDN'T READ THE TEXTURE FILE CORRECTLY";
+		msg = "COULDN'T READ THE TEXTURE FILE CORRECTLY!";
 	else
 		msg = which_error_msg3(err_msg);
 	return (msg);
