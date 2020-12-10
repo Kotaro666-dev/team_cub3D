@@ -59,6 +59,12 @@ echo "error_test/error60.cub"
 echo "error_test/large_map_2000.cub"
 ./cub3D error_test/large_map_2000.cub
 
+echo "error_test/map_100_201.cub"
+./cub3D error_test/map_100_201.cub
+
+echo "error_test/map_200_201.cub"
+./cub3D error_test/map_200_201.cub
+
 echo "error_test/map_201.cub"
 ./cub3D error_test/map_201.cub
 

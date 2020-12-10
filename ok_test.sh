@@ -45,3 +45,6 @@ echo "ok_test/map_199.cub"
 
 echo "ok_test/map_200.cub"
 ./cub3D ok_test/map_200.cub
+
+echo "ok_test/map_200_199.cub"
+./cub3D ok_test/map_200_199.cub
