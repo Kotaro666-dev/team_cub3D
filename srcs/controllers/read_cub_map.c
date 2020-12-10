@@ -6,7 +6,7 @@
 /*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:08:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 23:28:32 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/10 09:00:02 by kkamashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 #include "struct_error_msg.h"
 #include "constants.h"
 
-static int		is_map_too_big(char **line)
+static int		is_map_too_big(size_t line_length, int map_y)
 {
-	if (ft_strlen(*line) > COL)
+	if (COL < line_length || ROW < map_y)
 	{
 		return (TRUE);
 	}
@@ -85,17 +85,18 @@ static void		update_map_data_config(t_map_data *map_data, char **line)
 
 int				read_cub_map(char **line, t_game *game)
 {
-	if (is_map_too_big(line))
-	{
-		game->err_msg.which_msg = MAP_TOO_BIG;
-		return (ERROR);
-	}
-	else if (can_skip_empty_lines(line, &game->cub_elems.map_data))
+	if (can_skip_empty_lines(line, &game->cub_elems.map_data))
 	{
 		return (SKIP);
 	}
 	else if (*line)
 	{
+		if (is_map_too_big(ft_strlen(*line),
+										game->cub_elems.map_data.max_y + 1))
+		{
+			game->err_msg.which_msg = MAP_TOO_BIG;
+			return (ERROR);
+		}
 		if (have_already_found_map(&game->cub_elems.map_data))
 		{
 			game->err_msg.which_msg = MULTI_MAPS_SEEN;
