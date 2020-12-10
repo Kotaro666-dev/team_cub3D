@@ -6,7 +6,7 @@
 /*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 13:09:43 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/10 10:58:39 by rnakai           ###   ########.fr       */
+/*   Updated: 2020/12/10 11:54:23 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		can_start_reading_map(t_cub_elems *cub_elems, char *line)
 		cub_elems->sprite_tex.number_of_times_seen == ONCE &&
 		cub_elems->clr_floor.number_of_times_seen == ONCE &&
 		cub_elems->clr_ceiling.number_of_times_seen == ONCE &&
-		ft_strchr(" 012", line[0])
+		ft_strchr(" 012NSEW", line[0])
 		)
 	{
 		return (TRUE);
