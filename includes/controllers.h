@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controllers.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkamashi <kkamashi@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: rnakai <rnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 15:15:56 by kkamashi          #+#    #+#             */
-/*   Updated: 2020/12/08 21:01:31 by kkamashi         ###   ########.fr       */
+/*   Updated: 2020/12/17 19:39:16 by rnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include "libft.h"
 # include "struct_game.h"
+#include "linked_list.h"
 
 int		decide_which_mode_to_start(int argc, char **argv, t_game *game);
 int		read_cub_file(t_game *game);

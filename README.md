@@ -19,3 +19,4 @@ Warinig: Our cub3D is designed to work only in Linux.
 3. Type ```./cub3D review/save_mode.cub --save``` to save the first rendered image. The file of this image will be named `cub3D.bmp`.
 
 Do you want to play more? Join in 42Tokyo and create your own cub3D! ;)
+
